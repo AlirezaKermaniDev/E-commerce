@@ -32,9 +32,6 @@ dependencies:
   # Path provider for OS-specific directory path
   path_provider: ^2.0.9
 
-  # Functional programming things like `Either` and ...
-  dartz: ^0.10.1
-
   # Service locators
   get_it: ^7.2.0
   injectable: ^2.3.0

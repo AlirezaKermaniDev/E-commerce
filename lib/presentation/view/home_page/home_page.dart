@@ -1,7 +1,7 @@
 import 'package:ecommerce_app/core/asset_handler.dart';
 import 'package:ecommerce_app/core/extensions/locale_extensions.dart';
 import 'package:ecommerce_app/core/size_config.dart';
-import 'package:ecommerce_app/domain/entity/featured_products_entity/featured_products_entity.dart';
+import 'package:ecommerce_app/domain/entities/featured_products_entity/featured_products_entity.dart';
 import 'package:ecommerce_app/injection/injection.dart';
 import 'package:ecommerce_app/presentation/view/home_page/widgets/home_banner_widget/home_banner_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/animator_widget.dart';
