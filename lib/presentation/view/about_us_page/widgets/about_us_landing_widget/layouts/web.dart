@@ -106,14 +106,15 @@ class _AboutUsLandingWidgetWeb extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(top: 100, left: getIt<SizeConfig>().padding),
+          padding: EdgeInsets.symmetric(
+              vertical: 100, horizontal: getIt<SizeConfig>().padding),
           child: SizedBox(
             width: 624,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 TextAnimator(
-                  "About us",
+                  context.locale.aboutUs,
                   style: typography.bodyText1
                       .copyWith(color: colorPalette.accent4),
                   initialDelay: const Duration(milliseconds: 300),
@@ -122,7 +123,7 @@ class _AboutUsLandingWidgetWeb extends StatelessWidget {
                   height: 10,
                 ),
                 TextAnimator(
-                  "Best UI Kit for your online store.",
+                  context.locale.bestUIKitForYourOnlineStore,
                   maxLines: 2,
                   style: typography.heroTitle
                       .copyWith(color: colorPalette.primary),

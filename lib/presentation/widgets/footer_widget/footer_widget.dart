@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/core/asset_handler.dart';
+import 'package:ecommerce_app/core/extensions/locale_extensions.dart';
 import 'package:ecommerce_app/core/size_config.dart';
 import 'package:ecommerce_app/injection/injection.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +13,7 @@ class FooterWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:  EdgeInsets.symmetric(horizontal: getIt<SizeConfig>().padding),
+      padding: EdgeInsets.symmetric(horizontal: getIt<SizeConfig>().padding),
       child: Column(
         children: [
           Row(
@@ -35,7 +36,8 @@ class FooterWidget extends StatelessWidget {
                       SizedBox(
                         width: 250,
                         child: Text(
-                          "Our shop is the best choice for buying footwear.",
+                          context
+                              .locale.ourShopIsTheBestChoiceForBuyingFootwear,
                           style: typography.bodyText2
                               .copyWith(color: colorPalette.gray1),
                         ),
@@ -72,14 +74,14 @@ class FooterWidget extends StatelessWidget {
                           height: 20,
                         ),
                         Text(
-                          "Home",
+                          context.locale.home,
                           style: typography.h5Title.copyWith(fontSize: 22),
                         ),
                         const SizedBox(
                           height: 16,
                         ),
                         Text(
-                          "Support Center",
+                          context.locale.supportCenter,
                           style: typography.bodyText2
                               .copyWith(color: colorPalette.gray1),
                         ),
@@ -87,7 +89,7 @@ class FooterWidget extends StatelessWidget {
                           height: 5,
                         ),
                         Text(
-                          "Customer Support",
+                          context.locale.customerSupport,
                           style: typography.bodyText2
                               .copyWith(color: colorPalette.gray1),
                         ),
@@ -95,7 +97,7 @@ class FooterWidget extends StatelessWidget {
                           height: 5,
                         ),
                         Text(
-                          "Copyright",
+                          context.locale.copyright,
                           style: typography.bodyText2
                               .copyWith(color: colorPalette.gray1),
                         ),
@@ -103,7 +105,7 @@ class FooterWidget extends StatelessWidget {
                           height: 5,
                         ),
                         Text(
-                          "Popular Campaign",
+                          context.locale.popularCampaign,
                           style: typography.bodyText2
                               .copyWith(color: colorPalette.gray1),
                         ),
@@ -122,14 +124,14 @@ class FooterWidget extends StatelessWidget {
                           height: 20,
                         ),
                         Text(
-                          "Our Information",
+                          context.locale.ourInformation,
                           style: typography.h5Title.copyWith(fontSize: 22),
                         ),
                         const SizedBox(
                           height: 16,
                         ),
                         Text(
-                          "Return Policy",
+                          context.locale.returnPolicy,
                           style: typography.bodyText2
                               .copyWith(color: colorPalette.gray1),
                         ),
@@ -137,7 +139,7 @@ class FooterWidget extends StatelessWidget {
                           height: 5,
                         ),
                         Text(
-                          "Privacy Policy",
+                          context.locale.privacyPolicy,
                           style: typography.bodyText2
                               .copyWith(color: colorPalette.gray1),
                         ),
@@ -145,7 +147,7 @@ class FooterWidget extends StatelessWidget {
                           height: 5,
                         ),
                         Text(
-                          "Terms and Conditions",
+                          context.locale.termsAndConditions,
                           style: typography.bodyText2
                               .copyWith(color: colorPalette.gray1),
                         ),
@@ -153,7 +155,7 @@ class FooterWidget extends StatelessWidget {
                           height: 5,
                         ),
                         Text(
-                          "Site Map",
+                          context.locale.siteMap,
                           style: typography.bodyText2
                               .copyWith(color: colorPalette.gray1),
                         ),
@@ -161,7 +163,7 @@ class FooterWidget extends StatelessWidget {
                           height: 5,
                         ),
                         Text(
-                          "Store Hours",
+                          context.locale.storeHours,
                           style: typography.bodyText2
                               .copyWith(color: colorPalette.gray1),
                         ),
@@ -180,14 +182,14 @@ class FooterWidget extends StatelessWidget {
                           height: 20,
                         ),
                         Text(
-                          "My Account",
+                          context.locale.myAccount,
                           style: typography.h5Title.copyWith(fontSize: 22),
                         ),
                         const SizedBox(
                           height: 16,
                         ),
                         Text(
-                          "Press Inquiries",
+                          context.locale.pressInquiries,
                           style: typography.bodyText2
                               .copyWith(color: colorPalette.gray1),
                         ),
@@ -195,7 +197,7 @@ class FooterWidget extends StatelessWidget {
                           height: 5,
                         ),
                         Text(
-                          "Social Media Directories",
+                          context.locale.socialMediaDirectories,
                           style: typography.bodyText2
                               .copyWith(color: colorPalette.gray1),
                         ),
@@ -203,7 +205,7 @@ class FooterWidget extends StatelessWidget {
                           height: 5,
                         ),
                         Text(
-                          "Permission",
+                          context.locale.permission,
                           style: typography.bodyText2
                               .copyWith(color: colorPalette.gray1),
                         ),
@@ -211,7 +213,7 @@ class FooterWidget extends StatelessWidget {
                           height: 5,
                         ),
                         Text(
-                          "Requests",
+                          context.locale.requests,
                           style: typography.bodyText2
                               .copyWith(color: colorPalette.gray1),
                         ),
@@ -230,7 +232,7 @@ class FooterWidget extends StatelessWidget {
             child: Row(
               children: [
                 Text(
-                  "© 2023 Shop. Made with love by Alireza kermani",
+                  context.locale.madeWithLoveByMe,
                   style:
                       typography.bodyText2.copyWith(color: colorPalette.gray1),
                 )

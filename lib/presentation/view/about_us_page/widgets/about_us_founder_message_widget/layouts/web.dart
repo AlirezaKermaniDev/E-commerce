@@ -11,7 +11,10 @@ class _AboutUsFounderMessageWidgetWeb extends StatelessWidget {
       color: colorPalette.gray6,
       child: Padding(
         padding: EdgeInsets.only(
-            left: getIt<SizeConfig>().padding, top: 130, bottom: 100),
+            left: context.isLtrLocale ? getIt<SizeConfig>().padding : 0,
+            right: context.isLtrLocale ? 0 : getIt<SizeConfig>().padding,
+            top: 130,
+            bottom: 100),
         child: Row(
           children: [
             Expanded(
@@ -24,7 +27,7 @@ class _AboutUsFounderMessageWidgetWeb extends StatelessWidget {
                   slideTransition: Tween<Offset>(
                       begin: const Offset(0, .2), end: Offset.zero),
                   child: Text(
-                    "Founder message".toUpperCase(),
+                    context.locale.founderMessage.toUpperCase(),
                     style: typography.bodyText2.copyWith(
                         color: colorPalette.accent2,
                         fontWeight: FontWeight.bold),
@@ -36,7 +39,8 @@ class _AboutUsFounderMessageWidgetWeb extends StatelessWidget {
                       begin: const Offset(0, .2), end: Offset.zero),
                   delay: const Duration(milliseconds: 250),
                   child: Text(
-                    "I strongly believe that this UI Kit will help my business grow.",
+                    context.locale
+                        .iStronglyBelieveThatThisUiKitWillHelpMyBusinessGrow,
                     style: typography.h4Title,
                   ),
                 ),
@@ -46,7 +50,8 @@ class _AboutUsFounderMessageWidgetWeb extends StatelessWidget {
                       begin: const Offset(0, .2), end: Offset.zero),
                   delay: const Duration(milliseconds: 500),
                   child: Text(
-                    "For athletes, high altitude produces two contradictory effects on performance.",
+                    context.locale
+                        .forAthletesHighAltitudeProducesTwoContradictoryEffectsOnPerformance,
                     style: typography.bodyText1
                         .copyWith(color: colorPalette.gray2),
                   ),
@@ -57,7 +62,7 @@ class _AboutUsFounderMessageWidgetWeb extends StatelessWidget {
                       begin: const Offset(0, .5), end: Offset.zero),
                   delay: const Duration(milliseconds: 750),
                   child: Text(
-                    "For explosive events (sprints up to 400 metres, long jump, triple jump) the reduction in atmospheric pressure means there is less resistance from the atmosphere.",
+                    context.locale.forExplosiveEventsSprintsUTo400Metres,
                     style: typography.bodyText1
                         .copyWith(color: colorPalette.gray2),
                   ),
@@ -68,7 +73,8 @@ class _AboutUsFounderMessageWidgetWeb extends StatelessWidget {
                       begin: const Offset(0, .2), end: Offset.zero),
                   delay: const Duration(milliseconds: 1000),
                   child: Text(
-                    "For athletes, high altitude produces two contradictory effects on performance.",
+                    context.locale
+                        .forAthletesHighAltitudeProducesTwoContradictoryEffectsOnPerformance,
                     style: typography.bodyText1
                         .copyWith(color: colorPalette.gray2),
                   ),
@@ -93,9 +99,6 @@ class _AboutUsFounderMessageWidgetWeb extends StatelessWidget {
                 ),
               ],
             )),
-            const SizedBox(
-              width: 120,
-            ),
             Expanded(
                 flex: 2,
                 child: AnimatorWidget(
@@ -108,18 +111,22 @@ class _AboutUsFounderMessageWidgetWeb extends StatelessWidget {
                   child: Stack(
                     children: [
                       Align(
-                          alignment: Alignment.bottomRight,
+                          alignment: context.isLtrLocale
+                              ? Alignment.bottomRight
+                              : Alignment.bottomLeft,
                           child: Padding(
-                            padding: EdgeInsets.only(
-                                top: 0,
-                                right: getIt<SizeConfig>().padding - 80),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: getIt<SizeConfig>().padding - 80),
                             child: SvgPicture.asset(AssetHandler.shape9),
                           )),
                       Align(
-                        alignment: Alignment.centerRight,
+                        alignment: context.isLtrLocale
+                            ? Alignment.centerRight
+                            : Alignment.centerLeft,
                         child: Padding(
-                          padding: EdgeInsets.only(
-                              bottom: 50, right: getIt<SizeConfig>().padding),
+                          padding: EdgeInsets.symmetric(
+                              vertical: 25,
+                              horizontal: getIt<SizeConfig>().padding),
                           child: Image.asset(AssetHandler.manager),
                         ),
                       ),

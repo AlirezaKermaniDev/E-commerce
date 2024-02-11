@@ -16,7 +16,7 @@ class _AboutUsOurProductsWidgetWeb extends StatelessWidget {
               slideTransition:
                   Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
               child: Text(
-                "Our Products",
+                context.locale.ourProducts,
                 style: typography.h2Title,
               ),
             ),
@@ -27,9 +27,9 @@ class _AboutUsOurProductsWidgetWeb extends StatelessWidget {
               children: [
                 Expanded(
                     child: AboutUsOurProductsItemWidget(
-                  title: "Running shoes for men",
-                  description:
-                      "This proved to be impossible using the traditional concepts of space and time.",
+                  title: context.locale.runningShoesForMen,
+                  description: context.locale
+                      .thisProvedToBeImpossibleUsingTheTraditionalConceptsOfSpaceAndTime,
                   shapeGradient: colorPalette.gradient3,
                   imagePath: AssetHandler.shoe5,
                 )),
@@ -38,9 +38,9 @@ class _AboutUsOurProductsWidgetWeb extends StatelessWidget {
                 ),
                 Expanded(
                     child: AboutUsOurProductsItemWidget(
-                  title: "Nike shoes for women",
-                  description:
-                      "This proved to be impossible using the traditional concepts of space and time. ",
+                  title: context.locale.nikeShoesForWomen,
+                  description: context.locale
+                      .thisProvedToBeImpossibleUsingTheTraditionalConceptsOfSpaceAndTime,
                   shapeGradient: colorPalette.gradient1,
                   imagePath: AssetHandler.shoe2,
                 )),
@@ -49,9 +49,9 @@ class _AboutUsOurProductsWidgetWeb extends StatelessWidget {
                 ),
                 Expanded(
                     child: AboutUsOurProductsItemWidget(
-                  title: "Adidas shoes for women",
-                  description:
-                      "This proved to be impossible using the traditional concepts of space and time.",
+                  title: context.locale.adidasShoesForWomen,
+                  description: context.locale
+                      .thisProvedToBeImpossibleUsingTheTraditionalConceptsOfSpaceAndTime,
                   shapeGradient: colorPalette.gradient4,
                   imagePath: AssetHandler.shoe1,
                 )),

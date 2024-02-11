@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/core/asset_handler.dart';
+import 'package:ecommerce_app/core/extensions/locale_extensions.dart';
 import 'package:ecommerce_app/core/size_config.dart';
 import 'package:ecommerce_app/domain/entity/featured_products_entity/featured_products_entity.dart';
 import 'package:ecommerce_app/injection/injection.dart';
@@ -138,7 +139,8 @@ class SubscribeWidget extends StatelessWidget {
                               slideTransition: Tween<Offset>(
                                   begin: const Offset(0, .1), end: Offset.zero),
                               child: Text(
-                                "Subscribe now to get the latest updates",
+                                context
+                                    .locale.subscribeNowToGetTheLatestUpdates,
                                 style: typography.h2Title.copyWith(
                                   color: colorPalette.primary,
                                 ),
@@ -161,7 +163,7 @@ class SubscribeWidget extends StatelessWidget {
                                         topRight: Radius.circular(20))),
                                 child: Center(
                                   child: Text(
-                                    "Enter you email",
+                                    context.locale.enterYouEmail,
                                     style: typography.bodyText1
                                         .copyWith(color: colorPalette.gray2),
                                   ),
@@ -182,7 +184,7 @@ class SubscribeWidget extends StatelessWidget {
                                         bottomRight: Radius.circular(20))),
                                 child: Center(
                                   child: Text(
-                                    "SUBSCRIBE",
+                                    context.locale.subscribe.toUpperCase(),
                                     style: typography.bodyText1
                                         .copyWith(color: colorPalette.primary),
                                   ),
@@ -303,7 +305,7 @@ class PopularBrandsWidget extends StatelessWidget {
                       slideTransition: Tween<Offset>(
                           begin: const Offset(0, .1), end: Offset.zero),
                       child: Text(
-                        "Popular brands",
+                        context.locale.popularBrands,
                         style: typography.h2Title.copyWith(
                           color: colorPalette.darkPrimary,
                         ),
@@ -481,7 +483,7 @@ class ChooseCategoriesWidget extends StatelessWidget {
                       begin: const Offset(0, .2), end: Offset.zero),
                   withFadeTransition: true,
                   child: Text(
-                    "Choose categories",
+                    context.locale.chooseCategories,
                     style: typography.h2Title.copyWith(
                       color: colorPalette.darkPrimary,
                     ),
@@ -495,7 +497,7 @@ class ChooseCategoriesWidget extends StatelessWidget {
                       begin: const Offset(0, .2), end: Offset.zero),
                   withFadeTransition: true,
                   child: Text(
-                    "For explosive events (sprints up to 400 metres, long jump, triple jump) the reduction in atmospheric pressure means there is less resistance from the atmosphere.",
+                    context.locale.forExplosiveEventsSprintsUTo400Metres,
                     style: typography.bodyText1.copyWith(
                       color: colorPalette.gray1,
                     ),
@@ -516,7 +518,7 @@ class ChooseCategoriesWidget extends StatelessWidget {
               Expanded(
                   child: CategoryItemWidget(
                 mainColor: colorPalette.accent1,
-                title: "Sneakers Collection",
+                title: context.locale.sneakersCollection,
                 productsCount: 120,
                 shapePath: AssetHandler.shape6,
                 imageWidget: Padding(
@@ -533,7 +535,7 @@ class ChooseCategoriesWidget extends StatelessWidget {
               Expanded(
                   child: CategoryItemWidget(
                 mainColor: colorPalette.accent3,
-                title: "Football Collection",
+                title: context.locale.footballCollection,
                 productsCount: 87,
                 shapePath: AssetHandler.shape8,
                 imageWidget: Padding(
@@ -548,7 +550,7 @@ class ChooseCategoriesWidget extends StatelessWidget {
               Expanded(
                   child: CategoryItemWidget(
                 mainColor: colorPalette.accent4,
-                title: "Volleyball Collection",
+                title: context.locale.volleyballCollection,
                 productsCount: 68,
                 shapePath: AssetHandler.shape7,
                 imageWidget: Padding(
@@ -650,7 +652,7 @@ class _CategoryItemWidgetState extends State<CategoryItemWidget> {
                         delay: const Duration(milliseconds: 100),
                         withFadeTransition: true,
                         child: Text(
-                          "${widget.productsCount} products",
+                          "${widget.productsCount} ${context.locale.products}",
                           style: typography.bodyText1.copyWith(
                             color: colorPalette.gray1,
                           ),
@@ -665,7 +667,7 @@ class _CategoryItemWidgetState extends State<CategoryItemWidget> {
                         delay: const Duration(milliseconds: 200),
                         withFadeTransition: true,
                         child: Text(
-                          "See collection",
+                          context.locale.seeCollection,
                           style: typography.bodyText1.copyWith(
                               color: widget.mainColor,
                               decoration: TextDecoration.underline,
@@ -729,7 +731,7 @@ class WhyChooseOurShopWidget extends StatelessWidget {
                     Tween<Offset>(begin: const Offset(0, .2), end: Offset.zero),
                 withFadeTransition: true,
                 child: Text(
-                  "Why choose our shop",
+                  context.locale.whyChooseOurShop,
                   style: typography.h3Title.copyWith(
                     color: colorPalette.darkPrimary,
                   ),
@@ -743,7 +745,7 @@ class WhyChooseOurShopWidget extends StatelessWidget {
                     Tween<Offset>(begin: const Offset(0, .2), end: Offset.zero),
                 withFadeTransition: true,
                 child: Text(
-                  "For explosive events (sprints up to 400 metres, long jump, triple jump) the reduction in atmospheric pressure means there is less resistance from the atmosphere.",
+                  context.locale.forExplosiveEventsSprintsUTo400Metres,
                   style: typography.bodyText1.copyWith(
                     color: colorPalette.gray1,
                   ),
@@ -756,10 +758,10 @@ class WhyChooseOurShopWidget extends StatelessWidget {
                 children: [
                   Expanded(
                       child: shoupBenefitsItemBuilder(
-                          FontAwesome.car, "Fast Delivery")),
+                          FontAwesome.car, context.locale.fastDelivery)),
                   Expanded(
                     child: shoupBenefitsItemBuilder(
-                        FontAwesome.headphones, "Great Support"),
+                        FontAwesome.headphones, context.locale.greatSupport),
                   ),
                 ],
               ),
@@ -770,10 +772,10 @@ class WhyChooseOurShopWidget extends StatelessWidget {
                 children: [
                   Expanded(
                       child: shoupBenefitsItemBuilder(
-                          FontAwesome.wallet, "Cool Prices")),
+                          FontAwesome.wallet, context.locale.coolPrices)),
                   Expanded(
                     child: shoupBenefitsItemBuilder(
-                        FontAwesome.thumbs_up, "High Quality"),
+                        FontAwesome.thumbs_up, context.locale.highQuality),
                   ),
                 ],
               ),
@@ -899,7 +901,7 @@ class NewArrivalsWidget extends StatelessWidget {
                           slideTransition: Tween<Offset>(
                               begin: const Offset(-.1, 0), end: Offset.zero),
                           child: Text(
-                            "New arrivals",
+                            context.locale.newArrivals,
                             style: typography.h2Title
                                 .copyWith(color: colorPalette.darkPrimary),
                           ),
@@ -912,7 +914,7 @@ class NewArrivalsWidget extends StatelessWidget {
                           slideTransition: Tween<Offset>(
                               begin: const Offset(-.1, 0), end: Offset.zero),
                           child: Text(
-                            "Enjoy the new products from our store. Select what you like, enjoy & return.",
+                            context.locale.enjoyTheNewProductsFromOurStore,
                             style: typography.bodyText2
                                 .copyWith(color: colorPalette.gray1),
                           ),
@@ -927,7 +929,7 @@ class NewArrivalsWidget extends StatelessWidget {
                           begin: const Offset(.1, 0), end: Offset.zero),
                       withFadeTransition: true,
                       child: ArrowButtonWidget(
-                        title: "View all",
+                        title: context.locale.viewAll,
                         onTap: () {},
                       ),
                     ),
@@ -1031,7 +1033,7 @@ class _NewArrialsItemWidgetState extends State<_NewArrialsItemWidget> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(left: 20),
+                            padding: const EdgeInsets.symmetric(horizontal: 20),
                             child: Row(
                               children: [
                                 Text(
@@ -1159,7 +1161,7 @@ class BestSellerWidget extends StatelessWidget {
                 slideTransition: Tween<Offset>(
                     begin: const Offset(-.1, 0), end: Offset.zero),
                 child: Text(
-                  "Best seller this week",
+                  context.locale.bestSellerThisWeek,
                   style: typography.h2Title
                       .copyWith(color: colorPalette.darkPrimary),
                 ),
@@ -1169,7 +1171,7 @@ class BestSellerWidget extends StatelessWidget {
                     Tween<Offset>(begin: const Offset(.1, 0), end: Offset.zero),
                 withFadeTransition: true,
                 child: ArrowButtonWidget(
-                  title: "View all",
+                  title: context.locale.viewAll,
                   onTap: () {},
                 ),
               ),
@@ -1187,42 +1189,64 @@ class BestSellerWidget extends StatelessWidget {
                   withFadeTransition: true,
                   delay: const Duration(milliseconds: 200),
                   slideTransition: Tween<Offset>(
-                      begin: const Offset(-1, 0), end: Offset.zero),
+                      begin: Offset(context.isLtrLocale ? -.9 : .9, 0),
+                      end: Offset.zero),
                   child: Container(
                     height: 460,
                     width: .3.w(context),
                     decoration: BoxDecoration(
-                        gradient: colorPalette.gradient4,
-                        borderRadius: const BorderRadius.only(
-                            topRight: Radius.circular(30),
-                            bottomRight: Radius.circular(30))),
+                      gradient: colorPalette.gradient4,
+                      borderRadius: BorderRadius.only(
+                        topRight: context.isLtrLocale
+                            ? const Radius.circular(30)
+                            : Radius.zero,
+                        bottomRight: context.isLtrLocale
+                            ? const Radius.circular(30)
+                            : Radius.zero,
+                        topLeft: context.isLtrLocale
+                            ? Radius.zero
+                            : const Radius.circular(30),
+                        bottomLeft: context.isLtrLocale
+                            ? Radius.zero
+                            : const Radius.circular(30),
+                      ),
+                    ),
                   ),
                 ),
               ],
             ),
             Padding(
               padding:
-                  EdgeInsets.only(left: getIt<SizeConfig>().padding, top: 20),
+                  const EdgeInsets.symmetric(horizontal: 158, vertical: 20),
               child: SizedBox(
                 width: 620,
                 child: Transform.scale(
                     scale: 1.4,
                     child: Transform(
                         alignment: Alignment.center,
-                        transform: Matrix4.rotationY(math.pi),
+                        transform: Matrix4.rotationY(
+                          context.isLtrLocale ? math.pi : 0,
+                        ),
                         child: AnimatorWidget(
                             withFadeTransition: true,
                             slideTransition: Tween<Offset>(
-                                begin: const Offset(.5, 0), end: Offset.zero),
+                              begin: Offset(context.isLtrLocale ? -.9 : .9, 0),
+                              end: Offset.zero,
+                            ),
                             child: WidgetAnimator(
                                 atRestEffect: WidgetRestingEffects.wave(),
                                 child: Image.asset(AssetHandler.shoe1))))),
               ),
             ),
             Align(
-              alignment: Alignment.centerLeft,
+              alignment: context.isLtrLocale
+                  ? Alignment.centerLeft
+                  : Alignment.centerRight,
               child: Padding(
-                padding: EdgeInsets.only(left: .65.w(context)),
+                padding: EdgeInsets.only(
+                  right: context.isLtrLocale ? 0 : .65.w(context),
+                  left: context.isLtrLocale ? .65.w(context) : 0,
+                ),
                 child: SizedBox(
                   width: .19.w(context),
                   height: 460,
@@ -1273,7 +1297,7 @@ class BestSellerWidget extends StatelessWidget {
                         slideTransition: Tween<Offset>(
                             begin: const Offset(0, .1), end: Offset.zero),
                         child: ButtonWidget(
-                          title: "Shop now",
+                          title: context.locale.shopNow,
                           color: colorPalette.accent1,
                         ),
                       )
@@ -1344,7 +1368,7 @@ class AccesoriesWidget extends StatelessWidget {
                               slideTransition: Tween<Offset>(
                                   begin: const Offset(.2, 0), end: Offset.zero),
                               child: Text(
-                                "Accesories",
+                                context.locale.accesories,
                                 style: typography.bodyText2
                                     .copyWith(color: colorPalette.darkPrimary),
                               ),
@@ -1358,7 +1382,7 @@ class AccesoriesWidget extends StatelessWidget {
                               slideTransition: Tween<Offset>(
                                   begin: const Offset(.2, 0), end: Offset.zero),
                               child: Text(
-                                "Football",
+                                context.locale.football,
                                 style: typography.h2Title
                                     .copyWith(color: colorPalette.primary),
                               ),
@@ -1372,7 +1396,7 @@ class AccesoriesWidget extends StatelessWidget {
                               slideTransition: Tween<Offset>(
                                   begin: const Offset(.2, 0), end: Offset.zero),
                               child: Text(
-                                "We receive new sportwear every day. Just take your pick.",
+                                context.locale.weReceiveNewSportwearEveryDay,
                                 style: typography.bodyText2
                                     .copyWith(color: colorPalette.primary),
                               ),
@@ -1386,7 +1410,7 @@ class AccesoriesWidget extends StatelessWidget {
                               slideTransition: Tween<Offset>(
                                   begin: const Offset(.2, 0), end: Offset.zero),
                               child: ButtonWidget(
-                                title: "Shop now",
+                                title: context.locale.shopNow,
                                 color: colorPalette.darkPrimary,
                               ),
                             )
@@ -1456,7 +1480,7 @@ class AccesoriesWidget extends StatelessWidget {
                               slideTransition: Tween<Offset>(
                                   begin: const Offset(.2, 0), end: Offset.zero),
                               child: Text(
-                                "Accesories",
+                                context.locale.accesories,
                                 style: typography.bodyText2
                                     .copyWith(color: colorPalette.accent2),
                               ),
@@ -1470,7 +1494,7 @@ class AccesoriesWidget extends StatelessWidget {
                               slideTransition: Tween<Offset>(
                                   begin: const Offset(.2, 0), end: Offset.zero),
                               child: Text(
-                                "Volleyball",
+                                context.locale.volleyball,
                                 style: typography.h2Title
                                     .copyWith(color: colorPalette.primary),
                               ),
@@ -1484,7 +1508,7 @@ class AccesoriesWidget extends StatelessWidget {
                               slideTransition: Tween<Offset>(
                                   begin: const Offset(.2, 0), end: Offset.zero),
                               child: Text(
-                                "We receive new sportwear every day. Just take your pick.",
+                                context.locale.weReceiveNewSportwearEveryDay,
                                 style: typography.bodyText2
                                     .copyWith(color: colorPalette.primary),
                               ),
@@ -1498,7 +1522,7 @@ class AccesoriesWidget extends StatelessWidget {
                               slideTransition: Tween<Offset>(
                                   begin: const Offset(.2, 0), end: Offset.zero),
                               child: ButtonWidget(
-                                title: "Shop now",
+                                title: context.locale.shopNow,
                                 color: colorPalette.accent2,
                               ),
                             )
@@ -1613,7 +1637,7 @@ class _FeaturedProductsWidgetState extends State<FeaturedProductsWidget> {
                     begin: const Offset(-.1, 0), end: Offset.zero),
                 withFadeTransition: true,
                 child: Text(
-                  "Featured products",
+                  context.locale.featuredProducts,
                   style: typography.h2Title
                       .copyWith(color: colorPalette.darkPrimary),
                 ),
@@ -1623,7 +1647,7 @@ class _FeaturedProductsWidgetState extends State<FeaturedProductsWidget> {
                     Tween<Offset>(begin: const Offset(.1, 0), end: Offset.zero),
                 withFadeTransition: true,
                 child: ArrowButtonWidget(
-                  title: "View all",
+                  title: context.locale.viewAll,
                   onTap: () {},
                 ),
               ),
@@ -1798,7 +1822,7 @@ class _FeaturedProductsItemWidgetState
                             begin: const Offset(0, .1), end: Offset.zero),
                         delay:
                             Duration(milliseconds: ((widget.index % 4) * 100)),
-                        child: RateBarWidget()),
+                        child: const RateBarWidget()),
                     const SizedBox(
                       height: 16,
                     ),
@@ -1869,7 +1893,6 @@ class RateBarWidget extends StatelessWidget {
     );
   }
 }
-
 
 class ArrowButtonWidget extends StatefulWidget {
   const ArrowButtonWidget(
@@ -1955,17 +1978,22 @@ class LandingPageWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: colorPalette.gray6,
-      child: Padding(
-        padding: EdgeInsets.only(left: getIt<SizeConfig>().padding, right: 0),
-        child: const Stack(
-          children: [
-            Align(
-              alignment: Alignment.centerLeft,
-              child: HomePageTitleWidget(),
+      child: Stack(
+        children: [
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Padding(
+              padding:
+                  EdgeInsets.symmetric(horizontal: getIt<SizeConfig>().padding),
+              child: const HomePageTitleWidget(),
             ),
-            Align(alignment: Alignment.centerRight, child: HomeBannerWidget()),
-          ],
-        ),
+          ),
+          Align(
+              alignment: context.isLtrLocale
+                  ? Alignment.centerRight
+                  : Alignment.centerLeft,
+              child: const HomeBannerWidget()),
+        ],
       ),
     );
   }
@@ -1982,7 +2010,7 @@ class HomePageTitleWidget extends StatelessWidget {
       padding: EdgeInsets.only(bottom: 0.12.h(context)),
       child: SizedBox(
         height: 0.75.h(context),
-        width: 0.7.w(context),
+        width: 0.9.w(context),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -1992,7 +2020,7 @@ class HomePageTitleWidget extends StatelessWidget {
             SizedBox(
               width: 0.5.w(context),
               child: TextAnimator(
-                "Get your awesome sneakers.",
+                context.locale.getYourAwesomeSneakers,
                 style: typography.heroTitle,
                 initialDelay: const Duration(milliseconds: 1500),
                 spaceDelay: Duration.zero,
@@ -2008,7 +2036,7 @@ class HomePageTitleWidget extends StatelessWidget {
             SizedBox(
               width: 0.25.w(context),
               child: TextAnimator(
-                "We offer the best deals in our shop. Check them out now. We have awesome stuff on sale for you.",
+                context.locale.weOfferTheBestDealsInOurShop,
                 style: typography.bodyText3.copyWith(color: colorPalette.gray1),
                 spaceDelay: Duration.zero,
                 initialDelay: const Duration(milliseconds: 1500),
@@ -2031,7 +2059,7 @@ class HomePageTitleWidget extends StatelessWidget {
                     blur: const Offset(20, 0),
                   ),
                   child: ButtonWidget(
-                    title: "Shop Now",
+                    title: context.locale.shopNow,
                     color: colorPalette.accent4,
                   ),
                 ),
@@ -2095,7 +2123,7 @@ class OffersWidget extends StatelessWidget {
                 width: 16,
               ),
               Text(
-                "Free shipping",
+                context.locale.freeShipping,
                 style: typography.bodyText2.copyWith(color: colorPalette.gray1),
               ),
             ],
@@ -2128,7 +2156,7 @@ class OffersWidget extends StatelessWidget {
                 width: 16,
               ),
               Text(
-                "Free returns",
+                context.locale.freeReturns,
                 style: typography.bodyText2.copyWith(color: colorPalette.gray1),
               ),
             ],

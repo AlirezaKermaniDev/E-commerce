@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/core/asset_handler.dart';
+import 'package:ecommerce_app/core/extensions/locale_extensions.dart';
 import 'package:ecommerce_app/core/size_config.dart';
 import 'package:ecommerce_app/injection/injection.dart';
 import 'package:ecommerce_app/presentation/widgets/animator_widget.dart';
@@ -16,23 +17,23 @@ class AboutUsInfoWidget extends StatelessWidget {
       width: 1.w(context),
       padding: const EdgeInsets.only(top: 50, bottom: 60),
       color: colorPalette.darkPrimary,
-      child: const Row(
+      child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           AboutUsInfoItemsWidget(
             icon: CustomIcons.founded,
             value: "2014",
-            lable: "Founded",
+            lable: context.locale.founded,
           ),
           AboutUsInfoItemsWidget(
             icon: CustomIcons.clients,
             value: "2000+",
-            lable: "Clients",
+            lable: context.locale.clients,
           ),
           AboutUsInfoItemsWidget(
             icon: CustomIcons.countries,
             value: "20",
-            lable: "Countries Delivered",
+            lable: context.locale.countriesDelivered,
           ),
         ],
       ),

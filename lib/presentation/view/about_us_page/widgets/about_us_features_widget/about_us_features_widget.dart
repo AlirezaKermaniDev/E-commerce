@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/core/asset_handler.dart';
+import 'package:ecommerce_app/core/extensions/locale_extensions.dart';
 import 'package:ecommerce_app/core/size_config.dart';
 import 'package:ecommerce_app/injection/injection.dart';
 import 'package:ecommerce_app/presentation/view/about_us_page/widgets/about_us_features_item_widget/about_us_features_item_widget.dart';

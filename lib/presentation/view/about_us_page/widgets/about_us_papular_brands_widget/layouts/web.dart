@@ -24,7 +24,7 @@ class _AboutUsPopularBrandsWidgetWeb extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          "popular brands".toUpperCase(),
+                          context.locale.popularBrands.toUpperCase(),
                           style: typography.bodyText2.copyWith(
                               color: colorPalette.accent2,
                               fontWeight: FontWeight.bold),
@@ -33,7 +33,8 @@ class _AboutUsPopularBrandsWidgetWeb extends StatelessWidget {
                           height: 18,
                         ),
                         Text(
-                          "We sell amazing products from brands that loves us.",
+                          context.locale
+                              .weSellAmazingProductsFromBrandsThatLovesUs,
                           style: typography.h4Title
                               .copyWith(color: colorPalette.primary),
                         ),
@@ -41,7 +42,8 @@ class _AboutUsPopularBrandsWidgetWeb extends StatelessWidget {
                           height: 40,
                         ),
                         Text(
-                          "For athletes, high altitude produces two contradictory effects on performance.",
+                          context.locale
+                              .forAthletesHighAltitudeProducesTwoContradictoryEffectsOnPerformance,
                           style: typography.bodyText1
                               .copyWith(color: colorPalette.gray4),
                         ),
@@ -49,7 +51,7 @@ class _AboutUsPopularBrandsWidgetWeb extends StatelessWidget {
                           height: 40,
                         ),
                         Text(
-                          "For explosive events (sprints up to 400 metres, long jump, triple jump) the reduction in atmospheric pressure means there is less resistance from the atmosphere.",
+                          context.locale.forExplosiveEventsSprintsUTo400Metres,
                           style: typography.bodyText1
                               .copyWith(color: colorPalette.gray4),
                         ),

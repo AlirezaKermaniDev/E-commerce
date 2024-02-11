@@ -32,7 +32,7 @@ class _HeaderWidgetWeb extends StatelessWidget {
                   Row(
                     children: [
                       HeaderTabItemWidget(
-                        title: "Footwear",
+                        title: context.locale.footwear,
                         isSelected: selectedIndex == 0,
                         forgroundColor: forgroundColor,
                         onTap: () {
@@ -44,7 +44,7 @@ class _HeaderWidgetWeb extends StatelessWidget {
                         width: 56,
                       ),
                       HeaderTabItemWidget(
-                        title: "About us",
+                        title: context.locale.aboutUs,
                         isSelected: selectedIndex == 1,
                         forgroundColor: forgroundColor,
                         onTap: () {
@@ -56,7 +56,7 @@ class _HeaderWidgetWeb extends StatelessWidget {
                         width: 56,
                       ),
                       HeaderTabItemWidget(
-                        title: "Products",
+                        title: context.locale.products,
                         isSelected: selectedIndex == 2,
                         forgroundColor: forgroundColor,
                         onTap: () {},
@@ -65,7 +65,7 @@ class _HeaderWidgetWeb extends StatelessWidget {
                         width: 56,
                       ),
                       HeaderTabItemWidget(
-                        title: "Sale",
+                        title: context.locale.sale,
                         isSelected: selectedIndex == 3,
                         forgroundColor: forgroundColor,
                         onTap: () {},
