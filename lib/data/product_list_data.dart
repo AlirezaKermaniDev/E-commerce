@@ -23,7 +23,7 @@ final List<ProductEntity> productListData = <ProductEntity>[
       0xff02BE83,
     ],
     materials: ["Leather", "Textile"],
-    genders: [0, 1],
+    genders: [1],
     deliveryAndReturns:
         "Later, however (in the beginning of the twentieth century), it was found that light did indeed sometimes behave like a particle.",
     description:
@@ -84,7 +84,7 @@ final List<ProductEntity> productListData = <ProductEntity>[
       0xff02BE83,
     ],
     materials: ["Suede", "Fibre"],
-    genders: [0, 1],
+    genders: [ 1],
     deliveryAndReturns:
         "Later, however (in the beginning of the twentieth century), it was found that light did indeed sometimes behave like a particle.",
     description:
@@ -145,7 +145,7 @@ final List<ProductEntity> productListData = <ProductEntity>[
       0xffFF3C78,
     ],
     materials: ["Leather", "Suede"],
-    genders: [0, 1],
+    genders: [1],
     deliveryAndReturns:
         "Later, however (in the beginning of the twentieth century), it was found that light did indeed sometimes behave like a particle.",
     description:
@@ -175,7 +175,7 @@ final List<ProductEntity> productListData = <ProductEntity>[
       0xffFF3C78,
     ],
     materials: ["Textile", "Suede"],
-    genders: [0, 1],
+    genders: [0],
     deliveryAndReturns:
         "Later, however (in the beginning of the twentieth century), it was found that light did indeed sometimes behave like a particle.",
     description:
@@ -205,7 +205,7 @@ final List<ProductEntity> productListData = <ProductEntity>[
       0xff315BFF,
     ],
     materials: ["Textile", "Fibre"],
-    genders: [0, 1],
+    genders: [1],
     deliveryAndReturns:
         "Later, however (in the beginning of the twentieth century), it was found that light did indeed sometimes behave like a particle.",
     description:
@@ -235,7 +235,7 @@ final List<ProductEntity> productListData = <ProductEntity>[
       0xff315BFF,
     ],
     materials: ["Textile", "Leather"],
-    genders: [0, 1],
+    genders: [0],
     deliveryAndReturns:
         "Later, however (in the beginning of the twentieth century), it was found that light did indeed sometimes behave like a particle.",
     description:
@@ -266,7 +266,7 @@ final List<ProductEntity> productListData = <ProductEntity>[
       0xffFF3C78,
     ],
     materials: ["Suede", "Leather"],
-    genders: [0, 1],
+    genders: [1],
     deliveryAndReturns:
         "Later, however (in the beginning of the twentieth century), it was found that light did indeed sometimes behave like a particle.",
     description:
@@ -296,7 +296,7 @@ final List<ProductEntity> productListData = <ProductEntity>[
       0xffFF3C78,
     ],
     materials: ["Suede", "Fibre"],
-    genders: [0, 1],
+    genders: [0],
     deliveryAndReturns:
         "Later, however (in the beginning of the twentieth century), it was found that light did indeed sometimes behave like a particle.",
     description:
@@ -306,7 +306,7 @@ final List<ProductEntity> productListData = <ProductEntity>[
     ),
   ),
   ProductEntity(
-    title: "Nike c 280",
+    title: "Nike Air Max 280",
     imageUrl:
         "https://firebasestorage.googleapis.com/v0/b/ecommerce-4f548.appspot.com/o/shoe10.png?alt=media",
     category: const CategoryEntity(
@@ -326,7 +326,7 @@ final List<ProductEntity> productListData = <ProductEntity>[
       0xffFF3C78,
     ],
     materials: ["Textile", "Fibre"],
-    genders: [0, 1],
+    genders: [0],
     deliveryAndReturns:
         "Later, however (in the beginning of the twentieth century), it was found that light did indeed sometimes behave like a particle.",
     description:
@@ -356,7 +356,7 @@ final List<ProductEntity> productListData = <ProductEntity>[
       0xffFF3C78,
     ],
     materials: ["Textile", "Fibre"],
-    genders: [0, 1],
+    genders: [1],
     deliveryAndReturns:
         "Later, however (in the beginning of the twentieth century), it was found that light did indeed sometimes behave like a particle.",
     description:
@@ -416,7 +416,7 @@ final List<ProductEntity> productListData = <ProductEntity>[
       0xff02BE83,
     ],
     materials: ["Suede", "Fibre"],
-    genders: [0, 1],
+    genders: [1],
     deliveryAndReturns:
         "Later, however (in the beginning of the twentieth century), it was found that light did indeed sometimes behave like a particle.",
     description:
@@ -506,7 +506,7 @@ final List<ProductEntity> productListData = <ProductEntity>[
       0xff02BE83,
     ],
     materials: ["Textile", "Leather"],
-    genders: [0, 1],
+    genders: [0],
     deliveryAndReturns:
         "Later, however (in the beginning of the twentieth century), it was found that light did indeed sometimes behave like a particle.",
     description:
@@ -672,7 +672,7 @@ final List<ProductEntity> productListData = <ProductEntity>[
     category: const CategoryEntity(
       title: "Walking Shoes",
       category: CategoryEntity(
-        title: "Sneakers",
+        title: "Air Max",
         category: CategoryEntity(
           title: "Nike",
         ),
@@ -686,7 +686,7 @@ final List<ProductEntity> productListData = <ProductEntity>[
       0xff02BE83,
     ],
     materials: ["Textile"],
-    genders: [1, 0],
+    genders: [1],
     deliveryAndReturns:
         "Later, however (in the beginning of the twentieth century), it was found that light did indeed sometimes behave like a particle.",
     description:
@@ -716,7 +716,7 @@ final List<ProductEntity> productListData = <ProductEntity>[
       0xff02BE83,
     ],
     materials: ["Suede"],
-    genders: [1, 0],
+    genders: [1],
     deliveryAndReturns:
         "Later, however (in the beginning of the twentieth century), it was found that light did indeed sometimes behave like a particle.",
     description:

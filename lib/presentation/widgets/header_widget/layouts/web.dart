@@ -59,7 +59,10 @@ class _HeaderWidgetWeb extends StatelessWidget {
                         title: context.locale.products,
                         isSelected: selectedIndex == 2,
                         forgroundColor: forgroundColor,
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pushReplacementNamed(
+                              context, ProductsPage.path);
+                        },
                       ),
                       const SizedBox(
                         width: 56,

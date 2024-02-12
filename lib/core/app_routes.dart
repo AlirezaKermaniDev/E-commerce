@@ -1,5 +1,6 @@
 import 'package:ecommerce_app/presentation/view/about_us_page/about_us_page.dart';
 import 'package:ecommerce_app/presentation/view/home_page/home_page.dart';
+import 'package:ecommerce_app/presentation/view/products_page/products_page.dart';
 import 'package:flutter/material.dart';
 
 /// Initial routes and pages of the project.
@@ -10,4 +11,6 @@ Map<String, Route> routes(RouteSettings settings) => {
           builder: (_) => const HomePage(), settings: settings),
       AboutUsPage.path: MaterialPageRoute(
           builder: (_) => const AboutUsPage(), settings: settings),
+      ProductsPage.path:
+          MaterialPageRoute(builder: (_) => ProductsPage(), settings: settings),
     };
