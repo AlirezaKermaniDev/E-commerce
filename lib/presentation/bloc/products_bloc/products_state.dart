@@ -4,13 +4,14 @@ part of 'products_bloc.dart';
 class ProductsState with _$ProductsState {
   const factory ProductsState({
     required bool isLoading,
-    ProductSort? sorts,
-    ProductFilterEntity? filters,
+    required ProductSort sorts,
+    required ProductFilterEntity filters,
     required List<ProductEntity> products,
   }) = _ProductsState;
 
   factory ProductsState.initial() => const ProductsState(
-        products: [],
-        isLoading: false,
-      );
+      products: [],
+      isLoading: false,
+      filters: ProductFilterEntity(),
+      sorts: ProductSort.newest);
 }

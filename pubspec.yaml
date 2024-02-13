@@ -79,6 +79,9 @@ dependencies:
   # Firebase plugins
   firebase_core: ^2.25.3
 
+  # For create expandable widgets
+  expandable: ^5.0.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

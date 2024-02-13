@@ -21,9 +21,8 @@ class ProductsBloc extends Bloc<ProductsEvent, ProductsState> {
     on<_ChangeFilters>(_onChangeFilters);
   }
 
-  ProductFilterEntity? filters =
-      const ProductFilterEntity(colors: [0xffFF3C78], availableSizes: [9]);
-  ProductSort? sort;
+  ProductFilterEntity filters = const ProductFilterEntity();
+  ProductSort sort = ProductSort.newest;
 
   FutureOr<void> _onGetProducts(
       _GetProduts event, Emitter<ProductsState> emit) async {
@@ -36,11 +35,13 @@ class ProductsBloc extends Bloc<ProductsEvent, ProductsState> {
       _ChangeSorting event, Emitter<ProductsState> emit) {
     sort = event.newSorting;
     emit(state.copyWith(sorts: sort));
+    add(const ProductsEvent.getProduts());
   }
 
   FutureOr<void> _onChangeFilters(
       _ChangeFilters event, Emitter<ProductsState> emit) {
     filters = event.newFilters;
     emit(state.copyWith(filters: filters));
+    add(const ProductsEvent.getProduts());
   }
 }

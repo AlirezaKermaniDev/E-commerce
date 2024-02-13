@@ -483,8 +483,8 @@ abstract class _ChangeFilters implements ProductsEvent {
 /// @nodoc
 mixin _$ProductsState {
   bool get isLoading => throw _privateConstructorUsedError;
-  ProductSort? get sorts => throw _privateConstructorUsedError;
-  ProductFilterEntity? get filters => throw _privateConstructorUsedError;
+  ProductSort get sorts => throw _privateConstructorUsedError;
+  ProductFilterEntity get filters => throw _privateConstructorUsedError;
   List<ProductEntity> get products => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -500,11 +500,11 @@ abstract class $ProductsStateCopyWith<$Res> {
   @useResult
   $Res call(
       {bool isLoading,
-      ProductSort? sorts,
-      ProductFilterEntity? filters,
+      ProductSort sorts,
+      ProductFilterEntity filters,
       List<ProductEntity> products});
 
-  $ProductFilterEntityCopyWith<$Res>? get filters;
+  $ProductFilterEntityCopyWith<$Res> get filters;
 }
 
 /// @nodoc
@@ -521,8 +521,8 @@ class _$ProductsStateCopyWithImpl<$Res, $Val extends ProductsState>
   @override
   $Res call({
     Object? isLoading = null,
-    Object? sorts = freezed,
-    Object? filters = freezed,
+    Object? sorts = null,
+    Object? filters = null,
     Object? products = null,
   }) {
     return _then(_value.copyWith(
@@ -530,14 +530,14 @@ class _$ProductsStateCopyWithImpl<$Res, $Val extends ProductsState>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      sorts: freezed == sorts
+      sorts: null == sorts
           ? _value.sorts
           : sorts // ignore: cast_nullable_to_non_nullable
-              as ProductSort?,
-      filters: freezed == filters
+              as ProductSort,
+      filters: null == filters
           ? _value.filters
           : filters // ignore: cast_nullable_to_non_nullable
-              as ProductFilterEntity?,
+              as ProductFilterEntity,
       products: null == products
           ? _value.products
           : products // ignore: cast_nullable_to_non_nullable
@@ -547,12 +547,8 @@ class _$ProductsStateCopyWithImpl<$Res, $Val extends ProductsState>
 
   @override
   @pragma('vm:prefer-inline')
-  $ProductFilterEntityCopyWith<$Res>? get filters {
-    if (_value.filters == null) {
-      return null;
-    }
-
-    return $ProductFilterEntityCopyWith<$Res>(_value.filters!, (value) {
+  $ProductFilterEntityCopyWith<$Res> get filters {
+    return $ProductFilterEntityCopyWith<$Res>(_value.filters, (value) {
       return _then(_value.copyWith(filters: value) as $Val);
     });
   }
@@ -568,12 +564,12 @@ abstract class _$$ProductsStateImplCopyWith<$Res>
   @useResult
   $Res call(
       {bool isLoading,
-      ProductSort? sorts,
-      ProductFilterEntity? filters,
+      ProductSort sorts,
+      ProductFilterEntity filters,
       List<ProductEntity> products});
 
   @override
-  $ProductFilterEntityCopyWith<$Res>? get filters;
+  $ProductFilterEntityCopyWith<$Res> get filters;
 }
 
 /// @nodoc
@@ -588,8 +584,8 @@ class __$$ProductsStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = null,
-    Object? sorts = freezed,
-    Object? filters = freezed,
+    Object? sorts = null,
+    Object? filters = null,
     Object? products = null,
   }) {
     return _then(_$ProductsStateImpl(
@@ -597,14 +593,14 @@ class __$$ProductsStateImplCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      sorts: freezed == sorts
+      sorts: null == sorts
           ? _value.sorts
           : sorts // ignore: cast_nullable_to_non_nullable
-              as ProductSort?,
-      filters: freezed == filters
+              as ProductSort,
+      filters: null == filters
           ? _value.filters
           : filters // ignore: cast_nullable_to_non_nullable
-              as ProductFilterEntity?,
+              as ProductFilterEntity,
       products: null == products
           ? _value._products
           : products // ignore: cast_nullable_to_non_nullable
@@ -618,17 +614,17 @@ class __$$ProductsStateImplCopyWithImpl<$Res>
 class _$ProductsStateImpl implements _ProductsState {
   const _$ProductsStateImpl(
       {required this.isLoading,
-      this.sorts,
-      this.filters,
+      required this.sorts,
+      required this.filters,
       required final List<ProductEntity> products})
       : _products = products;
 
   @override
   final bool isLoading;
   @override
-  final ProductSort? sorts;
+  final ProductSort sorts;
   @override
-  final ProductFilterEntity? filters;
+  final ProductFilterEntity filters;
   final List<ProductEntity> _products;
   @override
   List<ProductEntity> get products {
@@ -668,16 +664,16 @@ class _$ProductsStateImpl implements _ProductsState {
 abstract class _ProductsState implements ProductsState {
   const factory _ProductsState(
       {required final bool isLoading,
-      final ProductSort? sorts,
-      final ProductFilterEntity? filters,
+      required final ProductSort sorts,
+      required final ProductFilterEntity filters,
       required final List<ProductEntity> products}) = _$ProductsStateImpl;
 
   @override
   bool get isLoading;
   @override
-  ProductSort? get sorts;
+  ProductSort get sorts;
   @override
-  ProductFilterEntity? get filters;
+  ProductFilterEntity get filters;
   @override
   List<ProductEntity> get products;
   @override
