@@ -21,7 +21,6 @@ ProductFilterEntity _$ProductFilterEntityFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ProductFilterEntity {
   List<String>? get categories => throw _privateConstructorUsedError;
-  double? get rate => throw _privateConstructorUsedError;
   List<double>? get availableSizes => throw _privateConstructorUsedError;
   List<int>? get colors => throw _privateConstructorUsedError;
   List<String>? get materials => throw _privateConstructorUsedError;
@@ -41,7 +40,6 @@ abstract class $ProductFilterEntityCopyWith<$Res> {
   @useResult
   $Res call(
       {List<String>? categories,
-      double? rate,
       List<double>? availableSizes,
       List<int>? colors,
       List<String>? materials,
@@ -62,7 +60,6 @@ class _$ProductFilterEntityCopyWithImpl<$Res, $Val extends ProductFilterEntity>
   @override
   $Res call({
     Object? categories = freezed,
-    Object? rate = freezed,
     Object? availableSizes = freezed,
     Object? colors = freezed,
     Object? materials = freezed,
@@ -73,10 +70,6 @@ class _$ProductFilterEntityCopyWithImpl<$Res, $Val extends ProductFilterEntity>
           ? _value.categories
           : categories // ignore: cast_nullable_to_non_nullable
               as List<String>?,
-      rate: freezed == rate
-          ? _value.rate
-          : rate // ignore: cast_nullable_to_non_nullable
-              as double?,
       availableSizes: freezed == availableSizes
           ? _value.availableSizes
           : availableSizes // ignore: cast_nullable_to_non_nullable
@@ -107,7 +100,6 @@ abstract class _$$ProductFilterEntityImplCopyWith<$Res>
   @useResult
   $Res call(
       {List<String>? categories,
-      double? rate,
       List<double>? availableSizes,
       List<int>? colors,
       List<String>? materials,
@@ -126,7 +118,6 @@ class __$$ProductFilterEntityImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? categories = freezed,
-    Object? rate = freezed,
     Object? availableSizes = freezed,
     Object? colors = freezed,
     Object? materials = freezed,
@@ -137,10 +128,6 @@ class __$$ProductFilterEntityImplCopyWithImpl<$Res>
           ? _value._categories
           : categories // ignore: cast_nullable_to_non_nullable
               as List<String>?,
-      rate: freezed == rate
-          ? _value.rate
-          : rate // ignore: cast_nullable_to_non_nullable
-              as double?,
       availableSizes: freezed == availableSizes
           ? _value._availableSizes
           : availableSizes // ignore: cast_nullable_to_non_nullable
@@ -166,7 +153,6 @@ class __$$ProductFilterEntityImplCopyWithImpl<$Res>
 class _$ProductFilterEntityImpl implements _ProductFilterEntity {
   const _$ProductFilterEntityImpl(
       {final List<String>? categories,
-      this.rate,
       final List<double>? availableSizes,
       final List<int>? colors,
       final List<String>? materials,
@@ -190,8 +176,6 @@ class _$ProductFilterEntityImpl implements _ProductFilterEntity {
     return EqualUnmodifiableListView(value);
   }
 
-  @override
-  final double? rate;
   final List<double>? _availableSizes;
   @override
   List<double>? get availableSizes {
@@ -234,7 +218,7 @@ class _$ProductFilterEntityImpl implements _ProductFilterEntity {
 
   @override
   String toString() {
-    return 'ProductFilterEntity(categories: $categories, rate: $rate, availableSizes: $availableSizes, colors: $colors, materials: $materials, genders: $genders)';
+    return 'ProductFilterEntity(categories: $categories, availableSizes: $availableSizes, colors: $colors, materials: $materials, genders: $genders)';
   }
 
   @override
@@ -244,7 +228,6 @@ class _$ProductFilterEntityImpl implements _ProductFilterEntity {
             other is _$ProductFilterEntityImpl &&
             const DeepCollectionEquality()
                 .equals(other._categories, _categories) &&
-            (identical(other.rate, rate) || other.rate == rate) &&
             const DeepCollectionEquality()
                 .equals(other._availableSizes, _availableSizes) &&
             const DeepCollectionEquality().equals(other._colors, _colors) &&
@@ -258,7 +241,6 @@ class _$ProductFilterEntityImpl implements _ProductFilterEntity {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(_categories),
-      rate,
       const DeepCollectionEquality().hash(_availableSizes),
       const DeepCollectionEquality().hash(_colors),
       const DeepCollectionEquality().hash(_materials),
@@ -282,7 +264,6 @@ class _$ProductFilterEntityImpl implements _ProductFilterEntity {
 abstract class _ProductFilterEntity implements ProductFilterEntity {
   const factory _ProductFilterEntity(
       {final List<String>? categories,
-      final double? rate,
       final List<double>? availableSizes,
       final List<int>? colors,
       final List<String>? materials,
@@ -293,8 +274,6 @@ abstract class _ProductFilterEntity implements ProductFilterEntity {
 
   @override
   List<String>? get categories;
-  @override
-  double? get rate;
   @override
   List<double>? get availableSizes;
   @override

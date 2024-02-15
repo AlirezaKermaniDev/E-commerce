@@ -12,7 +12,6 @@ _$ProductFilterEntityImpl _$$ProductFilterEntityImplFromJson(
       categories: (json['categories'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
-      rate: (json['rate'] as num?)?.toDouble(),
       availableSizes: (json['availableSizes'] as List<dynamic>?)
           ?.map((e) => (e as num).toDouble())
           .toList(),
@@ -28,7 +27,6 @@ Map<String, dynamic> _$$ProductFilterEntityImplToJson(
         _$ProductFilterEntityImpl instance) =>
     <String, dynamic>{
       'categories': instance.categories,
-      'rate': instance.rate,
       'availableSizes': instance.availableSizes,
       'colors': instance.colors,
       'materials': instance.materials,

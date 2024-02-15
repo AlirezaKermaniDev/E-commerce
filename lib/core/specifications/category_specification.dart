@@ -3,19 +3,23 @@ import 'package:ecommerce_app/domain/entities/category_entity/category_entity.da
 import 'package:ecommerce_app/domain/entities/product_entity/product_entity.dart';
 
 class CategorySpecification implements Specification<ProductEntity> {
-  final List<String> categoies;
+  final List<String>? categories;
 
-  CategorySpecification({required this.categoies});
+  CategorySpecification({this.categories});
   @override
   bool isSatisfiedBy(ProductEntity item) {
-    final List<String> productCategories = [];
-    CategoryEntity? currenctCategory = item.category;
-    while (currenctCategory?.category != null) {
-      productCategories.add(currenctCategory!.title!);
-      currenctCategory = currenctCategory.category;
+    if (categories != null && categories!.isNotEmpty) {
+      final List<String> productCategories = [];
+      CategoryEntity? currenctCategory = item.category;
+      while (currenctCategory?.category != null) {
+        productCategories.add(currenctCategory!.title!);
+        currenctCategory = currenctCategory.category;
+      }
+      final filterGendersSet = categories!.toSet();
+      final productGenderSer = productCategories.toSet();
+      return filterGendersSet.intersection(productGenderSer).isNotEmpty;
+    } else {
+      return true;
     }
-    final filterGendersSet = categoies.toSet();
-    final productGenderSer = productCategories.toSet();
-    return filterGendersSet.intersection(productGenderSer).isNotEmpty;
   }
 }

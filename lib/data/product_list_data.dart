@@ -84,7 +84,7 @@ final List<ProductEntity> productListData = <ProductEntity>[
       0xff02BE83,
     ],
     materials: ["Suede", "Fibre"],
-    genders: [ 1],
+    genders: [1],
     deliveryAndReturns:
         "Later, however (in the beginning of the twentieth century), it was found that light did indeed sometimes behave like a particle.",
     description:

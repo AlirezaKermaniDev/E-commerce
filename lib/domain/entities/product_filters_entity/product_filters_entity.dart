@@ -7,7 +7,6 @@ part 'product_filters_entity.g.dart';
 abstract class ProductFilterEntity with _$ProductFilterEntity {
   const factory ProductFilterEntity({
     List<String>? categories,
-    double? rate,
     List<double>? availableSizes,
     List<int>? colors,
     List<String>? materials,
