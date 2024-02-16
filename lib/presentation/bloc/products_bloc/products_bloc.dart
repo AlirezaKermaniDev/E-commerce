@@ -24,7 +24,7 @@ class ProductsBloc extends Bloc<ProductsEvent, ProductsState> {
   FutureOr<void> _onGetProducts(
       _GetProduts event, Emitter<ProductsState> emit) async {
     emit(state.copyWith(isLoading: true));
-
+    await Future.delayed(const Duration(seconds: 1));
     final poroducts =
         await getProductsUsecase(filters: state.filters, sort: state.sorts);
     emit(state.copyWith(isLoading: false, products: poroducts));

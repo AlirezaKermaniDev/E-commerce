@@ -21,34 +21,32 @@ class _ProductItemWidgetWeb extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Expanded(
-              child: Row(
-                children: [
-                  Expanded(
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(8),
-                      child: Image.network(
-                        item.imageUrl ?? "",
-                        fit: BoxFit.fitWidth,
-                        errorBuilder: (context, error, stackTrace) {
-                          return Icon(
-                            Icons.warning_rounded,
-                            color: colorPalette.gray3,
-                          );
-                        },
-                        loadingBuilder: (context, child, loadingProgress) {
-                          if (loadingProgress?.cumulativeBytesLoaded ==
-                              loadingProgress?.expectedTotalBytes) {
-                            return child;
-                          } else {
-                            return CircularProgressIndicator.adaptive(
-                              backgroundColor: colorPalette.accent4,
-                            );
-                          }
-                        },
-                      ),
-                    ),
+              child: SizedBox(
+                width: double.infinity,
+                height: double.infinity,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: Image.network(
+                    item.imageUrl ?? "",
+                    fit: BoxFit.cover,
+                    errorBuilder: (context, error, stackTrace) {
+                      return Icon(
+                        Icons.warning_rounded,
+                        color: colorPalette.gray3,
+                      );
+                    },
+                    loadingBuilder: (context, child, loadingProgress) {
+                      if (loadingProgress?.cumulativeBytesLoaded ==
+                          loadingProgress?.expectedTotalBytes) {
+                        return child;
+                      } else {
+                        return CircularProgressIndicator.adaptive(
+                          backgroundColor: colorPalette.accent4,
+                        );
+                      }
+                    },
                   ),
-                ],
+                ),
               ),
             ),
             const SizedBox(
@@ -57,9 +55,14 @@ class _ProductItemWidgetWeb extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  item.title ?? "",
-                  style: typography.h5Title.copyWith(fontSize: 18),
+                Expanded(
+                  child: Text(
+                    item.title ?? "",
+                    maxLines: 1,
+                    softWrap: true,
+                    overflow: TextOverflow.ellipsis,
+                    style: typography.h5Title.copyWith(fontSize: 18),
+                  ),
                 ),
                 Icon(
                   Icons.favorite_border,

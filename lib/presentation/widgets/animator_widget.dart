@@ -9,12 +9,14 @@ class AnimatorWidget extends StatefulWidget {
       this.delay,
       this.fadeTransition,
       this.slideTransition,
+      this.withVisibilityDetector = true,
       this.rotateTrasition,
       this.withFadeTransition = false});
 
   final Widget child;
   final Duration? delay;
   final bool withFadeTransition;
+  final bool withVisibilityDetector;
   final Tween<double>? scaleTransition;
   final Tween<double>? fadeTransition;
   final Tween<Offset>? slideTransition;
@@ -30,18 +32,31 @@ class _AnimatorWidgetState extends State<AnimatorWidget>
     vsync: this,
     duration: const Duration(milliseconds: 300),
   );
+
+  @override
+  void initState() {
+    super.initState();
+    if (!widget.withVisibilityDetector) {
+      Future.delayed(widget.delay ?? Duration.zero).then((value) {
+        animationController.forward();
+      });
+    }
+  }
+
   @override
   void dispose() {
-    super.dispose();
     animationController.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return WidgetVisibilityDetector(
       onAppear: () async {
-        await Future.delayed(widget.delay ?? Duration.zero);
-        animationController.forward();
+        if (widget.withVisibilityDetector) {
+          await Future.delayed(widget.delay ?? Duration.zero);
+          animationController.forward();
+        }
       },
       onDisappear: () {
         // animationController.reverse();

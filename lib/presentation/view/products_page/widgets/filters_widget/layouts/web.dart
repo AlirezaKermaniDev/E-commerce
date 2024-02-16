@@ -39,22 +39,22 @@ class _FiltersWidgetWebState extends State<_FiltersWidgetWeb> {
                     ),
                     child: Column(children: [
                       SortItemsWidget(
-                        title: "Newest",
+                        title: context.locale.newest,
                         value: ProductSort.newest,
                         groupValue: state.sorts,
                       ),
                       SortItemsWidget(
-                        title: "Most popular",
+                        title: context.locale.mostPopular,
                         value: ProductSort.mostPopular,
                         groupValue: state.sorts,
                       ),
                       SortItemsWidget(
-                        title: "Lowest price",
+                        title: context.locale.lowestPrice,
                         value: ProductSort.lowestPrice,
                         groupValue: state.sorts,
                       ),
                       SortItemsWidget(
-                        title: "Highest price",
+                        title: context.locale.highestPrice,
                         value: ProductSort.highestPrice,
                         groupValue: state.sorts,
                       ),
@@ -78,7 +78,7 @@ class _FiltersWidgetWebState extends State<_FiltersWidgetWeb> {
                     padding: const EdgeInsets.all(25.0),
                     child: Column(children: [
                       FilterItemsWidget(
-                        title: "Gender",
+                        title: context.locale.gender,
                         isActive: _isGenderExpandActive(context, state),
                         child: Padding(
                           padding: const EdgeInsets.only(top: 20),
@@ -89,7 +89,7 @@ class _FiltersWidgetWebState extends State<_FiltersWidgetWeb> {
                         height: 20,
                       ),
                       FilterItemsWidget(
-                          title: "Size",
+                          title: context.locale.size,
                           isActive: _isSizeExpandActive(context, state),
                           child: Padding(
                             padding: const EdgeInsets.only(top: 20),
@@ -99,7 +99,7 @@ class _FiltersWidgetWebState extends State<_FiltersWidgetWeb> {
                         height: 20,
                       ),
                       FilterItemsWidget(
-                        title: "Color",
+                        title: context.locale.color,
                         isActive: _isColorExpandActive(context, state),
                         child: Padding(
                           padding: const EdgeInsets.only(top: 20),
@@ -110,7 +110,7 @@ class _FiltersWidgetWebState extends State<_FiltersWidgetWeb> {
                         height: 20,
                       ),
                       FilterItemsWidget(
-                        title: "Material",
+                        title: context.locale.material,
                         isActive: _isMaterialExpandActive(context, state),
                         child: Padding(
                           padding: const EdgeInsets.only(top: 20),
@@ -133,7 +133,7 @@ class _FiltersWidgetWebState extends State<_FiltersWidgetWeb> {
       children: [
         Expanded(
           child: FilterItemsButtonWidget(
-            title: "Suede",
+            title: context.locale.suede,
             value: "Suede",
             groupValue: state.filters.materials ?? [],
             onTap: () {
@@ -146,7 +146,7 @@ class _FiltersWidgetWebState extends State<_FiltersWidgetWeb> {
         ),
         Expanded(
           child: FilterItemsButtonWidget(
-            title: "Leather",
+            title: context.locale.leather,
             value: "Leather",
             groupValue: state.filters.materials ?? [],
             onTap: () {
@@ -159,7 +159,7 @@ class _FiltersWidgetWebState extends State<_FiltersWidgetWeb> {
         ),
         Expanded(
           child: FilterItemsButtonWidget(
-            title: "Fibre",
+            title: context.locale.fibre,
             value: "Fibre",
             groupValue: state.filters.materials ?? [],
             onTap: () {
@@ -176,7 +176,7 @@ class _FiltersWidgetWebState extends State<_FiltersWidgetWeb> {
       children: [
         Expanded(
           child: FilterItemsButtonWidget(
-            title: "Green",
+            title: context.locale.green,
             color: 0xff315BFF,
             value: 0xff315BFF,
             groupValue: state.filters.colors ?? [],
@@ -190,7 +190,7 @@ class _FiltersWidgetWebState extends State<_FiltersWidgetWeb> {
         ),
         Expanded(
           child: FilterItemsButtonWidget(
-            title: "Blue",
+            title: context.locale.blue,
             color: 0xff02BE83,
             value: 0xff02BE83,
             groupValue: state.filters.colors ?? [],
@@ -204,7 +204,7 @@ class _FiltersWidgetWebState extends State<_FiltersWidgetWeb> {
         ),
         Expanded(
           child: FilterItemsButtonWidget(
-            title: "Red",
+            title: context.locale.black,
             color: 0xff000000,
             value: 0xff000000,
             groupValue: state.filters.colors ?? [],
@@ -325,7 +325,7 @@ class _FiltersWidgetWebState extends State<_FiltersWidgetWeb> {
       children: [
         Expanded(
           child: FilterItemsButtonWidget(
-            title: "Male",
+            title: context.locale.male,
             value: 0,
             groupValue: state.filters.genders ?? [],
             onTap: () {
@@ -338,7 +338,7 @@ class _FiltersWidgetWebState extends State<_FiltersWidgetWeb> {
         ),
         Expanded(
           child: FilterItemsButtonWidget(
-            title: "Female",
+            title: context.locale.female,
             value: 1,
             groupValue: state.filters.genders ?? [],
             onTap: () {
