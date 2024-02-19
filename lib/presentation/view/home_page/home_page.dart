@@ -73,36 +73,40 @@ class HomePage extends StatelessWidget {
 }
 
 class SubscribeWidget extends StatelessWidget {
-  const SubscribeWidget({
-    super.key,
-  });
+  const SubscribeWidget({super.key, this.fullWidth});
+
+  final bool? fullWidth;
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Container(
-          height: 300,
-          width: 1.w(context),
-          color: colorPalette.gray6,
-        ),
+        if (fullWidth == null || fullWidth == false)
+          Container(
+            height: 300,
+            width: 1.w(context),
+            color: colorPalette.gray6,
+          ),
         Align(
           alignment: Alignment.centerLeft,
           child: Padding(
             padding: const EdgeInsets.only(top: 40),
             child: AnimatorWidget(
               withFadeTransition: true,
-              slideTransition:
-                  Tween<Offset>(begin: const Offset(-1, 0), end: Offset.zero),
+              slideTransition: Tween<Offset>(
+                  begin: Offset(fullWidth == true ? -0.1 : -1, 0),
+                  end: Offset.zero),
               child: Container(
                 height: 580,
-                width: .8.w(context),
+                width: fullWidth == true ? 1.w(context) : .8.w(context),
                 decoration: BoxDecoration(
                   gradient: colorPalette.gradient1,
-                  borderRadius: const BorderRadius.only(
-                    topRight: Radius.circular(25),
-                    bottomRight: Radius.circular(25),
-                  ),
+                  borderRadius: fullWidth == true
+                      ? BorderRadius.zero
+                      : const BorderRadius.only(
+                          topRight: Radius.circular(25),
+                          bottomRight: Radius.circular(25),
+                        ),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.only(
@@ -199,14 +203,18 @@ class SubscribeWidget extends StatelessWidget {
                         children: [
                           Align(
                             alignment: Alignment.bottomRight,
-                            child: AnimatorWidget(
-                              withFadeTransition: true,
-                              child: Container(
-                                height: 307,
-                                width: 307,
-                                decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    gradient: colorPalette.gradient4),
+                            child: Padding(
+                              padding: EdgeInsets.only(
+                                  right: fullWidth == true ? 80 : 0),
+                              child: AnimatorWidget(
+                                withFadeTransition: true,
+                                child: Container(
+                                  height: 307,
+                                  width: 307,
+                                  decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      gradient: colorPalette.gradient4),
+                                ),
                               ),
                             ),
                           ),
@@ -215,7 +223,7 @@ class SubscribeWidget extends StatelessWidget {
                               padding:
                                   const EdgeInsets.only(top: 32, left: 100),
                               child: Transform.scale(
-                                scale: 1.2,
+                                scale: fullWidth == true ? .9 : 1.2,
                                 child: Transform.rotate(
                                     angle: 1,
                                     child: AnimatorWidget(

@@ -2,9 +2,11 @@ import 'package:ecommerce_app/core/extensions/locale_extensions.dart';
 import 'package:ecommerce_app/core/size_config.dart';
 import 'package:ecommerce_app/injection/injection.dart';
 import 'package:ecommerce_app/presentation/bloc/products_bloc/products_bloc.dart';
+import 'package:ecommerce_app/presentation/view/home_page/home_page.dart';
 import 'package:ecommerce_app/presentation/view/products_page/widgets/filters_widget/filters_widget.dart';
 import 'package:ecommerce_app/presentation/view/products_page/widgets/product_item_widget/product_item_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/animator_widget.dart';
+import 'package:ecommerce_app/presentation/widgets/footer_widget/footer_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/header_widget/header_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,24 +23,35 @@ class ProductsPage extends StatefulWidget {
 
 class _ProductsPageState extends State<ProductsPage> {
   final GlobalKey _key = GlobalKey();
+  final GlobalKey _gridViewkey = GlobalKey();
   final ScrollController _scrollController = ScrollController();
-  bool _isStuck = false;
-  final double filtersWidgetPaddingFromTop = 50;
+  bool _isStuckTop = false;
+  bool _isStuckBottom = false;
+  final double filtersWidgetPaddingVerticaly = 50;
+  double filtersWidgetTopOffset = 0;
 
   void _afterLayout(_) {
     _scrollController.addListener(
       () {
-        final RenderBox renderBox =
-            _key.currentContext?.findRenderObject() as RenderBox;
-
-        final Offset offset = renderBox.localToGlobal(Offset.zero);
-        final double startY = offset.dy;
-
-        setState(() {
-          _isStuck = startY <= filtersWidgetPaddingFromTop;
-        });
+        _calculateFilterWidgetPosition();
       },
     );
+  }
+
+  void _calculateFilterWidgetPosition() {
+    final RenderBox renderBox =
+        _key.currentContext?.findRenderObject() as RenderBox;
+    final Offset offset = renderBox.localToGlobal(Offset.zero);
+    final double startY = offset.dy;
+    final double totalGridViewHeight =
+        _gridViewkey.currentContext!.size!.height - 565;
+
+    setState(() {
+      _isStuckTop = startY <= filtersWidgetPaddingVerticaly;
+      _isStuckBottom = _scrollController.offset >= totalGridViewHeight;
+      filtersWidgetTopOffset =
+          (totalGridViewHeight - _scrollController.offset) + 45;
+    });
   }
 
   @override
@@ -69,12 +82,21 @@ class _ProductsPageState extends State<ProductsPage> {
                   ),
                   _titleWidget(),
                   _productsListWidget(),
+                  const SubscribeWidget(
+                    fullWidth: true,
+                  ),
+                  const SizedBox(
+                    height: 120,
+                  ),
+                  const FooterWidget(),
                 ],
               ),
             ),
-            if (_isStuck)
+            if (_isStuckTop)
               Positioned(
-                top: filtersWidgetPaddingFromTop,
+                top: _isStuckBottom
+                    ? filtersWidgetTopOffset
+                    : filtersWidgetPaddingVerticaly,
                 left: getIt<SizeConfig>().padding,
                 child: _filtersBuilder(),
               ),
@@ -98,7 +120,7 @@ class _ProductsPageState extends State<ProductsPage> {
                 withFadeTransition: true,
                 withVisibilityDetector: false,
                 child: Visibility(
-                  visible: !_isStuck,
+                  visible: !_isStuckTop,
                   maintainSize: true,
                   maintainAnimation: true,
                   maintainState: true,
@@ -119,6 +141,7 @@ class _ProductsPageState extends State<ProductsPage> {
                         ),
                       )
                     : GridView.builder(
+                        key: _gridViewkey,
                         itemCount: state.products.length,
                         shrinkWrap: true,
                         padding: const EdgeInsets.only(bottom: 50),
