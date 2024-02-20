@@ -1,4 +1,3 @@
-import 'package:ecommerce_app/domain/entities/category_entity/category_entity.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'product_entity.freezed.dart';
@@ -7,8 +6,9 @@ part 'product_entity.g.dart';
 @Freezed(toJson: true)
 abstract class ProductEntity with _$ProductEntity {
   const factory ProductEntity({
-    CategoryEntity? category,
+    List<String>? category,
     String? imageUrl,
+    String? id,
     String? title,
     double? rate,
     double? price,

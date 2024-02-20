@@ -20,3 +20,14 @@ class LightAppTheme implements AppTheme {
   @override
   Typography typography = LightTypography();
 }
+
+class DarkAppTheme implements AppTheme {
+  @override
+  material.ThemeMode themeMode = material.ThemeMode.dark;
+
+  @override
+  ColorPalette colorPalette = DarkColorPalette();
+
+  @override
+  Typography typography = DarkTypography();
+}

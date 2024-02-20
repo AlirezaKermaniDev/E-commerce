@@ -8,10 +8,11 @@ part of 'product_entity.dart';
 
 _$ProductEntityImpl _$$ProductEntityImplFromJson(Map<String, dynamic> json) =>
     _$ProductEntityImpl(
-      category: json['category'] == null
-          ? null
-          : CategoryEntity.fromJson(json['category'] as Map<String, dynamic>),
+      category: (json['category'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList(),
       imageUrl: json['imageUrl'] as String?,
+      id: json['id'] as String?,
       title: json['title'] as String?,
       rate: (json['rate'] as num?)?.toDouble(),
       price: (json['price'] as num?)?.toDouble(),
@@ -33,8 +34,9 @@ _$ProductEntityImpl _$$ProductEntityImplFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$ProductEntityImplToJson(_$ProductEntityImpl instance) =>
     <String, dynamic>{
-      'category': instance.category,
+      'category': instance.categories,
       'imageUrl': instance.imageUrl,
+      'id': instance.id,
       'title': instance.title,
       'rate': instance.rate,
       'price': instance.price,

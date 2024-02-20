@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'core/app_routes.dart';
 import 'injection/injection.dart';
-import 'presentation/view/home_page/home_page.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 
 Future<void> main() async {
@@ -22,12 +21,11 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     getIt<SizeConfig>().setSizeConfigs(context);
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'E-commerce',
+      routerConfig: routes,
       scrollBehavior: kIsWeb ? AppScrollBehavior() : null,
       debugShowCheckedModeBanner: false,
-      initialRoute: HomePage.path,
-      onGenerateRoute: (settings) => routes(settings)[settings.name],
       locale: const Locale('en'),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,

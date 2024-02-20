@@ -96,3 +96,81 @@ class LightColorPalette implements ColorPalette {
   @override
   Color gray6 = const Color(0xffF5F5F5);
 }
+
+class DarkColorPalette implements ColorPalette {
+  @override
+  Color accent1 = const Color(0xff315BFF);
+
+  @override
+  Color accent2 = const Color(0xff02BE83);
+
+  @override
+  Color accent3 = const Color(0xffFE7831);
+
+  @override
+  Color accent4 = const Color(0xffFF3C78);
+
+  @override
+  Color primary = const Color(0xff0A083A);
+
+  @override
+  Color darkPrimary = const Color(0xffFFFFFF);
+
+  @override
+  LinearGradient gradient1 = const LinearGradient(
+    colors: [
+      Color(0xff8AA8F8),
+      Color(0xff315BFF),
+    ],
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+  );
+
+  @override
+  LinearGradient gradient2 = const LinearGradient(
+    colors: [
+      Color(0xffB3F6DC),
+      Color(0xff02BE83),
+    ],
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+  );
+
+  @override
+  LinearGradient gradient3 = const LinearGradient(
+    colors: [
+      Color(0xffFFDEBE),
+      Color(0xffFE7831),
+    ],
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+  );
+
+  @override
+  LinearGradient gradient4 = const LinearGradient(
+    colors: [
+      Color(0xffFFB2B2),
+      Color(0xffFF3C78),
+    ],
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+  );
+
+  @override
+  Color gray1 = const Color.fromARGB(255, 238, 237, 240);
+
+  @override
+  Color gray2 = const Color.fromARGB(255, 204, 199, 215);
+
+  @override
+  Color gray3 = const Color.fromARGB(255, 167, 159, 184);
+
+  @override
+  Color gray4 = const Color.fromARGB(255, 127, 116, 151);
+
+  @override
+  Color gray5 = const Color.fromARGB(255, 88, 73, 118);
+
+  @override
+  Color gray6 = const Color.fromARGB(255, 23, 20, 97);
+}

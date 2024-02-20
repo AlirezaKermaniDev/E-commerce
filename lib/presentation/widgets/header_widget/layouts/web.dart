@@ -36,8 +36,9 @@ class _HeaderWidgetWeb extends StatelessWidget {
                         isSelected: selectedIndex == 0,
                         forgroundColor: forgroundColor,
                         onTap: () {
-                          Navigator.pushReplacementNamed(
-                              context, HomePage.path);
+                          context.go(
+                            HomePage.path,
+                          );
                         },
                       ),
                       const SizedBox(
@@ -48,8 +49,7 @@ class _HeaderWidgetWeb extends StatelessWidget {
                         isSelected: selectedIndex == 1,
                         forgroundColor: forgroundColor,
                         onTap: () {
-                          Navigator.pushReplacementNamed(
-                              context, AboutUsPage.path);
+                          context.go(AboutUsPage.path);
                         },
                       ),
                       const SizedBox(
@@ -60,8 +60,7 @@ class _HeaderWidgetWeb extends StatelessWidget {
                         isSelected: selectedIndex == 2,
                         forgroundColor: forgroundColor,
                         onTap: () {
-                          Navigator.pushReplacementNamed(
-                              context, ProductsPage.path);
+                          context.go(ProductsPage.path);
                         },
                       ),
                       const SizedBox(

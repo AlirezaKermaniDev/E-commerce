@@ -14,7 +14,7 @@ import 'package:widget_and_text_animator/widget_and_text_animator.dart';
 import 'dart:math' as math;
 
 class HomePage extends StatelessWidget {
-  static const String path = "/home";
+  static const String path = "/";
   const HomePage({super.key});
 
   @override
@@ -1869,29 +1869,27 @@ class _FeaturedProductsItemWidgetState
 }
 
 class RateBarWidget extends StatelessWidget {
-  const RateBarWidget({
-    super.key,
-  });
-
+  const RateBarWidget({super.key, this.activeColor});
+  final Color? activeColor;
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         Icon(
           Icons.star_rate_rounded,
-          color: colorPalette.accent3,
+          color: activeColor ?? colorPalette.accent3,
         ),
         Icon(
           Icons.star_rate_rounded,
-          color: colorPalette.accent3,
+          color: activeColor ?? colorPalette.accent3,
         ),
         Icon(
           Icons.star_rate_rounded,
-          color: colorPalette.accent3,
+          color: activeColor ?? colorPalette.accent3,
         ),
         Icon(
           Icons.star_rate_rounded,
-          color: colorPalette.accent3,
+          color: activeColor ?? colorPalette.accent3,
         ),
         Icon(
           Icons.star_rate_rounded,

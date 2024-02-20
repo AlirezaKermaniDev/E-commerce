@@ -82,6 +82,9 @@ dependencies:
   # For create expandable widgets
   expandable: ^5.0.1
 
+  # The brightest, hippest, coolest router for Flutter
+  go_router: ^13.2.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
