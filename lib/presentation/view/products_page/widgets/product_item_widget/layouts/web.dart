@@ -30,26 +30,8 @@ class _ProductItemWidgetWeb extends StatelessWidget {
                   height: double.infinity,
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8),
-                    child: Image.network(
-                      item.imageUrl ?? "",
-                      fit: BoxFit.cover,
-                      errorBuilder: (context, error, stackTrace) {
-                        return Icon(
-                          Icons.warning_rounded,
-                          color: colorPalette.gray3,
-                        );
-                      },
-                      loadingBuilder: (context, child, loadingProgress) {
-                        if (loadingProgress?.cumulativeBytesLoaded ==
-                            loadingProgress?.expectedTotalBytes) {
-                          return child;
-                        } else {
-                          return CircularProgressIndicator.adaptive(
-                            backgroundColor: colorPalette.accent4,
-                          );
-                        }
-                      },
-                    ),
+                    child:
+                        ProductImageViewrWidget(imageUrl: item.imageUrl ?? ""),
                   ),
                 ),
               ),
@@ -92,6 +74,41 @@ class _ProductItemWidgetWeb extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class ProductImageViewrWidget extends StatelessWidget {
+  const ProductImageViewrWidget({
+    super.key,
+    required this.imageUrl,
+  });
+
+  final String imageUrl;
+
+  @override
+  Widget build(BuildContext context) {
+    return Image.network(
+      imageUrl,
+      fit: BoxFit.cover,
+      errorBuilder: (context, error, stackTrace) {
+        return Icon(
+          Icons.warning_rounded,
+          color: colorPalette.gray3,
+        );
+      },
+      loadingBuilder: (context, child, loadingProgress) {
+        if (loadingProgress?.cumulativeBytesLoaded ==
+            loadingProgress?.expectedTotalBytes) {
+          return child;
+        } else {
+          return Center(
+            child: CircularProgressIndicator.adaptive(
+              backgroundColor: colorPalette.accent4,
+            ),
+          );
+        }
+      },
     );
   }
 }

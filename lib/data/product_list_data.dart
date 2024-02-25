@@ -17,7 +17,7 @@ final List<ProductEntity> productListData = <ProductEntity>[
     materials: ["Leather", "Textile"],
     genders: [1],
     deliveryAndReturns:
-        "Later, however (in the beginning of the twentieth century), it was found that light did indeed sometimes behave like a particle.",
+        "Later, however (in the beginning of the twentieth century), it was found that light did indeed sometimes behave like a particle.\n\nSo it really behaves like neither. Now we have given up. We say: “It is like neither.”\n\nThey are mathematically consistent in the sense that no one rule would ever violate another.",
     description:
         "They agree with reality to a high degree of accuracy as tested in experiment after experiment.",
     createdAt: DateTime.now().subtract(

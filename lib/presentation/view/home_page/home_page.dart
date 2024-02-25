@@ -2174,11 +2174,19 @@ class OffersWidget extends StatelessWidget {
 }
 
 class ButtonWidget extends StatefulWidget {
-  const ButtonWidget({super.key, required this.title, required this.color});
+  const ButtonWidget(
+      {super.key,
+      required this.title,
+      required this.color,
+      this.height,
+      this.shadowColor,
+      this.width});
 
   final String title;
   final Color color;
-
+  final Color? shadowColor;
+  final double? width;
+  final double? height;
   @override
   State<ButtonWidget> createState() => _ButtonWidgetState();
 }
@@ -2197,22 +2205,22 @@ class _ButtonWidgetState extends State<ButtonWidget> {
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 150),
         curve: Curves.easeIn,
-        width: 180,
-        height: 46,
+        width: widget.width ?? 180,
+        height: widget.height ?? 46,
         decoration: BoxDecoration(
           color: widget.color,
           borderRadius: BorderRadius.circular(4),
           boxShadow: _isHover
               ? [
                   BoxShadow(
-                      color: widget.color,
+                      color: widget.shadowColor ?? widget.color,
                       blurRadius: 8,
                       spreadRadius: -8,
                       offset: const Offset(0, 8))
                 ]
               : [
                   BoxShadow(
-                      color: widget.color,
+                      color: widget.shadowColor ?? widget.color,
                       blurRadius: 19,
                       spreadRadius: -20,
                       offset: const Offset(0, 22))

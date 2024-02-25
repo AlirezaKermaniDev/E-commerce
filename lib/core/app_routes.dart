@@ -43,6 +43,7 @@ final GoRouter routes = GoRouter(
       path: "${ProductDetailPage.path}/:pid",
       builder: (BuildContext context, GoRouterState state) {
         return ProductDetailPage(
+          key: UniqueKey(),
           productId: state.pathParameters['pid']!,
         );
       },

@@ -79,7 +79,6 @@ class _FiltersWidgetWebState extends State<_FiltersWidgetWeb> {
                     child: Column(children: [
                       FilterItemsWidget(
                         title: context.locale.gender,
-                        isActive: _isGenderExpandActive(context, state),
                         child: Padding(
                           padding: const EdgeInsets.only(top: 20),
                           child: _genderExpandedWidget(context, state),
@@ -90,7 +89,6 @@ class _FiltersWidgetWebState extends State<_FiltersWidgetWeb> {
                       ),
                       FilterItemsWidget(
                           title: context.locale.size,
-                          isActive: _isSizeExpandActive(context, state),
                           child: Padding(
                             padding: const EdgeInsets.only(top: 20),
                             child: _sizesExpandedWidget(context, state),
@@ -100,7 +98,6 @@ class _FiltersWidgetWebState extends State<_FiltersWidgetWeb> {
                       ),
                       FilterItemsWidget(
                         title: context.locale.color,
-                        isActive: _isColorExpandActive(context, state),
                         child: Padding(
                           padding: const EdgeInsets.only(top: 20),
                           child: _colorsExpandedWidget(context, state),
@@ -111,7 +108,6 @@ class _FiltersWidgetWebState extends State<_FiltersWidgetWeb> {
                       ),
                       FilterItemsWidget(
                         title: context.locale.material,
-                        isActive: _isMaterialExpandActive(context, state),
                         child: Padding(
                           padding: const EdgeInsets.only(top: 20),
                           child: _materialsExpandedWidget(context, state),
@@ -423,24 +419,6 @@ class _FiltersWidgetWebState extends State<_FiltersWidgetWeb> {
       filters = state.filters.copyWith(materials: materials);
     }
     bloc.add(ProductsEvent.changeFilters(newFilters: filters));
-  }
-
-  bool _isGenderExpandActive(BuildContext context, ProductsState state) {
-    return state.filters.genders != null && state.filters.genders!.isNotEmpty;
-  }
-
-  bool _isSizeExpandActive(BuildContext context, ProductsState state) {
-    return state.filters.availableSizes != null &&
-        state.filters.availableSizes!.isNotEmpty;
-  }
-
-  bool _isColorExpandActive(BuildContext context, ProductsState state) {
-    return state.filters.colors != null && state.filters.colors!.isNotEmpty;
-  }
-
-  bool _isMaterialExpandActive(BuildContext context, ProductsState state) {
-    return state.filters.materials != null &&
-        state.filters.materials!.isNotEmpty;
   }
 }
 
