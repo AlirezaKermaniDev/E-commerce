@@ -31,7 +31,7 @@ class _ProductItemWidgetWeb extends StatelessWidget {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8),
                     child:
-                        ProductImageViewrWidget(imageUrl: item.imageUrl ?? ""),
+                        ProductImageViewerWidget(imageUrl: item.imageUrl ?? ""),
                   ),
                 ),
               ),
@@ -78,8 +78,8 @@ class _ProductItemWidgetWeb extends StatelessWidget {
   }
 }
 
-class ProductImageViewrWidget extends StatelessWidget {
-  const ProductImageViewrWidget({
+class ProductImageViewerWidget extends StatelessWidget {
+  const ProductImageViewerWidget({
     super.key,
     required this.imageUrl,
   });

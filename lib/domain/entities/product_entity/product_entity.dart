@@ -6,7 +6,7 @@ part 'product_entity.g.dart';
 @Freezed(toJson: true)
 abstract class ProductEntity with _$ProductEntity {
   const factory ProductEntity({
-    List<String>? category,
+    List<String>? categories,
     String? imageUrl,
     String? id,
     String? title,

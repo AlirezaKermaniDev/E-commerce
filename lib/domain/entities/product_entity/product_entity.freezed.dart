@@ -47,7 +47,7 @@ abstract class $ProductEntityCopyWith<$Res> {
       _$ProductEntityCopyWithImpl<$Res, ProductEntity>;
   @useResult
   $Res call(
-      {List<String>? category,
+      {List<String>? categories,
       String? imageUrl,
       String? id,
       String? title,
@@ -75,7 +75,7 @@ class _$ProductEntityCopyWithImpl<$Res, $Val extends ProductEntity>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? category = freezed,
+    Object? categories = freezed,
     Object? imageUrl = freezed,
     Object? id = freezed,
     Object? title = freezed,
@@ -90,9 +90,9 @@ class _$ProductEntityCopyWithImpl<$Res, $Val extends ProductEntity>
     Object? createdAt = freezed,
   }) {
     return _then(_value.copyWith(
-      category: freezed == category
+      categories: freezed == categories
           ? _value.categories
-          : category // ignore: cast_nullable_to_non_nullable
+          : categories // ignore: cast_nullable_to_non_nullable
               as List<String>?,
       imageUrl: freezed == imageUrl
           ? _value.imageUrl
@@ -155,7 +155,7 @@ abstract class _$$ProductEntityImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<String>? category,
+      {List<String>? categories,
       String? imageUrl,
       String? id,
       String? title,
@@ -181,7 +181,7 @@ class __$$ProductEntityImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? category = freezed,
+    Object? categories = freezed,
     Object? imageUrl = freezed,
     Object? id = freezed,
     Object? title = freezed,
@@ -196,9 +196,9 @@ class __$$ProductEntityImplCopyWithImpl<$Res>
     Object? createdAt = freezed,
   }) {
     return _then(_$ProductEntityImpl(
-      category: freezed == category
-          ? _value._category
-          : category // ignore: cast_nullable_to_non_nullable
+      categories: freezed == categories
+          ? _value._categories
+          : categories // ignore: cast_nullable_to_non_nullable
               as List<String>?,
       imageUrl: freezed == imageUrl
           ? _value.imageUrl
@@ -256,7 +256,7 @@ class __$$ProductEntityImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ProductEntityImpl implements _ProductEntity {
   const _$ProductEntityImpl(
-      {final List<String>? category,
+      {final List<String>? categories,
       this.imageUrl,
       this.id,
       this.title,
@@ -269,7 +269,7 @@ class _$ProductEntityImpl implements _ProductEntity {
       this.deliveryAndReturns,
       this.description,
       this.createdAt})
-      : _category = category,
+      : _categories = categories,
         _availableSizes = availableSizes,
         _colors = colors,
         _materials = materials,
@@ -278,12 +278,12 @@ class _$ProductEntityImpl implements _ProductEntity {
   factory _$ProductEntityImpl.fromJson(Map<String, dynamic> json) =>
       _$$ProductEntityImplFromJson(json);
 
-  final List<String>? _category;
+  final List<String>? _categories;
   @override
   List<String>? get categories {
-    final value = _category;
+    final value = _categories;
     if (value == null) return null;
-    if (_category is EqualUnmodifiableListView) return _category;
+    if (_categories is EqualUnmodifiableListView) return _categories;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -347,7 +347,7 @@ class _$ProductEntityImpl implements _ProductEntity {
 
   @override
   String toString() {
-    return 'ProductEntity(category: $categories, imageUrl: $imageUrl, id: $id, title: $title, rate: $rate, price: $price, availableSizes: $availableSizes, colors: $colors, materials: $materials, genders: $genders, deliveryAndReturns: $deliveryAndReturns, description: $description, createdAt: $createdAt)';
+    return 'ProductEntity(categories: $categories, imageUrl: $imageUrl, id: $id, title: $title, rate: $rate, price: $price, availableSizes: $availableSizes, colors: $colors, materials: $materials, genders: $genders, deliveryAndReturns: $deliveryAndReturns, description: $description, createdAt: $createdAt)';
   }
 
   @override
@@ -355,7 +355,8 @@ class _$ProductEntityImpl implements _ProductEntity {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ProductEntityImpl &&
-            const DeepCollectionEquality().equals(other._category, _category) &&
+            const DeepCollectionEquality()
+                .equals(other._categories, _categories) &&
             (identical(other.imageUrl, imageUrl) ||
                 other.imageUrl == imageUrl) &&
             (identical(other.id, id) || other.id == id) &&
@@ -380,7 +381,7 @@ class _$ProductEntityImpl implements _ProductEntity {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(_category),
+      const DeepCollectionEquality().hash(_categories),
       imageUrl,
       id,
       title,
@@ -410,7 +411,7 @@ class _$ProductEntityImpl implements _ProductEntity {
 
 abstract class _ProductEntity implements ProductEntity {
   const factory _ProductEntity(
-      {final List<String>? category,
+      {final List<String>? categories,
       final String? imageUrl,
       final String? id,
       final String? title,

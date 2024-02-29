@@ -85,6 +85,9 @@ dependencies:
   # The brightest, hippest, coolest router for Flutter
   go_router: ^13.2.0
 
+  # It allows listeners to subscribe for events and publishers to fire events
+  event_bus: ^2.0.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

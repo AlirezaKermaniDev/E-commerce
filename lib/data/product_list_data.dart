@@ -6,7 +6,7 @@ final List<ProductEntity> productListData = <ProductEntity>[
     title: "Nike Streetwear",
     imageUrl:
         "https://firebasestorage.googleapis.com/v0/b/ecommerce-4f548.appspot.com/o/shoe11.png?alt=media",
-    category: ["Nike", "Sneakers", "Running Shoes"],
+    categories: ["Nike", "Sneakers", "Running Shoes"],
     price: 350,
     rate: 4,
     availableSizes: [7, 7.5, 9, 9.5, 10],
@@ -29,7 +29,7 @@ final List<ProductEntity> productListData = <ProductEntity>[
     title: "K-SWISS Streetwear",
     imageUrl:
         "https://firebasestorage.googleapis.com/v0/b/ecommerce-4f548.appspot.com/o/shoe1.png?alt=media",
-    category: ["K-SWISS", "Sneakers", "Running Shoes"],
+    categories: ["K-SWISS", "Sneakers", "Running Shoes"],
     price: 160,
     rate: 4.4,
     availableSizes: [6, 9, 9.5, 10, 10.5],
@@ -52,7 +52,7 @@ final List<ProductEntity> productListData = <ProductEntity>[
     title: "Adidas Gazele",
     imageUrl:
         "https://firebasestorage.googleapis.com/v0/b/ecommerce-4f548.appspot.com/o/shoe2.png?alt=media",
-    category: ["Adidas", "Sneakers", "Running Shoes"],
+    categories: ["Adidas", "Sneakers", "Running Shoes"],
     price: 260,
     rate: 3,
     availableSizes: [6, 7, 9, 10, 10.5],
@@ -76,7 +76,7 @@ final List<ProductEntity> productListData = <ProductEntity>[
     title: "Adidas Converse",
     imageUrl:
         "https://firebasestorage.googleapis.com/v0/b/ecommerce-4f548.appspot.com/o/shoe3.png?alt=media",
-    category: ["Adidas", "Sneakers", "Walking Shoes"],
+    categories: ["Adidas", "Sneakers", "Walking Shoes"],
     price: 210,
     rate: 4.7,
     availableSizes: [6, 7, 7.5, 9, 10, 10.5],
@@ -99,7 +99,7 @@ final List<ProductEntity> productListData = <ProductEntity>[
     title: "Reebok Streetwear",
     imageUrl:
         "https://firebasestorage.googleapis.com/v0/b/ecommerce-4f548.appspot.com/o/shoe4.png?alt=media",
-    category: ["Reebok", "Sneakers", "Walking Shoes"],
+    categories: ["Reebok", "Sneakers", "Walking Shoes"],
     price: 400,
     rate: 4.5,
     availableSizes: [6, 7, 7.5, 9, 9.5],
@@ -123,7 +123,7 @@ final List<ProductEntity> productListData = <ProductEntity>[
     title: "Puma Streetwear",
     imageUrl:
         "https://firebasestorage.googleapis.com/v0/b/ecommerce-4f548.appspot.com/o/shoe5.png?alt=media",
-    category: ["Puma", "Sneakers", "Walking Shoes"],
+    categories: ["Puma", "Sneakers", "Walking Shoes"],
     price: 205,
     rate: 3.8,
     availableSizes: [7, 7.5, 9, 9.5, 10],
@@ -146,7 +146,7 @@ final List<ProductEntity> productListData = <ProductEntity>[
     title: "Nike Converse",
     imageUrl:
         "https://firebasestorage.googleapis.com/v0/b/ecommerce-4f548.appspot.com/o/shoe6.png?alt=media",
-    category: ["Nike", "Sneakers", "Walking Shoes"],
+    categories: ["Nike", "Sneakers", "Walking Shoes"],
     price: 350,
     rate: 3.8,
     availableSizes: [7, 9, 9.5, 10],
@@ -169,7 +169,7 @@ final List<ProductEntity> productListData = <ProductEntity>[
     title: "Nike Streetwear",
     imageUrl:
         "https://firebasestorage.googleapis.com/v0/b/ecommerce-4f548.appspot.com/o/shoe7.png?alt=media",
-    category: ["Nike", "Sneakers", "Walking Shoes"],
+    categories: ["Nike", "Sneakers", "Walking Shoes"],
     price: 220,
     rate: 4.6,
     availableSizes: [7, 9, 9.5, 10],
@@ -192,7 +192,7 @@ final List<ProductEntity> productListData = <ProductEntity>[
     title: "Puma Streetwear",
     imageUrl:
         "https://firebasestorage.googleapis.com/v0/b/ecommerce-4f548.appspot.com/o/shoe8.png?alt=media",
-    category: ["Puma", "Sneakers", "Walking Shoes"],
+    categories: ["Puma", "Sneakers", "Walking Shoes"],
     price: 323,
     rate: 4,
     availableSizes: [6, 7, 9, 9.5, 10],
@@ -216,7 +216,7 @@ final List<ProductEntity> productListData = <ProductEntity>[
     title: "New Balance Streetwear",
     imageUrl:
         "https://firebasestorage.googleapis.com/v0/b/ecommerce-4f548.appspot.com/o/shoe9.png?alt=media",
-    category: ["New Balance", "Sneakers", "Walking Shoes"],
+    categories: ["New Balance", "Sneakers", "Walking Shoes"],
     price: 420,
     rate: 4,
     availableSizes: [6, 7, 7.5, 10, 10.5],
@@ -239,7 +239,7 @@ final List<ProductEntity> productListData = <ProductEntity>[
     title: "Nike Air Max 280",
     imageUrl:
         "https://firebasestorage.googleapis.com/v0/b/ecommerce-4f548.appspot.com/o/shoe10.png?alt=media",
-    category: ["Nike", "Air Max", "Walking Shoes"],
+    categories: ["Nike", "Air Max", "Walking Shoes"],
     price: 320,
     rate: 4,
     availableSizes: [6, 7, 7.5, 10, 10.5],
@@ -262,7 +262,7 @@ final List<ProductEntity> productListData = <ProductEntity>[
     title: "New Balance Streetwear",
     imageUrl:
         "https://firebasestorage.googleapis.com/v0/b/ecommerce-4f548.appspot.com/o/shoe12.png?alt=media",
-    category: ["New Balance", "Sneakers", "Walking Shoes"],
+    categories: ["New Balance", "Sneakers", "Walking Shoes"],
     price: 220,
     rate: 4.6,
     availableSizes: [6, 7, 7.5, 9, 10],
@@ -285,7 +285,7 @@ final List<ProductEntity> productListData = <ProductEntity>[
     title: "Nike Converse",
     imageUrl:
         "https://firebasestorage.googleapis.com/v0/b/ecommerce-4f548.appspot.com/o/shoe13.png?alt=media",
-    category: ["Nike", "Sneakers", "Running Shoes"],
+    categories: ["Nike", "Sneakers", "Running Shoes"],
     price: 315,
     rate: 4.3,
     availableSizes: [6, 7.5, 9, 10, 10.5],
@@ -308,7 +308,7 @@ final List<ProductEntity> productListData = <ProductEntity>[
     title: "Nike Converse",
     imageUrl:
         "https://firebasestorage.googleapis.com/v0/b/ecommerce-4f548.appspot.com/o/shoe14.png?alt=media",
-    category: ["Nike", "Sneakers", "Walking Shoes"],
+    categories: ["Nike", "Sneakers", "Walking Shoes"],
     price: 250,
     rate: 4.2,
     availableSizes: [6, 7, 7.5, 9, 9.5, 10.5],
@@ -331,7 +331,7 @@ final List<ProductEntity> productListData = <ProductEntity>[
     title: "Nike Converse",
     imageUrl:
         "https://firebasestorage.googleapis.com/v0/b/ecommerce-4f548.appspot.com/o/shoe15.png?alt=media",
-    category: ["Nike", "Sneakers", "Walking Shoes"],
+    categories: ["Nike", "Sneakers", "Walking Shoes"],
     price: 430,
     rate: 4.6,
     availableSizes: [7.5, 9, 9.5, 10.5],
@@ -354,7 +354,7 @@ final List<ProductEntity> productListData = <ProductEntity>[
     title: "Nike Streetwear",
     imageUrl:
         "https://firebasestorage.googleapis.com/v0/b/ecommerce-4f548.appspot.com/o/shoe16.png?alt=media",
-    category: ["Nike", "Sneakers", "Running Shoes"],
+    categories: ["Nike", "Sneakers", "Running Shoes"],
     price: 230,
     rate: 4.6,
     availableSizes: [7, 7.5, 9, 9.5, 10.5],
@@ -377,7 +377,7 @@ final List<ProductEntity> productListData = <ProductEntity>[
     title: "All Star Streetwear",
     imageUrl:
         "https://firebasestorage.googleapis.com/v0/b/ecommerce-4f548.appspot.com/o/shoe17.png?alt=media",
-    category: ["Nike", "All Star", "Running Shoes"],
+    categories: ["Nike", "All Star", "Running Shoes"],
     price: 360,
     rate: 4.6,
     availableSizes: [6, 7, 7.5, 9, 9.5, 10.5],
@@ -400,7 +400,7 @@ final List<ProductEntity> productListData = <ProductEntity>[
     title: "All Star Converse",
     imageUrl:
         "https://firebasestorage.googleapis.com/v0/b/ecommerce-4f548.appspot.com/o/shoe18.png?alt=media",
-    category: ["Nike", "Sneakers", "Running Shoes"],
+    categories: ["Nike", "Sneakers", "Running Shoes"],
     price: 250,
     rate: 4.1,
     availableSizes: [6, 9, 9.5, 10, 10.5],
@@ -423,7 +423,7 @@ final List<ProductEntity> productListData = <ProductEntity>[
     title: "All Star Converse",
     imageUrl:
         "https://firebasestorage.googleapis.com/v0/b/ecommerce-4f548.appspot.com/o/shoe19.png?alt=media",
-    category: ["Nike", "All Star", "Running Shoes"],
+    categories: ["Nike", "All Star", "Running Shoes"],
     price: 360,
     rate: 4.3,
     availableSizes: [6, 7, 7.5, 9, 9.5, 10],
@@ -446,7 +446,7 @@ final List<ProductEntity> productListData = <ProductEntity>[
     title: "Jordan Orginal",
     imageUrl:
         "https://firebasestorage.googleapis.com/v0/b/ecommerce-4f548.appspot.com/o/shoe20.png?alt=media",
-    category: ["Jordan", "Orginal", "Running Shoes"],
+    categories: ["Jordan", "Orginal", "Running Shoes"],
     price: 500,
     rate: 4.5,
     availableSizes: [6, 7, 7.5, 9, 9.5, 10],
@@ -469,7 +469,7 @@ final List<ProductEntity> productListData = <ProductEntity>[
     title: "Nike Air Max 350",
     imageUrl:
         "https://firebasestorage.googleapis.com/v0/b/ecommerce-4f548.appspot.com/o/shoe21.png?alt=media",
-    category: ["Nike", "Air Max", "Walking Shoes"],
+    categories: ["Nike", "Air Max", "Walking Shoes"],
     price: 340,
     rate: 4.2,
     availableSizes: [6, 7, 9, 9.5, 10],
@@ -492,7 +492,7 @@ final List<ProductEntity> productListData = <ProductEntity>[
     title: "Fila Walking Shoe",
     imageUrl:
         "https://firebasestorage.googleapis.com/v0/b/ecommerce-4f548.appspot.com/o/shoe22.png?alt=media",
-    category: ["Fila", "Sneakers", "Walking Shoes"],
+    categories: ["Fila", "Sneakers", "Walking Shoes"],
     price: 340,
     rate: 3.6,
     availableSizes: [6, 7, 9, 9.5, 10],
@@ -515,7 +515,7 @@ final List<ProductEntity> productListData = <ProductEntity>[
     title: "Nike Air Max 360",
     imageUrl:
         "https://firebasestorage.googleapis.com/v0/b/ecommerce-4f548.appspot.com/o/shoe23.png?alt=media",
-    category: ["Nike", "Air Max", "Walking Shoes"],
+    categories: ["Nike", "Air Max", "Walking Shoes"],
     price: 420,
     rate: 4.5,
     availableSizes: [6, 7, 9, 9.5, 10, 10.5],
@@ -538,7 +538,7 @@ final List<ProductEntity> productListData = <ProductEntity>[
     title: "Adidas Orginal",
     imageUrl:
         "https://firebasestorage.googleapis.com/v0/b/ecommerce-4f548.appspot.com/o/shoe24.png?alt=media",
-    category: ["Adidas", "Orginal", "Running Shoes"],
+    categories: ["Adidas", "Orginal", "Running Shoes"],
     price: 420,
     rate: 4.7,
     availableSizes: [6, 7, 7.5, 9, 9.5, 10, 10.5],
