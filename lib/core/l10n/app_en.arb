@@ -87,5 +87,19 @@
   "blue": "Blue",
   "black": "Black",
   "male": "Male",
-  "female": "Female"
+  "female": "Female",
+  "orderSummary": "Order Summary",
+  "totalProducts": "Total products",
+  "shippingCosts": "Shipping costs",
+  "promoCode": "Promo Code",
+  "apply": "Apply",
+  "shipment": "Shipment",
+  "appliedPromoCode": "Applied promo code",
+  "total": "Total",
+  "proceedToCheckout": "Proceed to Checkout",
+  "memberCheckout": "Member Checkout",
+  "acceptedPaymentMethods": "Accepted payment methods",
+  "shoppingCart": "Shopping Cart",
+  "estimatedDeliveryDate": "Estimated delivery date",
+  "delete": "Delete"
 }

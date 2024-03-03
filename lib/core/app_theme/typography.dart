@@ -12,6 +12,7 @@ abstract class Typography {
   late TextStyle bodyText2;
   late TextStyle bodyText3;
   late TextStyle bodyText4;
+  late TextStyle bodyText5;
 }
 
 class LightTypography implements Typography {
@@ -44,6 +45,14 @@ class LightTypography implements Typography {
     color: const Color(0xff0A083A),
     fontWeight: FontWeight.w400,
     fontSize: 14,
+    letterSpacing: 0,
+  );
+
+  @override
+  TextStyle bodyText5 = GoogleFonts.workSans(
+    color: const Color(0xff0A083A),
+    fontWeight: FontWeight.w600,
+    fontSize: 24,
     letterSpacing: 0,
   );
 
@@ -128,6 +137,13 @@ class DarkTypography implements Typography {
     fontSize: 14,
     letterSpacing: 0,
   );
+
+  @override
+  TextStyle bodyText5 = GoogleFonts.workSans(
+      color: const Color(0xffFFFFFF),
+      fontWeight: FontWeight.bold,
+      fontSize: 23,
+      letterSpacing: -4);
 
   @override
   TextStyle h1Title = GoogleFonts.workSans(

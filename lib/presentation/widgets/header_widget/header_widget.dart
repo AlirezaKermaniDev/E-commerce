@@ -4,6 +4,7 @@ import 'package:ecommerce_app/core/size_config.dart';
 import 'package:ecommerce_app/domain/entities/add_to_cart_product_entity/add_to_cart_product_entity.dart';
 import 'package:ecommerce_app/injection/injection.dart';
 import 'package:ecommerce_app/presentation/view/about_us_page/about_us_page.dart';
+import 'package:ecommerce_app/presentation/view/cart_page/cart_page.dart';
 import 'package:ecommerce_app/presentation/view/home_page/home_page.dart';
 import 'package:ecommerce_app/presentation/view/products_page/products_page.dart';
 import 'package:ecommerce_app/presentation/widgets/responsive_builder.dart';

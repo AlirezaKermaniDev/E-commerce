@@ -52,4 +52,7 @@ class CustomIcons {
   static const String countries = "$_base/countries.svg";
   static const String founded = "$_base/founded.svg";
   static const String clients = "$_base/clients.svg";
+  static const String paypalLogo = "$_base/paypal_logo.svg";
+  static const String visaLogo = "$_base/visa_logo.svg";
+  static const String klarnaLogo = "$_base/klarna_logo.svg";
 }

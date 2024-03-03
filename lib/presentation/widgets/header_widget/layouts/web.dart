@@ -117,43 +117,52 @@ class _HeaderWidgetWebState extends State<_HeaderWidgetWeb> {
                   const SizedBox(
                     width: 60,
                   ),
-                  SizedBox(
-                    width: 35,
-                    height: 35,
-                    child: Stack(
-                      children: [
-                        Align(
-                          alignment: Alignment.center,
-                          child: SizedBox(
-                            width: 25,
-                            child: SvgPicture.asset(
-                              CustomIcons.shopping,
-                              color: widget.forgroundColor ??
-                                  colorPalette.darkPrimary,
+                  InkWell(
+                    onTap: () {
+                      context.go(
+                        CartPage.path,
+                      );
+                    },
+                    child: SizedBox(
+                      width: 35,
+                      height: 35,
+                      child: Stack(
+                        children: [
+                          Align(
+                            alignment: Alignment.center,
+                            child: SizedBox(
+                              width: 25,
+                              child: SvgPicture.asset(
+                                CustomIcons.shopping,
+                                color: widget.selectedIndex == 6
+                                    ? colorPalette.accent4
+                                    : widget.forgroundColor ??
+                                        colorPalette.darkPrimary,
+                              ),
                             ),
                           ),
-                        ),
-                        if (count != 0)
-                          Align(
-                            alignment: Alignment.bottomRight,
-                            child: Container(
-                              height: 18,
-                              width: 18,
-                              decoration: BoxDecoration(
-                                color: colorPalette.accent4,
-                                shape: BoxShape.circle,
-                              ),
-                              child: Center(
-                                child: Text(
-                                  count.toString(),
-                                  style: typography.bodyText1.copyWith(
-                                      fontSize: 11,
-                                      color: colorPalette.primary),
+                          if (count != 0)
+                            Align(
+                              alignment: Alignment.bottomRight,
+                              child: Container(
+                                height: 18,
+                                width: 18,
+                                decoration: BoxDecoration(
+                                  color: colorPalette.accent4,
+                                  shape: BoxShape.circle,
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    count.toString(),
+                                    style: typography.bodyText1.copyWith(
+                                        fontSize: 11,
+                                        color: colorPalette.primary),
+                                  ),
                                 ),
                               ),
-                            ),
-                          )
-                      ],
+                            )
+                        ],
+                      ),
                     ),
                   ),
                 ],
