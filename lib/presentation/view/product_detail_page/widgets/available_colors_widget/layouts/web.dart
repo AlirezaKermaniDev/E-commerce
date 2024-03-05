@@ -13,7 +13,7 @@ class _AvailableColorsWidgetWeb extends StatelessWidget {
     return Row(
       children: [
         Text(
-          "Available in",
+          context.locale.availableIn,
           style: typography.bodyText4.copyWith(color: colorPalette.gray2),
         ),
         const SizedBox(

@@ -97,7 +97,7 @@ class _ProductDetailWidgetWeb extends StatelessWidget {
             slideTransition:
                 Tween<Offset>(begin: const Offset(0, .3), end: Offset.zero),
             child: Text(
-              "Select size",
+              context.locale.selectSize,
               style: typography.bodyText1.copyWith(
                 fontSize: 20,
               ),
@@ -130,7 +130,7 @@ class _ProductDetailWidgetWeb extends StatelessWidget {
             slideTransition:
                 Tween<Offset>(begin: const Offset(0, .3), end: Offset.zero),
             child: FilterItemsWidget(
-              title: "Material",
+              title: context.locale.material,
               initialExpanded: false,
               textStyle: typography.bodyText1.copyWith(
                 fontSize: 20,
@@ -170,7 +170,7 @@ class _ProductDetailWidgetWeb extends StatelessWidget {
             slideTransition:
                 Tween<Offset>(begin: const Offset(0, .3), end: Offset.zero),
             child: FilterItemsWidget(
-              title: "Delivery & Returns",
+              title: context.locale.deliveryAndReturns,
               initialExpanded: false,
               textStyle: typography.bodyText1.copyWith(
                 fontSize: 20,
@@ -204,7 +204,7 @@ class _ProductDetailWidgetWeb extends StatelessWidget {
             slideTransition:
                 Tween<Offset>(begin: const Offset(0, .3), end: Offset.zero),
             child: FilterItemsWidget(
-              title: "Description",
+              title: context.locale.description,
               initialExpanded: false,
               textStyle: typography.bodyText1.copyWith(
                 fontSize: 20,

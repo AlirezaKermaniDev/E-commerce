@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/core/extensions/locale_extensions.dart';
 import 'package:ecommerce_app/injection/injection.dart';
 import 'package:ecommerce_app/presentation/widgets/responsive_builder.dart';
 import 'package:flutter/material.dart';

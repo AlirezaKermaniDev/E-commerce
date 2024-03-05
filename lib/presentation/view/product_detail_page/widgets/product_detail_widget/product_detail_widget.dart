@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/core/extensions/locale_extensions.dart';
 import 'package:ecommerce_app/domain/entities/product_entity/product_entity.dart';
 import 'package:ecommerce_app/injection/injection.dart';
 import 'package:ecommerce_app/presentation/view/home_page/home_page.dart';

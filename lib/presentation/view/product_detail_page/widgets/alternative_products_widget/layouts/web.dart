@@ -21,7 +21,7 @@ class _AlternativeProductsWidgetWeb extends StatelessWidget {
             child: Row(
               children: [
                 Text(
-                  "You may also like",
+                 context.locale.youMayAlsoLike,
                   style: typography.h4Title,
                 ),
               ],

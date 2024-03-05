@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/core/extensions/locale_extensions.dart';
 import 'package:ecommerce_app/domain/entities/product_entity/product_entity.dart';
 import 'package:ecommerce_app/injection/injection.dart';
 import 'package:ecommerce_app/presentation/bloc/product_detail_bloc/product_detail_bloc.dart';
@@ -46,7 +47,7 @@ class _AddToCartButtonWidgetState extends State<AddToCartButtonWidget> {
             decoration: BoxDecoration(color: colorPalette.darkPrimary),
             child: Center(
               child: Text(
-                "Add to cart",
+                context.locale.addToCart,
                 style:
                     typography.bodyText3.copyWith(color: colorPalette.primary),
               ),

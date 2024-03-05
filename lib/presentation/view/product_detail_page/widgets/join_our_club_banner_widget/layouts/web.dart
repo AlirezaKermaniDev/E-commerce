@@ -21,11 +21,11 @@ class _JoinOurClubBannerWidgetWeb extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.only(top: 40),
                       child: TextHighlight(
-                        text: "Join our customers club & get 25% sale discount",
+                        text: context.locale.joinOurCustomersClub,
                         textStyle: typography.h2Title
                             .copyWith(color: colorPalette.primary, height: 1),
                         words: {
-                          "25% sale": HighlightedWord(
+                          "25% ${context.locale.sale}": HighlightedWord(
                               textStyle: typography.h2Title,
                               padding: const EdgeInsets.only(bottom: 30))
                         },
@@ -37,7 +37,7 @@ class _JoinOurClubBannerWidgetWeb extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       ButtonWidget(
-                        title: "Sign up for free",
+                        title: context.locale.signUpForFree,
                         color: colorPalette.accent1,
                         shadowColor: Colors.black26,
                         height: 60,

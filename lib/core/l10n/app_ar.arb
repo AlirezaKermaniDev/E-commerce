@@ -101,5 +101,13 @@
   "acceptedPaymentMethods": "Accepted payment methods",
   "shoppingCart": "Shopping Cart",
   "estimatedDeliveryDate": "Estimated delivery date",
-  "delete": "Delete"
+  "delete": "Delete",
+  "addToCart": "Add to cart",
+  "youMayAlsoLike": "You may also like",
+  "availableIn": "Available in",
+  "joinOurCustomersClub": "Join our customers club & get 25% sale discount",
+  "signUpForFree": "Sign up for free",
+  "selectSize": "Select size",
+  "deliveryAndReturns": "Delivery & Returns",
+  "description": "Description"
 }
