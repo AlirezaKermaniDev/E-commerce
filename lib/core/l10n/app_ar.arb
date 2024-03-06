@@ -109,5 +109,20 @@
   "signUpForFree": "Sign up for free",
   "selectSize": "Select size",
   "deliveryAndReturns": "Delivery & Returns",
-  "description": "Description"
+  "description": "Description",
+  "cart": "Cart",
+  "address": "Address",
+  "shipping": "Shipping",
+  "billing": "Billing",
+  "email": "Email",
+  "name": "Name",
+  "lastName": "Last Name",
+  "aptUnitEtc": "Apt, Unit, etc.",
+  "town": "Town",
+  "city": "City",
+  "country": "Country",
+  "zip": "ZIP",
+  "state": "State",
+  "saveInformationForDelivery": "Save information for delivery",
+  "returnToCart": "Return to Cart"
 }

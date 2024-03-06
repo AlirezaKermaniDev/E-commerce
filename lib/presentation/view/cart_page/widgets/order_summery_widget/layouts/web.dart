@@ -1,10 +1,8 @@
 part of '../order_summery_widget.dart';
 
 class _OrderSummeryWidgetWeb extends StatelessWidget {
-  const _OrderSummeryWidgetWeb({
-    super.key,
-  });
-
+  const _OrderSummeryWidgetWeb({super.key, this.withContinueBttons = true});
+  final bool withContinueBttons;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -105,62 +103,72 @@ class _OrderSummeryWidgetWeb extends StatelessWidget {
               value: "\$140",
               boldValue: true,
             ),
-            const SizedBox(
-              height: 60,
-            ),
-            Container(
-              height: 65,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                  color: colorPalette.darkPrimary,
-                  borderRadius: BorderRadius.circular(5)),
-              child: Center(
-                child: Text(context.locale.proceedToCheckout,
-                    style: typography.bodyText2
-                        .copyWith(color: colorPalette.primary)),
+            if (withContinueBttons)
+              Column(
+                children: [
+                  const SizedBox(
+                    height: 60,
+                  ),
+                  InkWell(
+                    onTap: () {
+                      context.go(AddressPage.path);
+                    },
+                    child: Container(
+                      height: 60,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                          color: colorPalette.darkPrimary,
+                          borderRadius: BorderRadius.circular(5)),
+                      child: Center(
+                        child: Text(context.locale.proceedToCheckout,
+                            style: typography.bodyText2
+                                .copyWith(color: colorPalette.primary)),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  Container(
+                    height: 60,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                        border: Border.all(color: colorPalette.darkPrimary),
+                        borderRadius: BorderRadius.circular(5)),
+                    child: Center(
+                      child: Text(context.locale.memberCheckout,
+                          style: typography.bodyText2),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 50,
+                  ),
+                  Text(context.locale.acceptedPaymentMethods,
+                      style: typography.bodyText2),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  Row(
+                    children: [
+                      SvgPicture.asset(
+                        CustomIcons.paypalLogo,
+                      ),
+                      const SizedBox(
+                        width: 16,
+                      ),
+                      SvgPicture.asset(
+                        CustomIcons.visaLogo,
+                      ),
+                      const SizedBox(
+                        width: 16,
+                      ),
+                      SvgPicture.asset(
+                        CustomIcons.klarnaLogo,
+                      ),
+                    ],
+                  )
+                ],
               ),
-            ),
-            const SizedBox(
-              height: 16,
-            ),
-            Container(
-              height: 65,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                  border: Border.all(color: colorPalette.darkPrimary),
-                  borderRadius: BorderRadius.circular(5)),
-              child: Center(
-                child: Text(context.locale.memberCheckout,
-                    style: typography.bodyText2),
-              ),
-            ),
-            const SizedBox(
-              height: 50,
-            ),
-            Text(context.locale.acceptedPaymentMethods,
-                style: typography.bodyText2),
-            const SizedBox(
-              height: 16,
-            ),
-            Row(
-              children: [
-                SvgPicture.asset(
-                  CustomIcons.paypalLogo,
-                ),
-                const SizedBox(
-                  width: 16,
-                ),
-                SvgPicture.asset(
-                  CustomIcons.visaLogo,
-                ),
-                const SizedBox(
-                  width: 16,
-                ),
-                SvgPicture.asset(
-                  CustomIcons.klarnaLogo,
-                ),
-              ],
-            )
           ],
         ),
       ),

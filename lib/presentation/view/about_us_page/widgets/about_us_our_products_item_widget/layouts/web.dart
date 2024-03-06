@@ -71,7 +71,7 @@ class _AboutUsOurProductsItemWidgetWeb extends StatelessWidget {
         slideTransition:
             Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
         delay: const Duration(milliseconds: 750),
-        child: ArrowButtonWidget(
+        child: ArrowTitleButtonWidget(
           title: "Shop collection",
           onTap: () {},
           color: colorPalette.accent1,

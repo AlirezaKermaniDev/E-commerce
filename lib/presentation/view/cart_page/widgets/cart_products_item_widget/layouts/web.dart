@@ -23,7 +23,7 @@ class _CartProductsItemWidgetWeb extends StatelessWidget {
               height: double.infinity,
               child: AnimatorWidget(
                   withFadeTransition: true,
-                  delay: Duration(milliseconds: 900 + (index * 200)),
+                  delay: Duration(milliseconds: 300 + (index * 200)),
                   slideTransition: Tween<Offset>(
                       begin: const Offset(0, .1), end: Offset.zero),
                   child:
@@ -46,7 +46,7 @@ class _CartProductsItemWidgetWeb extends StatelessWidget {
                           AnimatorWidget(
                               withFadeTransition: true,
                               delay:
-                                  Duration(milliseconds: 950 + (index * 200)),
+                                  Duration(milliseconds: 400 + (index * 200)),
                               slideTransition: Tween<Offset>(
                                   begin: const Offset(.05, 0),
                                   end: Offset.zero),
@@ -55,7 +55,7 @@ class _CartProductsItemWidgetWeb extends StatelessWidget {
                           AnimatorWidget(
                               withFadeTransition: true,
                               delay:
-                                  Duration(milliseconds: 1000 + (index * 200)),
+                                  Duration(milliseconds: 500 + (index * 200)),
                               slideTransition: Tween<Offset>(
                                   begin: const Offset(.05, 0),
                                   end: Offset.zero),
@@ -68,7 +68,7 @@ class _CartProductsItemWidgetWeb extends StatelessWidget {
                       ),
                       AnimatorWidget(
                         withFadeTransition: true,
-                        delay: Duration(milliseconds: 1050 + (index * 200)),
+                        delay: Duration(milliseconds: 600 + (index * 200)),
                         slideTransition: Tween<Offset>(
                             begin: const Offset(.05, 0), end: Offset.zero),
                         child: Text(item.categories?.last ?? "",
@@ -80,7 +80,7 @@ class _CartProductsItemWidgetWeb extends StatelessWidget {
                       ),
                       AnimatorWidget(
                         withFadeTransition: true,
-                        delay: Duration(milliseconds: 1100 + (index * 200)),
+                        delay: Duration(milliseconds: 700 + (index * 200)),
                         slideTransition: Tween<Offset>(
                             begin: const Offset(.05, 0), end: Offset.zero),
                         child: Row(
@@ -100,7 +100,7 @@ class _CartProductsItemWidgetWeb extends StatelessWidget {
                       ),
                       AnimatorWidget(
                         withFadeTransition: true,
-                        delay: Duration(milliseconds: 1150 + (index * 200)),
+                        delay: Duration(milliseconds: 800 + (index * 200)),
                         slideTransition: Tween<Offset>(
                             begin: const Offset(.05, 0), end: Offset.zero),
                         child: Row(
@@ -122,7 +122,7 @@ class _CartProductsItemWidgetWeb extends StatelessWidget {
                     children: [
                       AnimatorWidget(
                         withFadeTransition: true,
-                        delay: Duration(milliseconds: 1200 + (index * 200)),
+                        delay: Duration(milliseconds: 900 + (index * 200)),
                         slideTransition: Tween<Offset>(
                             begin: const Offset(.05, 0), end: Offset.zero),
                         child: Row(
@@ -154,7 +154,7 @@ class _CartProductsItemWidgetWeb extends StatelessWidget {
                       ),
                       AnimatorWidget(
                         withFadeTransition: true,
-                        delay: Duration(milliseconds: 1250 + (index * 200)),
+                        delay: Duration(milliseconds: 1000 + (index * 200)),
                         slideTransition: Tween<Offset>(
                             begin: const Offset(.05, 0), end: Offset.zero),
                         child: const CartProductsItemDeleteButtonWidget(),

@@ -28,7 +28,7 @@ class _CartProductsListWidgetWeb extends StatelessWidget {
         TextAnimator(
           "${context.locale.total}: 5 ${context.locale.items}",
           style: typography.bodyText2.copyWith(color: colorPalette.gray2),
-          initialDelay: const Duration(milliseconds: 700),
+          initialDelay: const Duration(milliseconds: 300),
         ),
         const SizedBox(
           height: 60,

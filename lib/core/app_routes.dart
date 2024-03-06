@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/presentation/view/about_us_page/about_us_page.dart';
+import 'package:ecommerce_app/presentation/view/address_page/address_page.dart';
 import 'package:ecommerce_app/presentation/view/cart_page/cart_page.dart';
 import 'package:ecommerce_app/presentation/view/home_page/home_page.dart';
 import 'package:ecommerce_app/presentation/view/product_detail_page/product_detail_page.dart';
@@ -53,6 +54,12 @@ final GoRouter routes = GoRouter(
       path: CartPage.path,
       builder: (BuildContext context, GoRouterState state) {
         return const CartPage();
+      },
+    ),
+    GoRoute(
+      path: AddressPage.path,
+      builder: (BuildContext context, GoRouterState state) {
+        return const AddressPage();
       },
     ),
   ],

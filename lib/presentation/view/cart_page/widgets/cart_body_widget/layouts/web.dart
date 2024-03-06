@@ -26,7 +26,7 @@ class _CartBodyWidgetWeb extends StatelessWidget {
           ),
           AnimatorWidget(
             withFadeTransition: true,
-            delay: const Duration(milliseconds: 1300),
+            delay: const Duration(milliseconds: 200),
             slideTransition:
                 Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
             child: Visibility(

@@ -936,7 +936,7 @@ class NewArrivalsWidget extends StatelessWidget {
                       slideTransition: Tween<Offset>(
                           begin: const Offset(.1, 0), end: Offset.zero),
                       withFadeTransition: true,
-                      child: ArrowButtonWidget(
+                      child: ArrowTitleButtonWidget(
                         title: context.locale.viewAll,
                         onTap: () {},
                       ),
@@ -1178,7 +1178,7 @@ class BestSellerWidget extends StatelessWidget {
                 slideTransition:
                     Tween<Offset>(begin: const Offset(.1, 0), end: Offset.zero),
                 withFadeTransition: true,
-                child: ArrowButtonWidget(
+                child: ArrowTitleButtonWidget(
                   title: context.locale.viewAll,
                   onTap: () {},
                 ),
@@ -1654,7 +1654,7 @@ class _FeaturedProductsWidgetState extends State<FeaturedProductsWidget> {
                 slideTransition:
                     Tween<Offset>(begin: const Offset(.1, 0), end: Offset.zero),
                 withFadeTransition: true,
-                child: ArrowButtonWidget(
+                child: ArrowTitleButtonWidget(
                   title: context.locale.viewAll,
                   onTap: () {},
                 ),
@@ -1900,8 +1900,8 @@ class RateBarWidget extends StatelessWidget {
   }
 }
 
-class ArrowButtonWidget extends StatefulWidget {
-  const ArrowButtonWidget(
+class ArrowTitleButtonWidget extends StatefulWidget {
+  const ArrowTitleButtonWidget(
       {super.key,
       required this.title,
       this.isForwardArrow = true,
@@ -1919,10 +1919,10 @@ class ArrowButtonWidget extends StatefulWidget {
   final MainAxisAlignment? mainAxisAlignment;
 
   @override
-  State<ArrowButtonWidget> createState() => _ArrowButtonWidgetState();
+  State<ArrowTitleButtonWidget> createState() => _ArrowTitleButtonWidgetState();
 }
 
-class _ArrowButtonWidgetState extends State<ArrowButtonWidget> {
+class _ArrowTitleButtonWidgetState extends State<ArrowTitleButtonWidget> {
   bool _isHover = false;
   @override
   Widget build(BuildContext context) {
