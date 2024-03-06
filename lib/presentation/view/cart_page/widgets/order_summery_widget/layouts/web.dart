@@ -111,7 +111,7 @@ class _OrderSummeryWidgetWeb extends StatelessWidget {
                   ),
                   InkWell(
                     onTap: () {
-                      context.go(AddressPage.path);
+                      context.push(AddressPage.path);
                     },
                     child: Container(
                       height: 60,

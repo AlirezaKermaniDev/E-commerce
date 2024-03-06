@@ -1927,7 +1927,7 @@ class _ArrowTitleButtonWidgetState extends State<ArrowTitleButtonWidget> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: widget.onTap,
       hoverColor: Colors.transparent,
       onHover: (value) {
         setState(() {

@@ -1,16 +1,16 @@
 import 'package:ecommerce_app/core/extensions/locale_extensions.dart';
 import 'package:ecommerce_app/core/size_config.dart';
 import 'package:ecommerce_app/injection/injection.dart';
-import 'package:ecommerce_app/presentation/view/address_page/widgets/address_body_widget/address_body_widget.dart';
+import 'package:ecommerce_app/presentation/view/delivery_page/widgets/delivery_body_widget/delivery_body_widget.dart';
 import 'package:ecommerce_app/presentation/view/product_detail_page/widgets/breadcrumb_widget/breadcrumb_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/footer_widget/footer_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/header_widget/header_widget.dart';
 import 'package:flutter/material.dart';
 
-class AddressPage extends StatelessWidget {
-  static const String path = "/address";
+class DeliveryPage extends StatelessWidget {
+  static const String path = "/delivery";
 
-  const AddressPage({super.key});
+  const DeliveryPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,7 @@ class AddressPage extends StatelessWidget {
                       context.locale.delivery,
                       context.locale.billing,
                     ],
-                    selectedItem: context.locale.address,
+                    selectedItem: context.locale.delivery,
                     isBold: true,
                     unSelectedColor: colorPalette.gray4,
                   ),
@@ -52,7 +52,7 @@ class AddressPage extends StatelessWidget {
             const SizedBox(
               height: 72,
             ),
-            const AddressBodyWidget(),
+            const DeliveryBodyWidget(),
             const SizedBox(
               height: 120,
             ),
@@ -74,4 +74,5 @@ class AddressPage extends StatelessWidget {
     );
   }
 }
+
 

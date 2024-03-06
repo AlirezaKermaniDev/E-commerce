@@ -208,7 +208,9 @@ class _AddressFormFieldsWidgetWeb extends StatelessWidget {
                 icon: Icons.arrow_back_ios_new_rounded,
                 iconSize: 22,
                 color: colorPalette.darkPrimary,
-                onTap: () {},
+                onTap: () {
+                  context.pop();
+                },
               ),
             ),
             AnimatorWidget(
@@ -217,7 +219,9 @@ class _AddressFormFieldsWidgetWeb extends StatelessWidget {
               slideTransition:
                   Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  context.push(DeliveryPage.path);
+                },
                 child: Container(
                   height: 60,
                   width: 350,
@@ -225,7 +229,7 @@ class _AddressFormFieldsWidgetWeb extends StatelessWidget {
                       color: colorPalette.darkPrimary,
                       borderRadius: BorderRadius.circular(5)),
                   child: Center(
-                    child: Text(context.locale.proceedToCheckout,
+                    child: Text(context.locale.proceedToDelivery,
                         style: typography.bodyText2
                             .copyWith(color: colorPalette.primary)),
                   ),

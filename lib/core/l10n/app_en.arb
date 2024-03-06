@@ -97,6 +97,8 @@
   "appliedPromoCode": "Applied promo code",
   "total": "Total",
   "proceedToCheckout": "Proceed to Checkout",
+  "proceedToDelivery": "Proceed to Delivery",
+  "proceedToBilling": "Proceed to Billing",
   "memberCheckout": "Member Checkout",
   "acceptedPaymentMethods": "Accepted payment methods",
   "shoppingCart": "Shopping Cart",
@@ -112,7 +114,7 @@
   "description": "Description",
   "cart": "Cart",
   "address": "Address",
-  "shipping": "Shipping",
+  "delivery": "Delivery",
   "billing": "Billing",
   "email": "Email",
   "name": "Name",
@@ -124,5 +126,11 @@
   "zip": "ZIP",
   "state": "State",
   "saveInformationForDelivery": "Save information for delivery",
-  "returnToCart": "Return to Cart"
+  "returnToCart": "Return to Cart",
+  "pleaseSendMeSmsShippingUpdatesAboutMyOrder": "Please send me SMS shipping updates about my order.",
+  "returnToAddress": "Return to Address",
+  "selectDeliveryMethod": "Select Delivery Method",
+  "standardDelivery": "Standard Delivery",
+  "free": "Free",
+  "change": "Change"
 }
