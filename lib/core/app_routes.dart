@@ -1,5 +1,6 @@
 import 'package:ecommerce_app/presentation/view/about_us_page/about_us_page.dart';
 import 'package:ecommerce_app/presentation/view/address_page/address_page.dart';
+import 'package:ecommerce_app/presentation/view/billing_page/billing_page.dart';
 import 'package:ecommerce_app/presentation/view/cart_page/cart_page.dart';
 import 'package:ecommerce_app/presentation/view/delivery_page/delivery_page.dart';
 import 'package:ecommerce_app/presentation/view/home_page/home_page.dart';
@@ -67,6 +68,12 @@ final GoRouter routes = GoRouter(
       path: DeliveryPage.path,
       builder: (BuildContext context, GoRouterState state) {
         return const DeliveryPage();
+      },
+    ),
+    GoRoute(
+      path: BillingPage.path,
+      builder: (BuildContext context, GoRouterState state) {
+        return const BillingPage();
       },
     ),
   ],

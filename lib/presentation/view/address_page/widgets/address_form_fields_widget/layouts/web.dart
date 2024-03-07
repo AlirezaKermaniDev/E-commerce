@@ -194,49 +194,12 @@ class _AddressFormFieldsWidgetWeb extends StatelessWidget {
         const SizedBox(
           height: 25,
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            AnimatorWidget(
-              withFadeTransition: true,
-              delay: const Duration(milliseconds: 1000),
-              slideTransition:
-                  Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
-              child: ArrowTitleButtonWidget(
-                title: context.locale.returnToCart,
-                isForwardArrow: false,
-                icon: Icons.arrow_back_ios_new_rounded,
-                iconSize: 22,
-                color: colorPalette.darkPrimary,
-                onTap: () {
-                  context.pop();
-                },
-              ),
-            ),
-            AnimatorWidget(
-              withFadeTransition: true,
-              delay: const Duration(milliseconds: 1100),
-              slideTransition:
-                  Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
-              child: InkWell(
-                onTap: () {
-                  context.push(DeliveryPage.path);
-                },
-                child: Container(
-                  height: 60,
-                  width: 350,
-                  decoration: BoxDecoration(
-                      color: colorPalette.darkPrimary,
-                      borderRadius: BorderRadius.circular(5)),
-                  child: Center(
-                    child: Text(context.locale.proceedToDelivery,
-                        style: typography.bodyText2
-                            .copyWith(color: colorPalette.primary)),
-                  ),
-                ),
-              ),
-            ),
-          ],
+        PurchaseActionButtons(
+          backButtonText: context.locale.returnToCart,
+          continueButtonText: context.locale.proceedToDelivery,
+          onTapContinue: () {
+            context.push(DeliveryPage.path);
+          },
         ),
       ],
     );

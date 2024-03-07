@@ -132,5 +132,12 @@
   "selectDeliveryMethod": "Select Delivery Method",
   "standardDelivery": "Standard Delivery",
   "free": "Free",
-  "change": "Change"
+  "change": "Change",
+  "returnToDelivery": "Return to Delivery",
+  "paySafely": "Pay Safely",
+  "creditCard": "Credit Card",
+  "cardNumber": "Card number",
+  "cardHolderName": "Card holder name",
+  "expirationDate": "Expiration date (MM/YY)",
+  "securityCode": "Security Code"
 }
