@@ -97,11 +97,22 @@ class _HeaderWidgetWebState extends State<_HeaderWidgetWeb> {
               ),
               Row(
                 children: [
-                  SizedBox(
-                    width: 25,
-                    child: SvgPicture.asset(
-                      CustomIcons.search,
-                      color: widget.forgroundColor ?? colorPalette.darkPrimary,
+                  InkWell(
+                    onTap: () {
+                      showDialog(
+                          context: context,
+                          barrierColor: Colors.black.withOpacity(.12),
+                          builder: (context) {
+                            return const SearchDialogWidget();
+                          });
+                    },
+                    child: SizedBox(
+                      width: 25,
+                      child: SvgPicture.asset(
+                        CustomIcons.search,
+                        color:
+                            widget.forgroundColor ?? colorPalette.darkPrimary,
+                      ),
                     ),
                   ),
                   const SizedBox(
@@ -174,6 +185,7 @@ class _HeaderWidgetWebState extends State<_HeaderWidgetWeb> {
     );
   }
 }
+
 
 class HeaderTabItemWidget extends StatelessWidget {
   const HeaderTabItemWidget({

@@ -8,14 +8,15 @@ import 'package:ecommerce_app/presentation/view/cart_page/cart_page.dart';
 import 'package:ecommerce_app/presentation/view/home_page/home_page.dart';
 import 'package:ecommerce_app/presentation/view/products_page/products_page.dart';
 import 'package:ecommerce_app/presentation/widgets/responsive_builder.dart';
+import 'package:ecommerce_app/presentation/widgets/search_dialog_widget/search_dialog_widget.dart';
 import 'package:event_bus/event_bus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 
 part 'layouts/phone.dart';
-part "./layouts/tablet.dart";
-part "./layouts/web.dart";
+part "layouts/tablet.dart";
+part "layouts/web.dart";
 
 class HeaderWidget extends StatelessWidget {
   const HeaderWidget({

@@ -139,6 +139,8 @@
   "cardNumber": "Card number",
   "cardHolderName": "Card holder name",
   "expirationDate": "Expiration date (MM/YY)",
-  "securityCode": "Security Code"
+  "securityCode": "Security Code", 
+  "search": "Search",
+  "noResultFor": "No result for"
 
 }
