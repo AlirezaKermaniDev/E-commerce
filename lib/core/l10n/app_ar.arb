@@ -141,6 +141,14 @@
   "expirationDate": "Expiration date (MM/YY)",
   "securityCode": "Security Code", 
   "search": "Search",
-  "noResultFor": "No result for"
+  "noResultFor": "No result for",
+  "signInToKicks": "Sign in to Kicks",
+  "notAMember": "Not a member?",
+  "joinUs": "Join us.",
+  "password": "Password",
+  "recoveryPassword": "Recovery password",
+  "signIn": "Sign In",
+  "orContinueWith": "or continue with",
+  "theyCanBeUsedToDeliverSpacecraft": "They can be used to deliver spacecraft to the ends of the solar system with hyper-pinpoint accuracy."
 
 }

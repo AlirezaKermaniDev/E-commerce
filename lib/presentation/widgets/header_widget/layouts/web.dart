@@ -41,60 +41,62 @@ class _HeaderWidgetWebState extends State<_HeaderWidgetWeb> {
             children: [
               SizedBox(
                   height: 70, width: 70, child: Image.asset(AssetHandler.logo)),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      HeaderTabItemWidget(
-                        title: context.locale.footwear,
-                        isSelected: widget.selectedIndex == 0,
-                        forgroundColor: widget.forgroundColor,
-                        onTap: () {
-                          context.go(
-                            HomePage.path,
-                          );
-                        },
-                      ),
-                      const SizedBox(
-                        width: 56,
-                      ),
-                      HeaderTabItemWidget(
-                        title: context.locale.aboutUs,
-                        isSelected: widget.selectedIndex == 1,
-                        forgroundColor: widget.forgroundColor,
-                        onTap: () {
-                          context.go(AboutUsPage.path);
-                        },
-                      ),
-                      const SizedBox(
-                        width: 56,
-                      ),
-                      HeaderTabItemWidget(
-                        title: context.locale.products,
-                        isSelected: widget.selectedIndex == 2,
-                        forgroundColor: widget.forgroundColor,
-                        onTap: () {
-                          context.go(ProductsPage.path);
-                        },
-                      ),
-                      const SizedBox(
-                        width: 56,
-                      ),
-                      HeaderTabItemWidget(
-                        title: context.locale.sale,
-                        isSelected: widget.selectedIndex == 3,
-                        forgroundColor: widget.forgroundColor,
-                        onTap: () {},
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                ],
-              ),
+              widget.selectedIndex == 5
+                  ? const SizedBox()
+                  : Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            HeaderTabItemWidget(
+                              title: context.locale.footwear,
+                              isSelected: widget.selectedIndex == 0,
+                              forgroundColor: widget.forgroundColor,
+                              onTap: () {
+                                context.go(
+                                  HomePage.path,
+                                );
+                              },
+                            ),
+                            const SizedBox(
+                              width: 56,
+                            ),
+                            HeaderTabItemWidget(
+                              title: context.locale.aboutUs,
+                              isSelected: widget.selectedIndex == 1,
+                              forgroundColor: widget.forgroundColor,
+                              onTap: () {
+                                context.go(AboutUsPage.path);
+                              },
+                            ),
+                            const SizedBox(
+                              width: 56,
+                            ),
+                            HeaderTabItemWidget(
+                              title: context.locale.products,
+                              isSelected: widget.selectedIndex == 2,
+                              forgroundColor: widget.forgroundColor,
+                              onTap: () {
+                                context.go(ProductsPage.path);
+                              },
+                            ),
+                            const SizedBox(
+                              width: 56,
+                            ),
+                            HeaderTabItemWidget(
+                              title: context.locale.sale,
+                              isSelected: widget.selectedIndex == 3,
+                              forgroundColor: widget.forgroundColor,
+                              onTap: () {},
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 5,
+                        ),
+                      ],
+                    ),
               Row(
                 children: [
                   InkWell(
@@ -118,11 +120,20 @@ class _HeaderWidgetWebState extends State<_HeaderWidgetWeb> {
                   const SizedBox(
                     width: 60,
                   ),
-                  SizedBox(
-                    width: 25,
-                    child: SvgPicture.asset(
-                      CustomIcons.user,
-                      color: widget.forgroundColor ?? colorPalette.darkPrimary,
+                  InkWell(
+                    onTap: () {
+                      context.go(
+                        SignInPage.path,
+                      );
+                    },
+                    child: SizedBox(
+                      width: 25,
+                      child: SvgPicture.asset(
+                        CustomIcons.user,
+                        color: widget.selectedIndex == 5
+                            ? colorPalette.accent4
+                            : widget.forgroundColor ?? colorPalette.darkPrimary,
+                      ),
                     ),
                   ),
                   const SizedBox(
@@ -185,7 +196,6 @@ class _HeaderWidgetWebState extends State<_HeaderWidgetWeb> {
     );
   }
 }
-
 
 class HeaderTabItemWidget extends StatelessWidget {
   const HeaderTabItemWidget({

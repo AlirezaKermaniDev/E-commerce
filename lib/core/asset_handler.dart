@@ -35,6 +35,13 @@ class AssetHandler {
   static const String manager = "$_base/manager.png";
   static const String signature = "$_base/signature.png";
   static const String person1 = "$_base/person1.png";
+  static const String card = "$_base/card.png";
+  static const String card1 = "$_base/card1.png";
+  static const String card2 = "$_base/card2.png";
+  static const String card3 = "$_base/card3.png";
+  static const String card4 = "$_base/card4.png";
+  static const String card5 = "$_base/card5.png";
+  static const String card6 = "$_base/card6.png";
 }
 
 class CustomIcons {
@@ -55,4 +62,5 @@ class CustomIcons {
   static const String paypalLogo = "$_base/paypal_logo.svg";
   static const String visaLogo = "$_base/visa_logo.svg";
   static const String klarnaLogo = "$_base/klarna_logo.svg";
+  static const String googleLogo = "$_base/google_logo.svg";
 }

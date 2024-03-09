@@ -6,6 +6,7 @@ import 'package:ecommerce_app/presentation/view/delivery_page/delivery_page.dart
 import 'package:ecommerce_app/presentation/view/home_page/home_page.dart';
 import 'package:ecommerce_app/presentation/view/product_detail_page/product_detail_page.dart';
 import 'package:ecommerce_app/presentation/view/products_page/products_page.dart';
+import 'package:ecommerce_app/presentation/view/sign_in_page/sign_in_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -74,6 +75,12 @@ final GoRouter routes = GoRouter(
       path: BillingPage.path,
       builder: (BuildContext context, GoRouterState state) {
         return const BillingPage();
+      },
+    ),
+    GoRoute(
+      path: SignInPage.path,
+      builder: (BuildContext context, GoRouterState state) {
+        return const SignInPage();
       },
     ),
   ],
