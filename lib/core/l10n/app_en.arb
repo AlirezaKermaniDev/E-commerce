@@ -149,5 +149,15 @@
   "recoveryPassword": "Recovery password",
   "signIn": "Sign In",
   "orContinueWith": "or continue with",
-  "theyCanBeUsedToDeliverSpacecraft": "They can be used to deliver spacecraft to the ends of the solar system with hyper-pinpoint accuracy."
+  "theyCanBeUsedToDeliverSpacecraft": "They can be used to deliver spacecraft to the ends of the solar system with hyper-pinpoint accuracy.",
+  "createYourKicksAccount": "Create your Kicks account",
+  "alreadyHaveAnCccount": "Already have an account? Log in",
+  "logIn": "Log in",
+  "fullName": "Full name",
+  "dateOfBirth": "Date of birth",
+  "getYearlyDiscountOnYourBirthday": "Get a yearly discount on your Birthday.",
+  "signUpForEmailsToGetUpdatesFromShop": "Sign up for emails to get updates from Shop, on products, benefits and offers.",
+  "dyCreatingAnAccountYouAgree": "By creating an account, you agree to Shop's Privacy Policy and Terms of Use.",
+  "termOfUse": "Terms of Use",
+  "ecommerceUiKitMadeForYourBusiness": "E-commerce UI Kit made for your business"
 }

@@ -43,6 +43,9 @@ class _SignInFormWidgetWeb extends StatelessWidget {
                       textStyle: typography.bodyText2.copyWith(
                         color: colorPalette.accent1,
                       ),
+                      onTap: () {
+                        context.go(SignUpPage.path);
+                      },
                       decoration: BoxDecoration(
                         border: Border(
                           bottom:
@@ -57,26 +60,44 @@ class _SignInFormWidgetWeb extends StatelessWidget {
                 height: 48,
               ),
               AnimatorWidget(
-                  withFadeTransition: true,
-                  delay: const Duration(milliseconds: 200),
-                  slideTransition: Tween<Offset>(
-                    begin: const Offset(0, .1),
-                    end: Offset.zero,
+                withFadeTransition: true,
+                delay: const Duration(milliseconds: 200),
+                slideTransition: Tween<Offset>(
+                  begin: const Offset(0, .1),
+                  end: Offset.zero,
+                ),
+                child: TextFieldWidget(
+                  lable: context.locale.email,
+                  onChange: (_) {},
+                  suffixIcon: Icon(
+                    Icons.email_outlined,
+                    size: 26,
+                    color: colorPalette.gray4,
                   ),
-                  child: TextFieldWidget(
-                      lable: context.locale.email, onChange: (_) {})),
+                  onTapSuffix: () {},
+                ),
+              ),
               const SizedBox(
                 height: 12,
               ),
               AnimatorWidget(
-                  withFadeTransition: true,
-                  delay: const Duration(milliseconds: 300),
-                  slideTransition: Tween<Offset>(
-                    begin: const Offset(0, .1),
-                    end: Offset.zero,
+                withFadeTransition: true,
+                delay: const Duration(milliseconds: 300),
+                slideTransition: Tween<Offset>(
+                  begin: const Offset(0, .1),
+                  end: Offset.zero,
+                ),
+                child: TextFieldWidget(
+                  lable: context.locale.password,
+                  onChange: (_) {},
+                  suffixIcon: Icon(
+                    Icons.password_rounded,
+                    size: 26,
+                    color: colorPalette.gray4,
                   ),
-                  child: TextFieldWidget(
-                      lable: context.locale.password, onChange: (_) {})),
+                  onTapSuffix: () {},
+                ),
+              ),
               const SizedBox(
                 height: 8,
               ),
