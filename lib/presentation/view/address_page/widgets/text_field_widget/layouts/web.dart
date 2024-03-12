@@ -32,7 +32,8 @@ class _TextFieldWidgetWeb extends StatelessWidget {
         ),
         suffixIcon: onTapSuffix != null
             ? Padding(
-                padding: const EdgeInsets.only(right: 16, top: 8, bottom: 8),
+                padding: const EdgeInsets.only(
+                    right: 16, top: 8, bottom: 8, left: 16),
                 child: InkWell(
                   onTap: onTapSuffix,
                   hoverColor: Colors.transparent,

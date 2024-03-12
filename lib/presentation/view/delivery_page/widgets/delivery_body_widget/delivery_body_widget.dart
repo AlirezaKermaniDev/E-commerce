@@ -1,5 +1,6 @@
 import 'package:ecommerce_app/core/size_config.dart';
 import 'package:ecommerce_app/injection/injection.dart';
+import 'package:ecommerce_app/presentation/bloc/cart_bloc/cart_bloc.dart';
 import 'package:ecommerce_app/presentation/view/cart_page/widgets/order_summery_widget/order_summery_widget.dart';
 import 'package:ecommerce_app/presentation/view/delivery_page/widgets/delivery_form_widget/delivery_form_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/animator_widget.dart';

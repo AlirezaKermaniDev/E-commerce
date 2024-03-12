@@ -5,7 +5,7 @@ import 'package:ecommerce_app/presentation/view/about_us_page/widgets/about_us_i
 import 'package:ecommerce_app/presentation/view/about_us_page/widgets/about_us_landing_widget/about_us_landing_widget.dart';
 import 'package:ecommerce_app/presentation/view/about_us_page/widgets/about_us_our_products_widget/about_us_our_products_widget.dart';
 import 'package:ecommerce_app/presentation/view/about_us_page/widgets/about_us_papular_brands_widget/about_us_papular_brands_widget.dart';
-import 'package:ecommerce_app/presentation/view/home_page/home_page.dart';
+import 'package:ecommerce_app/presentation/view/home_page/widgets/accesories_widget/accesories_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/footer_widget/footer_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/header_widget/header_widget.dart';
 import 'package:flutter/material.dart';

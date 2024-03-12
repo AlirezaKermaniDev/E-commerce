@@ -15,7 +15,7 @@ class _SignInFormWidgetWeb extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              TextAnimator(
+              AnimatorTextWidget(
                 context.locale.signInToKicks,
                 style: typography.h4Title,
                 initialDelay: const Duration(milliseconds: 100),

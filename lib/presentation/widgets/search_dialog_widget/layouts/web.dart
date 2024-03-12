@@ -38,7 +38,7 @@ class _SearchDialogWidgetWebState extends State<_SearchDialogWidgetWeb> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: Alignment.topRight,
+      alignment: context.isLtrLocale ? Alignment.topRight : Alignment.topLeft,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 350, vertical: 90),
         child: AnimatedContainer(

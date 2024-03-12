@@ -20,6 +20,6 @@ final Typography typography = getIt<AppTheme>().typography;
 /// With help of `injectable` package the code will automatically generage.
 /// all we have to do is set the lable for every class that we want to put them in injection. like [injectableInit]
 @injectableInit
-void configureDependencies() {
-  getIt.init();
+Future<void> configureDependencies() async {
+  await getIt.init();
 }

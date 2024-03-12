@@ -2,9 +2,10 @@ import 'package:ecommerce_app/core/extensions/locale_extensions.dart';
 import 'package:ecommerce_app/core/size_config.dart';
 import 'package:ecommerce_app/injection/injection.dart';
 import 'package:ecommerce_app/presentation/bloc/products_bloc/products_bloc.dart';
-import 'package:ecommerce_app/presentation/view/home_page/home_page.dart';
+import 'package:ecommerce_app/presentation/view/home_page/widgets/subscribe_widget/subscribe_widget.dart';
 import 'package:ecommerce_app/presentation/view/products_page/widgets/filters_widget/filters_widget.dart';
 import 'package:ecommerce_app/presentation/view/products_page/widgets/product_item_widget/product_item_widget.dart';
+import 'package:ecommerce_app/presentation/widgets/animator_text_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/animator_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/footer_widget/footer_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/header_widget/header_widget.dart';
@@ -97,7 +98,9 @@ class _ProductsPageState extends State<ProductsPage> {
                 top: _isStuckBottom
                     ? filtersWidgetTopOffset
                     : filtersWidgetPaddingVerticaly,
-                left: getIt<SizeConfig>().padding,
+                left: context.isLtrLocale ? getIt<SizeConfig>().padding : null,
+                right:
+                    !context.isLtrLocale ? getIt<SizeConfig>().padding : null,
                 child: _filtersBuilder(),
               ),
           ],
@@ -183,7 +186,7 @@ class _ProductsPageState extends State<ProductsPage> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          TextAnimator(
+          AnimatorTextWidget(
             context.locale.performanceSneakers,
             style: typography.h4Title,
             initialDelay: const Duration(milliseconds: 200),
@@ -195,7 +198,7 @@ class _ProductsPageState extends State<ProductsPage> {
           ),
           BlocBuilder<ProductsBloc, ProductsState>(
             builder: (context, state) {
-              return TextAnimator(
+              return AnimatorTextWidget(
                 "${state.products.length} ${context.locale.items}",
                 initialDelay: const Duration(milliseconds: 700),
                 style: typography.bodyText1.copyWith(

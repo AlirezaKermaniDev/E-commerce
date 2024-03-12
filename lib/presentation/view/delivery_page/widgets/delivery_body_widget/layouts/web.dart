@@ -21,8 +21,9 @@ class _DeliveryBodyWidgetWeb extends StatelessWidget {
             delay: const Duration(milliseconds: 1200),
             slideTransition:
                 Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
-            child: const OrderSummeryWidget(
+            child: OrderSummeryWidget(
               withContinueBttons: false,
+              cartBloc: getIt<CartBloc>()..add(const CartEvent.getProducts()),
             ),
           )
         ],

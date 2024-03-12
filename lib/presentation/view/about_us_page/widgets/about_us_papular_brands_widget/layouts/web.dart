@@ -77,22 +77,22 @@ class _AboutUsPopularBrandsWidgetWeb extends StatelessWidget {
                           crossAxisSpacing: 16,
                         ),
                         children: const [
-                          PapularBrandsItemWidget(
+                          PopularBrandsItemWidget(
                             iconPath: CustomIcons.nike,
                           ),
-                          PapularBrandsItemWidget(
+                          PopularBrandsItemWidget(
                             iconPath: CustomIcons.adidas,
                           ),
-                          PapularBrandsItemWidget(
+                          PopularBrandsItemWidget(
                             iconPath: CustomIcons.newBalance,
                           ),
-                          PapularBrandsItemWidget(
+                          PopularBrandsItemWidget(
                             iconPath: CustomIcons.puma,
                           ),
-                          PapularBrandsItemWidget(
+                          PopularBrandsItemWidget(
                             iconPath: CustomIcons.nike,
                           ),
-                          PapularBrandsItemWidget(
+                          PopularBrandsItemWidget(
                             iconPath: CustomIcons.adidas,
                           ),
                         ],

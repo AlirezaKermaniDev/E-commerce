@@ -1,6 +1,6 @@
 part of '../header_widget.dart';
 
-class _HeaderWidgetWeb extends StatefulWidget {
+class _HeaderWidgetWeb extends StatelessWidget {
   const _HeaderWidgetWeb(
       {super.key,
       required this.selectedIndex,
@@ -12,25 +12,9 @@ class _HeaderWidgetWeb extends StatefulWidget {
   final Color? forgroundColor;
 
   @override
-  State<_HeaderWidgetWeb> createState() => _HeaderWidgetWebState();
-}
-
-class _HeaderWidgetWebState extends State<_HeaderWidgetWeb> {
-  int count = 0;
-  @override
-  void initState() {
-    super.initState();
-    getIt<EventBus>().on<AddToCartProductEntity>().listen((event) {
-      setState(() {
-        count++;
-      });
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Container(
-      color: widget.backgroundColor,
+      color: backgroundColor,
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: getIt<SizeConfig>().padding),
         child: SizedBox(
@@ -41,7 +25,7 @@ class _HeaderWidgetWebState extends State<_HeaderWidgetWeb> {
             children: [
               SizedBox(
                   height: 70, width: 70, child: Image.asset(AssetHandler.logo)),
-              widget.selectedIndex == 5
+              selectedIndex == 5
                   ? const SizedBox()
                   : Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -51,8 +35,8 @@ class _HeaderWidgetWebState extends State<_HeaderWidgetWeb> {
                           children: [
                             HeaderTabItemWidget(
                               title: context.locale.footwear,
-                              isSelected: widget.selectedIndex == 0,
-                              forgroundColor: widget.forgroundColor,
+                              isSelected: selectedIndex == 0,
+                              forgroundColor: forgroundColor,
                               onTap: () {
                                 context.go(
                                   HomePage.path,
@@ -64,8 +48,8 @@ class _HeaderWidgetWebState extends State<_HeaderWidgetWeb> {
                             ),
                             HeaderTabItemWidget(
                               title: context.locale.aboutUs,
-                              isSelected: widget.selectedIndex == 1,
-                              forgroundColor: widget.forgroundColor,
+                              isSelected: selectedIndex == 1,
+                              forgroundColor: forgroundColor,
                               onTap: () {
                                 context.go(AboutUsPage.path);
                               },
@@ -75,8 +59,8 @@ class _HeaderWidgetWebState extends State<_HeaderWidgetWeb> {
                             ),
                             HeaderTabItemWidget(
                               title: context.locale.products,
-                              isSelected: widget.selectedIndex == 2,
-                              forgroundColor: widget.forgroundColor,
+                              isSelected: selectedIndex == 2,
+                              forgroundColor: forgroundColor,
                               onTap: () {
                                 context.go(ProductsPage.path);
                               },
@@ -86,8 +70,8 @@ class _HeaderWidgetWebState extends State<_HeaderWidgetWeb> {
                             ),
                             HeaderTabItemWidget(
                               title: context.locale.sale,
-                              isSelected: widget.selectedIndex == 3,
-                              forgroundColor: widget.forgroundColor,
+                              isSelected: selectedIndex == 3,
+                              forgroundColor: forgroundColor,
                               onTap: () {},
                             ),
                           ],
@@ -112,8 +96,7 @@ class _HeaderWidgetWebState extends State<_HeaderWidgetWeb> {
                       width: 25,
                       child: SvgPicture.asset(
                         CustomIcons.search,
-                        color:
-                            widget.forgroundColor ?? colorPalette.darkPrimary,
+                        color: forgroundColor ?? colorPalette.darkPrimary,
                       ),
                     ),
                   ),
@@ -130,9 +113,9 @@ class _HeaderWidgetWebState extends State<_HeaderWidgetWeb> {
                       width: 25,
                       child: SvgPicture.asset(
                         CustomIcons.user,
-                        color: widget.selectedIndex == 5
+                        color: selectedIndex == 5
                             ? colorPalette.accent4
-                            : widget.forgroundColor ?? colorPalette.darkPrimary,
+                            : forgroundColor ?? colorPalette.darkPrimary,
                       ),
                     ),
                   ),
@@ -156,33 +139,40 @@ class _HeaderWidgetWebState extends State<_HeaderWidgetWeb> {
                               width: 25,
                               child: SvgPicture.asset(
                                 CustomIcons.shopping,
-                                color: widget.selectedIndex == 6
+                                color: selectedIndex == 6
                                     ? colorPalette.accent4
-                                    : widget.forgroundColor ??
+                                    : forgroundColor ??
                                         colorPalette.darkPrimary,
                               ),
                             ),
                           ),
-                          if (count != 0)
-                            Align(
-                              alignment: Alignment.bottomRight,
-                              child: Container(
-                                height: 18,
-                                width: 18,
-                                decoration: BoxDecoration(
-                                  color: colorPalette.accent4,
-                                  shape: BoxShape.circle,
-                                ),
-                                child: Center(
-                                  child: Text(
-                                    count.toString(),
-                                    style: typography.bodyText1.copyWith(
-                                        fontSize: 11,
-                                        color: colorPalette.primary),
+                          BlocBuilder<HeaderBloc, HeaderState>(
+                            builder: (context, state) {
+                              if (state.count == 0) {
+                                return const SizedBox();
+                              }
+
+                              return Align(
+                                alignment: Alignment.bottomRight,
+                                child: Container(
+                                  height: 18,
+                                  width: 18,
+                                  decoration: BoxDecoration(
+                                    color: colorPalette.accent4,
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: Center(
+                                    child: Text(
+                                      state.count.toString(),
+                                      style: typography.bodyText1.copyWith(
+                                          fontSize: 11,
+                                          color: colorPalette.primary),
+                                    ),
                                   ),
                                 ),
-                              ),
-                            )
+                              );
+                            },
+                          )
                         ],
                       ),
                     ),

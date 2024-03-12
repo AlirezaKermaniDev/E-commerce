@@ -1,8 +1,8 @@
 import 'package:ecommerce_app/core/asset_handler.dart';
 import 'package:ecommerce_app/core/extensions/locale_extensions.dart';
 import 'package:ecommerce_app/core/size_config.dart';
-import 'package:ecommerce_app/domain/entities/add_to_cart_product_entity/add_to_cart_product_entity.dart';
 import 'package:ecommerce_app/injection/injection.dart';
+import 'package:ecommerce_app/presentation/bloc/header_bloc/header_bloc.dart';
 import 'package:ecommerce_app/presentation/view/about_us_page/about_us_page.dart';
 import 'package:ecommerce_app/presentation/view/cart_page/cart_page.dart';
 import 'package:ecommerce_app/presentation/view/home_page/home_page.dart';
@@ -10,8 +10,8 @@ import 'package:ecommerce_app/presentation/view/products_page/products_page.dart
 import 'package:ecommerce_app/presentation/view/sign_in_page/sign_in_page.dart';
 import 'package:ecommerce_app/presentation/widgets/responsive_builder.dart';
 import 'package:ecommerce_app/presentation/widgets/search_dialog_widget/search_dialog_widget.dart';
-import 'package:event_bus/event_bus.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 

@@ -42,6 +42,7 @@ class AssetHandler {
   static const String card4 = "$_base/card4.png";
   static const String card5 = "$_base/card5.png";
   static const String card6 = "$_base/card6.png";
+  static const String emptyCart = "$_base/empty_cart.jpg";
 }
 
 class CustomIcons {

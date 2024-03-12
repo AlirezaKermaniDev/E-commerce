@@ -34,7 +34,8 @@ class _CartBodyWidgetWeb extends StatelessWidget {
               maintainSize: true,
               maintainAnimation: true,
               maintainState: true,
-              child: orderSummeryBuilder(key: orderSummeryKey),
+              child: orderSummeryBuilder(
+                  key: orderSummeryKey, cartBloc: context.read<CartBloc>()),
             ),
           )
         ],

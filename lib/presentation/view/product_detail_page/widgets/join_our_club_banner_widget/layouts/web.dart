@@ -22,6 +22,7 @@ class _JoinOurClubBannerWidgetWeb extends StatelessWidget {
                       padding: const EdgeInsets.only(top: 40),
                       child: TextHighlight(
                         text: context.locale.joinOurCustomersClub,
+                        textAlign: TextAlign.center,
                         textStyle: typography.h2Title
                             .copyWith(color: colorPalette.primary, height: 1),
                         words: {

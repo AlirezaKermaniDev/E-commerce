@@ -32,48 +32,61 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
       create: (context) => getIt<ProductDetailBloc>(),
       child: Scaffold(
         backgroundColor: colorPalette.primary,
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              HeaderWidget(
-                  selectedIndex: 2, backgroundColor: colorPalette.primary),
-              Divider(
-                color: colorPalette.gray5,
-                height: 1,
-              ),
-              const SizedBox(
-                height: 74,
-              ),
-              Row(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: getIt<SizeConfig>().padding),
-                    child: BreadcrumbWidget(
-                      items: product.categories ?? [],
+        body: BlocListener<ProductDetailBloc, ProductDetailState>(
+          listener: (context, state) {
+            if (state.error != null) {
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                  backgroundColor: colorPalette.accent4,
+                  content: Text(
+                    state.error ?? "",
+                    style: typography.bodyText2
+                        .copyWith(color: colorPalette.primary),
+                  )));
+            }
+          },
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                HeaderWidget(
+                    selectedIndex: 2, backgroundColor: colorPalette.primary),
+                Divider(
+                  color: colorPalette.gray5,
+                  height: 1,
+                ),
+                const SizedBox(
+                  height: 74,
+                ),
+                Row(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: getIt<SizeConfig>().padding),
+                      child: BreadcrumbWidget(
+                        items: product.categories ?? [],
+                      ),
                     ),
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 32,
-              ),
-              ProductInfoWidget(item: product),
-              const SizedBox(
-                height: 120,
-              ),
-              AlternativeProductsWidget(
-                item: product,
-              ),
-              SizedBox(
-                height: getIt<SizeConfig>().padding,
-              ),
-              const JoinOurClubBannerWidget(),
-              SizedBox(
-                height: getIt<SizeConfig>().padding,
-              ),
-              const FooterWidget()
-            ],
+                  ],
+                ),
+                const SizedBox(
+                  height: 32,
+                ),
+                ProductInfoWidget(item: product),
+                const SizedBox(
+                  height: 120,
+                ),
+                AlternativeProductsWidget(
+                  item: product,
+                ),
+                SizedBox(
+                  height: getIt<SizeConfig>().padding,
+                ),
+                const JoinOurClubBannerWidget(),
+                SizedBox(
+                  height: getIt<SizeConfig>().padding,
+                ),
+                const FooterWidget()
+              ],
+            ),
           ),
         ),
       ),

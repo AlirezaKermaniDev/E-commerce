@@ -21,7 +21,7 @@ class _SignUpCardsWidgetWeb extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  TextAnimator(
+                  AnimatorTextWidget(
                     context.locale.ecommerceUiKitMadeForYourBusiness,
                     style: typography.h5Title
                         .copyWith(color: colorPalette.accent1),
@@ -35,7 +35,7 @@ class _SignUpCardsWidgetWeb extends StatelessWidget {
                   const SizedBox(
                     height: 10,
                   ),
-                  TextAnimator(
+                  AnimatorTextWidget(
                     context.locale.theyCanBeUsedToDeliverSpacecraft,
                     style: typography.bodyText2
                         .copyWith(color: colorPalette.gray2),

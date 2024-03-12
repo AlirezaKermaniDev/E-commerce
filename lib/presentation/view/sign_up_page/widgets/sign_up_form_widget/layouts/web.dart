@@ -18,7 +18,7 @@ class _SignUpFormWidgetWeb extends StatelessWidget {
               const SizedBox(
                 height: 100,
               ),
-              TextAnimator(
+              AnimatorTextWidget(
                 context.locale.createYourKicksAccount,
                 style: typography.h4Title,
                 initialDelay: const Duration(milliseconds: 100),

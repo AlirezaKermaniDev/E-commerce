@@ -34,7 +34,7 @@ class _AlternativeProductsWidgetWeb extends StatelessWidget {
         SizedBox(
           height: 580,
           width: 1.w(context),
-          child: ScrollBarWidget(
+          child: ScrollbarWidget(
             scrollController: scrollController,
             child: ListView.builder(
                 itemCount: products.length,

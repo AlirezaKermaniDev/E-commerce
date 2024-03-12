@@ -1,11 +1,16 @@
 import 'package:ecommerce_app/core/extensions/locale_extensions.dart';
 import 'package:ecommerce_app/injection/injection.dart';
+import 'package:ecommerce_app/presentation/bloc/cart_bloc/cart_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CartProductsItemDeleteButtonWidget extends StatefulWidget {
   const CartProductsItemDeleteButtonWidget({
     super.key,
+    required this.productId,
   });
+
+  final String productId;
 
   @override
   State<CartProductsItemDeleteButtonWidget> createState() =>
@@ -19,7 +24,11 @@ class _CartProductsItemDeleteButtonWidgetState
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        context
+            .read<CartBloc>()
+            .add(CartEvent.deleteProduct(productId: widget.productId));
+      },
       onHover: _onHover,
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),

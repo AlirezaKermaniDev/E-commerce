@@ -1,6 +1,7 @@
 import 'package:ecommerce_app/core/extensions/locale_extensions.dart';
 import 'package:ecommerce_app/core/size_config.dart';
 import 'package:ecommerce_app/injection/injection.dart';
+import 'package:ecommerce_app/presentation/bloc/cart_bloc/cart_bloc.dart';
 import 'package:ecommerce_app/presentation/view/billing_page/widgets/billing_body_widget/billing_body_widget.dart';
 import 'package:ecommerce_app/presentation/view/cart_page/widgets/order_summery_widget/order_summery_widget.dart';
 import 'package:ecommerce_app/presentation/view/product_detail_page/widgets/breadcrumb_widget/breadcrumb_widget.dart';
@@ -69,8 +70,10 @@ class BillingPage extends StatelessWidget {
                     delay: const Duration(milliseconds: 1200),
                     slideTransition: Tween<Offset>(
                         begin: const Offset(0, .1), end: Offset.zero),
-                    child: const OrderSummeryWidget(
+                    child: OrderSummeryWidget(
                       withContinueBttons: false,
+                      cartBloc: getIt<CartBloc>()
+                        ..add(const CartEvent.getProducts()),
                     ),
                   )
                 ],

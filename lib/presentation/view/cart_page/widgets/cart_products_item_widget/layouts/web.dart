@@ -7,7 +7,7 @@ class _CartProductsItemWidgetWeb extends StatelessWidget {
     required this.index,
   });
 
-  final ProductEntity item;
+  final AddToCartProductEntity item;
   final int index;
 
   @override
@@ -26,8 +26,8 @@ class _CartProductsItemWidgetWeb extends StatelessWidget {
                   delay: Duration(milliseconds: 300 + (index * 200)),
                   slideTransition: Tween<Offset>(
                       begin: const Offset(0, .1), end: Offset.zero),
-                  child:
-                      ProductImageViewerWidget(imageUrl: item.imageUrl ?? "")),
+                  child: ProductImageViewerWidget(
+                      imageUrl: item.product?.imageUrl ?? "")),
             )),
             const SizedBox(
               width: 40,
@@ -50,7 +50,7 @@ class _CartProductsItemWidgetWeb extends StatelessWidget {
                               slideTransition: Tween<Offset>(
                                   begin: const Offset(.05, 0),
                                   end: Offset.zero),
-                              child: Text(item.title ?? "",
+                              child: Text(item.product?.title ?? "",
                                   style: typography.bodyText5)),
                           AnimatorWidget(
                               withFadeTransition: true,
@@ -59,7 +59,7 @@ class _CartProductsItemWidgetWeb extends StatelessWidget {
                               slideTransition: Tween<Offset>(
                                   begin: const Offset(.05, 0),
                                   end: Offset.zero),
-                              child: Text("\$${item.price}",
+                              child: Text("\$${item.product?.price}",
                                   style: typography.bodyText5)),
                         ],
                       ),
@@ -71,7 +71,7 @@ class _CartProductsItemWidgetWeb extends StatelessWidget {
                         delay: Duration(milliseconds: 600 + (index * 200)),
                         slideTransition: Tween<Offset>(
                             begin: const Offset(.05, 0), end: Offset.zero),
-                        child: Text(item.categories?.last ?? "",
+                        child: Text(item.product?.categories?.last ?? "",
                             style: typography.bodyText2
                                 .copyWith(color: colorPalette.gray2)),
                       ),
@@ -91,7 +91,25 @@ class _CartProductsItemWidgetWeb extends StatelessWidget {
                             const SizedBox(
                               width: 6,
                             ),
-                            Text("9", style: typography.bodyText2),
+                            Expanded(
+                              child: SizedBox(
+                                height: 25,
+                                child: ListView.builder(
+                                    shrinkWrap: true,
+                                    scrollDirection: Axis.horizontal,
+                                    physics:
+                                        const NeverScrollableScrollPhysics(),
+                                    itemCount: item.selectedSizes?.length ?? 0,
+                                    itemBuilder: (context, index) {
+                                      final size = item.selectedSizes![index];
+                                      bool isLast =
+                                          item.selectedSizes?.length ==
+                                              index + 1;
+                                      return Text(isLast ? "$size" : "$size - ",
+                                          style: typography.bodyText2);
+                                    }),
+                              ),
+                            )
                           ],
                         ),
                       ),
@@ -130,7 +148,14 @@ class _CartProductsItemWidgetWeb extends StatelessWidget {
                             ProductCountButtonWidget(
                               icon: Icons.remove_rounded,
                               isDeactive: false,
-                              onTap: () {},
+                              onTap: () {
+                                context.read<CartBloc>().add(
+                                      CartEvent.changeProductCount(
+                                        productId: item.product!.id!,
+                                        count: item.count! - 1,
+                                      ),
+                                    );
+                              },
                             ),
                             Container(
                               height: 70,
@@ -140,14 +165,21 @@ class _CartProductsItemWidgetWeb extends StatelessWidget {
                                       color: colorPalette.gray6, width: 1.5)),
                               child: Center(
                                 child: Text(
-                                  "1",
+                                  item.count?.toString() ?? "1",
                                   style: typography.bodyText1,
                                 ),
                               ),
                             ),
                             ProductCountButtonWidget(
                               icon: Icons.add_rounded,
-                              onTap: () {},
+                              onTap: () {
+                                context.read<CartBloc>().add(
+                                      CartEvent.changeProductCount(
+                                        productId: item.product!.id!,
+                                        count: item.count! + 1,
+                                      ),
+                                    );
+                              },
                             ),
                           ],
                         ),
@@ -157,7 +189,9 @@ class _CartProductsItemWidgetWeb extends StatelessWidget {
                         delay: Duration(milliseconds: 1000 + (index * 200)),
                         slideTransition: Tween<Offset>(
                             begin: const Offset(.05, 0), end: Offset.zero),
-                        child: const CartProductsItemDeleteButtonWidget(),
+                        child: CartProductsItemDeleteButtonWidget(
+                          productId: item.product!.id!,
+                        ),
                       )
                     ],
                   ),

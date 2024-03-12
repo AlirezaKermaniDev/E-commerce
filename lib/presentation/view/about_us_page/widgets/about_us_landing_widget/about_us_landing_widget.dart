@@ -2,6 +2,7 @@ import 'package:ecommerce_app/core/asset_handler.dart';
 import 'package:ecommerce_app/core/extensions/locale_extensions.dart';
 import 'package:ecommerce_app/core/size_config.dart';
 import 'package:ecommerce_app/injection/injection.dart';
+import 'package:ecommerce_app/presentation/widgets/animator_text_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/animator_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/responsive_builder.dart';
 import 'package:ecommerce_app/presentation/widgets/tooltip_widget/tooltip_widget.dart';

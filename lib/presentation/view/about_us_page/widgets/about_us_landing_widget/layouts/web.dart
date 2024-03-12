@@ -113,7 +113,7 @@ class _AboutUsLandingWidgetWeb extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                TextAnimator(
+                AnimatorTextWidget(
                   context.locale.aboutUs,
                   style: typography.bodyText1
                       .copyWith(color: colorPalette.accent4),
@@ -122,7 +122,7 @@ class _AboutUsLandingWidgetWeb extends StatelessWidget {
                 const SizedBox(
                   height: 10,
                 ),
-                TextAnimator(
+                AnimatorTextWidget(
                   context.locale.bestUIKitForYourOnlineStore,
                   maxLines: 2,
                   style: typography.heroTitle

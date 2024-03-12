@@ -3,10 +3,10 @@ import 'package:ecommerce_app/core/size_config.dart';
 import 'package:ecommerce_app/data/product_list_data.dart';
 import 'package:ecommerce_app/domain/entities/product_entity/product_entity.dart';
 import 'package:ecommerce_app/injection/injection.dart';
-import 'package:ecommerce_app/presentation/view/home_page/home_page.dart';
 import 'package:ecommerce_app/presentation/view/product_detail_page/widgets/alternative_product_item_widget/alternative_product_item_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/animator_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/responsive_builder.dart';
+import 'package:ecommerce_app/presentation/widgets/scrollbar_widget.dart';
 import 'package:flutter/material.dart';
 
 part "./layouts/phone.dart";

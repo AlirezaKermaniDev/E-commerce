@@ -34,7 +34,7 @@ class _ProductDetailWidgetWeb extends StatelessWidget {
                 delay: const Duration(milliseconds: 300),
                 slideTransition:
                     Tween<Offset>(begin: const Offset(0, .3), end: Offset.zero),
-                child: RateBarWidget(
+                child: RatebarWidget(
                   activeColor: colorPalette.darkPrimary,
                 ),
               )

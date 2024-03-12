@@ -19,8 +19,6 @@ class AddToCartButtonWidget extends StatefulWidget {
 }
 
 class _AddToCartButtonWidgetState extends State<AddToCartButtonWidget> {
-  bool isTapDown = false;
-
   @override
   Widget build(BuildContext context) {
     return AnimatorWidget(
@@ -34,16 +32,12 @@ class _AddToCartButtonWidgetState extends State<AddToCartButtonWidget> {
               .read<ProductDetailBloc>()
               .add(ProductDetailEvent.addToCart(product: widget.item));
         },
-        onTapDown: onTapDown,
-        onTapUp: _onTapUp,
-        onTapCancel: _onTapCancel,
         hoverColor: Colors.transparent,
         splashColor: Colors.transparent,
         child: Center(
-          child: AnimatedContainer(
-            duration: const Duration(milliseconds: 30),
-            height: isTapDown ? 60 : 70,
-            width: isTapDown ? 450 : 500,
+          child: Container(
+            height: 70,
+            width: 500,
             decoration: BoxDecoration(color: colorPalette.darkPrimary),
             child: Center(
               child: Text(
@@ -56,29 +50,5 @@ class _AddToCartButtonWidgetState extends State<AddToCartButtonWidget> {
         ),
       ),
     );
-  }
-
-  void onTap() {
-    setState(() {
-      isTapDown = true;
-    });
-  }
-
-  void onTapDown(_) {
-    setState(() {
-      isTapDown = true;
-    });
-  }
-
-  void _onTapUp(_) {
-    setState(() {
-      isTapDown = false;
-    });
-  }
-
-  void _onTapCancel() {
-    setState(() {
-      isTapDown = false;
-    });
   }
 }

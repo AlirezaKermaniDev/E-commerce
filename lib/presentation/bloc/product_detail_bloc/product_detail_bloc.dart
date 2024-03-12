@@ -1,10 +1,10 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:ecommerce_app/core/local_storage/local_storage.dart';
 import 'package:ecommerce_app/domain/entities/add_to_cart_product_entity/add_to_cart_product_entity.dart';
 import 'package:ecommerce_app/domain/entities/product_entity/product_entity.dart';
 import 'package:ecommerce_app/injection/injection.dart';
-import 'package:event_bus/event_bus.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
@@ -33,7 +33,7 @@ class ProductDetailBloc extends Bloc<ProductDetailEvent, ProductDetailState> {
       emit(state.copyWith(error: "Count number cant be less then 1"));
     } else {
       final addCountValue = state.addCount - 1;
-      emit(state.copyWith(addCount: addCountValue));
+      emit(state.copyWith(addCount: addCountValue, error: null));
     }
   }
 
@@ -54,17 +54,18 @@ class ProductDetailBloc extends Bloc<ProductDetailEvent, ProductDetailState> {
       state.selectedSizes.contains(event.size);
 
   FutureOr<void> _onAddToCart(
-      _AddToCart event, Emitter<ProductDetailState> emit) {
+      _AddToCart event, Emitter<ProductDetailState> emit) async {
     if (state.selectedSizes.isEmpty) {
       emit(state.copyWith(error: "Select your size"));
     } else {
-      getIt<EventBus>().fire(
-        AddToCartProductEntity(
-          product: event.product,
-          selectedSizes: state.selectedSizes,
-          count: state.addCount,
-        ),
+      emit(state.copyWith(error: null));
+      final AddToCartProductEntity addToCartProductEntity =
+          AddToCartProductEntity(
+        product: event.product,
+        selectedSizes: state.selectedSizes,
+        count: state.addCount,
       );
+      getIt<LocalStorage>().addProductToCart(addToCartProductEntity);
     }
   }
 }

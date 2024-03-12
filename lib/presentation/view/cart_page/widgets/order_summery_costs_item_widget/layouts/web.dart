@@ -23,7 +23,7 @@ class _OrderSummeryCostsItemWidgetWeb extends StatelessWidget {
           title,
           style: typography.bodyText2,
         ),
-        Text(
+        AnimatorTextWidget(
           value,
           style: boldValue == true
               ? typography.h5Title
