@@ -7,6 +7,7 @@ import 'package:ecommerce_app/presentation/view/products_page/widgets/filters_wi
 import 'package:ecommerce_app/presentation/view/products_page/widgets/product_item_widget/product_item_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/animator_text_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/animator_widget.dart';
+import 'package:ecommerce_app/presentation/widgets/drawer_widget/drawer_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/footer_widget/footer_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/header_widget/header_widget.dart';
 import 'package:flutter/material.dart';
@@ -68,6 +69,9 @@ class _ProductsPageState extends State<ProductsPage> {
           getIt<ProductsBloc>()..add(const ProductsEvent.getProduts()),
       child: Scaffold(
         backgroundColor: colorPalette.primary,
+        drawer: const DrawerWidget(
+          selectedIndex: 2,
+        ),
         body: Stack(
           children: [
             SingleChildScrollView(

@@ -5,15 +5,17 @@ class ProductImageViewerWidget extends StatelessWidget {
   const ProductImageViewerWidget({
     super.key,
     required this.imageUrl,
+    this.boxFit,
   });
 
   final String imageUrl;
+  final BoxFit? boxFit;
 
   @override
   Widget build(BuildContext context) {
     return Image.network(
       imageUrl,
-      fit: BoxFit.cover,
+      fit: boxFit ?? BoxFit.cover,
       errorBuilder: (context, error, stackTrace) {
         return Icon(
           Icons.warning_rounded,

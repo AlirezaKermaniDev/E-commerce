@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/core/extensions/locale_extensions.dart';
+import 'package:ecommerce_app/core/size_config.dart';
 import 'package:ecommerce_app/data/product_list_data.dart';
 import 'package:ecommerce_app/domain/entities/product_entity/product_entity.dart';
 import 'package:ecommerce_app/injection/injection.dart';

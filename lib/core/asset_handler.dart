@@ -64,4 +64,5 @@ class CustomIcons {
   static const String visaLogo = "$_base/visa_logo.svg";
   static const String klarnaLogo = "$_base/klarna_logo.svg";
   static const String googleLogo = "$_base/google_logo.svg";
+  static const String menu = "$_base/menu.svg";
 }

@@ -6,6 +6,7 @@ import 'package:ecommerce_app/presentation/bloc/cart_bloc/cart_bloc.dart';
 import 'package:ecommerce_app/presentation/view/cart_page/widgets/cart_body_widget/cart_body_widget.dart';
 import 'package:ecommerce_app/presentation/view/cart_page/widgets/order_summery_widget/order_summery_widget.dart';
 import 'package:ecommerce_app/presentation/view/product_detail_page/widgets/alternative_products_widget/alternative_products_widget.dart';
+import 'package:ecommerce_app/presentation/widgets/drawer_widget/drawer_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/footer_widget/footer_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/header_widget/header_widget.dart';
 import 'package:flutter/material.dart';
@@ -66,6 +67,9 @@ class _CartPageState extends State<CartPage> {
           getIt<CartBloc>()..add(const CartEvent.getProducts()),
       child: Scaffold(
         backgroundColor: colorPalette.primary,
+        drawer: const DrawerWidget(
+          selectedIndex: 5,
+        ),
         body: Stack(
           children: [
             SingleChildScrollView(
@@ -73,7 +77,7 @@ class _CartPageState extends State<CartPage> {
               child: Column(
                 children: [
                   HeaderWidget(
-                      selectedIndex: 6, backgroundColor: colorPalette.primary),
+                      selectedIndex: 5, backgroundColor: colorPalette.primary),
                   Divider(
                     color: colorPalette.gray5,
                     thickness: 1.6,

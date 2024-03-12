@@ -70,7 +70,7 @@ class _HeaderWidgetWeb extends StatelessWidget {
                             ),
                             HeaderTabItemWidget(
                               title: context.locale.sale,
-                              isSelected: selectedIndex == 3,
+                              isSelected: false,
                               forgroundColor: forgroundColor,
                               onTap: () {},
                             ),
@@ -96,7 +96,9 @@ class _HeaderWidgetWeb extends StatelessWidget {
                       width: 25,
                       child: SvgPicture.asset(
                         CustomIcons.search,
-                        color: forgroundColor ?? colorPalette.darkPrimary,
+                        color: selectedIndex == 3
+                            ? colorPalette.accent4
+                            : forgroundColor ?? colorPalette.darkPrimary,
                       ),
                     ),
                   ),
@@ -113,7 +115,7 @@ class _HeaderWidgetWeb extends StatelessWidget {
                       width: 25,
                       child: SvgPicture.asset(
                         CustomIcons.user,
-                        color: selectedIndex == 5
+                        color: selectedIndex == 4
                             ? colorPalette.accent4
                             : forgroundColor ?? colorPalette.darkPrimary,
                       ),
@@ -139,7 +141,7 @@ class _HeaderWidgetWeb extends StatelessWidget {
                               width: 25,
                               child: SvgPicture.asset(
                                 CustomIcons.shopping,
-                                color: selectedIndex == 6
+                                color: selectedIndex == 5
                                     ? colorPalette.accent4
                                     : forgroundColor ??
                                         colorPalette.darkPrimary,

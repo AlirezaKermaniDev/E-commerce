@@ -38,7 +38,10 @@ class HeaderWidget extends StatelessWidget {
           backgroundColor: backgroundColor,
           forgroundColor: forgroundColor),
       phone: const _HeaderWidgetPhone(),
-      tablet: const _HeaderWidgetTablet(),
+      tablet: _HeaderWidgetTablet(
+          selectedIndex: selectedIndex,
+          backgroundColor: backgroundColor,
+          forgroundColor: forgroundColor),
     );
   }
 }

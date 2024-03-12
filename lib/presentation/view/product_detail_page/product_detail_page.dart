@@ -7,6 +7,7 @@ import 'package:ecommerce_app/presentation/view/product_detail_page/widgets/alte
 import 'package:ecommerce_app/presentation/view/product_detail_page/widgets/breadcrumb_widget/breadcrumb_widget.dart';
 import 'package:ecommerce_app/presentation/view/product_detail_page/widgets/join_our_club_banner_widget/join_our_club_banner_widget.dart';
 import 'package:ecommerce_app/presentation/view/product_detail_page/widgets/product_info_widget/product_info_widget.dart';
+import 'package:ecommerce_app/presentation/widgets/drawer_widget/drawer_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/footer_widget/footer_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/header_widget/header_widget.dart';
 import 'package:flutter/material.dart';
@@ -32,6 +33,9 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
       create: (context) => getIt<ProductDetailBloc>(),
       child: Scaffold(
         backgroundColor: colorPalette.primary,
+        drawer: const DrawerWidget(
+          selectedIndex: 2,
+        ),
         body: BlocListener<ProductDetailBloc, ProductDetailState>(
           listener: (context, state) {
             if (state.error != null) {

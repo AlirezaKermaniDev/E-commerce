@@ -6,7 +6,13 @@ class SizeConfig {
   late double padding;
 
   setSizeConfigs(BuildContext context) {
-    padding = 158;
+    if (MediaQuery.sizeOf(context).width >= 1400) {
+      padding = 158;
+    } else if (MediaQuery.sizeOf(context).width >= 700) {
+      padding = 64;
+    } else {
+      return 31;
+    }
   }
 }
 

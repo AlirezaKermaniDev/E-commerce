@@ -3,6 +3,7 @@ import 'package:ecommerce_app/core/size_config.dart';
 import 'package:ecommerce_app/injection/injection.dart';
 import 'package:ecommerce_app/presentation/view/address_page/widgets/address_body_widget/address_body_widget.dart';
 import 'package:ecommerce_app/presentation/view/product_detail_page/widgets/breadcrumb_widget/breadcrumb_widget.dart';
+import 'package:ecommerce_app/presentation/widgets/drawer_widget/drawer_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/footer_widget/footer_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/header_widget/header_widget.dart';
 import 'package:flutter/material.dart';
@@ -16,11 +17,14 @@ class AddressPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: colorPalette.primary,
+      drawer: const DrawerWidget(
+        selectedIndex: 5,
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
             HeaderWidget(
-              selectedIndex: 6,
+              selectedIndex: 5,
               backgroundColor: colorPalette.primary,
             ),
             Divider(
@@ -74,4 +78,3 @@ class AddressPage extends StatelessWidget {
     );
   }
 }
-

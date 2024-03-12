@@ -21,7 +21,9 @@ class SearchProductItemWidget extends StatelessWidget {
         item: item,
       ),
       phone: const _SearchProductItemWidgetPhone(),
-      tablet: const _SearchProductItemWidgetTablet(),
+      tablet: _SearchProductItemWidgetTablet(
+        item: item,
+      ),
     );
   }
 }

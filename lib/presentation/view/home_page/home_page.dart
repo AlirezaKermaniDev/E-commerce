@@ -8,6 +8,7 @@ import 'package:ecommerce_app/presentation/view/home_page/widgets/new_arrivals_w
 import 'package:ecommerce_app/presentation/view/home_page/widgets/popular_brands_widget/popular_brands_widget.dart';
 import 'package:ecommerce_app/presentation/view/home_page/widgets/subscribe_widget/subscribe_widget.dart';
 import 'package:ecommerce_app/presentation/view/home_page/widgets/why_choose_our_shop_widget/why_choose_our_shop_widget.dart';
+import 'package:ecommerce_app/presentation/widgets/drawer_widget/drawer_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/footer_widget/footer_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/header_widget/header_widget.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +21,9 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: colorPalette.primary,
+      drawer: const DrawerWidget(
+        selectedIndex: 0,
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
