@@ -15,7 +15,7 @@ class OffersWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return const ResponsiveBuilder(
       web: _OffersWidgetWeb(),
-      tablet: _OffersWidgetTablet(),
+      tablet: _OffersWidgetWeb(),
       phone: _OffersWidgetPhone(),
     );
   }

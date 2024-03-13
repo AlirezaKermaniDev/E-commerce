@@ -13,7 +13,7 @@ class _ChooseCategoriesWidgetWeb extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(
-            width: .35.w(context),
+            width: .5.w(context),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

@@ -30,7 +30,12 @@ class ButtonWidget extends StatelessWidget {
           shadowColor: shadowColor,
           width: width,
           height: height),
-      tablet: const _ButtonWidgetTablet(),
+      tablet: _ButtonWidgetWeb(
+          title: title,
+          color: color,
+          shadowColor: shadowColor,
+          width: width,
+          height: height),
       phone: const _ButtonWidgetPhone(),
     );
   }

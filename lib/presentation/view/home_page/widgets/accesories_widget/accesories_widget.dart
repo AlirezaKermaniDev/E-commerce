@@ -19,7 +19,7 @@ part "./layouts/web.dart";
     Widget build(BuildContext context) {
       return const ResponsiveBuilder(
         web: _AccesoriesWidgetWeb(),
-        tablet: _AccesoriesWidgetTablet(),
+        tablet:_AccesoriesWidgetWeb(),
         phone: _AccesoriesWidgetPhone(),
       );
     }

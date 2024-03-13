@@ -37,7 +37,15 @@ class ArrowTitleButtonWidget extends StatelessWidget {
         iconSize: iconSize,
         mainAxisAlignment: mainAxisAlignment,
       ),
-      tablet: const _ArrowTitleButtonWidgetTablet(),
+      tablet: _ArrowTitleButtonWidgetWeb(
+        title: title,
+        isForwardArrow: isForwardArrow,
+        onTap: onTap,
+        color: color,
+        icon: icon,
+        iconSize: iconSize,
+        mainAxisAlignment: mainAxisAlignment,
+      ),
       phone: const _ArrowTitleButtonWidgetPhone(),
     );
   }

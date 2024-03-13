@@ -18,7 +18,7 @@ part "./layouts/web.dart";
     Widget build(BuildContext context) {
       return const ResponsiveBuilder(
         web: _WhyChooseOurShopWidgetWeb(),
-        tablet: _WhyChooseOurShopWidgetTablet(),
+        tablet: _WhyChooseOurShopWidgetWeb(),
         phone: _WhyChooseOurShopWidgetPhone(),
       );
     }

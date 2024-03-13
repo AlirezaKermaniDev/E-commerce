@@ -17,7 +17,7 @@ class PopularBrandsItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return ResponsiveBuilder(
       web: _PopularBrandsItemWidgetWeb(iconPath: iconPath),
-      tablet: const _PopularBrandsItemWidgetTablet(),
+      tablet: _PopularBrandsItemWidgetWeb(iconPath: iconPath),
       phone: const _PopularBrandsItemWidgetPhone(),
     );
   }

@@ -7,57 +7,6 @@ class _NewArrivalsWidgetWeb extends StatelessWidget {
 
   final ScrollController scrollController = ScrollController();
 
-  final List<FeaturedProductsEntity> _featuredProductsEntities = [
-    const FeaturedProductsEntity(
-        imageUrl: AssetHandler.shoe1,
-        title: "Adidas Falcon Shoes for men - 2021 Edition",
-        rate: 4,
-        gradientType: 1,
-        price: 120.50),
-    const FeaturedProductsEntity(
-        imageUrl: AssetHandler.shoe2,
-        title: "Adidas Falcon Shoes for men - 2021 Edition",
-        rate: 4,
-        gradientType: 2,
-        price: 120.50),
-    const FeaturedProductsEntity(
-        imageUrl: AssetHandler.shoe3,
-        title: "Adidas Falcon Shoes for men - 2021 Edition",
-        rate: 4,
-        gradientType: 3,
-        price: 120.50),
-    const FeaturedProductsEntity(
-        imageUrl: AssetHandler.shoe6,
-        title: "Adidas Falcon Shoes for men - 2021 Edition",
-        rate: 4,
-        gradientType: 4,
-        price: 120.50),
-    const FeaturedProductsEntity(
-        imageUrl: AssetHandler.shoe5,
-        title: "Adidas Falcon Shoes for men - 2021 Edition",
-        rate: 4,
-        gradientType: 1,
-        price: 120.50),
-    const FeaturedProductsEntity(
-        imageUrl: AssetHandler.shoe2,
-        title: "Adidas Falcon Shoes for men - 2021 Edition",
-        rate: 4,
-        gradientType: 2,
-        price: 120.50),
-    const FeaturedProductsEntity(
-        imageUrl: AssetHandler.shoe3,
-        title: "Adidas Falcon Shoes for men - 2021 Edition",
-        rate: 4,
-        gradientType: 3,
-        price: 120.50),
-    const FeaturedProductsEntity(
-        imageUrl: AssetHandler.shoe6,
-        title: "Adidas Falcon Shoes for men - 2021 Edition",
-        rate: 4,
-        gradientType: 4,
-        price: 120.50),
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -138,15 +87,15 @@ class _NewArrivalsWidgetWeb extends StatelessWidget {
                   right: 0.35.w(context),
                 ),
                 child: ListView.builder(
-                    itemCount: _featuredProductsEntities.length,
+                    itemCount: featuredProductsEntities.length,
                     controller: scrollController,
                     scrollDirection: Axis.horizontal,
                     padding: EdgeInsets.only(
-                        left: 135,
+                        left: getIt<SizeConfig>().padding,
                         right: getIt<SizeConfig>().padding,
                         bottom: 20),
                     itemBuilder: (context, index) {
-                      final item = _featuredProductsEntities[index];
+                      final item = featuredProductsEntities[index];
                       List<LinearGradient> gradients = [
                         colorPalette.gradient4,
                         colorPalette.gradient3,

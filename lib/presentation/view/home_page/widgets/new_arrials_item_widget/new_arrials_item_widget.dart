@@ -28,7 +28,11 @@ class NewArrialsItemWidget extends StatelessWidget {
         item: item,
         index: index,
       ),
-      tablet: const _NewArrialsItemWidgetTablet(),
+      tablet: _NewArrialsItemWidgetWeb(
+        gradients: gradients,
+        item: item,
+        index: index,
+      ),
       phone: const _NewArrialsItemWidgetPhone(),
     );
   }

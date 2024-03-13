@@ -14,7 +14,7 @@ class ResponsiveBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     if (MediaQuery.sizeOf(context).width >= 1400) {
       return web;
-    } else if (MediaQuery.sizeOf(context).width >= 700) {
+    } else if (MediaQuery.sizeOf(context).width >= 900) {
       return tablet;
     } else {
       return phone;

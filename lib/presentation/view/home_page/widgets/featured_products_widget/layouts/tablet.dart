@@ -7,4 +7,4 @@ class _FeaturedProductsWidgetTablet extends StatelessWidget {
   Widget build(BuildContext context) {
     return const SizedBox();
   }
-}	  
+}

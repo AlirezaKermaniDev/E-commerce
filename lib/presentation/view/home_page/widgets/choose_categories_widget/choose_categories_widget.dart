@@ -18,7 +18,7 @@ class ChooseCategoriesWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return const ResponsiveBuilder(
       web: _ChooseCategoriesWidgetWeb(),
-      tablet: _ChooseCategoriesWidgetTablet(),
+      tablet: _ChooseCategoriesWidgetWeb(),
       phone: _ChooseCategoriesWidgetPhone(),
     );
   }

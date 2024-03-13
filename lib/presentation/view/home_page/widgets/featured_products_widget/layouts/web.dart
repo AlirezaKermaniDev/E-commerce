@@ -14,56 +14,6 @@ class _FeaturedProductsWidgetWebState
     extends State<_FeaturedProductsWidgetWeb> {
   final ScrollController scrollController = ScrollController();
   bool _isGrabingMouse = false;
-  final List<FeaturedProductsEntity> _featuredProductsEntities = [
-    const FeaturedProductsEntity(
-        imageUrl: AssetHandler.shoe1,
-        title: "Adidas Falcon Shoes for men - 2021 Edition",
-        rate: 4,
-        gradientType: 1,
-        price: 120.50),
-    const FeaturedProductsEntity(
-        imageUrl: AssetHandler.shoe2,
-        title: "Adidas Falcon Shoes for men - 2021 Edition",
-        rate: 4,
-        gradientType: 2,
-        price: 120.50),
-    const FeaturedProductsEntity(
-        imageUrl: AssetHandler.shoe3,
-        title: "Adidas Falcon Shoes for men - 2021 Edition",
-        rate: 4,
-        gradientType: 3,
-        price: 120.50),
-    const FeaturedProductsEntity(
-        imageUrl: AssetHandler.shoe6,
-        title: "Adidas Falcon Shoes for men - 2021 Edition",
-        rate: 4,
-        gradientType: 4,
-        price: 120.50),
-    const FeaturedProductsEntity(
-        imageUrl: AssetHandler.shoe1,
-        title: "Adidas Falcon Shoes for men - 2021 Edition",
-        rate: 4,
-        gradientType: 1,
-        price: 120.50),
-    const FeaturedProductsEntity(
-        imageUrl: AssetHandler.shoe2,
-        title: "Adidas Falcon Shoes for men - 2021 Edition",
-        rate: 4,
-        gradientType: 2,
-        price: 120.50),
-    const FeaturedProductsEntity(
-        imageUrl: AssetHandler.shoe3,
-        title: "Adidas Falcon Shoes for men - 2021 Edition",
-        rate: 4,
-        gradientType: 3,
-        price: 120.50),
-    const FeaturedProductsEntity(
-        imageUrl: AssetHandler.shoe6,
-        title: "Adidas Falcon Shoes for men - 2021 Edition",
-        rate: 4,
-        gradientType: 4,
-        price: 120.50),
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -124,11 +74,11 @@ class _FeaturedProductsWidgetWebState
                 child: ScrollbarWidget(
                   scrollController: scrollController,
                   child: ListView.builder(
-                      itemCount: _featuredProductsEntities.length,
+                      itemCount: featuredProductsEntities.length,
                       controller: scrollController,
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) {
-                        final item = _featuredProductsEntities[index];
+                        final item = featuredProductsEntities[index];
                         List<LinearGradient> gradients = [
                           colorPalette.gradient4,
                           colorPalette.gradient2,

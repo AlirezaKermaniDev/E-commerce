@@ -21,7 +21,9 @@ class SubscribeWidget extends StatelessWidget {
       web: _SubscribeWidgetWeb(
         fullWidth: fullWidth,
       ),
-      tablet: const _SubscribeWidgetTablet(),
+      tablet: _SubscribeWidgetTablet(
+        fullWidth: fullWidth,
+      ),
       phone: const _SubscribeWidgetPhone(),
     );
   }

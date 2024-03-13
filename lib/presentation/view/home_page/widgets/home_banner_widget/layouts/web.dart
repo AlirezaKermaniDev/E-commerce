@@ -24,20 +24,24 @@ class _HomeBannerWidgetWebState extends State<_HomeBannerWidgetWeb> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        SizedBox(
-          width: 0.5.w(context),
-          height: 0.62.h(context),
-          child: Stack(
-            children: [
-              _backgroundShapeWidget(),
-              _bannerItemsPageBuilderWidget(),
-            ],
+    return SizedBox(
+      width: 0.55.w(context),
+      height: 0.6.h(context),
+      child: Stack(
+        children: [
+          SizedBox(
+            width: 0.53.w(context),
+            height: 0.55.h(context),
+            child: Stack(
+              children: [
+                _backgroundShapeWidget(),
+                _bannerItemsPageBuilderWidget(),
+              ],
+            ),
           ),
-        ),
-        _changeImageArrowsWidget()
-      ],
+          _changeImageArrowsWidget()
+        ],
+      ),
     );
   }
 
@@ -61,35 +65,38 @@ class _HomeBannerWidgetWebState extends State<_HomeBannerWidgetWeb> {
       child: Align(
         alignment: Alignment.center,
         child: SizedBox(
-            height: 0.35.w(context),
-            width: 0.35.w(context),
-            child: SvgPicture.asset(AssetHandler.homeShape)),
+            height: 0.32.w(context),
+            width: 0.32.w(context),
+            child: Center(child: SvgPicture.asset(AssetHandler.homeShape))),
       ),
     );
   }
 
-  Padding _changeImageArrowsWidget() {
-    return Padding(
-      padding: EdgeInsets.only(right: 0.15.w(context), top: 16),
-      child: SizedBox(
-        height: 40,
-        width: 120,
-        child: Row(
-          children: [
-            ArrowButtonWidget(
-              isDisable: _isFirst,
-              onTap: _onTapBackArrow,
-              iconData: Icons.arrow_back_rounded,
-            ),
-            const SizedBox(
-              width: 16,
-            ),
-            ArrowButtonWidget(
-              isDisable: _isLast,
-              onTap: onTapForwardArrow,
-              iconData: Icons.arrow_forward_rounded,
-            ),
-          ],
+  Widget _changeImageArrowsWidget() {
+    return Align(
+      alignment: Alignment.topRight,
+      child: Padding(
+        padding: EdgeInsets.only(right: 0.34.w(context), top: 0.36.h(context) + .12.w(context)),
+        child: SizedBox(
+          height: 40,
+          width: 120,
+          child: Row(
+            children: [
+              ArrowButtonWidget(
+                isDisable: _isFirst,
+                onTap: _onTapBackArrow,
+                iconData: Icons.arrow_back_rounded,
+              ),
+              const SizedBox(
+                width: 16,
+              ),
+              ArrowButtonWidget(
+                isDisable: _isLast,
+                onTap: onTapForwardArrow,
+                iconData: Icons.arrow_forward_rounded,
+              ),
+            ],
+          ),
         ),
       ),
     );

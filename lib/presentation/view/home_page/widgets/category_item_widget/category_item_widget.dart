@@ -1,4 +1,6 @@
+
 import 'package:ecommerce_app/core/extensions/locale_extensions.dart';
+import 'package:ecommerce_app/core/size_config.dart';
 import 'package:ecommerce_app/injection/injection.dart';
 import 'package:ecommerce_app/presentation/widgets/animator_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/responsive_builder.dart';
@@ -31,7 +33,12 @@ class CategoryItemWidget extends StatelessWidget {
           productsCount: productsCount,
           imageWidget: imageWidget,
           mainColor: mainColor),
-      tablet: const _CategoryItemWidgetTablet(),
+      tablet: _CategoryItemWidgetTablet(
+          title: title,
+          shapePath: shapePath,
+          productsCount: productsCount,
+          imageWidget: imageWidget,
+          mainColor: mainColor),
       phone: const _CategoryItemWidgetPhone(),
     );
   }

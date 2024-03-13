@@ -75,8 +75,8 @@ class _BestSellerWidgetWeb extends StatelessWidget {
               ],
             ),
             Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 158, vertical: 20),
+              padding: EdgeInsets.symmetric(
+                  horizontal: getIt<SizeConfig>().padding, vertical: 20),
               child: SizedBox(
                 width: 620,
                 child: Transform.scale(

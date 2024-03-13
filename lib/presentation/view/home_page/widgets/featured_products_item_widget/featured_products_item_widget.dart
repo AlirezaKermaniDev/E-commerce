@@ -29,7 +29,11 @@ class FeaturedProductsItemWidget extends StatelessWidget {
         item: item,
         index: index,
       ),
-      tablet: const _FeaturedProductsItemWidgetTablet(),
+      tablet: _FeaturedProductsItemWidgetWeb(
+        gradients: gradients,
+        item: item,
+        index: index,
+      ),
       phone: const _FeaturedProductsItemWidgetPhone(),
     );
   }

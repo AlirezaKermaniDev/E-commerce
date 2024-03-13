@@ -1,10 +1,9 @@
-import 'package:ecommerce_app/core/asset_handler.dart';
 import 'package:ecommerce_app/core/extensions/locale_extensions.dart';
 import 'package:ecommerce_app/core/size_config.dart';
-import 'package:ecommerce_app/domain/entities/featured_products_entity/featured_products_entity.dart';
 import 'package:ecommerce_app/injection/injection.dart';
 import 'package:ecommerce_app/presentation/view/home_page/widgets/arrow_title_button_widget/arrow_title_button_widget.dart';
 import 'package:ecommerce_app/presentation/view/home_page/widgets/featured_products_item_widget/featured_products_item_widget.dart';
+import 'package:ecommerce_app/presentation/view/home_page/widgets/featured_products_widget/data/featured_products_list.dart';
 import 'package:ecommerce_app/presentation/widgets/animator_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/responsive_builder.dart';
 import 'package:ecommerce_app/presentation/widgets/scrollbar_widget.dart';
@@ -21,7 +20,7 @@ part "./layouts/web.dart";
     Widget build(BuildContext context) {
       return const ResponsiveBuilder(
         web: _FeaturedProductsWidgetWeb(),
-        tablet: _FeaturedProductsWidgetTablet(),
+        tablet: _FeaturedProductsWidgetWeb(),
         phone: _FeaturedProductsWidgetPhone(),
       );
     }
