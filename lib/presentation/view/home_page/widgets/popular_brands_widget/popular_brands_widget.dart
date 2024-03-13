@@ -4,6 +4,7 @@ import 'package:ecommerce_app/core/size_config.dart';
 import 'package:ecommerce_app/injection/injection.dart';
 import 'package:ecommerce_app/presentation/view/home_page/widgets/popular_brands_item_widget/popular_brands_item_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/animator_widget.dart';
+import 'package:ecommerce_app/presentation/widgets/constraints_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/responsive_builder.dart';
 import 'package:flutter/material.dart';
 

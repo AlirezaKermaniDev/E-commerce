@@ -12,7 +12,7 @@ class _SubscribeWidgetWeb extends StatelessWidget {
         if (fullWidth != true)
           Container(
             height: 300,
-            width: 1.w(context),
+            width: double.infinity,
             color: colorPalette.gray6,
           ),
         Align(
@@ -26,163 +26,164 @@ class _SubscribeWidgetWeb extends StatelessWidget {
                   end: Offset.zero),
               child: Container(
                 height: 580,
-                width: fullWidth == true ? 1.w(context) : .8.w(context),
+                width: _boxWidth(context),
                 decoration: BoxDecoration(
                   gradient: colorPalette.gradient1,
-                  borderRadius: fullWidth == true
-                      ? BorderRadius.zero
-                      : const BorderRadius.only(
-                          topRight: Radius.circular(25),
-                          bottomRight: Radius.circular(25),
-                        ),
+                  borderRadius: _boxBorderRadius(context),
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.only(
-                      left: 40, right: 60, top: 32, bottom: 60),
-                  child: Row(
-                    children: [
-                      Column(
-                        children: [
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          AnimatorWidget(
-                            withFadeTransition: true,
-                            child: Container(
-                              height: 100,
-                              width: 100,
-                              decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  gradient: colorPalette.gradient4),
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        width: 60,
-                      ),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.center,
+                child: ConstraintsWidget(
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                        left: 40, right: 60, top: 32, bottom: 60),
+                    child: Row(
+                      children: [
+                        Column(
                           children: [
-                            AnimatorWidget(
-                              withFadeTransition: true,
-                              slideTransition: Tween<Offset>(
-                                  begin: const Offset(0, .1), end: Offset.zero),
-                              child: Text(
-                                context
-                                    .locale.subscribeNowToGetTheLatestUpdates,
-                                style: typography.h2Title.copyWith(
-                                  color: colorPalette.primary,
-                                ),
-                              ),
-                            ),
                             const SizedBox(
-                              height: 50,
+                              height: 20,
                             ),
                             AnimatorWidget(
                               withFadeTransition: true,
-                              slideTransition: Tween<Offset>(
-                                  begin: const Offset(0, .1), end: Offset.zero),
                               child: Container(
-                                height: 86,
-                                width: 550,
+                                height: 100,
+                                width: 100,
                                 decoration: BoxDecoration(
-                                    color: colorPalette.primary,
-                                    borderRadius: const BorderRadius.only(
-                                        topLeft: Radius.circular(20),
-                                        topRight: Radius.circular(20))),
-                                child: Center(
-                                  child: Text(
-                                    context.locale.enterYouEmail,
-                                    style: typography.bodyText1
-                                        .copyWith(color: colorPalette.gray2),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            AnimatorWidget(
-                              withFadeTransition: true,
-                              slideTransition: Tween<Offset>(
-                                  begin: const Offset(0, .1), end: Offset.zero),
-                              child: Container(
-                                height: 86,
-                                width: 550,
-                                decoration: BoxDecoration(
-                                    color: colorPalette.accent1,
-                                    borderRadius: const BorderRadius.only(
-                                        bottomLeft: Radius.circular(20),
-                                        bottomRight: Radius.circular(20))),
-                                child: Center(
-                                  child: Text(
-                                    context.locale.subscribe.toUpperCase(),
-                                    style: typography.bodyText1
-                                        .copyWith(color: colorPalette.primary),
-                                  ),
-                                ),
+                                    shape: BoxShape.circle,
+                                    gradient: colorPalette.gradient4),
                               ),
                             ),
                           ],
                         ),
-                      ),
-                      Expanded(
-                          child: Stack(
-                        children: [
-                          Align(
-                            alignment: Alignment.bottomRight,
-                            child: Padding(
-                              padding: EdgeInsets.only(
-                                  right: fullWidth == true ? 80 : 0),
-                              child: AnimatorWidget(
+                        const SizedBox(
+                          width: 60,
+                        ),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              AnimatorWidget(
                                 withFadeTransition: true,
+                                slideTransition: Tween<Offset>(
+                                    begin: const Offset(0, .1),
+                                    end: Offset.zero),
+                                child: Text(
+                                  context
+                                      .locale.subscribeNowToGetTheLatestUpdates,
+                                  style: typography.h2Title.copyWith(
+                                    color: colorPalette.primary,
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 50,
+                              ),
+                              AnimatorWidget(
+                                withFadeTransition: true,
+                                slideTransition: Tween<Offset>(
+                                    begin: const Offset(0, .1),
+                                    end: Offset.zero),
                                 child: Container(
-                                  height: 307,
-                                  width: 307,
+                                  height: 86,
+                                  width: 550,
                                   decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      gradient: colorPalette.gradient4),
+                                      color: colorPalette.primary,
+                                      borderRadius: const BorderRadius.only(
+                                          topLeft: Radius.circular(20),
+                                          topRight: Radius.circular(20))),
+                                  child: Center(
+                                    child: Text(
+                                      context.locale.enterYouEmail,
+                                      style: typography.bodyText1
+                                          .copyWith(color: colorPalette.gray2),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              AnimatorWidget(
+                                withFadeTransition: true,
+                                slideTransition: Tween<Offset>(
+                                    begin: const Offset(0, .1),
+                                    end: Offset.zero),
+                                child: Container(
+                                  height: 86,
+                                  width: 550,
+                                  decoration: BoxDecoration(
+                                      color: colorPalette.accent1,
+                                      borderRadius: const BorderRadius.only(
+                                          bottomLeft: Radius.circular(20),
+                                          bottomRight: Radius.circular(20))),
+                                  child: Center(
+                                    child: Text(
+                                      context.locale.subscribe.toUpperCase(),
+                                      style: typography.bodyText1.copyWith(
+                                          color: colorPalette.primary),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                            child: Stack(
+                          children: [
+                            Align(
+                              alignment: Alignment.bottomRight,
+                              child: Padding(
+                                padding: EdgeInsets.only(
+                                    right: fullWidth == true ? 80 : 0),
+                                child: AnimatorWidget(
+                                  withFadeTransition: true,
+                                  child: Container(
+                                    height: 307,
+                                    width: 307,
+                                    decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        gradient: colorPalette.gradient4),
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                          Center(
-                            child: Padding(
+                            Center(
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.only(top: 32, left: 100),
+                                child: Transform.scale(
+                                  scale: _imageScale(context),
+                                  child: Transform.rotate(
+                                      angle: 1,
+                                      child: AnimatorWidget(
+                                          withFadeTransition: true,
+                                          rotateTrasition: Tween<double>(
+                                              begin: -.08, end: 0),
+                                          child:
+                                              Image.asset(AssetHandler.shoe6))),
+                                ),
+                              ),
+                            ),
+                            Padding(
                               padding:
-                                  const EdgeInsets.only(top: 32, left: 100),
-                              child: Transform.scale(
-                                scale: fullWidth == true ? .9 : 1.2,
-                                child: Transform.rotate(
-                                    angle: 1,
-                                    child: AnimatorWidget(
-                                        withFadeTransition: true,
-                                        rotateTrasition:
-                                            Tween<double>(begin: -.08, end: 0),
-                                        child:
-                                            Image.asset(AssetHandler.shoe6))),
+                                  const EdgeInsets.only(top: 90, right: 32),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  socialMediaIconBuilder(CustomIcons.twiter),
+                                  const SizedBox(
+                                    width: 10,
+                                  ),
+                                  socialMediaIconBuilder(CustomIcons.facebook),
+                                  const SizedBox(
+                                    width: 10,
+                                  ),
+                                  socialMediaIconBuilder(CustomIcons.instagram),
+                                ],
                               ),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 90, right: 32),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                socialMediaIconBuilder(CustomIcons.twiter),
-                                const SizedBox(
-                                  width: 10,
-                                ),
-                                socialMediaIconBuilder(CustomIcons.facebook),
-                                const SizedBox(
-                                  width: 10,
-                                ),
-                                socialMediaIconBuilder(CustomIcons.instagram),
-                              ],
-                            ),
-                          )
-                        ],
-                      ))
-                    ],
+                            )
+                          ],
+                        ))
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -191,6 +192,27 @@ class _SubscribeWidgetWeb extends StatelessWidget {
         )
       ],
     );
+  }
+
+  double _imageScale(BuildContext context) {
+    return fullWidth == true ? .9 : context.isOnMaxWidth ? 1 : 1.2;
+  }
+
+  BorderRadius _boxBorderRadius(BuildContext context) {
+    return fullWidth == true || context.isOnMaxWidth
+        ? BorderRadius.zero
+        : const BorderRadius.only(
+            topRight: Radius.circular(25),
+            bottomRight: Radius.circular(25),
+          );
+  }
+
+  double _boxWidth(BuildContext context) {
+    return context.isOnMaxWidth
+        ? double.infinity
+        : fullWidth == true
+            ? 1.w(context)
+            : .8.w(context);
   }
 
   Widget socialMediaIconBuilder(String iconPath) {

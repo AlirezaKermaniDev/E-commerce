@@ -5,8 +5,7 @@ class _AboutUsFeaturesWidgetWeb extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 1.w(context),
+    return ConstraintsWidget(
       child: Column(
         children: [
           AnimatorWidget(

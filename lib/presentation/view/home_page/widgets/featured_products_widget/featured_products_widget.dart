@@ -5,6 +5,7 @@ import 'package:ecommerce_app/presentation/view/home_page/widgets/arrow_title_bu
 import 'package:ecommerce_app/presentation/view/home_page/widgets/featured_products_item_widget/featured_products_item_widget.dart';
 import 'package:ecommerce_app/presentation/view/home_page/widgets/featured_products_widget/data/featured_products_list.dart';
 import 'package:ecommerce_app/presentation/widgets/animator_widget.dart';
+import 'package:ecommerce_app/presentation/widgets/constraints_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/responsive_builder.dart';
 import 'package:ecommerce_app/presentation/widgets/scrollbar_widget.dart';
 import 'package:flutter/material.dart';

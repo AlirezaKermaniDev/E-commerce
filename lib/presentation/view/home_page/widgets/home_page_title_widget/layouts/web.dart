@@ -14,7 +14,7 @@ class _HomePageTitleWidgetWeb extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(
-            height: 0.1.w(context),
+            height: 0.07.w(context),
           ),
           SizedBox(
             width: 0.5.w(context),

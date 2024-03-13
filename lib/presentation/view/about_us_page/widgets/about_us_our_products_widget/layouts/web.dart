@@ -5,8 +5,7 @@ class _AboutUsOurProductsWidgetWeb extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 1.w(context),
+    return ConstraintsWidget(
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: getIt<SizeConfig>().padding),
         child: Column(

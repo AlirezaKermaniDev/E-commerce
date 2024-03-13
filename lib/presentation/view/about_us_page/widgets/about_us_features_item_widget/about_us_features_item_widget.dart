@@ -37,7 +37,14 @@ class AboutUsFeaturesItemWidget extends StatelessWidget {
         shapePath: shapePath,
         isLtR: isLtR,
       ),
-      tablet: const _AboutUsFeaturesItemWidgetTablet(),
+      tablet: _AboutUsFeaturesItemWidgetTablet(
+        title: title,
+        description: description,
+        titleColor: titleColor,
+        imagePath: imagePath,
+        shapePath: shapePath,
+        isLtR: isLtR,
+      ),
       phone: const _AboutUsFeaturesItemWidgetPhone(),
     );
   }

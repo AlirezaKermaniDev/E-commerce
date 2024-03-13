@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/core/extensions/locale_extensions.dart';
 import 'package:ecommerce_app/injection/injection.dart';
 import 'package:ecommerce_app/presentation/view/home_page/widgets/arrow_title_button_widget/arrow_title_button_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/animator_widget.dart';
@@ -28,7 +29,12 @@ class AboutUsOurProductsItemWidget extends StatelessWidget {
         shapeGradient: shapeGradient,
         imagePath: imagePath,
       ),
-      tablet: const _AboutUsOurProductsItemWidgetTablet(),
+      tablet: _AboutUsOurProductsItemWidgetTablet(
+        title: title,
+        description: description,
+        shapeGradient: shapeGradient,
+        imagePath: imagePath,
+      ),
       phone: const _AboutUsOurProductsItemWidgetPhone(),
     );
   }

@@ -38,7 +38,15 @@ class FilterItemsWidget extends StatelessWidget {
         iconSize: iconSize,
         child: child,
       ),
-      tablet: const _FilterItemsWidgetTablet(),
+      tablet: _FilterItemsWidgetWeb(
+        title: title,
+        initialExpanded: initialExpanded,
+        headerHeight: headerHeight,
+        color: color,
+        textStyle: textStyle,
+        iconSize: iconSize,
+        child: child,
+      ),
       phone: const _FilterItemsWidgetPhone(),
     );
   }

@@ -1,8 +1,8 @@
 import 'package:ecommerce_app/core/asset_handler.dart';
 import 'package:ecommerce_app/core/extensions/locale_extensions.dart';
-import 'package:ecommerce_app/core/size_config.dart';
 import 'package:ecommerce_app/injection/injection.dart';
 import 'package:ecommerce_app/presentation/widgets/animator_widget.dart';
+import 'package:ecommerce_app/presentation/widgets/constraints_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -14,28 +14,30 @@ class AboutUsInfoWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 1.w(context),
+      width: double.infinity,
       padding: const EdgeInsets.only(top: 50, bottom: 60),
       color: colorPalette.darkPrimary,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          AboutUsInfoItemsWidget(
-            icon: CustomIcons.founded,
-            value: "2014",
-            lable: context.locale.founded,
-          ),
-          AboutUsInfoItemsWidget(
-            icon: CustomIcons.clients,
-            value: "2000+",
-            lable: context.locale.clients,
-          ),
-          AboutUsInfoItemsWidget(
-            icon: CustomIcons.countries,
-            value: "20",
-            lable: context.locale.countriesDelivered,
-          ),
-        ],
+      child: ConstraintsWidget(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            AboutUsInfoItemsWidget(
+              icon: CustomIcons.founded,
+              value: "2014",
+              lable: context.locale.founded,
+            ),
+            AboutUsInfoItemsWidget(
+              icon: CustomIcons.clients,
+              value: "2000+",
+              lable: context.locale.clients,
+            ),
+            AboutUsInfoItemsWidget(
+              icon: CustomIcons.countries,
+              value: "20",
+              lable: context.locale.countriesDelivered,
+            ),
+          ],
+        ),
       ),
     );
   }

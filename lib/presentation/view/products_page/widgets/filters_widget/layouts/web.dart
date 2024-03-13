@@ -19,7 +19,7 @@ class _FiltersWidgetWebState extends State<_FiltersWidgetWeb> {
       child: BlocBuilder<ProductsBloc, ProductsState>(
         builder: (context, state) {
           return SizedBox(
-            width: 350,
+            width: 300,
             child: Column(
               children: [
                 Container(

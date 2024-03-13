@@ -21,7 +21,7 @@ class ProductItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return ResponsiveBuilder(
       web: _ProductItemWidgetWeb(item: item),
-      tablet: const _ProductItemWidgetTablet(),
+      tablet: _ProductItemWidgetWeb(item: item),
       phone: const _ProductItemWidgetPhone(),
     );
   }

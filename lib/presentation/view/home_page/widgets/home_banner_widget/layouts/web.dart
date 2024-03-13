@@ -76,7 +76,7 @@ class _HomeBannerWidgetWebState extends State<_HomeBannerWidgetWeb> {
     return Align(
       alignment: Alignment.topRight,
       child: Padding(
-        padding: EdgeInsets.only(right: 0.34.w(context), top: 0.36.h(context) + .12.w(context)),
+        padding: EdgeInsets.only(right: 0.34.w(context), top: 0.38.h(context) + .13.w(context)),
         child: SizedBox(
           height: 40,
           width: 120,
@@ -117,7 +117,7 @@ class _HomeBannerWidgetWebState extends State<_HomeBannerWidgetWeb> {
         child: WidgetAnimator(
       atRestEffect: WidgetRestingEffects.wave(),
       child: Padding(
-        padding: EdgeInsets.only(bottom: index >= 2 ? 0 : 50, left: 30),
+        padding: EdgeInsets.only(bottom: index >= 2 ? 0 : 50, left: 30,top: 100),
         child: Transform.rotate(angle: -.72, child: Image.asset(_shoes[index])),
       ),
     ));

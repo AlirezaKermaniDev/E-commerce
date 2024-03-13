@@ -5,14 +5,14 @@ import 'package:ecommerce_app/presentation/bloc/products_bloc/products_bloc.dart
 import 'package:ecommerce_app/presentation/view/home_page/widgets/subscribe_widget/subscribe_widget.dart';
 import 'package:ecommerce_app/presentation/view/products_page/widgets/filters_widget/filters_widget.dart';
 import 'package:ecommerce_app/presentation/view/products_page/widgets/product_item_widget/product_item_widget.dart';
-import 'package:ecommerce_app/presentation/widgets/animator_text_widget.dart';
+import 'package:ecommerce_app/presentation/view/products_page/widgets/products_page_title_widget/products_page_title_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/animator_widget.dart';
+import 'package:ecommerce_app/presentation/widgets/constraints_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/drawer_widget/drawer_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/footer_widget/footer_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/header_widget/header_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:widget_and_text_animator/widget_and_text_animator.dart';
 
 class ProductsPage extends StatefulWidget {
   static const String path = "/products";
@@ -72,42 +72,45 @@ class _ProductsPageState extends State<ProductsPage> {
         drawer: const DrawerWidget(
           selectedIndex: 2,
         ),
-        body: Stack(
-          children: [
-            SingleChildScrollView(
-              controller: _scrollController,
-              child: Column(
-                children: [
-                  HeaderWidget(
-                    selectedIndex: 2,
-                    backgroundColor: colorPalette.primary,
-                  ),
-                  Divider(
-                    color: colorPalette.gray5,
-                  ),
-                  _titleWidget(),
-                  _productsListWidget(),
-                  const SubscribeWidget(
-                    fullWidth: true,
-                  ),
-                  const SizedBox(
-                    height: 120,
-                  ),
-                  const FooterWidget(),
-                ],
+        body: ConstraintsWidget(
+          child: Stack(
+            children: [
+              SingleChildScrollView(
+                controller: _scrollController,
+                child: Column(
+                  children: [
+                    HeaderWidget(
+                      selectedIndex: 2,
+                      backgroundColor: colorPalette.primary,
+                    ),
+                    Divider(
+                      color: colorPalette.gray5,
+                    ),
+                    const ProductsPageTitleWidget(),
+                    _productsListWidget(),
+                    const SubscribeWidget(
+                      fullWidth: true,
+                    ),
+                    const SizedBox(
+                      height: 120,
+                    ),
+                    const FooterWidget(),
+                  ],
+                ),
               ),
-            ),
-            if (_isStuckTop)
-              Positioned(
-                top: _isStuckBottom
-                    ? filtersWidgetTopOffset
-                    : filtersWidgetPaddingVerticaly,
-                left: context.isLtrLocale ? getIt<SizeConfig>().padding : null,
-                right:
-                    !context.isLtrLocale ? getIt<SizeConfig>().padding : null,
-                child: _filtersBuilder(),
-              ),
-          ],
+              if (_isStuckTop)
+                Positioned(
+                  top: _isStuckBottom
+                      ? filtersWidgetTopOffset
+                      : filtersWidgetPaddingVerticaly,
+                  left:
+                      context.isLtrLocale ? getIt<SizeConfig>().padding : null,
+                  right:
+                      !context.isLtrLocale ? getIt<SizeConfig>().padding : null,
+                  child: _filtersBuilder(),
+                ),
+            ],
+          ),
         ),
       ),
     );
@@ -153,9 +156,8 @@ class _ProductsPageState extends State<ProductsPage> {
                         shrinkWrap: true,
                         padding: const EdgeInsets.only(bottom: 50),
                         physics: const NeverScrollableScrollPhysics(),
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 3,
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 1.w(context) < 1400 ? 2 : 3,
                           mainAxisSpacing: 16,
                           crossAxisSpacing: 16,
                           childAspectRatio: .78,
@@ -180,39 +182,6 @@ class _ProductsPageState extends State<ProductsPage> {
           ),
         );
       },
-    );
-  }
-
-  Padding _titleWidget() {
-    return Padding(
-      padding: EdgeInsets.symmetric(
-          horizontal: getIt<SizeConfig>().padding, vertical: 70),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          AnimatorTextWidget(
-            context.locale.performanceSneakers,
-            style: typography.h4Title,
-            initialDelay: const Duration(milliseconds: 200),
-            spaceDelay: Duration.zero,
-            incomingEffect: WidgetTransitionEffects.incomingScaleDown(
-                blur: const Offset(0, 20),
-                duration: const Duration(milliseconds: 170)),
-            textAlign: TextAlign.start,
-          ),
-          BlocBuilder<ProductsBloc, ProductsState>(
-            builder: (context, state) {
-              return AnimatorTextWidget(
-                "${state.products.length} ${context.locale.items}",
-                initialDelay: const Duration(milliseconds: 700),
-                style: typography.bodyText1.copyWith(
-                  color: colorPalette.gray1,
-                ),
-              );
-            },
-          ),
-        ],
-      ),
     );
   }
 
