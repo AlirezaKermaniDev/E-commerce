@@ -5,6 +5,7 @@ import 'package:ecommerce_app/domain/entities/product_entity/product_entity.dart
 import 'package:ecommerce_app/injection/injection.dart';
 import 'package:ecommerce_app/presentation/view/product_detail_page/widgets/alternative_product_item_widget/alternative_product_item_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/animator_widget.dart';
+import 'package:ecommerce_app/presentation/widgets/constraints_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/responsive_builder.dart';
 import 'package:ecommerce_app/presentation/widgets/scrollbar_widget.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +23,7 @@ class AlternativeProductsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return ResponsiveBuilder(
       web: _AlternativeProductsWidgetWeb(item: item),
-      tablet: const _AlternativeProductsWidgetTablet(),
+      tablet: _AlternativeProductsWidgetWeb(item: item),
       phone: const _AlternativeProductsWidgetPhone(),
     );
   }

@@ -23,7 +23,7 @@ class SignUpFormWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return const ResponsiveBuilder(
       web: _SignUpFormWidgetWeb(),
-      tablet: _SignUpFormWidgetTablet(),
+      tablet: _SignUpFormWidgetWeb(),
       phone: _SignUpFormWidgetPhone(),
     );
   }

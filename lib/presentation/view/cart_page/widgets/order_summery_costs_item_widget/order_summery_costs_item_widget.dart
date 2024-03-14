@@ -27,7 +27,12 @@ class OrderSummeryCostsItemWidget extends StatelessWidget {
         valueColor: valueColor,
         boldValue: boldValue,
       ),
-      tablet: const _OrderSummeryCostsItemWidgetTablet(),
+      tablet: _OrderSummeryCostsItemWidgetWeb(
+        title: title,
+        value: value,
+        valueColor: valueColor,
+        boldValue: boldValue,
+      ),
       phone: const _OrderSummeryCostsItemWidgetPhone(),
     );
   }

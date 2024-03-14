@@ -17,7 +17,7 @@ class BillingBodyWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return const ResponsiveBuilder(
       web: _BillingBodyWidgetWeb(),
-      tablet: _BillingBodyWidgetTablet(),
+      tablet: _BillingBodyWidgetWeb(),
       phone: _BillingBodyWidgetPhone(),
     );
   }

@@ -20,7 +20,7 @@ class DeliveryFormWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return const ResponsiveBuilder(
       web: _DeliveryFormWidgetWeb(),
-      tablet: _DeliveryFormWidgetTablet(),
+      tablet: _DeliveryFormWidgetWeb(),
       phone: _DeliveryFormWidgetPhone(),
     );
   }

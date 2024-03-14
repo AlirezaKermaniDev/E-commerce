@@ -19,7 +19,7 @@ class AddressFormFieldsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return const ResponsiveBuilder(
       web: _AddressFormFieldsWidgetWeb(),
-      tablet: _AddressFormFieldsWidgetTablet(),
+      tablet: _AddressFormFieldsWidgetWeb(),
       phone: _AddressFormFieldsWidgetPhone(),
     );
   }

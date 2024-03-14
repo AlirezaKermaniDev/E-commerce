@@ -9,6 +9,7 @@ class _SignUpCardsWidgetWeb extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnimatorWidget(
       withFadeTransition: true,
+      withVisibilityDetector: false,
       delay: const Duration(milliseconds: 700),
       child: Container(
         height: double.infinity,
@@ -131,6 +132,7 @@ class _SignUpCardsWidgetWeb extends StatelessWidget {
                 padding: const EdgeInsets.only(bottom: 0),
                 child: AnimatorWidget(
                     withFadeTransition: true,
+                    withVisibilityDetector: false,
                     delay: const Duration(milliseconds: 100),
                     scaleTransition: Tween<double>(
                       begin: .8,
@@ -145,6 +147,7 @@ class _SignUpCardsWidgetWeb extends StatelessWidget {
                 padding: const EdgeInsets.only(top: 300, left: 400),
                 child: AnimatorWidget(
                   withFadeTransition: true,
+                  withVisibilityDetector: false,
                   delay: const Duration(milliseconds: 200),
                   scaleTransition: Tween<double>(
                     begin: .8,
@@ -163,6 +166,7 @@ class _SignUpCardsWidgetWeb extends StatelessWidget {
                 padding: const EdgeInsets.only(top: 300, right: 390),
                 child: AnimatorWidget(
                     withFadeTransition: true,
+                    withVisibilityDetector: false,
                     delay: const Duration(milliseconds: 300),
                     slideTransition: Tween<Offset>(
                       begin: const Offset(0, .1),

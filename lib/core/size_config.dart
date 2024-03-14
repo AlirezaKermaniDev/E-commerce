@@ -33,4 +33,5 @@ extension SizeConfigExtentions on num {
 
 extension Sizextentions on BuildContext {
   bool get isOnMaxWidth => 1.w(this) >= getIt<SizeConfig>().maxWidth;
+  bool get isTablet => 1.w(this) < 1400;
 }

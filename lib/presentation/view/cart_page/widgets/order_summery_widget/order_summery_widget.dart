@@ -27,7 +27,10 @@ class OrderSummeryWidget extends StatelessWidget {
         withContinueBttons: withContinueBttons,
         cartBloc: cartBloc,
       ),
-      tablet: const _OrderSummeryWidgetTablet(),
+      tablet: _OrderSummeryWidgetTablet(
+        withContinueBttons: withContinueBttons,
+        cartBloc: cartBloc,
+      ),
       phone: const _OrderSummeryWidgetPhone(),
     );
   }

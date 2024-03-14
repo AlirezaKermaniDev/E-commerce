@@ -15,7 +15,7 @@ class DeliveryUserDetailWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return const ResponsiveBuilder(
       web: _DeliveryUserDetailWidgetWeb(),
-      tablet: _DeliveryUserDetailWidgetTablet(),
+      tablet: _DeliveryUserDetailWidgetWeb(),
       phone: _DeliveryUserDetailWidgetPhone(),
     );
   }

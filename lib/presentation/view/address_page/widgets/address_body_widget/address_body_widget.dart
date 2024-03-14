@@ -18,7 +18,7 @@ class AddressBodyWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return const ResponsiveBuilder(
       web: _AddressBodyWidgetWeb(),
-      tablet: _AddressBodyWidgetTablet(),
+      tablet: _AddressBodyWidgetWeb(),
       phone: _AddressBodyWidgetPhone(),
     );
   }

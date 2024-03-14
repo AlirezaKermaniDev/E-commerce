@@ -32,7 +32,12 @@ class SizesItemWidget extends StatelessWidget {
         isActive: isActive,
         isAvailable: isAvailable,
       ),
-      tablet: const _SizesItemWidgetTablet(),
+      tablet: _SizesItemWidgetWeb(
+        value: value,
+        index: index,
+        isActive: isActive,
+        isAvailable: isAvailable,
+      ),
       phone: const _SizesItemWidgetPhone(),
     );
   }

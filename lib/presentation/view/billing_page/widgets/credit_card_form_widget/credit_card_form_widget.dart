@@ -18,7 +18,7 @@ class CreditCardFormWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return const ResponsiveBuilder(
       web: _CreditCardFormWidgetWeb(),
-      tablet: _CreditCardFormWidgetTablet(),
+      tablet: _CreditCardFormWidgetWeb(),
       phone: _CreditCardFormWidgetPhone(),
     );
   }

@@ -26,7 +26,7 @@ class SignInFormWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return const ResponsiveBuilder(
       web: _SignInFormWidgetWeb(),
-      tablet: _SignInFormWidgetTablet(),
+      tablet: _SignInFormWidgetWeb(),
       phone: _SignInFormWidgetPhone(),
     );
   }

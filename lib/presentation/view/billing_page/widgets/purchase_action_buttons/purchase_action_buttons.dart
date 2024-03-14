@@ -28,7 +28,11 @@ class PurchaseActionButtons extends StatelessWidget {
         backButtonText: backButtonText,
         onTapContinue: onTapContinue,
       ),
-      tablet: const _PurchaseActionButtonsTablet(),
+      tablet: _PurchaseActionButtonsTablet(
+        continueButtonText: continueButtonText,
+        backButtonText: backButtonText,
+        onTapContinue: onTapContinue,
+      ),
       phone: const _PurchaseActionButtonsPhone(),
     );
   }

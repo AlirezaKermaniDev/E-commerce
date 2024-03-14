@@ -37,7 +37,7 @@ class _AddToCartButtonWidgetState extends State<AddToCartButtonWidget> {
         child: Center(
           child: Container(
             height: 70,
-            width: 500,
+            width: double.infinity,
             decoration: BoxDecoration(color: colorPalette.darkPrimary),
             child: Center(
               child: Text(

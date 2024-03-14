@@ -19,6 +19,7 @@ class _CartProductsItemWidgetWeb extends StatelessWidget {
         child: Row(
           children: [
             Expanded(
+              flex: 2,
                 child: SizedBox(
               height: double.infinity,
               child: AnimatorWidget(

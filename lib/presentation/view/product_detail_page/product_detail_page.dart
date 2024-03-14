@@ -7,6 +7,7 @@ import 'package:ecommerce_app/presentation/view/product_detail_page/widgets/alte
 import 'package:ecommerce_app/presentation/view/product_detail_page/widgets/breadcrumb_widget/breadcrumb_widget.dart';
 import 'package:ecommerce_app/presentation/view/product_detail_page/widgets/join_our_club_banner_widget/join_our_club_banner_widget.dart';
 import 'package:ecommerce_app/presentation/view/product_detail_page/widgets/product_info_widget/product_info_widget.dart';
+import 'package:ecommerce_app/presentation/widgets/constraints_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/drawer_widget/drawer_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/footer_widget/footer_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/header_widget/header_widget.dart';
@@ -37,17 +38,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
           selectedIndex: 2,
         ),
         body: BlocListener<ProductDetailBloc, ProductDetailState>(
-          listener: (context, state) {
-            if (state.error != null) {
-              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                  backgroundColor: colorPalette.accent4,
-                  content: Text(
-                    state.error ?? "",
-                    style: typography.bodyText2
-                        .copyWith(color: colorPalette.primary),
-                  )));
-            }
-          },
+          listener: _stateListener,
           child: SingleChildScrollView(
             child: Column(
               children: [
@@ -60,17 +51,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                 const SizedBox(
                   height: 74,
                 ),
-                Row(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: getIt<SizeConfig>().padding),
-                      child: BreadcrumbWidget(
-                        items: product.categories ?? [],
-                      ),
-                    ),
-                  ],
-                ),
+                _breadcrumbBuilderWidget(),
                 const SizedBox(
                   height: 32,
                 ),
@@ -95,5 +76,36 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
         ),
       ),
     );
+  }
+
+  ConstraintsWidget _breadcrumbBuilderWidget() {
+    return ConstraintsWidget(
+      child: Row(
+        children: [
+          Padding(
+            // To refresh the padding when screen size changed
+            padding: EdgeInsets.symmetric(
+              horizontal: context.isTablet
+                  ? getIt<SizeConfig>().padding
+                  : getIt<SizeConfig>().padding,
+            ),
+            child: BreadcrumbWidget(
+              items: product.categories ?? [],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _stateListener(context, state) {
+    if (state.error != null) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          backgroundColor: colorPalette.accent4,
+          content: Text(
+            state.error ?? "",
+            style: typography.bodyText2.copyWith(color: colorPalette.primary),
+          )));
+    }
   }
 }

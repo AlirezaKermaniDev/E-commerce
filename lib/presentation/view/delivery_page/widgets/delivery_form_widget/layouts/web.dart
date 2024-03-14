@@ -39,9 +39,11 @@ class _DeliveryFormWidgetWeb extends StatelessWidget {
           slideTransition:
               Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
           child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
                 width: 20,
+                height: 20,
                 child: Checkbox.adaptive(
                   value: false,
                   onChanged: (_) {},
@@ -51,9 +53,11 @@ class _DeliveryFormWidgetWeb extends StatelessWidget {
               const SizedBox(
                 width: 12,
               ),
-              Text(
-                context.locale.pleaseSendMeSmsShippingUpdatesAboutMyOrder,
-                style: typography.bodyText2,
+              Expanded(
+                child: Text(
+                  context.locale.pleaseSendMeSmsShippingUpdatesAboutMyOrder,
+                  style: typography.bodyText2,
+                ),
               )
             ],
           ),

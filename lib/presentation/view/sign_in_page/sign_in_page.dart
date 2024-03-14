@@ -1,6 +1,8 @@
+import 'package:ecommerce_app/core/size_config.dart';
 import 'package:ecommerce_app/injection/injection.dart';
 import 'package:ecommerce_app/presentation/view/sign_in_page/widgets/sign_in_cards_widget/sign_in_cards_widget.dart';
 import 'package:ecommerce_app/presentation/view/sign_in_page/widgets/sign_in_form_widget/sign_in_form_widget.dart';
+import 'package:ecommerce_app/presentation/widgets/constraints_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/drawer_widget/drawer_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/footer_widget/footer_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/header_widget/header_widget.dart';
@@ -16,19 +18,21 @@ class SignInPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: colorPalette.primary,
       drawer: const DrawerWidget(
-        selectedIndex: 3,
+        selectedIndex: 4,
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
             SizedBox(
-              height: 1200,
+              height: 1.h(context),
               child: Stack(children: [
-                const Row(
-                  children: [
-                    Expanded(child: SignInCardsWidget()),
-                    Expanded(child: SignInFormWidget()),
-                  ],
+                const ConstraintsWidget(
+                  child: Row(
+                    children: [
+                      Expanded(child: SignInCardsWidget()),
+                      Expanded(child: SignInFormWidget()),
+                    ],
+                  ),
                 ),
                 HeaderWidget(
                   selectedIndex: 3,

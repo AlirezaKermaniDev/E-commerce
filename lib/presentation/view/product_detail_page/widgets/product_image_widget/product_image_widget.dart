@@ -18,7 +18,9 @@ class ProductImageWidget extends StatelessWidget {
       web: _ProductImageWidgetWeb(
         item: item,
       ),
-      tablet: const _ProductImageWidgetTablet(),
+      tablet: _ProductImageWidgetWeb(
+        item: item,
+      ),
       phone: const _ProductImageWidgetPhone(),
     );
   }

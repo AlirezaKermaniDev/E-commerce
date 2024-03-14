@@ -3,6 +3,7 @@ import 'package:ecommerce_app/core/size_config.dart';
 import 'package:ecommerce_app/injection/injection.dart';
 import 'package:ecommerce_app/presentation/view/delivery_page/widgets/delivery_body_widget/delivery_body_widget.dart';
 import 'package:ecommerce_app/presentation/view/product_detail_page/widgets/breadcrumb_widget/breadcrumb_widget.dart';
+import 'package:ecommerce_app/presentation/widgets/constraints_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/drawer_widget/drawer_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/footer_widget/footer_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/header_widget/header_widget.dart';
@@ -20,59 +21,61 @@ class DeliveryPage extends StatelessWidget {
       drawer: const DrawerWidget(
         selectedIndex: 5,
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            HeaderWidget(
-              selectedIndex: 5,
-              backgroundColor: colorPalette.primary,
-            ),
-            Divider(
-              color: colorPalette.gray5,
-              thickness: 1.6,
-            ),
-            const SizedBox(
-              height: 72,
-            ),
-            Padding(
-              padding:
-                  EdgeInsets.symmetric(horizontal: getIt<SizeConfig>().padding),
-              child: Row(
-                children: [
-                  BreadcrumbWidget(
-                    items: [
-                      context.locale.cart,
-                      context.locale.address,
-                      context.locale.delivery,
-                      context.locale.billing,
-                    ],
-                    selectedItem: context.locale.delivery,
-                    isBold: true,
-                    unSelectedColor: colorPalette.gray4,
-                  ),
-                ],
+      body: ConstraintsWidget(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              HeaderWidget(
+                selectedIndex: 5,
+                backgroundColor: colorPalette.primary,
               ),
-            ),
-            const SizedBox(
-              height: 72,
-            ),
-            const DeliveryBodyWidget(),
-            const SizedBox(
-              height: 120,
-            ),
-            Padding(
-              padding:
-                  EdgeInsets.symmetric(horizontal: getIt<SizeConfig>().padding),
-              child: Divider(
+              Divider(
                 color: colorPalette.gray5,
                 thickness: 1.6,
               ),
-            ),
-            const SizedBox(
-              height: 120,
-            ),
-            const FooterWidget()
-          ],
+              const SizedBox(
+                height: 72,
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                    horizontal: getIt<SizeConfig>().padding),
+                child: Row(
+                  children: [
+                    BreadcrumbWidget(
+                      items: [
+                        context.locale.cart,
+                        context.locale.address,
+                        context.locale.delivery,
+                        context.locale.billing,
+                      ],
+                      selectedItem: context.locale.delivery,
+                      isBold: true,
+                      unSelectedColor: colorPalette.gray4,
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 72,
+              ),
+              const DeliveryBodyWidget(),
+              const SizedBox(
+                height: 120,
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                    horizontal: getIt<SizeConfig>().padding),
+                child: Divider(
+                  color: colorPalette.gray5,
+                  thickness: 1.6,
+                ),
+              ),
+              const SizedBox(
+                height: 120,
+              ),
+              const FooterWidget()
+            ],
+          ),
         ),
       ),
     );

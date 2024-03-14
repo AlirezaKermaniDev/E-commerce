@@ -10,17 +10,19 @@ class _ProductInfoWidgetWeb extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: getIt<SizeConfig>().padding),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          ProductImageWidget(item: item),
-          const SizedBox(
-            width: 100,
-          ),
-          ProductDetailWidget(item: item)
-        ],
+    return ConstraintsWidget(
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: getIt<SizeConfig>().padding),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ProductImageWidget(item: item),
+            const SizedBox(
+              width: 100,
+            ),
+            ProductDetailWidget(item: item)
+          ],
+        ),
       ),
     );
   }

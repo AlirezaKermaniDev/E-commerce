@@ -6,6 +6,7 @@ import 'package:ecommerce_app/presentation/bloc/cart_bloc/cart_bloc.dart';
 import 'package:ecommerce_app/presentation/view/cart_page/widgets/cart_body_widget/cart_body_widget.dart';
 import 'package:ecommerce_app/presentation/view/cart_page/widgets/order_summery_widget/order_summery_widget.dart';
 import 'package:ecommerce_app/presentation/view/product_detail_page/widgets/alternative_products_widget/alternative_products_widget.dart';
+import 'package:ecommerce_app/presentation/widgets/constraints_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/drawer_widget/drawer_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/footer_widget/footer_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/header_widget/header_widget.dart';
@@ -70,63 +71,68 @@ class _CartPageState extends State<CartPage> {
         drawer: const DrawerWidget(
           selectedIndex: 5,
         ),
-        body: Stack(
-          children: [
-            SingleChildScrollView(
-              controller: _scrollController,
-              child: Column(
-                children: [
-                  HeaderWidget(
-                      selectedIndex: 5, backgroundColor: colorPalette.primary),
-                  Divider(
-                    color: colorPalette.gray5,
-                    thickness: 1.6,
-                  ),
-                  const SizedBox(
-                    height: 80,
-                  ),
-                  CartBodyWidget(
-                    orderSummeryKey: _orderSummeryKey,
-                    listViewKey: _listViewkey,
-                    isStuckTop: _isStuckTop,
-                  ),
-                  const SizedBox(
-                    height: 120,
-                  ),
-                  AlternativeProductsWidget(item: productListData.first),
-                  const SizedBox(
-                    height: 120,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: getIt<SizeConfig>().padding),
-                    child: Divider(
+        body: ConstraintsWidget(
+          child: Stack(
+            children: [
+              SingleChildScrollView(
+                controller: _scrollController,
+                child: Column(
+                  children: [
+                    HeaderWidget(
+                        selectedIndex: 5,
+                        backgroundColor: colorPalette.primary),
+                    Divider(
                       color: colorPalette.gray5,
                       thickness: 1.6,
                     ),
-                  ),
-                  const SizedBox(
-                    height: 120,
-                  ),
-                  const FooterWidget()
-                ],
-              ),
-            ),
-            if (_isStuckTop)
-              Positioned(
-                top: _isStuckBottom
-                    ? filtersWidgetTopOffset
-                    : filtersWidgetPaddingVerticaly,
-                right: context.isLtrLocale ? getIt<SizeConfig>().padding : null,
-                left: !context.isLtrLocale ? getIt<SizeConfig>().padding : null,
-                child: BlocBuilder<CartBloc, CartState>(
-                  builder: (context, state) {
-                    return orderSummeryBuilder(
-                        cartBloc: context.read<CartBloc>());
-                  },
+                    const SizedBox(
+                      height: 80,
+                    ),
+                    CartBodyWidget(
+                      orderSummeryKey: _orderSummeryKey,
+                      listViewKey: _listViewkey,
+                      isStuckTop: _isStuckTop,
+                    ),
+                    const SizedBox(
+                      height: 120,
+                    ),
+                    AlternativeProductsWidget(item: productListData.first),
+                    const SizedBox(
+                      height: 120,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: getIt<SizeConfig>().padding),
+                      child: Divider(
+                        color: colorPalette.gray5,
+                        thickness: 1.6,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 120,
+                    ),
+                    const FooterWidget()
+                  ],
                 ),
               ),
-          ],
+              if (_isStuckTop)
+                Positioned(
+                  top: _isStuckBottom
+                      ? filtersWidgetTopOffset
+                      : filtersWidgetPaddingVerticaly,
+                  right:
+                      context.isLtrLocale ? getIt<SizeConfig>().padding : null,
+                  left:
+                      !context.isLtrLocale ? getIt<SizeConfig>().padding : null,
+                  child: BlocBuilder<CartBloc, CartState>(
+                    builder: (context, state) {
+                      return orderSummeryBuilder(
+                          cartBloc: context.read<CartBloc>());
+                    },
+                  ),
+                ),
+            ],
+          ),
         ),
       ),
     );

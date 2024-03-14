@@ -28,7 +28,10 @@ class AlternativeProductItemWidget extends StatelessWidget {
         item: item,
         index: index,
       ),
-      tablet: const _AlternativeProductItemWidgetTablet(),
+      tablet: _AlternativeProductItemWidgetWeb(
+        item: item,
+        index: index,
+      ),
       phone: const _AlternativeProductItemWidgetPhone(),
     );
   }

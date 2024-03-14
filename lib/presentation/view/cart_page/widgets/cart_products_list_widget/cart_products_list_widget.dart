@@ -24,7 +24,7 @@ class CartProductsListWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return ResponsiveBuilder(
       web: _CartProductsListWidgetWeb(listViewKey: listViewKey),
-      tablet: const _CartProductsListWidgetTablet(),
+      tablet: _CartProductsListWidgetTablet(listViewKey: listViewKey),
       phone: const _CartProductsListWidgetPhone(),
     );
   }

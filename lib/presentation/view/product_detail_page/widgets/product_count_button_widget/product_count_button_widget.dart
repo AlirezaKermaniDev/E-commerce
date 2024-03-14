@@ -28,7 +28,7 @@ class _ProductCountButtonWidgetState extends State<ProductCountButtonWidget> {
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 50),
         height: 70,
-        width: isTapDown ? 65 : 70,
+        width: isTapDown ? 65 : 60,
         decoration: BoxDecoration(color: colorPalette.gray6),
         child: Center(
           child: Icon(

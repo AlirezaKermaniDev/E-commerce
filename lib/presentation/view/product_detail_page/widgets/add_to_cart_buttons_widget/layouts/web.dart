@@ -10,6 +10,7 @@ class _AddToCartButtonsWidgetWeb extends StatelessWidget {
     return BlocBuilder<ProductDetailBloc, ProductDetailState>(
       builder: (context, state) {
         return Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             AnimatorWidget(
               withFadeTransition: true,
@@ -29,7 +30,7 @@ class _AddToCartButtonsWidgetWeb extends StatelessWidget {
                   ),
                   Container(
                     height: 70,
-                    width: 70,
+                    width: 60,
                     decoration: BoxDecoration(
                         border:
                             Border.all(color: colorPalette.gray6, width: 1.5)),
