@@ -1,5 +1,7 @@
+import 'package:country_flags/country_flags.dart';
 import 'package:ecommerce_app/core/asset_handler.dart';
 import 'package:ecommerce_app/core/extensions/locale_extensions.dart';
+import 'package:ecommerce_app/core/local_storage/local_storage.dart';
 import 'package:ecommerce_app/core/size_config.dart';
 import 'package:ecommerce_app/injection/injection.dart';
 import 'package:ecommerce_app/presentation/bloc/header_bloc/header_bloc.dart';
@@ -15,6 +17,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:widget_and_text_animator/widget_and_text_animator.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 part 'layouts/phone.dart';
 part "layouts/tablet.dart";

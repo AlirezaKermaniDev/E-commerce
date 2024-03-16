@@ -1,3 +1,4 @@
+import 'package:country_flags/country_flags.dart';
 import 'package:ecommerce_app/core/extensions/locale_extensions.dart';
 import 'package:ecommerce_app/core/local_storage/local_storage.dart';
 import 'package:ecommerce_app/injection/injection.dart';
@@ -182,7 +183,7 @@ class DrawerWidget extends StatelessWidget {
                   Tween<Offset>(begin: const Offset(-.05, 0), end: Offset.zero),
               delay: const Duration(milliseconds: 600),
               child: DrawerItemWidget(
-                title:  context.locale.search,
+                title: context.locale.search,
                 onTap: () {
                   Scaffold.of(context).closeDrawer();
                   showDialog(
@@ -252,7 +253,7 @@ class DrawerWidget extends StatelessWidget {
                       width: 12,
                     ),
                     Text(
-                       context.locale.settings,
+                      context.locale.settings,
                       style: typography.bodyText5,
                     ),
                   ],
@@ -270,7 +271,7 @@ class DrawerWidget extends StatelessWidget {
               child: BlocBuilder<HeaderBloc, HeaderState>(
                 builder: (context, state) {
                   return DrawerItemWidget(
-                    title:  context.locale.darkMode,
+                    title: context.locale.darkMode,
                     onTap: () {
                       context
                           .read<HeaderBloc>()
@@ -290,29 +291,10 @@ class DrawerWidget extends StatelessWidget {
               child: BlocBuilder<HeaderBloc, HeaderState>(
                 builder: (context, state) {
                   return DrawerItemWidget(
-                    title:  context.locale.language,
+                    title: context.locale.language,
                     onTap: () {},
                     isActive: false,
-                    expanded: Column(
-                        children: AppLocalizations.supportedLocales
-                            .map(
-                              (e) => RadioListTile.adaptive(
-                                activeColor: colorPalette.accent4,
-                                value: e,
-                                groupValue: getIt<LocalStorage>().getLocale(),
-                                onChanged: (value) {
-                                  context.read<HeaderBloc>().add(
-                                      HeaderEvent.changeLanguage(
-                                          locale: value!));
-                                },
-                                title: Text(
-                                  e.toLanguageName(context),
-                                  style: typography.bodyText2
-                                      .copyWith(color: colorPalette.gray2),
-                                ),
-                              ),
-                            )
-                            .toList()),
+                    expanded: const LanguagesExpandedWidget(),
                     valueText: getIt<LocalStorage>()
                         .getLocale()
                         .toLanguageName(context),
@@ -328,5 +310,46 @@ class DrawerWidget extends StatelessWidget {
 
   bool _darkModeValue() {
     return getIt<LocalStorage>().getTheme().themeMode == ThemeMode.dark;
+  }
+}
+
+class LanguagesExpandedWidget extends StatelessWidget {
+  const LanguagesExpandedWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+        children: AppLocalizations.supportedLocales
+            .map(
+              (e) => RadioListTile.adaptive(
+                activeColor: colorPalette.accent4,
+                value: e,
+                groupValue: getIt<LocalStorage>().getLocale(),
+                onChanged: (value) {
+                  context
+                      .read<HeaderBloc>()
+                      .add(HeaderEvent.changeLanguage(locale: value!));
+                },
+                title: Row(
+                  children: [
+                    CountryFlag.fromLanguageCode(
+                      e.languageCode.replaceAll("ar", "ar-SA"),
+                      height: 25,
+                      width: 25,
+                      borderRadius: 3,
+                    ),
+                  const  SizedBox(width: 8,),
+                    Text(
+                      e.toLanguageName(context),
+                      style: typography.bodyText2
+                          .copyWith(color: colorPalette.gray2),
+                    ),
+                  ],
+                ),
+              ),
+            )
+            .toList());
   }
 }

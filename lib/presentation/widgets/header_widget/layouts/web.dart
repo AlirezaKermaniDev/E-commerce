@@ -65,15 +65,6 @@ class _HeaderWidgetWeb extends StatelessWidget {
                                 context.go(ProductsPage.path);
                               },
                             ),
-                            const SizedBox(
-                              width: 56,
-                            ),
-                            HeaderTabItemWidget(
-                              title: context.locale.sale,
-                              isSelected: false,
-                              forgroundColor: forgroundColor,
-                              onTap: () {},
-                            ),
                           ],
                         ),
                         const SizedBox(
@@ -179,6 +170,38 @@ class _HeaderWidgetWeb extends StatelessWidget {
                       ),
                     ),
                   ),
+                  const SizedBox(
+                    width: 60,
+                  ),
+                  InkWell(
+                    onTap: () {
+                      context
+                          .read<HeaderBloc>()
+                          .add(const HeaderEvent.changeThemeMode());
+                    },
+                    child: Icon(
+                      _themeModeIcon(),
+                      color: colorPalette.darkPrimary,
+                      size: 26,
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 60,
+                  ),
+                  SizedBox(
+                    height: 30,
+                    width: 30,
+                    child: DropdownButton(
+                      iconSize: 0,
+                      underline: const SizedBox(),
+                      items: languageItemsWidget(),
+                      onChanged: (value) {
+                        context.read<HeaderBloc>().add(
+                            HeaderEvent.changeLanguage(locale: Locale(value!)));
+                      },
+                      value: getIt<LocalStorage>().getLocale().languageCode,
+                    ),
+                  ),
                 ],
               )
             ],
@@ -186,6 +209,25 @@ class _HeaderWidgetWeb extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  List<DropdownMenuItem<String>> languageItemsWidget() {
+    return AppLocalizations.supportedLocales
+        .map((e) => DropdownMenuItem(
+            value: e.languageCode,
+            child: CountryFlag.fromLanguageCode(
+              e.languageCode.replaceAll("ar", "ar-SA"),
+              height: 30,
+              width: 30,
+              borderRadius: 8,
+            )))
+        .toList();
+  }
+
+  IconData _themeModeIcon() {
+    return getIt<LocalStorage>().getTheme().themeMode == ThemeMode.dark
+        ? Icons.light_mode_outlined
+        : Icons.dark_mode_outlined;
   }
 }
 
