@@ -6,12 +6,14 @@ class _HomePageTitleWidgetTablet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 0.48.h(context),
+      height: 650,
       width: 0.9.w(context),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-        const  SizedBox(height: 50,),
+          const SizedBox(
+            height: 50,
+          ),
           SizedBox(
             width: 0.50.w(context),
             child: AnimatorTextWidget(

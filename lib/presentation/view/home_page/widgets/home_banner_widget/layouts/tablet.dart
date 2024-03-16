@@ -27,7 +27,7 @@ class _HomeBannerWidgetTabletState extends State<_HomeBannerWidgetTablet> {
   Widget build(BuildContext context) {
     return SizedBox(
       width: 0.6.w(context),
-      height: 0.5.h(context),
+      height: 700,
       child: Stack(
         children: [
           _backgroundShapeWidget(),
@@ -72,7 +72,7 @@ class _HomeBannerWidgetTabletState extends State<_HomeBannerWidgetTablet> {
     return Align(
       alignment: Alignment.topRight,
       child: Padding(
-        padding: EdgeInsets.only(right: 0.32.w(context), top: 0.25.h(context) + .12.w(context)),
+        padding: EdgeInsets.only(right: 0.32.w(context), top: 350 + .12.w(context)),
         child: SizedBox(
           height: 40,
           width: 120,

@@ -159,5 +159,16 @@
   "signUpForEmailsToGetUpdatesFromShop": "दुकान से अपडेट प्राप्त करने के लिए ईमेल साइन अप करें, उत्पादों, लाभ और ऑफर्स पर।",
   "dyCreatingAnAccountYouAgree": "खाता बनाते समय, आप दुकान की गोपनीयता नीति और उपयोग की शर्तों से सहमत होते हैं।",
   "termOfUse": "उपयोग की शर्तें",
-  "ecommerceUiKitMadeForYourBusiness": "आपके व्यापार के लिए बना ई-कॉमर्स यूआई किट"
+  "ecommerceUiKitMadeForYourBusiness": "आपके व्यापार के लिए बना ई-कॉमर्स यूआई किट",
+  "pages": "पृष्ठों",
+  "menu": "मेन्यू",
+  "profile": "प्रोफ़ाइल",
+  "search": "खोज",
+  "settings": "समायोजन",
+  "darkMode": "डार्क मोड",
+  "language": "भाषा",
+  "arabic": "अरबी",
+  "english": "अंग्रेज़ी",
+  "farsi": "फारसी",
+  "hindi": "हिंदी"
 }

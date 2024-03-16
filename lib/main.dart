@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:ecommerce_app/core/local_storage/local_storage.dart';
 import 'package:ecommerce_app/core/size_config.dart';
 import 'package:ecommerce_app/firebase_options.dart';
 import 'package:ecommerce_app/presentation/bloc/header_bloc/header_bloc.dart';
@@ -25,14 +26,21 @@ class App extends StatelessWidget {
     getIt<SizeConfig>().setSizeConfigs(context);
     return BlocProvider(
       create: (_) => getIt<HeaderBloc>(),
-      child: MaterialApp.router(
-        title: 'E-commerce',
-        routerConfig: routes,
-        scrollBehavior: kIsWeb ? AppScrollBehavior() : null,
-        debugShowCheckedModeBanner: false,
-        locale: const Locale('en'),
-        localizationsDelegates: AppLocalizations.localizationsDelegates,
-        supportedLocales: AppLocalizations.supportedLocales,
+      child: BlocBuilder<HeaderBloc, HeaderState>(
+        builder: (context, state) {
+          colorPalette = getIt<LocalStorage>().getTheme().colorPalette;
+          typography = getIt<LocalStorage>().getTheme().typography;
+          final locale = getIt<LocalStorage>().getLocale();
+          return MaterialApp.router(
+            title: 'E-commerce',
+            routerConfig: routes,
+            scrollBehavior: kIsWeb ? AppScrollBehavior() : null,
+            debugShowCheckedModeBanner: false,
+            locale: locale,
+            localizationsDelegates: AppLocalizations.localizationsDelegates,
+            supportedLocales: AppLocalizations.supportedLocales,
+          );
+        },
       ),
     );
   }

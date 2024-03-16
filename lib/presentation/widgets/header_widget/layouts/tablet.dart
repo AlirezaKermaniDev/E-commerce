@@ -28,12 +28,46 @@ class _HeaderWidgetTablet extends StatelessWidget {
                   Scaffold.of(context).openDrawer();
                 },
                 child: SizedBox(
-                    height: 30,
-                    width: 30,
-                    child: SvgPicture.asset(
-                      CustomIcons.menu,
-                      color: forgroundColor,
-                    )),
+                  height: 35,
+                  width: 35,
+                  child: Stack(
+                    children: [
+                      Center(
+                        child: SizedBox(
+                            height: 30,
+                            width: 30,
+                            child: SvgPicture.asset(
+                              CustomIcons.menu,
+                              color: forgroundColor ?? colorPalette.darkPrimary,
+                            )),
+                      ),
+                      BlocBuilder<HeaderBloc, HeaderState>(
+                        builder: (context, state) {
+                          if (state.addedToCartProductsCount == 0) {
+                            return const SizedBox();
+                          }
+                          return Positioned(
+                            left: 0,
+                            bottom: 8,
+                            child: WidgetAnimator(
+                              incomingEffect:
+                                  WidgetTransitionEffects.incomingScaleUp(),
+                              atRestEffect:
+                                  WidgetRestingEffects.wave(effectStrength: .2),
+                              child: Container(
+                                height: 10,
+                                width: 10,
+                                decoration: BoxDecoration(
+                                    color: colorPalette.accent4,
+                                    shape: BoxShape.circle),
+                              ),
+                            ),
+                          );
+                        },
+                      )
+                    ],
+                  ),
+                ),
               ),
               SizedBox(
                   height: 70, width: 70, child: Image.asset(AssetHandler.logo)),

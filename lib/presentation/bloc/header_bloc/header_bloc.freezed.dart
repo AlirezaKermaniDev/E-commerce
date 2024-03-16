@@ -16,42 +16,49 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$HeaderEvent {
-  int get count => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(int count) updateBasketCount,
+    required TResult Function() changeThemeMode,
+    required TResult Function(Locale locale) changeLanguage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int count)? updateBasketCount,
+    TResult? Function()? changeThemeMode,
+    TResult? Function(Locale locale)? changeLanguage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int count)? updateBasketCount,
+    TResult Function()? changeThemeMode,
+    TResult Function(Locale locale)? changeLanguage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_UpdateBasketCount value) updateBasketCount,
+    required TResult Function(_ChangeThemeMode value) changeThemeMode,
+    required TResult Function(_ChangeLanguage value) changeLanguage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_UpdateBasketCount value)? updateBasketCount,
+    TResult? Function(_ChangeThemeMode value)? changeThemeMode,
+    TResult? Function(_ChangeLanguage value)? changeLanguage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_UpdateBasketCount value)? updateBasketCount,
+    TResult Function(_ChangeThemeMode value)? changeThemeMode,
+    TResult Function(_ChangeLanguage value)? changeLanguage,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $HeaderEventCopyWith<HeaderEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -60,8 +67,6 @@ abstract class $HeaderEventCopyWith<$Res> {
   factory $HeaderEventCopyWith(
           HeaderEvent value, $Res Function(HeaderEvent) then) =
       _$HeaderEventCopyWithImpl<$Res, HeaderEvent>;
-  @useResult
-  $Res call({int count});
 }
 
 /// @nodoc
@@ -73,28 +78,13 @@ class _$HeaderEventCopyWithImpl<$Res, $Val extends HeaderEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? count = null,
-  }) {
-    return _then(_value.copyWith(
-      count: null == count
-          ? _value.count
-          : count // ignore: cast_nullable_to_non_nullable
-              as int,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$UpdateBasketCountImplCopyWith<$Res>
-    implements $HeaderEventCopyWith<$Res> {
+abstract class _$$UpdateBasketCountImplCopyWith<$Res> {
   factory _$$UpdateBasketCountImplCopyWith(_$UpdateBasketCountImpl value,
           $Res Function(_$UpdateBasketCountImpl) then) =
       __$$UpdateBasketCountImplCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({int count});
 }
@@ -156,6 +146,8 @@ class _$UpdateBasketCountImpl implements _UpdateBasketCount {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(int count) updateBasketCount,
+    required TResult Function() changeThemeMode,
+    required TResult Function(Locale locale) changeLanguage,
   }) {
     return updateBasketCount(count);
   }
@@ -164,6 +156,8 @@ class _$UpdateBasketCountImpl implements _UpdateBasketCount {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int count)? updateBasketCount,
+    TResult? Function()? changeThemeMode,
+    TResult? Function(Locale locale)? changeLanguage,
   }) {
     return updateBasketCount?.call(count);
   }
@@ -172,6 +166,8 @@ class _$UpdateBasketCountImpl implements _UpdateBasketCount {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int count)? updateBasketCount,
+    TResult Function()? changeThemeMode,
+    TResult Function(Locale locale)? changeLanguage,
     required TResult orElse(),
   }) {
     if (updateBasketCount != null) {
@@ -184,6 +180,8 @@ class _$UpdateBasketCountImpl implements _UpdateBasketCount {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_UpdateBasketCount value) updateBasketCount,
+    required TResult Function(_ChangeThemeMode value) changeThemeMode,
+    required TResult Function(_ChangeLanguage value) changeLanguage,
   }) {
     return updateBasketCount(this);
   }
@@ -192,6 +190,8 @@ class _$UpdateBasketCountImpl implements _UpdateBasketCount {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_UpdateBasketCount value)? updateBasketCount,
+    TResult? Function(_ChangeThemeMode value)? changeThemeMode,
+    TResult? Function(_ChangeLanguage value)? changeLanguage,
   }) {
     return updateBasketCount?.call(this);
   }
@@ -200,6 +200,8 @@ class _$UpdateBasketCountImpl implements _UpdateBasketCount {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_UpdateBasketCount value)? updateBasketCount,
+    TResult Function(_ChangeThemeMode value)? changeThemeMode,
+    TResult Function(_ChangeLanguage value)? changeLanguage,
     required TResult orElse(),
   }) {
     if (updateBasketCount != null) {
@@ -213,17 +215,264 @@ abstract class _UpdateBasketCount implements HeaderEvent {
   const factory _UpdateBasketCount({required final int count}) =
       _$UpdateBasketCountImpl;
 
-  @override
   int get count;
-  @override
   @JsonKey(ignore: true)
   _$$UpdateBasketCountImplCopyWith<_$UpdateBasketCountImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
+abstract class _$$ChangeThemeModeImplCopyWith<$Res> {
+  factory _$$ChangeThemeModeImplCopyWith(_$ChangeThemeModeImpl value,
+          $Res Function(_$ChangeThemeModeImpl) then) =
+      __$$ChangeThemeModeImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ChangeThemeModeImplCopyWithImpl<$Res>
+    extends _$HeaderEventCopyWithImpl<$Res, _$ChangeThemeModeImpl>
+    implements _$$ChangeThemeModeImplCopyWith<$Res> {
+  __$$ChangeThemeModeImplCopyWithImpl(
+      _$ChangeThemeModeImpl _value, $Res Function(_$ChangeThemeModeImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ChangeThemeModeImpl implements _ChangeThemeMode {
+  const _$ChangeThemeModeImpl();
+
+  @override
+  String toString() {
+    return 'HeaderEvent.changeThemeMode()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ChangeThemeModeImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int count) updateBasketCount,
+    required TResult Function() changeThemeMode,
+    required TResult Function(Locale locale) changeLanguage,
+  }) {
+    return changeThemeMode();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int count)? updateBasketCount,
+    TResult? Function()? changeThemeMode,
+    TResult? Function(Locale locale)? changeLanguage,
+  }) {
+    return changeThemeMode?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int count)? updateBasketCount,
+    TResult Function()? changeThemeMode,
+    TResult Function(Locale locale)? changeLanguage,
+    required TResult orElse(),
+  }) {
+    if (changeThemeMode != null) {
+      return changeThemeMode();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_UpdateBasketCount value) updateBasketCount,
+    required TResult Function(_ChangeThemeMode value) changeThemeMode,
+    required TResult Function(_ChangeLanguage value) changeLanguage,
+  }) {
+    return changeThemeMode(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_UpdateBasketCount value)? updateBasketCount,
+    TResult? Function(_ChangeThemeMode value)? changeThemeMode,
+    TResult? Function(_ChangeLanguage value)? changeLanguage,
+  }) {
+    return changeThemeMode?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_UpdateBasketCount value)? updateBasketCount,
+    TResult Function(_ChangeThemeMode value)? changeThemeMode,
+    TResult Function(_ChangeLanguage value)? changeLanguage,
+    required TResult orElse(),
+  }) {
+    if (changeThemeMode != null) {
+      return changeThemeMode(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeThemeMode implements HeaderEvent {
+  const factory _ChangeThemeMode() = _$ChangeThemeModeImpl;
+}
+
+/// @nodoc
+abstract class _$$ChangeLanguageImplCopyWith<$Res> {
+  factory _$$ChangeLanguageImplCopyWith(_$ChangeLanguageImpl value,
+          $Res Function(_$ChangeLanguageImpl) then) =
+      __$$ChangeLanguageImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Locale locale});
+}
+
+/// @nodoc
+class __$$ChangeLanguageImplCopyWithImpl<$Res>
+    extends _$HeaderEventCopyWithImpl<$Res, _$ChangeLanguageImpl>
+    implements _$$ChangeLanguageImplCopyWith<$Res> {
+  __$$ChangeLanguageImplCopyWithImpl(
+      _$ChangeLanguageImpl _value, $Res Function(_$ChangeLanguageImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? locale = null,
+  }) {
+    return _then(_$ChangeLanguageImpl(
+      locale: null == locale
+          ? _value.locale
+          : locale // ignore: cast_nullable_to_non_nullable
+              as Locale,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChangeLanguageImpl implements _ChangeLanguage {
+  const _$ChangeLanguageImpl({required this.locale});
+
+  @override
+  final Locale locale;
+
+  @override
+  String toString() {
+    return 'HeaderEvent.changeLanguage(locale: $locale)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChangeLanguageImpl &&
+            (identical(other.locale, locale) || other.locale == locale));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, locale);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChangeLanguageImplCopyWith<_$ChangeLanguageImpl> get copyWith =>
+      __$$ChangeLanguageImplCopyWithImpl<_$ChangeLanguageImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int count) updateBasketCount,
+    required TResult Function() changeThemeMode,
+    required TResult Function(Locale locale) changeLanguage,
+  }) {
+    return changeLanguage(locale);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int count)? updateBasketCount,
+    TResult? Function()? changeThemeMode,
+    TResult? Function(Locale locale)? changeLanguage,
+  }) {
+    return changeLanguage?.call(locale);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int count)? updateBasketCount,
+    TResult Function()? changeThemeMode,
+    TResult Function(Locale locale)? changeLanguage,
+    required TResult orElse(),
+  }) {
+    if (changeLanguage != null) {
+      return changeLanguage(locale);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_UpdateBasketCount value) updateBasketCount,
+    required TResult Function(_ChangeThemeMode value) changeThemeMode,
+    required TResult Function(_ChangeLanguage value) changeLanguage,
+  }) {
+    return changeLanguage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_UpdateBasketCount value)? updateBasketCount,
+    TResult? Function(_ChangeThemeMode value)? changeThemeMode,
+    TResult? Function(_ChangeLanguage value)? changeLanguage,
+  }) {
+    return changeLanguage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_UpdateBasketCount value)? updateBasketCount,
+    TResult Function(_ChangeThemeMode value)? changeThemeMode,
+    TResult Function(_ChangeLanguage value)? changeLanguage,
+    required TResult orElse(),
+  }) {
+    if (changeLanguage != null) {
+      return changeLanguage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeLanguage implements HeaderEvent {
+  const factory _ChangeLanguage({required final Locale locale}) =
+      _$ChangeLanguageImpl;
+
+  Locale get locale;
+  @JsonKey(ignore: true)
+  _$$ChangeLanguageImplCopyWith<_$ChangeLanguageImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$HeaderState {
-  int get count => throw _privateConstructorUsedError;
+  int get addedToCartProductsCount => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HeaderStateCopyWith<HeaderState> get copyWith =>
@@ -236,7 +485,7 @@ abstract class $HeaderStateCopyWith<$Res> {
           HeaderState value, $Res Function(HeaderState) then) =
       _$HeaderStateCopyWithImpl<$Res, HeaderState>;
   @useResult
-  $Res call({int count});
+  $Res call({int addedToCartProductsCount});
 }
 
 /// @nodoc
@@ -252,12 +501,12 @@ class _$HeaderStateCopyWithImpl<$Res, $Val extends HeaderState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? count = null,
+    Object? addedToCartProductsCount = null,
   }) {
     return _then(_value.copyWith(
-      count: null == count
-          ? _value.count
-          : count // ignore: cast_nullable_to_non_nullable
+      addedToCartProductsCount: null == addedToCartProductsCount
+          ? _value.addedToCartProductsCount
+          : addedToCartProductsCount // ignore: cast_nullable_to_non_nullable
               as int,
     ) as $Val);
   }
@@ -271,7 +520,7 @@ abstract class _$$HeaderStateImplCopyWith<$Res>
       __$$HeaderStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int count});
+  $Res call({int addedToCartProductsCount});
 }
 
 /// @nodoc
@@ -285,12 +534,12 @@ class __$$HeaderStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? count = null,
+    Object? addedToCartProductsCount = null,
   }) {
     return _then(_$HeaderStateImpl(
-      count: null == count
-          ? _value.count
-          : count // ignore: cast_nullable_to_non_nullable
+      addedToCartProductsCount: null == addedToCartProductsCount
+          ? _value.addedToCartProductsCount
+          : addedToCartProductsCount // ignore: cast_nullable_to_non_nullable
               as int,
     ));
   }
@@ -299,15 +548,15 @@ class __$$HeaderStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$HeaderStateImpl implements _HeaderState {
-  const _$HeaderStateImpl({this.count = 0});
+  const _$HeaderStateImpl({this.addedToCartProductsCount = 0});
 
   @override
   @JsonKey()
-  final int count;
+  final int addedToCartProductsCount;
 
   @override
   String toString() {
-    return 'HeaderState(count: $count)';
+    return 'HeaderState(addedToCartProductsCount: $addedToCartProductsCount)';
   }
 
   @override
@@ -315,11 +564,13 @@ class _$HeaderStateImpl implements _HeaderState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$HeaderStateImpl &&
-            (identical(other.count, count) || other.count == count));
+            (identical(
+                    other.addedToCartProductsCount, addedToCartProductsCount) ||
+                other.addedToCartProductsCount == addedToCartProductsCount));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, count);
+  int get hashCode => Object.hash(runtimeType, addedToCartProductsCount);
 
   @JsonKey(ignore: true)
   @override
@@ -329,10 +580,11 @@ class _$HeaderStateImpl implements _HeaderState {
 }
 
 abstract class _HeaderState implements HeaderState {
-  const factory _HeaderState({final int count}) = _$HeaderStateImpl;
+  const factory _HeaderState({final int addedToCartProductsCount}) =
+      _$HeaderStateImpl;
 
   @override
-  int get count;
+  int get addedToCartProductsCount;
   @override
   @JsonKey(ignore: true)
   _$$HeaderStateImplCopyWith<_$HeaderStateImpl> get copyWith =>

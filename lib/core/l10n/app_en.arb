@@ -159,5 +159,16 @@
   "signUpForEmailsToGetUpdatesFromShop": "Sign up for emails to get updates from Shop, on products, benefits and offers.",
   "dyCreatingAnAccountYouAgree": "By creating an account, you agree to Shop's Privacy Policy and Terms of Use.",
   "termOfUse": "Terms of Use",
-  "ecommerceUiKitMadeForYourBusiness": "E-commerce UI Kit made for your business"
+  "ecommerceUiKitMadeForYourBusiness": "E-commerce UI Kit made for your business",
+  "pages": "Pages",
+  "menu": "Menu",
+  "profile": "Profile",
+  "search": "Search",
+  "settings": "Settings",
+  "darkMode": "Dark mode",
+  "language": "Language",
+  "arabic": "Arabic",
+  "english": "English",
+  "farsi": "Farsi",
+  "hindi": "Hindi"
 }

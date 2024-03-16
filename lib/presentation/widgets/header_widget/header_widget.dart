@@ -14,6 +14,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:widget_and_text_animator/widget_and_text_animator.dart';
 
 part 'layouts/phone.dart';
 part "layouts/tablet.dart";

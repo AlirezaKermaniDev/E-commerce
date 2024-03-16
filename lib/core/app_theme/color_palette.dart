@@ -111,7 +111,7 @@ class DarkColorPalette implements ColorPalette {
   Color accent4 = const Color(0xffFF3C78);
 
   @override
-  Color primary = const Color(0xff0A083A);
+  Color primary = const Color(0xFF07061E);
 
   @override
   Color darkPrimary = const Color(0xffFFFFFF);
@@ -157,20 +157,20 @@ class DarkColorPalette implements ColorPalette {
   );
 
   @override
-  Color gray1 = const Color.fromARGB(255, 238, 237, 240);
+  Color gray1 = const Color(0xFFE9E9EA);
 
   @override
-  Color gray2 = const Color.fromARGB(255, 204, 199, 215);
+  Color gray2 = const Color(0xFFAFAFBA);
 
   @override
-  Color gray3 = const Color.fromARGB(255, 167, 159, 184);
+  Color gray3 = const Color(0xFF76758D);
 
   @override
-  Color gray4 = const Color.fromARGB(255, 127, 116, 151);
+  Color gray4 = const Color(0xFF4C4B69);
 
   @override
-  Color gray5 = const Color.fromARGB(255, 88, 73, 118);
+  Color gray5 = const Color(0xFF262547);
 
   @override
-  Color gray6 = const Color.fromARGB(255, 23, 20, 97);
+  Color gray6 = const Color(0xFF141330);
 }

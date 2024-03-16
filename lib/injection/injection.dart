@@ -10,10 +10,10 @@ import 'injection.config.dart';
 final GetIt getIt = GetIt.instance;
 
 /// Easy access to `ColorPalette` with service locator
-final ColorPalette colorPalette = getIt<AppTheme>().colorPalette;
+ColorPalette colorPalette = getIt<AppTheme>().colorPalette;
 
 /// Easy access to `Typography` with service locator
-final Typography typography = getIt<AppTheme>().typography;
+Typography typography = getIt<AppTheme>().typography;
 
 /// Here we implement our injection configure.
 ///

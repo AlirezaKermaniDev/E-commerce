@@ -150,7 +150,7 @@ class _HeaderWidgetWeb extends StatelessWidget {
                           ),
                           BlocBuilder<HeaderBloc, HeaderState>(
                             builder: (context, state) {
-                              if (state.count == 0) {
+                              if (state.addedToCartProductsCount == 0) {
                                 return const SizedBox();
                               }
 
@@ -165,7 +165,7 @@ class _HeaderWidgetWeb extends StatelessWidget {
                                   ),
                                   child: Center(
                                     child: Text(
-                                      state.count.toString(),
+                                      state.addedToCartProductsCount.toString(),
                                       style: typography.bodyText1.copyWith(
                                           fontSize: 11,
                                           color: colorPalette.primary),

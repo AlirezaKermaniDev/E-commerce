@@ -50,7 +50,7 @@ class _ProductItemWidgetWebState extends State<_ProductItemWidgetWeb> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8),
+              padding: const EdgeInsets.all(12),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

@@ -159,5 +159,16 @@
   "signUpForEmailsToGetUpdatesFromShop": "برای دریافت به روزرسانی ها از فروشگاه، به ثبت نام ایمیل بپیوندید.",
   "dyCreatingAnAccountYouAgree": "با ایجاد یک حساب کاربری، شما با سیاست حفظ حریم خصوصی و شرایط استفاده از فروشگاه موافقت می کنید.",
   "termOfUse": "شرایط استفاده",
-  "ecommerceUiKitMadeForYourBusiness": "کیت رابط کاربری الکترونیکی برای کسب و کار شما ساخته شده است"
+  "ecommerceUiKitMadeForYourBusiness": "کیت رابط کاربری الکترونیکی برای کسب و کار شما ساخته شده است",
+  "pages": "صفحات",
+  "menu": "منو",
+  "profile": "مشخصات",
+  "search": "جستجو",
+  "settings": "تنظیمات",
+  "darkMode": "حالت تاریک",
+  "language": "زبان",
+  "arabic": "عربی",
+  "english": "انگلیسی",
+  "farsi": "فارسی",
+  "hindi": "هندی"
 }

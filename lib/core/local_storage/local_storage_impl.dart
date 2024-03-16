@@ -1,10 +1,14 @@
 import 'dart:convert';
+import 'dart:ui';
 
+import 'package:ecommerce_app/core/app_theme/app_theme.dart';
+import 'package:ecommerce_app/core/keys.dart';
 import 'package:ecommerce_app/core/local_storage/local_storage.dart';
 import 'package:ecommerce_app/domain/entities/add_to_cart_product_entity/add_to_cart_product_entity.dart';
 import 'package:ecommerce_app/domain/entities/add_to_cart_products_list_entity/add_to_cart_products_list_entity.dart';
 import 'package:ecommerce_app/injection/injection.dart';
 import 'package:event_bus/event_bus.dart';
+import 'package:flutter/src/material/app.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LocalStorageImpl implements LocalStorage {
@@ -33,12 +37,12 @@ class LocalStorageImpl implements LocalStorage {
             .toJson());
     getIt<EventBus>().fire(addToCartProductEntity);
 
-    return await preferences.setString("AddToCart", encodedProductsList);
+    return await preferences.setString(Keys.addToCartKey, encodedProductsList);
   }
 
   @override
   AddToCartProductsListEntity? getAddedProductsList() {
-    final result = preferences.getString("AddToCart");
+    final result = preferences.getString(Keys.addToCartKey);
     if (result != null) {
       final newProductsList = <AddToCartProductEntity>[];
 
@@ -77,7 +81,8 @@ class LocalStorageImpl implements LocalStorage {
             AddToCartProductsListEntity(addToCartProducts: newProductsList)
                 .toJson());
 
-        return await preferences.setString("AddToCart", encodedProductsList);
+        return await preferences.setString(
+            Keys.addToCartKey, encodedProductsList);
       }
     }
     return false;
@@ -85,7 +90,9 @@ class LocalStorageImpl implements LocalStorage {
 
   @override
   Future<bool> clearAddedProducts() async {
-    return await preferences.remove("AddToCart");
+    return await preferences.remove(
+      Keys.addToCartKey,
+    );
   }
 
   @override
@@ -100,8 +107,31 @@ class LocalStorageImpl implements LocalStorage {
               .toJson());
       getIt<EventBus>().fire(const AddToCartProductEntity());
 
-      return await preferences.setString("AddToCart", encodedProductsList);
+      return await preferences.setString(
+          Keys.addToCartKey, encodedProductsList);
     }
     return false;
+  }
+
+  @override
+  AppTheme getTheme() {
+    final savedValue = preferences.getString(Keys.appThemeModeKey);
+    return savedValue == "dark" ? DarkAppTheme() : LightAppTheme();
+  }
+
+  @override
+  Future<bool> setThemeMode(ThemeMode themeMode) async {
+    return await preferences.setString(Keys.appThemeModeKey, themeMode.name);
+  }
+
+  @override
+  Locale getLocale() {
+    final savedValue = preferences.getString(Keys.appLocale);
+    return savedValue == null ? const Locale("en") : Locale(savedValue);
+  }
+
+  @override
+  Future<bool> setLocale(Locale locale) async {
+    return await preferences.setString(Keys.appLocale, locale.languageCode);
   }
 }

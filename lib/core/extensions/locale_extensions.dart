@@ -7,3 +7,15 @@ extension LocaleExtentions on BuildContext {
       AppLocalizations.of(this)!.localeName == "en" ||
       AppLocalizations.of(this)!.localeName == "hi";
 }
+
+extension LocaleNameExtentions on Locale {
+  String toLanguageName(BuildContext context) =>
+      languageCodeToLanguageNameMapper(context)[languageCode]!;
+}
+
+Map<String, String> languageCodeToLanguageNameMapper(BuildContext context) => {
+      "ar": context.locale.arabic,
+      "en": context.locale.english,
+      "fa": context.locale.farsi,
+      "hi": context.locale.hindi,
+    };

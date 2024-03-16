@@ -140,10 +140,11 @@ class DarkTypography implements Typography {
 
   @override
   TextStyle bodyText5 = GoogleFonts.workSans(
-      color: const Color(0xffFFFFFF),
-      fontWeight: FontWeight.bold,
-      fontSize: 23,
-      letterSpacing: -4);
+    color: const Color(0xffFFFFFF),
+    fontWeight: FontWeight.w600,
+    fontSize: 24,
+    letterSpacing: 0,
+  );
 
   @override
   TextStyle h1Title = GoogleFonts.workSans(

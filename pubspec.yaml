@@ -88,6 +88,12 @@ dependencies:
   # It allows listeners to subscribe for events and publishers to fire events
   event_bus: ^2.0.0
 
+  # For restart the app when wanna change theme
+  restart_app: ^1.2.1
+
+  # Easy way to handle flags in your app
+  country_flags: ^2.2.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

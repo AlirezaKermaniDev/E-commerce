@@ -1,5 +1,7 @@
 import 'package:ecommerce_app/core/extensions/locale_extensions.dart';
+import 'package:ecommerce_app/core/local_storage/local_storage.dart';
 import 'package:ecommerce_app/injection/injection.dart';
+import 'package:ecommerce_app/presentation/bloc/header_bloc/header_bloc.dart';
 import 'package:ecommerce_app/presentation/view/about_us_page/about_us_page.dart';
 import 'package:ecommerce_app/presentation/view/cart_page/cart_page.dart';
 import 'package:ecommerce_app/presentation/view/home_page/home_page.dart';
@@ -9,7 +11,9 @@ import 'package:ecommerce_app/presentation/widgets/animator_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/drawer_widget/widgets/drawer_item_widget/drawer_item_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/search_dialog_widget/search_dialog_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({
@@ -21,7 +25,7 @@ class DrawerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      width: 300,
+      width: 350,
       backgroundColor: colorPalette.primary,
       shape: const OutlineInputBorder(
         borderSide: BorderSide.none,
@@ -54,7 +58,7 @@ class DrawerWidget extends StatelessWidget {
                       width: 12,
                     ),
                     Text(
-                      "Pages",
+                      context.locale.pages,
                       style: typography.bodyText5,
                     ),
                   ],
@@ -146,7 +150,7 @@ class DrawerWidget extends StatelessWidget {
                       width: 12,
                     ),
                     Text(
-                      "Menu",
+                      context.locale.menu,
                       style: typography.bodyText5,
                     ),
                   ],
@@ -162,7 +166,7 @@ class DrawerWidget extends StatelessWidget {
                   Tween<Offset>(begin: const Offset(-.05, 0), end: Offset.zero),
               delay: const Duration(milliseconds: 500),
               child: DrawerItemWidget(
-                title: "Profile",
+                title: context.locale.profile,
                 onTap: () {
                   Scaffold.of(context).closeDrawer();
                   context.go(
@@ -178,7 +182,7 @@ class DrawerWidget extends StatelessWidget {
                   Tween<Offset>(begin: const Offset(-.05, 0), end: Offset.zero),
               delay: const Duration(milliseconds: 600),
               child: DrawerItemWidget(
-                title: "Search",
+                title:  context.locale.search,
                 onTap: () {
                   Scaffold.of(context).closeDrawer();
                   showDialog(
@@ -196,20 +200,133 @@ class DrawerWidget extends StatelessWidget {
               slideTransition:
                   Tween<Offset>(begin: const Offset(-.05, 0), end: Offset.zero),
               delay: const Duration(milliseconds: 700),
-              child: DrawerItemWidget(
-                title: "Cart",
-                onTap: () {
-                  Scaffold.of(context).closeDrawer();
-                  context.go(
-                    CartPage.path,
+              child: BlocBuilder<HeaderBloc, HeaderState>(
+                builder: (context, state) {
+                  return DrawerItemWidget(
+                    title: context.locale.cart,
+                    badgeText: state.addedToCartProductsCount == 0
+                        ? null
+                        : state.addedToCartProductsCount.toString(),
+                    onTap: () {
+                      Scaffold.of(context).closeDrawer();
+                      context.go(
+                        CartPage.path,
+                      );
+                    },
+                    isActive: selectedIndex == 5,
                   );
                 },
-                isActive: selectedIndex == 5,
+              ),
+            ),
+            const SizedBox(
+              height: 25,
+            ),
+            AnimatorWidget(
+              withFadeTransition: true,
+              slideTransition:
+                  Tween<Offset>(begin: const Offset(-.05, 0), end: Offset.zero),
+              delay: const Duration(milliseconds: 800),
+              child: Divider(
+                thickness: 1.6,
+                height: 1,
+                color: colorPalette.gray5,
+              ),
+            ),
+            const SizedBox(
+              height: 25,
+            ),
+            AnimatorWidget(
+              withFadeTransition: true,
+              slideTransition:
+                  Tween<Offset>(begin: const Offset(-.05, 0), end: Offset.zero),
+              delay: const Duration(milliseconds: 800),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 14),
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.settings_outlined,
+                      color: colorPalette.darkPrimary,
+                    ),
+                    const SizedBox(
+                      width: 12,
+                    ),
+                    Text(
+                       context.locale.settings,
+                      style: typography.bodyText5,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            AnimatorWidget(
+              withFadeTransition: true,
+              slideTransition:
+                  Tween<Offset>(begin: const Offset(-.05, 0), end: Offset.zero),
+              delay: const Duration(milliseconds: 900),
+              child: BlocBuilder<HeaderBloc, HeaderState>(
+                builder: (context, state) {
+                  return DrawerItemWidget(
+                    title:  context.locale.darkMode,
+                    onTap: () {
+                      context
+                          .read<HeaderBloc>()
+                          .add(const HeaderEvent.changeThemeMode());
+                    },
+                    isActive: false,
+                    switchValue: _darkModeValue(),
+                  );
+                },
+              ),
+            ),
+            AnimatorWidget(
+              withFadeTransition: true,
+              slideTransition:
+                  Tween<Offset>(begin: const Offset(-.05, 0), end: Offset.zero),
+              delay: const Duration(milliseconds: 1000),
+              child: BlocBuilder<HeaderBloc, HeaderState>(
+                builder: (context, state) {
+                  return DrawerItemWidget(
+                    title:  context.locale.language,
+                    onTap: () {},
+                    isActive: false,
+                    expanded: Column(
+                        children: AppLocalizations.supportedLocales
+                            .map(
+                              (e) => RadioListTile.adaptive(
+                                activeColor: colorPalette.accent4,
+                                value: e,
+                                groupValue: getIt<LocalStorage>().getLocale(),
+                                onChanged: (value) {
+                                  context.read<HeaderBloc>().add(
+                                      HeaderEvent.changeLanguage(
+                                          locale: value!));
+                                },
+                                title: Text(
+                                  e.toLanguageName(context),
+                                  style: typography.bodyText2
+                                      .copyWith(color: colorPalette.gray2),
+                                ),
+                              ),
+                            )
+                            .toList()),
+                    valueText: getIt<LocalStorage>()
+                        .getLocale()
+                        .toLanguageName(context),
+                  );
+                },
               ),
             ),
           ],
         ),
       ),
     );
+  }
+
+  bool _darkModeValue() {
+    return getIt<LocalStorage>().getTheme().themeMode == ThemeMode.dark;
   }
 }

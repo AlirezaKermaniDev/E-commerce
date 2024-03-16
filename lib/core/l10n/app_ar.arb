@@ -159,6 +159,16 @@
   "signUpForEmailsToGetUpdatesFromShop": "اشترك في رسائل البريد الإلكتروني للحصول على تحديثات من المتجر ، حول المنتجات والفوائد والعروض.",
   "dyCreatingAnAccountYouAgree": "من خلال إنشاء حساب، فإنك توافق على سياسة الخصوصية وشروط الاستخدام الخاصة بالمتجر.",
   "termOfUse": "شروط الاستخدام",
-  "ecommerceUiKitMadeForYourBusiness": "مجموعة واجهة مستخدم للتجارة الإلكترونية مصممة لأعمالك"
-
+  "ecommerceUiKitMadeForYourBusiness": "مجموعة واجهة مستخدم للتجارة الإلكترونية مصممة لأعمالك",
+  "pages": "الصفحات",
+  "menu": "قائمة طعام",
+  "profile": "حساب تعريفي",
+  "search": "يبحث",
+  "settings": "إعدادات",
+  "darkMode": "الوضع المظلم",
+  "language": "لغة",
+  "arabic": "عربی",
+  "english": "إنجليزي",
+  "farsi": "فارسی",
+  "hindi": "الهندية"
 }
