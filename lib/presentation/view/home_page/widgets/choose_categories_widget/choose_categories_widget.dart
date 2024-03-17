@@ -6,6 +6,7 @@ import 'package:ecommerce_app/presentation/view/home_page/widgets/category_item_
 import 'package:ecommerce_app/presentation/widgets/animator_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/constraints_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/responsive_builder.dart';
+import 'package:ecommerce_app/presentation/widgets/scrollbar_widget.dart';
 import 'package:flutter/material.dart';
 
 part "./layouts/phone.dart";
@@ -17,9 +18,9 @@ class ChooseCategoriesWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const ResponsiveBuilder(
-      web: _ChooseCategoriesWidgetWeb(),
-      tablet: _ChooseCategoriesWidgetWeb(),
+    return ResponsiveBuilder(
+      web: const _ChooseCategoriesWidgetWeb(),
+      tablet: const _ChooseCategoriesWidgetWeb(),
       phone: _ChooseCategoriesWidgetPhone(),
     );
   }

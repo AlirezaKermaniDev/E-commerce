@@ -32,42 +32,15 @@ class HomePage extends StatelessWidget {
               backgroundColor: colorPalette.gray6,
             ),
             const LandingPageWidget(),
-            const SizedBox(
-              height: 120,
-            ),
             const FeaturedProductsWidget(),
-            const SizedBox(
-              height: 140,
-            ),
             const AccesoriesWidget(),
-            const SizedBox(
-              height: 100,
-            ),
             const BestSellerWidget(),
-            const SizedBox(
-              height: 100,
-            ),
             const NewArrivalsWidget(),
-            const SizedBox(
-              height: 140,
-            ),
             const WhyChooseOurShopWidget(),
-            const SizedBox(
-              height: 120,
-            ),
             const ChooseCategoriesWidget(),
-            const SizedBox(
-              height: 120,
-            ),
             const PopularBrandsWidget(),
             const SubscribeWidget(),
-            const SizedBox(
-              height: 120,
-            ),
             const FooterWidget(),
-            const SizedBox(
-              height: 50,
-            ),
           ],
         ),
       ),

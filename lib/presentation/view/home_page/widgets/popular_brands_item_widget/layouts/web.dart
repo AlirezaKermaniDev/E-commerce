@@ -46,6 +46,7 @@ class _PapularBrandsItemWidgetWebState
             child: Container(
               decoration: BoxDecoration(
                 border: Border.all(width: 2.5, color: colorPalette.gray6),
+                color: _itemsBackgroundColor(),
                 borderRadius: BorderRadius.circular(8),
               ),
               child: Center(
@@ -62,4 +63,10 @@ class _PapularBrandsItemWidgetWebState
       ),
     );
   }
+}
+
+Color _itemsBackgroundColor() {
+  return getIt<LocalStorage>().getTheme().themeMode == ThemeMode.dark
+      ? colorPalette.darkPrimary
+      : colorPalette.primary;
 }

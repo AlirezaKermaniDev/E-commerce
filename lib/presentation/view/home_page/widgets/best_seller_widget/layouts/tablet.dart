@@ -9,6 +9,9 @@ class _BestSellerWidgetTablet extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        const SizedBox(
+          height: 100,
+        ),
         Padding(
           padding:
               EdgeInsets.symmetric(horizontal: getIt<SizeConfig>().padding),
@@ -76,7 +79,7 @@ class _BestSellerWidgetTablet extends StatelessWidget {
             ),
             Padding(
               padding:
-                   const EdgeInsets.symmetric(horizontal:100, vertical: 20),
+                  const EdgeInsets.symmetric(horizontal: 100, vertical: 20),
               child: SizedBox(
                 width: 490,
                 child: Transform.scale(
@@ -166,7 +169,10 @@ class _BestSellerWidgetTablet extends StatelessWidget {
               ),
             )
           ],
-        )
+        ),
+        const SizedBox(
+          height: 100,
+        ),
       ],
     );
   }

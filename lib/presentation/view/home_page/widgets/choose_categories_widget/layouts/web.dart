@@ -104,7 +104,10 @@ class _ChooseCategoriesWidgetWeb extends StatelessWidget {
                   width: 50,
                 ),
               ],
-            )
+            ),
+            const SizedBox(
+              height: 120,
+            ),
           ],
         ),
       ),

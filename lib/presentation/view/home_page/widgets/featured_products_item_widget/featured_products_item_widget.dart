@@ -34,7 +34,11 @@ class FeaturedProductsItemWidget extends StatelessWidget {
         item: item,
         index: index,
       ),
-      phone: const _FeaturedProductsItemWidgetPhone(),
+      phone: _FeaturedProductsItemWidgetPhone(
+        gradients: gradients,
+        item: item,
+        index: index,
+      ),
     );
   }
 }

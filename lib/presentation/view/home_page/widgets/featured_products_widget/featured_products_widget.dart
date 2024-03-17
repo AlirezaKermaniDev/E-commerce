@@ -13,17 +13,16 @@ import 'package:flutter/material.dart';
 part "./layouts/phone.dart";
 part "./layouts/tablet.dart";
 part "./layouts/web.dart";
-  
-  class FeaturedProductsWidget extends StatelessWidget {
-    const FeaturedProductsWidget({super.key});
-  
-    @override
-    Widget build(BuildContext context) {
-      return const ResponsiveBuilder(
-        web: _FeaturedProductsWidgetWeb(),
-        tablet: _FeaturedProductsWidgetWeb(),
-        phone: _FeaturedProductsWidgetPhone(),
-      );
-    }
+
+class FeaturedProductsWidget extends StatelessWidget {
+  const FeaturedProductsWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const ResponsiveBuilder(
+      web: _FeaturedProductsWidgetWeb(),
+      tablet: _FeaturedProductsWidgetWeb(),
+      phone: _FeaturedProductsWidgetPhone(),
+    );
   }
-  
+}

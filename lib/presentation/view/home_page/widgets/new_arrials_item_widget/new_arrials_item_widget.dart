@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/core/size_config.dart';
 import 'package:ecommerce_app/domain/entities/featured_products_entity/featured_products_entity.dart';
 import 'package:ecommerce_app/injection/injection.dart';
 import 'package:ecommerce_app/presentation/widgets/animator_widget.dart';
@@ -33,7 +34,11 @@ class NewArrialsItemWidget extends StatelessWidget {
         item: item,
         index: index,
       ),
-      phone: const _NewArrialsItemWidgetPhone(),
+      phone: _NewArrialsItemWidgetPhone(
+        gradients: gradients,
+        item: item,
+        index: index,
+      ),
     );
   }
 }

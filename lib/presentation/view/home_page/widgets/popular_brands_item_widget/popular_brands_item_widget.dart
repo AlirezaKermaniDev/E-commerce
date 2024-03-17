@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/core/local_storage/local_storage.dart';
 import 'package:ecommerce_app/core/size_config.dart';
 import 'package:ecommerce_app/injection/injection.dart';
 import 'package:ecommerce_app/presentation/widgets/animator_widget.dart';
@@ -18,7 +19,7 @@ class PopularBrandsItemWidget extends StatelessWidget {
     return ResponsiveBuilder(
       web: _PopularBrandsItemWidgetWeb(iconPath: iconPath),
       tablet: _PopularBrandsItemWidgetWeb(iconPath: iconPath),
-      phone: const _PopularBrandsItemWidgetPhone(),
+      phone: _PopularBrandsItemWidgetPhone(iconPath: iconPath),
     );
   }
 }

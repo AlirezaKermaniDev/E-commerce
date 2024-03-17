@@ -15,7 +15,7 @@ class SizeConfig {
     } else if (width >= 900) {
       padding = 64;
     } else {
-      return 31;
+      padding = 31;
     }
   }
 }

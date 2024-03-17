@@ -36,7 +36,12 @@ class ButtonWidget extends StatelessWidget {
           shadowColor: shadowColor,
           width: width,
           height: height),
-      phone: const _ButtonWidgetPhone(),
+      phone: _ButtonWidgetWeb(
+          title: title,
+          color: color,
+          shadowColor: shadowColor,
+          width: width,
+          height: height),
     );
   }
 }

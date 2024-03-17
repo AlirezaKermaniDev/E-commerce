@@ -22,7 +22,7 @@ class NewArrivalsWidget extends StatelessWidget {
     return ResponsiveBuilder(
       web: _NewArrivalsWidgetWeb(),
       tablet: _NewArrivalsWidgetWeb(),
-      phone: const _NewArrivalsWidgetPhone(),
+      phone: _NewArrivalsWidgetPhone(),
     );
   }
 }

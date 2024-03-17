@@ -8,7 +8,7 @@ class _HomePageTitleWidgetWeb extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 0.75.h(context),
+      height:800,
       width: 0.9.w(context),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

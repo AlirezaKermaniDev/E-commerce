@@ -26,12 +26,12 @@ class _HomeBannerWidgetWebState extends State<_HomeBannerWidgetWeb> {
   Widget build(BuildContext context) {
     return SizedBox(
       width: 0.55.w(context),
-      height: 0.6.h(context),
+      height: 850,
       child: Stack(
         children: [
           SizedBox(
             width: 0.53.w(context),
-            height: 0.55.h(context),
+            height: 700,
             child: Stack(
               children: [
                 _backgroundShapeWidget(),
@@ -77,7 +77,7 @@ class _HomeBannerWidgetWebState extends State<_HomeBannerWidgetWeb> {
       alignment: Alignment.topRight,
       child: Padding(
         padding: EdgeInsets.only(
-            right: 0.33.w(context), top: 0.41.h(context) + .1.w(context)),
+            right: 0.33.w(context), top: 520 + .1.w(context)),
         child: SizedBox(
           height: 40,
           width: 120,

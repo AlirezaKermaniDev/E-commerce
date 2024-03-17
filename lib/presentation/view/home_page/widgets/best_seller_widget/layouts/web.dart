@@ -10,6 +10,9 @@ class _BestSellerWidgetWeb extends StatelessWidget {
     return ConstraintsWidget(
       child: Column(
         children: [
+          const SizedBox(
+            height: 100,
+          ),
           Padding(
             padding:
                 EdgeInsets.symmetric(horizontal: getIt<SizeConfig>().padding),
@@ -170,7 +173,10 @@ class _BestSellerWidgetWeb extends StatelessWidget {
                 ),
               )
             ],
-          )
+          ),
+          const SizedBox(
+            height: 100,
+          ),
         ],
       ),
     );
