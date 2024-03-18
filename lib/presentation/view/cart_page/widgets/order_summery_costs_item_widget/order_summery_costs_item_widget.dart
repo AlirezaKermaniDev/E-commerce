@@ -33,7 +33,12 @@ class OrderSummeryCostsItemWidget extends StatelessWidget {
         valueColor: valueColor,
         boldValue: boldValue,
       ),
-      phone: const _OrderSummeryCostsItemWidgetPhone(),
+      phone: _OrderSummeryCostsItemWidgetWeb(
+        title: title,
+        value: value,
+        valueColor: valueColor,
+        boldValue: boldValue,
+      ),
     );
   }
 }

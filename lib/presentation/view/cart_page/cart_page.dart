@@ -32,11 +32,13 @@ class _CartPageState extends State<CartPage> {
   double filtersWidgetTopOffset = 0;
 
   void _afterLayout(_) {
-    _scrollController.addListener(
-      () {
-        _calculateFilterWidgetPosition();
-      },
-    );
+    if (!context.isPhone) {
+      _scrollController.addListener(
+        () {
+          _calculateFilterWidgetPosition();
+        },
+      );
+    }
   }
 
   void _calculateFilterWidgetPosition() {
@@ -81,41 +83,37 @@ class _CartPageState extends State<CartPage> {
                     HeaderWidget(
                         selectedIndex: 5,
                         backgroundColor: colorPalette.primary),
-                    Divider(
-                      color: colorPalette.gray5,
-                      thickness: 1.6,
-                    ),
-                    const SizedBox(
-                      height: 80,
-                    ),
+                    if (!context.isPhone)
+                      Column(
+                        children: [
+                          Divider(
+                            color: colorPalette.gray5,
+                            thickness: 1.6,
+                          ),
+                        ],
+                      ),
                     CartBodyWidget(
                       orderSummeryKey: _orderSummeryKey,
                       listViewKey: _listViewkey,
                       isStuckTop: _isStuckTop,
                     ),
-                    const SizedBox(
-                      height: 120,
-                    ),
                     AlternativeProductsWidget(item: productListData.first),
-                    const SizedBox(
-                      height: 120,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: getIt<SizeConfig>().padding),
-                      child: Divider(
-                        color: colorPalette.gray5,
-                        thickness: 1.6,
+                    if (!context.isPhone)
+                      Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: getIt<SizeConfig>().padding,
+                            vertical: 70),
+                        child: Divider(
+                          color: colorPalette.gray5,
+                          thickness: 1.6,
+                          height: 1,
+                        ),
                       ),
-                    ),
-                    const SizedBox(
-                      height: 120,
-                    ),
                     const FooterWidget()
                   ],
                 ),
               ),
-              if (_isStuckTop)
+              if (_isStuckTop && !context.isPhone)
                 Positioned(
                   top: _isStuckBottom
                       ? filtersWidgetTopOffset

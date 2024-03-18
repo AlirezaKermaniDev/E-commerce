@@ -3,6 +3,7 @@ import 'package:ecommerce_app/injection/injection.dart';
 import 'package:ecommerce_app/presentation/bloc/cart_bloc/cart_bloc.dart';
 import 'package:ecommerce_app/presentation/view/cart_page/cart_page.dart';
 import 'package:ecommerce_app/presentation/view/cart_page/widgets/cart_products_list_widget/cart_products_list_widget.dart';
+import 'package:ecommerce_app/presentation/view/cart_page/widgets/order_summery_widget/order_summery_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/animator_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/constraints_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/responsive_builder.dart';
@@ -35,7 +36,10 @@ class CartBodyWidget extends StatelessWidget {
           isStuckTop: isStuckTop,
           orderSummeryKey: orderSummeryKey,
           listViewKey: listViewKey),
-      phone: const _CartBodyWidgetPhone(),
+      phone: _CartBodyWidgetPhone(
+          isStuckTop: isStuckTop,
+          orderSummeryKey: orderSummeryKey,
+          listViewKey: listViewKey),
     );
   }
 }

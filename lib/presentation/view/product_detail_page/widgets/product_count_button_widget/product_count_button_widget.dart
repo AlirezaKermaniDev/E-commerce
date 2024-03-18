@@ -1,4 +1,3 @@
-import 'package:ecommerce_app/core/size_config.dart';
 import 'package:ecommerce_app/injection/injection.dart';
 import 'package:flutter/material.dart';
 
@@ -7,10 +6,16 @@ class ProductCountButtonWidget extends StatefulWidget {
       {super.key,
       required this.icon,
       required this.onTap,
-      this.isDeactive = false});
+      this.isDeactive = false,
+      this.width,
+      this.iconSize,
+      this.height});
   final IconData icon;
   final VoidCallback? onTap;
   final bool isDeactive;
+  final double? width;
+  final double? height;
+  final double? iconSize;
 
   @override
   State<ProductCountButtonWidget> createState() =>
@@ -28,14 +33,14 @@ class _ProductCountButtonWidgetState extends State<ProductCountButtonWidget> {
       onTapCancel: _onTapCancel(),
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 50),
-        height: context.isPhone ? 50 : 70,
+        height: widget.height ?? 70,
         width: _buttonWidth(context),
         decoration: BoxDecoration(color: colorPalette.gray6),
         child: Center(
           child: Icon(
             widget.icon,
             color: _iconColor(),
-            size: 27,
+            size: widget.iconSize ?? 27,
           ),
         ),
       ),
@@ -43,11 +48,7 @@ class _ProductCountButtonWidgetState extends State<ProductCountButtonWidget> {
   }
 
   double _buttonWidth(BuildContext context) {
-    return isTapDown
-        ? 65
-        : context.isPhone
-            ? 50
-            : 60;
+    return isTapDown ? 65 : widget.width ?? 60;
   }
 
   Function(TapDownDetails)? _onTapDown() {

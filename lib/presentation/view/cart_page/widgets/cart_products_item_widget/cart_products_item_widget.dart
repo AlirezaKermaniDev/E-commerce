@@ -30,7 +30,10 @@ class CartProductsItemWidget extends StatelessWidget {
         item: item,
         index: index,
       ),
-      phone: const _CartProductsItemWidgetPhone(),
+      phone: _CartProductsItemWidgetPhone(
+        item: item,
+        index: index,
+      ),
     );
   }
 }

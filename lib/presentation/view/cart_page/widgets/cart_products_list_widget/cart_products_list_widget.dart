@@ -25,7 +25,7 @@ class CartProductsListWidget extends StatelessWidget {
     return ResponsiveBuilder(
       web: _CartProductsListWidgetWeb(listViewKey: listViewKey),
       tablet: _CartProductsListWidgetTablet(listViewKey: listViewKey),
-      phone: const _CartProductsListWidgetPhone(),
+      phone: _CartProductsListWidgetPhone(listViewKey: listViewKey),
     );
   }
 }

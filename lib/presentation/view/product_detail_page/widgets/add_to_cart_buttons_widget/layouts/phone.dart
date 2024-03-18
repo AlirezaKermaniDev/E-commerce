@@ -21,6 +21,8 @@ class _AddToCartButtonsWidgetPhone extends StatelessWidget {
                 children: [
                   ProductCountButtonWidget(
                     icon: Icons.remove_rounded,
+                    height: 50,
+                    width: 50,
                     isDeactive: state.addCount <= 1,
                     onTap: () {
                       context
@@ -43,6 +45,8 @@ class _AddToCartButtonsWidgetPhone extends StatelessWidget {
                   ),
                   ProductCountButtonWidget(
                     icon: Icons.add_rounded,
+                    height: 50,
+                    width: 50,
                     onTap: () {
                       context
                           .read<ProductDetailBloc>()
