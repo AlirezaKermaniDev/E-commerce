@@ -36,6 +36,7 @@ class _ToolTipWidgetState extends State<ToolTipWidget> {
     return JustTheTooltip(
       isModal: false,
       controller: justTheController,
+      triggerMode: TooltipTriggerMode.tap,
       tailLength: 0,
       fadeInDuration: const Duration(milliseconds: 500),
       fadeOutDuration: const Duration(milliseconds: 500),

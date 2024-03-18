@@ -16,8 +16,8 @@ class AvailableColorsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return ResponsiveBuilder(
       web: _AvailableColorsWidgetWeb(colors: colors),
-      tablet: const _AvailableColorsWidgetTablet(),
-      phone: const _AvailableColorsWidgetPhone(),
+      tablet: _AvailableColorsWidgetWeb(colors: colors),
+      phone: _AvailableColorsWidgetWeb(colors: colors),
     );
   }
 }

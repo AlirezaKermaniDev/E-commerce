@@ -48,7 +48,7 @@ class _CategoryItemWidgetPhoneState extends State<_CategoryItemWidgetPhone> {
                     color: colorPalette.gray6,
                     borderRadius: BorderRadius.circular(20)),
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 25, right: 25, top: 50),
+                  padding: const EdgeInsets.only(left: 25, right: 25, top: 40),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
@@ -62,6 +62,7 @@ class _CategoryItemWidgetPhoneState extends State<_CategoryItemWidgetPhone> {
                           style: typography.h5Title.copyWith(
                             color: widget.mainColor,
                           ),
+                          textAlign: TextAlign.center,
                         ),
                       ),
                       const SizedBox(
@@ -85,7 +86,7 @@ class _CategoryItemWidgetPhoneState extends State<_CategoryItemWidgetPhone> {
                       AnimatorWidget(
                         slideTransition: Tween<Offset>(
                             begin: const Offset(0, .2), end: Offset.zero),
-                        delay: const Duration(milliseconds: 600),
+                        delay: const Duration(milliseconds: 200),
                         withFadeTransition: true,
                         child: Text(
                           context.locale.seeCollection,
@@ -106,7 +107,7 @@ class _CategoryItemWidgetPhoneState extends State<_CategoryItemWidgetPhone> {
               child: AnimatorWidget(
                   slideTransition: Tween<Offset>(
                       begin: const Offset(.2, 0), end: Offset.zero),
-                  delay: const Duration(milliseconds: 50),
+                  delay: const Duration(milliseconds: 300),
                   withFadeTransition: true,
                   child: SvgPicture.asset(widget.shapePath)),
             ),
@@ -114,7 +115,7 @@ class _CategoryItemWidgetPhoneState extends State<_CategoryItemWidgetPhone> {
               slideTransition:
                   Tween<Offset>(begin: const Offset(0, .2), end: Offset.zero),
               scaleTransition: Tween<double>(begin: .9, end: 1),
-              delay: const Duration(milliseconds: 700),
+              delay: const Duration(milliseconds: 400),
               withFadeTransition: true,
               child: AnimatedScale(
                 duration: const Duration(milliseconds: 200),

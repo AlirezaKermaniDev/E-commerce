@@ -50,14 +50,14 @@ class _SubscribeWidgetPhone extends StatelessWidget {
                               child: Text(
                                 context
                                     .locale.subscribeNowToGetTheLatestUpdates,
-                                style: typography.h3Title.copyWith(
+                                style: typography.h4Title.copyWith(
                                   color: colorPalette.primary,
                                 ),
                                 textAlign: TextAlign.center,
                               ),
                             ),
                             const SizedBox(
-                              height: 50,
+                              height: 40,
                             ),
                             AnimatorWidget(
                               withFadeTransition: true,
@@ -102,7 +102,7 @@ class _SubscribeWidgetPhone extends StatelessWidget {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(top: 50),
+                              padding: const EdgeInsets.only(top: 40),
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
@@ -132,8 +132,8 @@ class _SubscribeWidgetPhone extends StatelessWidget {
                               child: AnimatorWidget(
                                 withFadeTransition: true,
                                 child: Container(
-                                  height: 200,
-                                  width: 200,
+                                  height: 180,
+                                  width: 180,
                                   decoration: BoxDecoration(
                                       shape: BoxShape.circle,
                                       gradient: colorPalette.gradient4),
@@ -145,7 +145,7 @@ class _SubscribeWidgetPhone extends StatelessWidget {
                             child: Padding(
                               padding: const EdgeInsets.only(right: 16),
                               child: Transform.scale(
-                                scale: .8,
+                                scale: 1.3,
                                 child: Transform.rotate(
                                     angle: 1,
                                     child: AnimatorWidget(

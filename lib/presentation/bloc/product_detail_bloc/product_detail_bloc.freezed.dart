@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ProductDetailEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String productId) getProduct,
     required TResult Function() increaseCount,
     required TResult Function() decreaseCount,
     required TResult Function(double size) changeSelectedSizes,
@@ -26,6 +27,7 @@ mixin _$ProductDetailEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String productId)? getProduct,
     TResult? Function()? increaseCount,
     TResult? Function()? decreaseCount,
     TResult? Function(double size)? changeSelectedSizes,
@@ -34,6 +36,7 @@ mixin _$ProductDetailEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String productId)? getProduct,
     TResult Function()? increaseCount,
     TResult Function()? decreaseCount,
     TResult Function(double size)? changeSelectedSizes,
@@ -43,6 +46,7 @@ mixin _$ProductDetailEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_GetProduct value) getProduct,
     required TResult Function(_IncreaseCount value) increaseCount,
     required TResult Function(_DecreaseCount value) decreaseCount,
     required TResult Function(_ChangeSelectedSizes value) changeSelectedSizes,
@@ -51,6 +55,7 @@ mixin _$ProductDetailEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetProduct value)? getProduct,
     TResult? Function(_IncreaseCount value)? increaseCount,
     TResult? Function(_DecreaseCount value)? decreaseCount,
     TResult? Function(_ChangeSelectedSizes value)? changeSelectedSizes,
@@ -59,6 +64,7 @@ mixin _$ProductDetailEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetProduct value)? getProduct,
     TResult Function(_IncreaseCount value)? increaseCount,
     TResult Function(_DecreaseCount value)? decreaseCount,
     TResult Function(_ChangeSelectedSizes value)? changeSelectedSizes,
@@ -84,6 +90,159 @@ class _$ProductDetailEventCopyWithImpl<$Res, $Val extends ProductDetailEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+}
+
+/// @nodoc
+abstract class _$$GetProductImplCopyWith<$Res> {
+  factory _$$GetProductImplCopyWith(
+          _$GetProductImpl value, $Res Function(_$GetProductImpl) then) =
+      __$$GetProductImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String productId});
+}
+
+/// @nodoc
+class __$$GetProductImplCopyWithImpl<$Res>
+    extends _$ProductDetailEventCopyWithImpl<$Res, _$GetProductImpl>
+    implements _$$GetProductImplCopyWith<$Res> {
+  __$$GetProductImplCopyWithImpl(
+      _$GetProductImpl _value, $Res Function(_$GetProductImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? productId = null,
+  }) {
+    return _then(_$GetProductImpl(
+      productId: null == productId
+          ? _value.productId
+          : productId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$GetProductImpl implements _GetProduct {
+  const _$GetProductImpl({required this.productId});
+
+  @override
+  final String productId;
+
+  @override
+  String toString() {
+    return 'ProductDetailEvent.getProduct(productId: $productId)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetProductImpl &&
+            (identical(other.productId, productId) ||
+                other.productId == productId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, productId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GetProductImplCopyWith<_$GetProductImpl> get copyWith =>
+      __$$GetProductImplCopyWithImpl<_$GetProductImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String productId) getProduct,
+    required TResult Function() increaseCount,
+    required TResult Function() decreaseCount,
+    required TResult Function(double size) changeSelectedSizes,
+    required TResult Function(ProductEntity product) addToCart,
+  }) {
+    return getProduct(productId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String productId)? getProduct,
+    TResult? Function()? increaseCount,
+    TResult? Function()? decreaseCount,
+    TResult? Function(double size)? changeSelectedSizes,
+    TResult? Function(ProductEntity product)? addToCart,
+  }) {
+    return getProduct?.call(productId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String productId)? getProduct,
+    TResult Function()? increaseCount,
+    TResult Function()? decreaseCount,
+    TResult Function(double size)? changeSelectedSizes,
+    TResult Function(ProductEntity product)? addToCart,
+    required TResult orElse(),
+  }) {
+    if (getProduct != null) {
+      return getProduct(productId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetProduct value) getProduct,
+    required TResult Function(_IncreaseCount value) increaseCount,
+    required TResult Function(_DecreaseCount value) decreaseCount,
+    required TResult Function(_ChangeSelectedSizes value) changeSelectedSizes,
+    required TResult Function(_AddToCart value) addToCart,
+  }) {
+    return getProduct(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetProduct value)? getProduct,
+    TResult? Function(_IncreaseCount value)? increaseCount,
+    TResult? Function(_DecreaseCount value)? decreaseCount,
+    TResult? Function(_ChangeSelectedSizes value)? changeSelectedSizes,
+    TResult? Function(_AddToCart value)? addToCart,
+  }) {
+    return getProduct?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetProduct value)? getProduct,
+    TResult Function(_IncreaseCount value)? increaseCount,
+    TResult Function(_DecreaseCount value)? decreaseCount,
+    TResult Function(_ChangeSelectedSizes value)? changeSelectedSizes,
+    TResult Function(_AddToCart value)? addToCart,
+    required TResult orElse(),
+  }) {
+    if (getProduct != null) {
+      return getProduct(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetProduct implements ProductDetailEvent {
+  const factory _GetProduct({required final String productId}) =
+      _$GetProductImpl;
+
+  String get productId;
+  @JsonKey(ignore: true)
+  _$$GetProductImplCopyWith<_$GetProductImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -124,6 +283,7 @@ class _$IncreaseCountImpl implements _IncreaseCount {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String productId) getProduct,
     required TResult Function() increaseCount,
     required TResult Function() decreaseCount,
     required TResult Function(double size) changeSelectedSizes,
@@ -135,6 +295,7 @@ class _$IncreaseCountImpl implements _IncreaseCount {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String productId)? getProduct,
     TResult? Function()? increaseCount,
     TResult? Function()? decreaseCount,
     TResult? Function(double size)? changeSelectedSizes,
@@ -146,6 +307,7 @@ class _$IncreaseCountImpl implements _IncreaseCount {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String productId)? getProduct,
     TResult Function()? increaseCount,
     TResult Function()? decreaseCount,
     TResult Function(double size)? changeSelectedSizes,
@@ -161,6 +323,7 @@ class _$IncreaseCountImpl implements _IncreaseCount {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_GetProduct value) getProduct,
     required TResult Function(_IncreaseCount value) increaseCount,
     required TResult Function(_DecreaseCount value) decreaseCount,
     required TResult Function(_ChangeSelectedSizes value) changeSelectedSizes,
@@ -172,6 +335,7 @@ class _$IncreaseCountImpl implements _IncreaseCount {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetProduct value)? getProduct,
     TResult? Function(_IncreaseCount value)? increaseCount,
     TResult? Function(_DecreaseCount value)? decreaseCount,
     TResult? Function(_ChangeSelectedSizes value)? changeSelectedSizes,
@@ -183,6 +347,7 @@ class _$IncreaseCountImpl implements _IncreaseCount {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetProduct value)? getProduct,
     TResult Function(_IncreaseCount value)? increaseCount,
     TResult Function(_DecreaseCount value)? decreaseCount,
     TResult Function(_ChangeSelectedSizes value)? changeSelectedSizes,
@@ -238,6 +403,7 @@ class _$DecreaseCountImpl implements _DecreaseCount {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String productId) getProduct,
     required TResult Function() increaseCount,
     required TResult Function() decreaseCount,
     required TResult Function(double size) changeSelectedSizes,
@@ -249,6 +415,7 @@ class _$DecreaseCountImpl implements _DecreaseCount {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String productId)? getProduct,
     TResult? Function()? increaseCount,
     TResult? Function()? decreaseCount,
     TResult? Function(double size)? changeSelectedSizes,
@@ -260,6 +427,7 @@ class _$DecreaseCountImpl implements _DecreaseCount {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String productId)? getProduct,
     TResult Function()? increaseCount,
     TResult Function()? decreaseCount,
     TResult Function(double size)? changeSelectedSizes,
@@ -275,6 +443,7 @@ class _$DecreaseCountImpl implements _DecreaseCount {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_GetProduct value) getProduct,
     required TResult Function(_IncreaseCount value) increaseCount,
     required TResult Function(_DecreaseCount value) decreaseCount,
     required TResult Function(_ChangeSelectedSizes value) changeSelectedSizes,
@@ -286,6 +455,7 @@ class _$DecreaseCountImpl implements _DecreaseCount {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetProduct value)? getProduct,
     TResult? Function(_IncreaseCount value)? increaseCount,
     TResult? Function(_DecreaseCount value)? decreaseCount,
     TResult? Function(_ChangeSelectedSizes value)? changeSelectedSizes,
@@ -297,6 +467,7 @@ class _$DecreaseCountImpl implements _DecreaseCount {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetProduct value)? getProduct,
     TResult Function(_IncreaseCount value)? increaseCount,
     TResult Function(_DecreaseCount value)? decreaseCount,
     TResult Function(_ChangeSelectedSizes value)? changeSelectedSizes,
@@ -379,6 +550,7 @@ class _$ChangeSelectedSizesImpl implements _ChangeSelectedSizes {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String productId) getProduct,
     required TResult Function() increaseCount,
     required TResult Function() decreaseCount,
     required TResult Function(double size) changeSelectedSizes,
@@ -390,6 +562,7 @@ class _$ChangeSelectedSizesImpl implements _ChangeSelectedSizes {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String productId)? getProduct,
     TResult? Function()? increaseCount,
     TResult? Function()? decreaseCount,
     TResult? Function(double size)? changeSelectedSizes,
@@ -401,6 +574,7 @@ class _$ChangeSelectedSizesImpl implements _ChangeSelectedSizes {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String productId)? getProduct,
     TResult Function()? increaseCount,
     TResult Function()? decreaseCount,
     TResult Function(double size)? changeSelectedSizes,
@@ -416,6 +590,7 @@ class _$ChangeSelectedSizesImpl implements _ChangeSelectedSizes {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_GetProduct value) getProduct,
     required TResult Function(_IncreaseCount value) increaseCount,
     required TResult Function(_DecreaseCount value) decreaseCount,
     required TResult Function(_ChangeSelectedSizes value) changeSelectedSizes,
@@ -427,6 +602,7 @@ class _$ChangeSelectedSizesImpl implements _ChangeSelectedSizes {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetProduct value)? getProduct,
     TResult? Function(_IncreaseCount value)? increaseCount,
     TResult? Function(_DecreaseCount value)? decreaseCount,
     TResult? Function(_ChangeSelectedSizes value)? changeSelectedSizes,
@@ -438,6 +614,7 @@ class _$ChangeSelectedSizesImpl implements _ChangeSelectedSizes {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetProduct value)? getProduct,
     TResult Function(_IncreaseCount value)? increaseCount,
     TResult Function(_DecreaseCount value)? decreaseCount,
     TResult Function(_ChangeSelectedSizes value)? changeSelectedSizes,
@@ -535,6 +712,7 @@ class _$AddToCartImpl implements _AddToCart {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String productId) getProduct,
     required TResult Function() increaseCount,
     required TResult Function() decreaseCount,
     required TResult Function(double size) changeSelectedSizes,
@@ -546,6 +724,7 @@ class _$AddToCartImpl implements _AddToCart {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String productId)? getProduct,
     TResult? Function()? increaseCount,
     TResult? Function()? decreaseCount,
     TResult? Function(double size)? changeSelectedSizes,
@@ -557,6 +736,7 @@ class _$AddToCartImpl implements _AddToCart {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String productId)? getProduct,
     TResult Function()? increaseCount,
     TResult Function()? decreaseCount,
     TResult Function(double size)? changeSelectedSizes,
@@ -572,6 +752,7 @@ class _$AddToCartImpl implements _AddToCart {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_GetProduct value) getProduct,
     required TResult Function(_IncreaseCount value) increaseCount,
     required TResult Function(_DecreaseCount value) decreaseCount,
     required TResult Function(_ChangeSelectedSizes value) changeSelectedSizes,
@@ -583,6 +764,7 @@ class _$AddToCartImpl implements _AddToCart {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetProduct value)? getProduct,
     TResult? Function(_IncreaseCount value)? increaseCount,
     TResult? Function(_DecreaseCount value)? decreaseCount,
     TResult? Function(_ChangeSelectedSizes value)? changeSelectedSizes,
@@ -594,6 +776,7 @@ class _$AddToCartImpl implements _AddToCart {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetProduct value)? getProduct,
     TResult Function(_IncreaseCount value)? increaseCount,
     TResult Function(_DecreaseCount value)? decreaseCount,
     TResult Function(_ChangeSelectedSizes value)? changeSelectedSizes,
@@ -622,6 +805,7 @@ mixin _$ProductDetailState {
   List<double> get selectedSizes => throw _privateConstructorUsedError;
   int get addCount => throw _privateConstructorUsedError;
   String? get error => throw _privateConstructorUsedError;
+  ProductEntity? get product => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ProductDetailStateCopyWith<ProductDetailState> get copyWith =>
@@ -634,7 +818,13 @@ abstract class $ProductDetailStateCopyWith<$Res> {
           ProductDetailState value, $Res Function(ProductDetailState) then) =
       _$ProductDetailStateCopyWithImpl<$Res, ProductDetailState>;
   @useResult
-  $Res call({List<double> selectedSizes, int addCount, String? error});
+  $Res call(
+      {List<double> selectedSizes,
+      int addCount,
+      String? error,
+      ProductEntity? product});
+
+  $ProductEntityCopyWith<$Res>? get product;
 }
 
 /// @nodoc
@@ -653,6 +843,7 @@ class _$ProductDetailStateCopyWithImpl<$Res, $Val extends ProductDetailState>
     Object? selectedSizes = null,
     Object? addCount = null,
     Object? error = freezed,
+    Object? product = freezed,
   }) {
     return _then(_value.copyWith(
       selectedSizes: null == selectedSizes
@@ -667,7 +858,23 @@ class _$ProductDetailStateCopyWithImpl<$Res, $Val extends ProductDetailState>
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as String?,
+      product: freezed == product
+          ? _value.product
+          : product // ignore: cast_nullable_to_non_nullable
+              as ProductEntity?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ProductEntityCopyWith<$Res>? get product {
+    if (_value.product == null) {
+      return null;
+    }
+
+    return $ProductEntityCopyWith<$Res>(_value.product!, (value) {
+      return _then(_value.copyWith(product: value) as $Val);
+    });
   }
 }
 
@@ -679,7 +886,14 @@ abstract class _$$ProductDetailStateImplCopyWith<$Res>
       __$$ProductDetailStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<double> selectedSizes, int addCount, String? error});
+  $Res call(
+      {List<double> selectedSizes,
+      int addCount,
+      String? error,
+      ProductEntity? product});
+
+  @override
+  $ProductEntityCopyWith<$Res>? get product;
 }
 
 /// @nodoc
@@ -696,6 +910,7 @@ class __$$ProductDetailStateImplCopyWithImpl<$Res>
     Object? selectedSizes = null,
     Object? addCount = null,
     Object? error = freezed,
+    Object? product = freezed,
   }) {
     return _then(_$ProductDetailStateImpl(
       selectedSizes: null == selectedSizes
@@ -710,6 +925,10 @@ class __$$ProductDetailStateImplCopyWithImpl<$Res>
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as String?,
+      product: freezed == product
+          ? _value.product
+          : product // ignore: cast_nullable_to_non_nullable
+              as ProductEntity?,
     ));
   }
 }
@@ -720,7 +939,8 @@ class _$ProductDetailStateImpl implements _ProductDetailState {
   const _$ProductDetailStateImpl(
       {required final List<double> selectedSizes,
       required this.addCount,
-      this.error})
+      this.error,
+      this.product})
       : _selectedSizes = selectedSizes;
 
   final List<double> _selectedSizes;
@@ -735,10 +955,12 @@ class _$ProductDetailStateImpl implements _ProductDetailState {
   final int addCount;
   @override
   final String? error;
+  @override
+  final ProductEntity? product;
 
   @override
   String toString() {
-    return 'ProductDetailState(selectedSizes: $selectedSizes, addCount: $addCount, error: $error)';
+    return 'ProductDetailState(selectedSizes: $selectedSizes, addCount: $addCount, error: $error, product: $product)';
   }
 
   @override
@@ -750,12 +972,17 @@ class _$ProductDetailStateImpl implements _ProductDetailState {
                 .equals(other._selectedSizes, _selectedSizes) &&
             (identical(other.addCount, addCount) ||
                 other.addCount == addCount) &&
-            (identical(other.error, error) || other.error == error));
+            (identical(other.error, error) || other.error == error) &&
+            (identical(other.product, product) || other.product == product));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(_selectedSizes), addCount, error);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_selectedSizes),
+      addCount,
+      error,
+      product);
 
   @JsonKey(ignore: true)
   @override
@@ -769,7 +996,8 @@ abstract class _ProductDetailState implements ProductDetailState {
   const factory _ProductDetailState(
       {required final List<double> selectedSizes,
       required final int addCount,
-      final String? error}) = _$ProductDetailStateImpl;
+      final String? error,
+      final ProductEntity? product}) = _$ProductDetailStateImpl;
 
   @override
   List<double> get selectedSizes;
@@ -777,6 +1005,8 @@ abstract class _ProductDetailState implements ProductDetailState {
   int get addCount;
   @override
   String? get error;
+  @override
+  ProductEntity? get product;
   @override
   @JsonKey(ignore: true)
   _$$ProductDetailStateImplCopyWith<_$ProductDetailStateImpl> get copyWith =>

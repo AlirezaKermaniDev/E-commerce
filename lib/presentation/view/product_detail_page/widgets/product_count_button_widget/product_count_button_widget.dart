@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/core/size_config.dart';
 import 'package:ecommerce_app/injection/injection.dart';
 import 'package:flutter/material.dart';
 
@@ -27,8 +28,8 @@ class _ProductCountButtonWidgetState extends State<ProductCountButtonWidget> {
       onTapCancel: _onTapCancel(),
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 50),
-        height: 70,
-        width: isTapDown ? 65 : 60,
+        height: context.isPhone ? 50 : 70,
+        width: _buttonWidth(context),
         decoration: BoxDecoration(color: colorPalette.gray6),
         child: Center(
           child: Icon(
@@ -39,6 +40,14 @@ class _ProductCountButtonWidgetState extends State<ProductCountButtonWidget> {
         ),
       ),
     );
+  }
+
+  double _buttonWidth(BuildContext context) {
+    return isTapDown
+        ? 65
+        : context.isPhone
+            ? 50
+            : 60;
   }
 
   Function(TapDownDetails)? _onTapDown() {

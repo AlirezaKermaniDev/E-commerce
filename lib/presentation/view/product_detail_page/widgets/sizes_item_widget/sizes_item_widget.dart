@@ -38,7 +38,12 @@ class SizesItemWidget extends StatelessWidget {
         isActive: isActive,
         isAvailable: isAvailable,
       ),
-      phone: const _SizesItemWidgetPhone(),
+      phone: _SizesItemWidgetPhone(
+        value: value,
+        index: index,
+        isActive: isActive,
+        isAvailable: isAvailable,
+      ),
     );
   }
 }

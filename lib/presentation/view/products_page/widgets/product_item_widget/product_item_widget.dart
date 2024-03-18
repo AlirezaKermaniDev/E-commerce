@@ -22,7 +22,7 @@ class ProductItemWidget extends StatelessWidget {
     return ResponsiveBuilder(
       web: _ProductItemWidgetWeb(item: item),
       tablet: _ProductItemWidgetWeb(item: item),
-      phone: const _ProductItemWidgetPhone(),
+      phone: _ProductItemWidgetPhone(item: item),
     );
   }
 }

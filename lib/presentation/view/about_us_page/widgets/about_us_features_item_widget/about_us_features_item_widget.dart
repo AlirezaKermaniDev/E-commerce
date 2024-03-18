@@ -45,7 +45,14 @@ class AboutUsFeaturesItemWidget extends StatelessWidget {
         shapePath: shapePath,
         isLtR: isLtR,
       ),
-      phone: const _AboutUsFeaturesItemWidgetPhone(),
+      phone: _AboutUsFeaturesItemWidgetPhone(
+        title: title,
+        description: description,
+        titleColor: titleColor,
+        imagePath: imagePath,
+        shapePath: shapePath,
+        isLtR: isLtR,
+      ),
     );
   }
 }

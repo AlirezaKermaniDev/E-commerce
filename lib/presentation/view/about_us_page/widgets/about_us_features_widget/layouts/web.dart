@@ -8,6 +8,9 @@ class _AboutUsFeaturesWidgetWeb extends StatelessWidget {
     return ConstraintsWidget(
       child: Column(
         children: [
+          const SizedBox(
+            height: 120,
+          ),
           AnimatorWidget(
             withFadeTransition: true,
             slideTransition:
@@ -63,6 +66,9 @@ class _AboutUsFeaturesWidgetWeb extends StatelessWidget {
             imagePath: AssetHandler.banner5,
             shapePath: AssetHandler.shape11,
             isLtR: true,
+          ),
+          const SizedBox(
+            height: 120,
           ),
         ],
       ),

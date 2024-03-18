@@ -26,7 +26,7 @@ class _NewArrivalsWidgetPhone extends StatelessWidget {
                 padding: EdgeInsets.symmetric(
                     horizontal: getIt<SizeConfig>().padding),
                 child: SizedBox(
-                  width: .5.w(context),
+                  width: .8.w(context),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
@@ -36,7 +36,7 @@ class _NewArrivalsWidgetPhone extends StatelessWidget {
                             begin: const Offset(-.1, 0), end: Offset.zero),
                         child: Text(
                           context.locale.newArrivals,
-                          style: typography.h2Title
+                          style: typography.h4Title
                               .copyWith(color: colorPalette.darkPrimary),
                           textAlign: TextAlign.center,
                         ),
@@ -60,10 +60,10 @@ class _NewArrivalsWidgetPhone extends StatelessWidget {
                 ),
               ),
               const SizedBox(
-                height: 60,
+                height: 35,
               ),
               SizedBox(
-                height: 1.w(context),
+                height: 580,
                 width: 1.w(context),
                 child: ScrollbarWidget(
                   scrollController: scrollController,

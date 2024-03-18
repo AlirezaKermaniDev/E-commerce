@@ -15,7 +15,7 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await configureDependencies();
-  await initialFirebase();
+  //await initialFirebase();
   runApp(const App());
 }
 

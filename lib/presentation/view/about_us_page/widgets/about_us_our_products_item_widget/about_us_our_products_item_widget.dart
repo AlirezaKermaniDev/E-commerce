@@ -35,7 +35,12 @@ class AboutUsOurProductsItemWidget extends StatelessWidget {
         shapeGradient: shapeGradient,
         imagePath: imagePath,
       ),
-      phone: const _AboutUsOurProductsItemWidgetPhone(),
+      phone: _AboutUsOurProductsItemWidgetPhone(
+        title: title,
+        description: description,
+        shapeGradient: shapeGradient,
+        imagePath: imagePath,
+      ),
     );
   }
 }

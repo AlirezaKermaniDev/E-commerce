@@ -28,7 +28,9 @@ class ProductDetailWidget extends StatelessWidget {
       tablet: _ProductDetailWidgetWeb(
         item: item,
       ),
-      phone: const _ProductDetailWidgetPhone(),
+      phone: _ProductDetailWidgetPhone(
+        item: item,
+      ),
     );
   }
 }

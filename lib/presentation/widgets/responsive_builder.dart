@@ -1,3 +1,5 @@
+import 'package:ecommerce_app/core/size_config.dart';
+import 'package:ecommerce_app/injection/injection.dart';
 import 'package:flutter/material.dart';
 
 class ResponsiveBuilder extends StatelessWidget {
@@ -12,12 +14,22 @@ class ResponsiveBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (MediaQuery.sizeOf(context).width >= 1400) {
+    if (_isWeb(context)) {
       return web;
-    } else if (MediaQuery.sizeOf(context).width >= 900) {
+    } else if (_isTablet(context)) {
       return tablet;
     } else {
       return phone;
     }
+  }
+
+  bool _isTablet(BuildContext context) {
+    return MediaQuery.sizeOf(context).width >=
+        getIt<SizeConfig>().tabletTriggerSize;
+  }
+
+  bool _isWeb(BuildContext context) {
+    return MediaQuery.sizeOf(context).width >=
+        getIt<SizeConfig>().webTriggerSize;
   }
 }

@@ -17,10 +17,10 @@ class _LandingPageWidgetPhone extends StatelessWidget {
                   EdgeInsets.symmetric(horizontal: getIt<SizeConfig>().padding),
               child: const HomePageTitleWidget(),
             ),
-            const Padding(
-              padding: EdgeInsets.only(bottom: 50),
-              child: HomeBannerWidget(),
-            ),
+            const HomeBannerWidget(),
+            const SizedBox(
+              height: 50,
+            )
           ],
         ),
       ),

@@ -24,7 +24,7 @@ class _BestSellerWidgetPhone extends StatelessWidget {
                   Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
               child: Text(
                 context.locale.bestSellerThisWeek,
-                style: typography.h2Title
+                style: typography.h4Title
                     .copyWith(color: colorPalette.darkPrimary),
               ),
             ),
@@ -108,7 +108,7 @@ class _BestSellerWidgetPhone extends StatelessWidget {
                 height: 25,
               ),
               SizedBox(
-                width: .6.w(context),
+                width: .7.w(context),
                 child: AnimatorWidget(
                   withFadeTransition: true,
                   delay: const Duration(milliseconds: 300),
@@ -116,7 +116,7 @@ class _BestSellerWidgetPhone extends StatelessWidget {
                       begin: const Offset(0, .1), end: Offset.zero),
                   child: Text(
                     "Adidas Falcon Shoes for women - 2021 Edition",
-                    style: typography.h5Title
+                    style: typography.bodyText3
                         .copyWith(color: colorPalette.darkPrimary),
                     textAlign: TextAlign.center,
                   ),

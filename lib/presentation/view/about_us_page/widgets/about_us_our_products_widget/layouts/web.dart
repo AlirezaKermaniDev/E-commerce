@@ -7,7 +7,10 @@ class _AboutUsOurProductsWidgetWeb extends StatelessWidget {
   Widget build(BuildContext context) {
     return ConstraintsWidget(
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: getIt<SizeConfig>().padding),
+        padding: EdgeInsets.symmetric(
+          horizontal: getIt<SizeConfig>().padding,
+          vertical: 90,
+        ),
         child: Column(
           children: [
             AnimatorWidget(

@@ -24,7 +24,7 @@ class _FooterWidgetPhone extends StatelessWidget {
                   height: 20,
                 ),
                 SizedBox(
-                  width: .4.w(context),
+                  width: .7.w(context),
                   child: Text(
                     context.locale.ourShopIsTheBestChoiceForBuyingFootwear,
                     style: typography.bodyText2
@@ -101,7 +101,7 @@ class _FooterWidgetPhone extends StatelessWidget {
             height: 32,
           ),
           SizedBox(
-            width: 1.w(context),
+            width: .7.w(context),
             height: 80,
             child: Text(
               context.locale.madeWithLoveByMe,

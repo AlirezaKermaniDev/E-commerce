@@ -13,6 +13,16 @@ class _PopularBrandsWidgetPhone extends StatelessWidget {
         child: ConstraintsWidget(
           child: Stack(
             children: [
+              Positioned(
+                left: -120,
+                top: -130,
+                child: Container(
+                  height: 255,
+                  width: 255,
+                  decoration: BoxDecoration(
+                      gradient: colorPalette.gradient3, shape: BoxShape.circle),
+                ),
+              ),
               Column(
                 children: [
                   const SizedBox(
@@ -84,16 +94,6 @@ class _PopularBrandsWidgetPhone extends StatelessWidget {
                   ),
                 ],
               ),
-              Positioned(
-                left: -120,
-                top: -130,
-                child: Container(
-                  height: 255,
-                  width: 255,
-                  decoration: BoxDecoration(
-                      gradient: colorPalette.gradient3, shape: BoxShape.circle),
-                ),
-              )
             ],
           ),
         ));

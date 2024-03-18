@@ -6,7 +6,7 @@ class _AboutUsLandingWidgetWeb extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 1.h(context) - 120,
+      height: 1000,
       width: double.infinity,
       decoration: BoxDecoration(color: colorPalette.darkPrimary),
       child: ConstraintsWidget(

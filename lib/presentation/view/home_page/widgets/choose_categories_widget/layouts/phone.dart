@@ -4,7 +4,7 @@ class _ChooseCategoriesWidgetPhone extends StatelessWidget {
   _ChooseCategoriesWidgetPhone({
     super.key,
   });
-  final PageController controller = PageController(viewportFraction: .8);
+  final PageController controller = PageController(viewportFraction: .9);
   @override
   Widget build(BuildContext context) {
     return ConstraintsWidget(
@@ -27,7 +27,7 @@ class _ChooseCategoriesWidgetPhone extends StatelessWidget {
                     withFadeTransition: true,
                     child: Text(
                       context.locale.chooseCategories,
-                      style: typography.h2Title.copyWith(
+                      style: typography.h4Title.copyWith(
                         color: colorPalette.darkPrimary,
                       ),
                       textAlign: TextAlign.center,
@@ -42,7 +42,7 @@ class _ChooseCategoriesWidgetPhone extends StatelessWidget {
                     withFadeTransition: true,
                     child: Text(
                       context.locale.forExplosiveEventsSprintsUTo400Metres,
-                      style: typography.bodyText1.copyWith(
+                      style: typography.bodyText2.copyWith(
                         color: colorPalette.gray1,
                       ),
                       textAlign: TextAlign.center,
@@ -63,7 +63,7 @@ class _ChooseCategoriesWidgetPhone extends StatelessWidget {
                   children: [
                     Padding(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 32, vertical: 70),
+                          horizontal: 8, vertical: 70),
                       child: CategoryItemWidget(
                         mainColor: colorPalette.accent1,
                         title: context.locale.sneakersCollection,
@@ -81,7 +81,7 @@ class _ChooseCategoriesWidgetPhone extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 32, vertical: 70),
+                          horizontal: 8, vertical: 70),
                       child: CategoryItemWidget(
                         mainColor: colorPalette.accent3,
                         title: context.locale.footballCollection,
@@ -97,7 +97,7 @@ class _ChooseCategoriesWidgetPhone extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 32, vertical: 70),
+                          horizontal: 8, vertical: 70),
                       child: CategoryItemWidget(
                         mainColor: colorPalette.accent4,
                         title: context.locale.volleyballCollection,

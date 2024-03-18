@@ -45,8 +45,8 @@ class _NewArrialsItemWidgetPhoneState
                     end: 1,
                   ),
                   child: Container(
-                    height: .6.w(context),
-                    width: .4.w(context),
+                    height: .8.w(context),
+                    width: .6.w(context),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(24),
                         gradient: widget
@@ -114,7 +114,7 @@ class _NewArrialsItemWidgetPhoneState
                         height: 25,
                       ),
                       SizedBox(
-                        width: .4.w(context),
+                        width: .7.w(context),
                         child: AnimatorWidget(
                           withFadeTransition: true,
                           delay: const Duration(milliseconds: 200),
@@ -150,14 +150,14 @@ class _NewArrialsItemWidgetPhoneState
           ),
           AnimatedPadding(
             duration: const Duration(milliseconds: 100),
-            padding: EdgeInsets.only(right: 40, bottom: _isHover ? 20 : 100),
+            padding: EdgeInsets.only(right: 40, top: _isHover ? 20 : 50),
             curve: Curves.easeIn,
             child: AnimatorWidget(
               withFadeTransition: true,
               delay: const Duration(milliseconds: 400),
               rotateTrasition: Tween<double>(begin: .06, end: 0),
               child: Transform.scale(
-                scale: .8,
+                scale: 1.2,
                 child: Transform.rotate(
                     angle: -.5, child: Image.asset(widget.item.imageUrl ?? "")),
               ),

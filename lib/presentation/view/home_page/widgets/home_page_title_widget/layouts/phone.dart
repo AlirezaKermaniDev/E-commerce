@@ -6,19 +6,18 @@ class _HomePageTitleWidgetPhone extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 510,
-      width: 0.9.w(context),
+      width: 1.w(context),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const SizedBox(
-            height: 50,
+            height: 0,
           ),
           SizedBox(
             width: 1.w(context),
             child: AnimatorTextWidget(
               context.locale.getYourAwesomeSneakers,
-              style: typography.h1Title,
+              style: typography.h4Title,
               initialDelay: const Duration(milliseconds: 1500),
               spaceDelay: Duration.zero,
               incomingEffect: WidgetTransitionEffects.incomingScaleDown(
@@ -28,13 +27,13 @@ class _HomePageTitleWidgetPhone extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: 45,
+            height: 25,
           ),
           SizedBox(
             width: 1.w(context),
             child: AnimatorTextWidget(
               context.locale.weOfferTheBestDealsInOurShop,
-              style: typography.bodyText3.copyWith(color: colorPalette.gray1),
+              style: typography.bodyText2.copyWith(color: colorPalette.gray1),
               spaceDelay: Duration.zero,
               initialDelay: const Duration(milliseconds: 1500),
               characterDelay: const Duration(milliseconds: 14),
@@ -45,7 +44,7 @@ class _HomePageTitleWidgetPhone extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: 50,
+            height: 30,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -78,7 +77,7 @@ class _HomePageTitleWidgetPhone extends StatelessWidget {
             ],
           ),
           const SizedBox(
-            height: 70,
+            height: 32,
           ),
           const OffersWidget(),
         ],

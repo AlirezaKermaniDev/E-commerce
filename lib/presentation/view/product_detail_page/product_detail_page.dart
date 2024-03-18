@@ -1,5 +1,4 @@
 import 'package:ecommerce_app/core/size_config.dart';
-import 'package:ecommerce_app/data/product_list_data.dart';
 import 'package:ecommerce_app/domain/entities/product_entity/product_entity.dart';
 import 'package:ecommerce_app/injection/injection.dart';
 import 'package:ecommerce_app/presentation/bloc/product_detail_bloc/product_detail_bloc.dart';
@@ -14,24 +13,17 @@ import 'package:ecommerce_app/presentation/widgets/header_widget/header_widget.d
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class ProductDetailPage extends StatefulWidget {
+class ProductDetailPage extends StatelessWidget {
   static const String path = "/product-detail";
   final String productId;
 
   const ProductDetailPage({super.key, required this.productId});
 
   @override
-  State<ProductDetailPage> createState() => _ProductDetailPageState();
-}
-
-class _ProductDetailPageState extends State<ProductDetailPage> {
-  late ProductEntity product =
-      productListData.firstWhere((e) => e.id == widget.productId);
-
-  @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt<ProductDetailBloc>(),
+      create: (context) => getIt<ProductDetailBloc>()
+        ..add(ProductDetailEvent.getProduct(productId: productId)),
       child: Scaffold(
         backgroundColor: colorPalette.primary,
         drawer: const DrawerWidget(
@@ -39,46 +31,48 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
         ),
         body: BlocListener<ProductDetailBloc, ProductDetailState>(
           listener: _stateListener,
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                HeaderWidget(
-                    selectedIndex: 2, backgroundColor: colorPalette.primary),
-                Divider(
-                  color: colorPalette.gray5,
-                  height: 1,
+          child: BlocBuilder<ProductDetailBloc, ProductDetailState>(
+            builder: (context, state) {
+              if (state.product == null) {
+                return const SizedBox();
+              }
+              return SingleChildScrollView(
+                child: Column(
+                  children: [
+                    HeaderWidget(
+                      selectedIndex: 2,
+                      backgroundColor: colorPalette.primary,
+                    ),
+                    if (!context.isPhone)
+                      Divider(
+                        color: colorPalette.gray5,
+                        height: 1,
+                      ),
+                    _breadcrumbBuilderWidget(context, state.product!),
+                    ProductInfoWidget(item: state.product!),
+                    AlternativeProductsWidget(
+                      item: state.product!,
+                    ),
+                    SizedBox(
+                      height: getIt<SizeConfig>().padding,
+                    ),
+                    const JoinOurClubBannerWidget(),
+                    SizedBox(
+                      height: getIt<SizeConfig>().padding,
+                    ),
+                    const FooterWidget()
+                  ],
                 ),
-                const SizedBox(
-                  height: 74,
-                ),
-                _breadcrumbBuilderWidget(),
-                const SizedBox(
-                  height: 32,
-                ),
-                ProductInfoWidget(item: product),
-                const SizedBox(
-                  height: 120,
-                ),
-                AlternativeProductsWidget(
-                  item: product,
-                ),
-                SizedBox(
-                  height: getIt<SizeConfig>().padding,
-                ),
-                const JoinOurClubBannerWidget(),
-                SizedBox(
-                  height: getIt<SizeConfig>().padding,
-                ),
-                const FooterWidget()
-              ],
-            ),
+              );
+            },
           ),
         ),
       ),
     );
   }
 
-  ConstraintsWidget _breadcrumbBuilderWidget() {
+  ConstraintsWidget _breadcrumbBuilderWidget(
+      BuildContext context, ProductEntity product) {
     return ConstraintsWidget(
       child: Row(
         children: [

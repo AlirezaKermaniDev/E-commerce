@@ -39,7 +39,13 @@ class FilterItemsButtonWidget extends StatelessWidget {
         onTap: onTap,
         color: color,
       ),
-      phone: const _FilterItemsButtonWidgetPhone(),
+      phone: _FilterItemsButtonWidgetWeb(
+        title: title,
+        value: value,
+        groupValue: groupValue,
+        onTap: onTap,
+        color: color,
+      ),
     );
   }
 }

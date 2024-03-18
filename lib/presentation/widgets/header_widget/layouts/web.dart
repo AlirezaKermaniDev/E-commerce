@@ -181,7 +181,7 @@ class _HeaderWidgetWeb extends StatelessWidget {
                     },
                     child: Icon(
                       _themeModeIcon(),
-                      color: colorPalette.darkPrimary,
+                      color: forgroundColor ?? colorPalette.darkPrimary,
                       size: 26,
                     ),
                   ),

@@ -32,7 +32,10 @@ class AlternativeProductItemWidget extends StatelessWidget {
         item: item,
         index: index,
       ),
-      phone: const _AlternativeProductItemWidgetPhone(),
+      phone: _AlternativeProductItemWidgetPhone(
+        item: item,
+        index: index,
+      ),
     );
   }
 }

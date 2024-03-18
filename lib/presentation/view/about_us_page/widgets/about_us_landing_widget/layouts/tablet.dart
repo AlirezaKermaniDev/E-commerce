@@ -6,104 +6,100 @@ class _AboutUsLandingWidgetTablet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: .6.h(context),
+      height: 700,
       width: 1.w(context),
       decoration: BoxDecoration(color: colorPalette.darkPrimary),
       child: Stack(children: [
-        Stack(
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Expanded(
-                    flex: 7,
-                    child: AnimatorWidget(
-                      scaleTransition: Tween<double>(begin: .9, end: 1),
-                      withFadeTransition: true,
-                      delay: const Duration(milliseconds: 700),
-                      child: Stack(
+            Expanded(
+                flex: 7,
+                child: AnimatorWidget(
+                  scaleTransition: Tween<double>(begin: .9, end: 1),
+                  withFadeTransition: true,
+                  delay: const Duration(milliseconds: 700),
+                  child: Stack(
+                    alignment: Alignment.bottomCenter,
+                    children: [
+                      Image.asset(AssetHandler.banner4),
+                      const Align(
                         alignment: Alignment.bottomCenter,
-                        children: [
-                          Image.asset(AssetHandler.banner4),
-                          const Align(
-                            alignment: Alignment.bottomCenter,
-                            child: Padding(
-                                padding: EdgeInsets.only(bottom: 85, left: 50),
-                                child: ToolTipWidget(
-                                  preferredDirection: AxisDirection.right,
-                                  padding: EdgeInsets.only(left: 12, top: 64),
-                                  content: PurchasedTooltipContentWidget(),
-                                )),
-                          )
-                        ],
-                      ),
-                    )),
-                const SizedBox(
-                  width: 30,
-                ),
-                Expanded(
-                    flex: 5,
-                    child: AnimatorWidget(
-                      scaleTransition: Tween<double>(begin: .9, end: 1),
-                      withFadeTransition: true,
-                      delay: const Duration(milliseconds: 1100),
-                      child: Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(bottom: 150),
-                            child: Image.asset(
-                              AssetHandler.banner3,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                          const Padding(
-                            padding: EdgeInsets.only(bottom: 150),
+                        child: Padding(
+                            padding: EdgeInsets.only(bottom: 85, left: 50),
                             child: ToolTipWidget(
-                              preferredDirection: AxisDirection.up,
-                              padding: EdgeInsets.only(bottom: 16),
-                              content: ProductDetailTooltipContentWidget(),
-                            ),
-                          )
-                        ],
-                      ),
-                    )),
-                const SizedBox(
-                  width: 30,
-                ),
-                Expanded(
-                    flex: 5,
-                    child: AnimatorWidget(
-                      scaleTransition: Tween<double>(begin: .9, end: 1),
-                      withFadeTransition: true,
-                      delay: const Duration(milliseconds: 1500),
-                      child: Stack(
-                        alignment: Alignment.bottomCenter,
-                        children: [
-                          Image.asset(
-                            AssetHandler.banner2,
-                            fit: BoxFit.cover,
-                          ),
-                          const Center(
-                            child: Padding(
-                              padding: EdgeInsets.only(top: 500),
-                              child: ToolTipWidget(
-                                preferredDirection: AxisDirection.up,
-                                padding: EdgeInsets.only(bottom: 16),
-                                content: DiscountToolTipContentWidget(),
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                    )),
-              ],
+                              preferredDirection: AxisDirection.right,
+                              padding: EdgeInsets.only(left: 12, top: 64),
+                              content: PurchasedTooltipContentWidget(),
+                            )),
+                      )
+                    ],
+                  ),
+                )),
+            const SizedBox(
+              width: 30,
             ),
+            Expanded(
+                flex: 5,
+                child: AnimatorWidget(
+                  scaleTransition: Tween<double>(begin: .9, end: 1),
+                  withFadeTransition: true,
+                  delay: const Duration(milliseconds: 1100),
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 150),
+                        child: Image.asset(
+                          AssetHandler.banner3,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.only(bottom: 150),
+                        child: ToolTipWidget(
+                          preferredDirection: AxisDirection.up,
+                          padding: EdgeInsets.only(bottom: 16),
+                          content: ProductDetailTooltipContentWidget(),
+                        ),
+                      )
+                    ],
+                  ),
+                )),
+            const SizedBox(
+              width: 30,
+            ),
+            Expanded(
+                flex: 5,
+                child: AnimatorWidget(
+                  scaleTransition: Tween<double>(begin: .9, end: 1),
+                  withFadeTransition: true,
+                  delay: const Duration(milliseconds: 1500),
+                  child: Stack(
+                    alignment: Alignment.bottomCenter,
+                    children: [
+                      Image.asset(
+                        AssetHandler.banner2,
+                        fit: BoxFit.cover,
+                      ),
+                      const Center(
+                        child: Padding(
+                          padding: EdgeInsets.only(top: 500),
+                          child: ToolTipWidget(
+                            preferredDirection: AxisDirection.up,
+                            padding: EdgeInsets.only(bottom: 16),
+                            content: DiscountToolTipContentWidget(),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                )),
           ],
         ),
         Padding(
           padding: EdgeInsets.symmetric(
-              vertical: 100, horizontal: getIt<SizeConfig>().padding),
+              vertical: 50, horizontal: getIt<SizeConfig>().padding),
           child: SizedBox(
             width: 624,
             child: Column(

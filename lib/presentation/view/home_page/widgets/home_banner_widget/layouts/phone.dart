@@ -26,7 +26,7 @@ class _HomeBannerWidgetPhoneState extends State<_HomeBannerWidgetPhone> {
   Widget build(BuildContext context) {
     return SizedBox(
       width: 1.w(context),
-      height: 1.w(context),
+      height: 400,
       child: Stack(
         children: [
           _backgroundShapeWidget(),

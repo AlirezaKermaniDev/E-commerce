@@ -16,7 +16,11 @@ class _HeaderWidgetTablet extends StatelessWidget {
     return Container(
       color: backgroundColor,
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: getIt<SizeConfig>().padding),
+        padding: EdgeInsets.only(
+          left: getIt<SizeConfig>().padding,
+          right: getIt<SizeConfig>().padding,
+          top: 32,
+        ),
         child: SizedBox(
           height: 120,
           child: Row(
@@ -70,7 +74,7 @@ class _HeaderWidgetTablet extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                  height: 70, width: 70, child: Image.asset(AssetHandler.logo)),
+                  height: 50, width: 50, child: Image.asset(AssetHandler.logo)),
             ],
           ),
         ),

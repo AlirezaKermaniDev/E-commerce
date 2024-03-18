@@ -1,6 +1,7 @@
 import 'package:country_flags/country_flags.dart';
 import 'package:ecommerce_app/core/extensions/locale_extensions.dart';
 import 'package:ecommerce_app/core/local_storage/local_storage.dart';
+import 'package:ecommerce_app/core/size_config.dart';
 import 'package:ecommerce_app/injection/injection.dart';
 import 'package:ecommerce_app/presentation/bloc/header_bloc/header_bloc.dart';
 import 'package:ecommerce_app/presentation/view/about_us_page/about_us_page.dart';
@@ -26,7 +27,7 @@ class DrawerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      width: 350,
+      width: 1.w(context) < 500 ? 300 : 350,
       backgroundColor: colorPalette.primary,
       shape: const OutlineInputBorder(
         borderSide: BorderSide.none,
@@ -35,274 +36,277 @@ class DrawerWidget extends StatelessWidget {
           bottomRight: Radius.circular(8),
         ),
       ),
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(
-              height: 16,
-            ),
-            AnimatorWidget(
-              withFadeTransition: true,
-              slideTransition:
-                  Tween<Offset>(begin: const Offset(-.05, 0), end: Offset.zero),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 14),
-                child: Row(
-                  children: [
-                    Icon(
-                      Icons.pages_outlined,
-                      color: colorPalette.darkPrimary,
-                    ),
-                    const SizedBox(
-                      width: 12,
-                    ),
-                    Text(
-                      context.locale.pages,
-                      style: typography.bodyText5,
-                    ),
-                  ],
+      child: SafeArea(
+        bottom: false,
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(
+                height: 16,
+              ),
+              AnimatorWidget(
+                withFadeTransition: true,
+                slideTransition: Tween<Offset>(
+                    begin: const Offset(-.05, 0), end: Offset.zero),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 14),
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.pages_outlined,
+                        color: colorPalette.darkPrimary,
+                      ),
+                      const SizedBox(
+                        width: 12,
+                      ),
+                      Text(
+                        context.locale.pages,
+                        style: typography.bodyText5,
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            AnimatorWidget(
-              withFadeTransition: true,
-              slideTransition:
-                  Tween<Offset>(begin: const Offset(-.05, 0), end: Offset.zero),
-              delay: const Duration(milliseconds: 100),
-              child: DrawerItemWidget(
-                title: context.locale.footwear,
-                onTap: () {
-                  Scaffold.of(context).closeDrawer();
-                  context.go(
-                    HomePage.path,
-                  );
-                },
-                isActive: selectedIndex == 0,
+              const SizedBox(
+                height: 20,
               ),
-            ),
-            AnimatorWidget(
-              withFadeTransition: true,
-              slideTransition:
-                  Tween<Offset>(begin: const Offset(-.05, 0), end: Offset.zero),
-              delay: const Duration(milliseconds: 200),
-              child: DrawerItemWidget(
-                title: context.locale.aboutUs,
-                onTap: () {
-                  Scaffold.of(context).closeDrawer();
-                  context.go(
-                    AboutUsPage.path,
-                  );
-                },
-                isActive: selectedIndex == 1,
-              ),
-            ),
-            AnimatorWidget(
-              withFadeTransition: true,
-              slideTransition:
-                  Tween<Offset>(begin: const Offset(-.05, 0), end: Offset.zero),
-              delay: const Duration(milliseconds: 300),
-              child: DrawerItemWidget(
-                title: context.locale.products,
-                onTap: () {
-                  Scaffold.of(context).closeDrawer();
-                  context.go(
-                    ProductsPage.path,
-                  );
-                },
-                isActive: selectedIndex == 2,
-              ),
-            ),
-            const SizedBox(
-              height: 25,
-            ),
-            AnimatorWidget(
-              withFadeTransition: true,
-              slideTransition:
-                  Tween<Offset>(begin: const Offset(-.05, 0), end: Offset.zero),
-              delay: const Duration(milliseconds: 400),
-              child: Divider(
-                thickness: 1.6,
-                height: 1,
-                color: colorPalette.gray5,
-              ),
-            ),
-            const SizedBox(
-              height: 25,
-            ),
-            AnimatorWidget(
-              withFadeTransition: true,
-              slideTransition:
-                  Tween<Offset>(begin: const Offset(-.05, 0), end: Offset.zero),
-              delay: const Duration(milliseconds: 400),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 14),
-                child: Row(
-                  children: [
-                    Icon(
-                      Icons.menu_rounded,
-                      color: colorPalette.darkPrimary,
-                    ),
-                    const SizedBox(
-                      width: 12,
-                    ),
-                    Text(
-                      context.locale.menu,
-                      style: typography.bodyText5,
-                    ),
-                  ],
+              AnimatorWidget(
+                withFadeTransition: true,
+                slideTransition: Tween<Offset>(
+                    begin: const Offset(-.05, 0), end: Offset.zero),
+                delay: const Duration(milliseconds: 100),
+                child: DrawerItemWidget(
+                  title: context.locale.footwear,
+                  onTap: () {
+                    Scaffold.of(context).closeDrawer();
+                    context.go(
+                      HomePage.path,
+                    );
+                  },
+                  isActive: selectedIndex == 0,
                 ),
               ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            AnimatorWidget(
-              withFadeTransition: true,
-              slideTransition:
-                  Tween<Offset>(begin: const Offset(-.05, 0), end: Offset.zero),
-              delay: const Duration(milliseconds: 500),
-              child: DrawerItemWidget(
-                title: context.locale.profile,
-                onTap: () {
-                  Scaffold.of(context).closeDrawer();
-                  context.go(
-                    SignInPage.path,
-                  );
-                },
-                isActive: selectedIndex == 3,
-              ),
-            ),
-            AnimatorWidget(
-              withFadeTransition: true,
-              slideTransition:
-                  Tween<Offset>(begin: const Offset(-.05, 0), end: Offset.zero),
-              delay: const Duration(milliseconds: 600),
-              child: DrawerItemWidget(
-                title: context.locale.search,
-                onTap: () {
-                  Scaffold.of(context).closeDrawer();
-                  showDialog(
-                      context: context,
-                      barrierColor: Colors.black.withOpacity(.12),
-                      builder: (context) {
-                        return const SearchDialogWidget();
-                      });
-                },
-                isActive: selectedIndex == 4,
-              ),
-            ),
-            AnimatorWidget(
-              withFadeTransition: true,
-              slideTransition:
-                  Tween<Offset>(begin: const Offset(-.05, 0), end: Offset.zero),
-              delay: const Duration(milliseconds: 700),
-              child: BlocBuilder<HeaderBloc, HeaderState>(
-                builder: (context, state) {
-                  return DrawerItemWidget(
-                    title: context.locale.cart,
-                    badgeText: state.addedToCartProductsCount == 0
-                        ? null
-                        : state.addedToCartProductsCount.toString(),
-                    onTap: () {
-                      Scaffold.of(context).closeDrawer();
-                      context.go(
-                        CartPage.path,
-                      );
-                    },
-                    isActive: selectedIndex == 5,
-                  );
-                },
-              ),
-            ),
-            const SizedBox(
-              height: 25,
-            ),
-            AnimatorWidget(
-              withFadeTransition: true,
-              slideTransition:
-                  Tween<Offset>(begin: const Offset(-.05, 0), end: Offset.zero),
-              delay: const Duration(milliseconds: 800),
-              child: Divider(
-                thickness: 1.6,
-                height: 1,
-                color: colorPalette.gray5,
-              ),
-            ),
-            const SizedBox(
-              height: 25,
-            ),
-            AnimatorWidget(
-              withFadeTransition: true,
-              slideTransition:
-                  Tween<Offset>(begin: const Offset(-.05, 0), end: Offset.zero),
-              delay: const Duration(milliseconds: 800),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 14),
-                child: Row(
-                  children: [
-                    Icon(
-                      Icons.settings_outlined,
-                      color: colorPalette.darkPrimary,
-                    ),
-                    const SizedBox(
-                      width: 12,
-                    ),
-                    Text(
-                      context.locale.settings,
-                      style: typography.bodyText5,
-                    ),
-                  ],
+              AnimatorWidget(
+                withFadeTransition: true,
+                slideTransition: Tween<Offset>(
+                    begin: const Offset(-.05, 0), end: Offset.zero),
+                delay: const Duration(milliseconds: 200),
+                child: DrawerItemWidget(
+                  title: context.locale.aboutUs,
+                  onTap: () {
+                    Scaffold.of(context).closeDrawer();
+                    context.go(
+                      AboutUsPage.path,
+                    );
+                  },
+                  isActive: selectedIndex == 1,
                 ),
               ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            AnimatorWidget(
-              withFadeTransition: true,
-              slideTransition:
-                  Tween<Offset>(begin: const Offset(-.05, 0), end: Offset.zero),
-              delay: const Duration(milliseconds: 900),
-              child: BlocBuilder<HeaderBloc, HeaderState>(
-                builder: (context, state) {
-                  return DrawerItemWidget(
-                    title: context.locale.darkMode,
-                    onTap: () {
-                      context
-                          .read<HeaderBloc>()
-                          .add(const HeaderEvent.changeThemeMode());
-                    },
-                    isActive: false,
-                    switchValue: _darkModeValue(),
-                  );
-                },
+              AnimatorWidget(
+                withFadeTransition: true,
+                slideTransition: Tween<Offset>(
+                    begin: const Offset(-.05, 0), end: Offset.zero),
+                delay: const Duration(milliseconds: 300),
+                child: DrawerItemWidget(
+                  title: context.locale.products,
+                  onTap: () {
+                    Scaffold.of(context).closeDrawer();
+                    context.go(
+                      ProductsPage.path,
+                    );
+                  },
+                  isActive: selectedIndex == 2,
+                ),
               ),
-            ),
-            AnimatorWidget(
-              withFadeTransition: true,
-              slideTransition:
-                  Tween<Offset>(begin: const Offset(-.05, 0), end: Offset.zero),
-              delay: const Duration(milliseconds: 1000),
-              child: BlocBuilder<HeaderBloc, HeaderState>(
-                builder: (context, state) {
-                  return DrawerItemWidget(
-                    title: context.locale.language,
-                    onTap: () {},
-                    isActive: false,
-                    expanded: const LanguagesExpandedWidget(),
-                    valueText: getIt<LocalStorage>()
-                        .getLocale()
-                        .toLanguageName(context),
-                  );
-                },
+              const SizedBox(
+                height: 25,
               ),
-            ),
-          ],
+              AnimatorWidget(
+                withFadeTransition: true,
+                slideTransition: Tween<Offset>(
+                    begin: const Offset(-.05, 0), end: Offset.zero),
+                delay: const Duration(milliseconds: 400),
+                child: Divider(
+                  thickness: 1.6,
+                  height: 1,
+                  color: colorPalette.gray5,
+                ),
+              ),
+              const SizedBox(
+                height: 25,
+              ),
+              AnimatorWidget(
+                withFadeTransition: true,
+                slideTransition: Tween<Offset>(
+                    begin: const Offset(-.05, 0), end: Offset.zero),
+                delay: const Duration(milliseconds: 400),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 14),
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.menu_rounded,
+                        color: colorPalette.darkPrimary,
+                      ),
+                      const SizedBox(
+                        width: 12,
+                      ),
+                      Text(
+                        context.locale.menu,
+                        style: typography.bodyText5,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              AnimatorWidget(
+                withFadeTransition: true,
+                slideTransition: Tween<Offset>(
+                    begin: const Offset(-.05, 0), end: Offset.zero),
+                delay: const Duration(milliseconds: 500),
+                child: DrawerItemWidget(
+                  title: context.locale.profile,
+                  onTap: () {
+                    Scaffold.of(context).closeDrawer();
+                    context.go(
+                      SignInPage.path,
+                    );
+                  },
+                  isActive: selectedIndex == 3,
+                ),
+              ),
+              AnimatorWidget(
+                withFadeTransition: true,
+                slideTransition: Tween<Offset>(
+                    begin: const Offset(-.05, 0), end: Offset.zero),
+                delay: const Duration(milliseconds: 600),
+                child: DrawerItemWidget(
+                  title: context.locale.search,
+                  onTap: () {
+                    Scaffold.of(context).closeDrawer();
+                    showDialog(
+                        context: context,
+                        barrierColor: Colors.black.withOpacity(.12),
+                        builder: (context) {
+                          return const SearchDialogWidget();
+                        });
+                  },
+                  isActive: selectedIndex == 4,
+                ),
+              ),
+              AnimatorWidget(
+                withFadeTransition: true,
+                slideTransition: Tween<Offset>(
+                    begin: const Offset(-.05, 0), end: Offset.zero),
+                delay: const Duration(milliseconds: 700),
+                child: BlocBuilder<HeaderBloc, HeaderState>(
+                  builder: (context, state) {
+                    return DrawerItemWidget(
+                      title: context.locale.cart,
+                      badgeText: state.addedToCartProductsCount == 0
+                          ? null
+                          : state.addedToCartProductsCount.toString(),
+                      onTap: () {
+                        Scaffold.of(context).closeDrawer();
+                        context.go(
+                          CartPage.path,
+                        );
+                      },
+                      isActive: selectedIndex == 5,
+                    );
+                  },
+                ),
+              ),
+              const SizedBox(
+                height: 25,
+              ),
+              AnimatorWidget(
+                withFadeTransition: true,
+                slideTransition: Tween<Offset>(
+                    begin: const Offset(-.05, 0), end: Offset.zero),
+                delay: const Duration(milliseconds: 800),
+                child: Divider(
+                  thickness: 1.6,
+                  height: 1,
+                  color: colorPalette.gray5,
+                ),
+              ),
+              const SizedBox(
+                height: 25,
+              ),
+              AnimatorWidget(
+                withFadeTransition: true,
+                slideTransition: Tween<Offset>(
+                    begin: const Offset(-.05, 0), end: Offset.zero),
+                delay: const Duration(milliseconds: 800),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 14),
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.settings_outlined,
+                        color: colorPalette.darkPrimary,
+                      ),
+                      const SizedBox(
+                        width: 12,
+                      ),
+                      Text(
+                        context.locale.settings,
+                        style: typography.bodyText5,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              AnimatorWidget(
+                withFadeTransition: true,
+                slideTransition: Tween<Offset>(
+                    begin: const Offset(-.05, 0), end: Offset.zero),
+                delay: const Duration(milliseconds: 900),
+                child: BlocBuilder<HeaderBloc, HeaderState>(
+                  builder: (context, state) {
+                    return DrawerItemWidget(
+                      title: context.locale.darkMode,
+                      onTap: () {
+                        context
+                            .read<HeaderBloc>()
+                            .add(const HeaderEvent.changeThemeMode());
+                      },
+                      isActive: false,
+                      switchValue: _darkModeValue(),
+                    );
+                  },
+                ),
+              ),
+              AnimatorWidget(
+                withFadeTransition: true,
+                slideTransition: Tween<Offset>(
+                    begin: const Offset(-.05, 0), end: Offset.zero),
+                delay: const Duration(milliseconds: 1000),
+                child: BlocBuilder<HeaderBloc, HeaderState>(
+                  builder: (context, state) {
+                    return DrawerItemWidget(
+                      title: context.locale.language,
+                      onTap: () {},
+                      isActive: false,
+                      expanded: const LanguagesExpandedWidget(),
+                      valueText: getIt<LocalStorage>()
+                          .getLocale()
+                          .toLanguageName(context),
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -340,7 +344,9 @@ class LanguagesExpandedWidget extends StatelessWidget {
                       width: 25,
                       borderRadius: 3,
                     ),
-                  const  SizedBox(width: 8,),
+                    const SizedBox(
+                      width: 8,
+                    ),
                     Text(
                       e.toLanguageName(context),
                       style: typography.bodyText2

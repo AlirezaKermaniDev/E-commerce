@@ -6,13 +6,17 @@ import 'package:injectable/injectable.dart';
 class SizeConfig {
   late double padding;
   late double maxWidth;
+  late double tabletTriggerSize;
+  late double webTriggerSize;
 
   setSizeConfigs(BuildContext context) {
     maxWidth = 2000;
+    tabletTriggerSize = 800;
+    webTriggerSize = 1500;
     final double width = MediaQuery.sizeOf(context).width;
-    if (width >= 1400) {
+    if (width >= webTriggerSize) {
       padding = 158;
-    } else if (width >= 900) {
+    } else if (width >= tabletTriggerSize) {
       padding = 64;
     } else {
       padding = 31;
@@ -33,5 +37,6 @@ extension SizeConfigExtentions on num {
 
 extension Sizextentions on BuildContext {
   bool get isOnMaxWidth => 1.w(this) >= getIt<SizeConfig>().maxWidth;
-  bool get isTablet => 1.w(this) < 1400;
+  bool get isTablet => 1.w(this) < getIt<SizeConfig>().webTriggerSize;
+  bool get isPhone => 1.w(this) < getIt<SizeConfig>().tabletTriggerSize;
 }

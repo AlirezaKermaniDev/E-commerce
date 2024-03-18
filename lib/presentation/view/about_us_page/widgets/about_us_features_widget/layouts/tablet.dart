@@ -9,6 +9,9 @@ class _AboutUsFeaturesWidgetTablet extends StatelessWidget {
       width: 1.w(context),
       child: Column(
         children: [
+          const SizedBox(
+            height: 100,
+          ),
           AnimatorWidget(
             withFadeTransition: true,
             slideTransition:
@@ -64,6 +67,9 @@ class _AboutUsFeaturesWidgetTablet extends StatelessWidget {
             imagePath: AssetHandler.banner5,
             shapePath: AssetHandler.shape11,
             isLtR: true,
+          ),
+          const SizedBox(
+            height: 100,
           ),
         ],
       ),

@@ -6,6 +6,7 @@ class ProductDetailState with _$ProductDetailState {
     required List<double> selectedSizes,
     required int addCount,
     String? error,
+    ProductEntity? product,
   }) = _ProductDetailState;
 
   factory ProductDetailState.initial() => const ProductDetailState(

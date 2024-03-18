@@ -24,7 +24,7 @@ class AlternativeProductsWidget extends StatelessWidget {
     return ResponsiveBuilder(
       web: _AlternativeProductsWidgetWeb(item: item),
       tablet: _AlternativeProductsWidgetWeb(item: item),
-      phone: const _AlternativeProductsWidgetPhone(),
+      phone: _AlternativeProductsWidgetPhone(item: item),
     );
   }
 }

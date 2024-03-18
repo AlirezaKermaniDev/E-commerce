@@ -32,7 +32,7 @@ class _FeaturedProductsWidgetPhoneState
                   withFadeTransition: true,
                   child: Text(
                     context.locale.featuredProducts,
-                    style: typography.h2Title
+                    style: typography.h4Title
                         .copyWith(color: colorPalette.darkPrimary),
                   ),
                 ),

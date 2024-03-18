@@ -14,7 +14,7 @@ class _WhyChooseOurShopWidgetPhone extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const SizedBox(
-              height: 120,
+              height: 80,
             ),
             AnimatorWidget(
                 slideTransition: Tween<Offset>(
@@ -35,9 +35,10 @@ class _WhyChooseOurShopWidgetPhone extends StatelessWidget {
                   withFadeTransition: true,
                   child: Text(
                     context.locale.whyChooseOurShop,
-                    style: typography.h2Title.copyWith(
+                    style: typography.h4Title.copyWith(
                       color: colorPalette.darkPrimary,
                     ),
+                    textAlign: TextAlign.center,
                   ),
                 ),
                 const SizedBox(
@@ -48,10 +49,10 @@ class _WhyChooseOurShopWidgetPhone extends StatelessWidget {
                       begin: const Offset(0, .2), end: Offset.zero),
                   withFadeTransition: true,
                   child: SizedBox(
-                    width: .7.w(context),
+                    width: .9.w(context),
                     child: Text(
                       context.locale.forExplosiveEventsSprintsUTo400Metres,
-                      style: typography.bodyText1.copyWith(
+                      style: typography.bodyText2.copyWith(
                         color: colorPalette.gray1,
                       ),
                       textAlign: TextAlign.center,
@@ -77,6 +78,7 @@ class _WhyChooseOurShopWidgetPhone extends StatelessWidget {
                             context.locale.greatSupport),
                       ],
                     ),
+                  const  SizedBox(width: 25,),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -119,7 +121,7 @@ class _WhyChooseOurShopWidgetPhone extends StatelessWidget {
           ),
           Text(
             title,
-            style: typography.bodyText1.copyWith(
+            style: typography.bodyText2.copyWith(
               color: colorPalette.darkPrimary,
             ),
           ),

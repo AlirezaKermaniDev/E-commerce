@@ -23,7 +23,9 @@ class AvailableSizesWidget extends StatelessWidget {
       tablet: _AvailableSizesWidgetWeb(
         item: item,
       ),
-      phone: const _AvailableSizesWidgetPhone(),
+      phone: _AvailableSizesWidgetPhone(
+        item: item,
+      ),
     );
   }
 }

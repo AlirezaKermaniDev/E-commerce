@@ -117,7 +117,8 @@ class _AboutUsFounderMessageWidgetWeb extends StatelessWidget {
                                 : Alignment.bottomLeft,
                             child: Padding(
                               padding: EdgeInsets.symmetric(
-                                  horizontal: getIt<SizeConfig>().padding - 80),
+                                  horizontal: getIt<SizeConfig>().padding - 80,
+                                  vertical: 50),
                               child: SvgPicture.asset(AssetHandler.shape9),
                             )),
                         Align(
@@ -125,10 +126,20 @@ class _AboutUsFounderMessageWidgetWeb extends StatelessWidget {
                               ? Alignment.centerRight
                               : Alignment.centerLeft,
                           child: Padding(
-                            padding: EdgeInsets.symmetric(
-                                vertical: 25,
-                                horizontal: getIt<SizeConfig>().padding),
-                            child: Image.asset(AssetHandler.manager),
+                            padding: EdgeInsets.only(
+                              bottom: 100,
+                              left: getIt<SizeConfig>().padding,
+                              right: getIt<SizeConfig>().padding,
+                            ),
+                            child: SizedBox(
+                                height: double.infinity,
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(8),
+                                  child: Image.asset(
+                                    AssetHandler.manager,
+                                    fit: BoxFit.fitHeight,
+                                  ),
+                                )),
                           ),
                         ),
                       ],

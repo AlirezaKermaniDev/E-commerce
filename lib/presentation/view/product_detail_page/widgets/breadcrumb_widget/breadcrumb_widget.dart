@@ -35,7 +35,12 @@ class BreadcrumbWidget extends StatelessWidget {
         isBold: isBold,
         unSelectedColor: unSelectedColor,
       ),
-      phone: const _BreadcrumbWidgetPhone(),
+      phone: _BreadcrumbWidgetWeb(
+        items: items,
+        selectedItem: selectedItem,
+        isBold: isBold,
+        unSelectedColor: unSelectedColor,
+      ),
     );
   }
 }

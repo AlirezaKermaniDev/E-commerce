@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:ecommerce_app/core/local_storage/local_storage.dart';
+import 'package:ecommerce_app/data/product_list_data.dart';
 import 'package:ecommerce_app/domain/entities/add_to_cart_product_entity/add_to_cart_product_entity.dart';
 import 'package:ecommerce_app/domain/entities/product_entity/product_entity.dart';
 import 'package:ecommerce_app/injection/injection.dart';
@@ -19,6 +20,7 @@ class ProductDetailBloc extends Bloc<ProductDetailEvent, ProductDetailState> {
     on<_DecreaseCount>(_onDecreaseCount);
     on<_ChangeSelectedSizes>(_onChangeSelectedSizes);
     on<_AddToCart>(_onAddToCart);
+    on<_GetProduct>(_onGetProduct);
   }
 
   FutureOr<void> _onIncreaseCount(
@@ -67,5 +69,12 @@ class ProductDetailBloc extends Bloc<ProductDetailEvent, ProductDetailState> {
       );
       getIt<LocalStorage>().addProductToCart(addToCartProductEntity);
     }
+  }
+
+  FutureOr<void> _onGetProduct(
+      _GetProduct event, Emitter<ProductDetailState> emit) {
+    ProductEntity product =
+        productListData.firstWhere((e) => e.id == event.productId);
+    emit(state.copyWith(product: product));
   }
 }
