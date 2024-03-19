@@ -25,7 +25,10 @@ class OtherSignInOptionWidget extends StatelessWidget {
         icon: icon,
         withShadow: withShadow,
       ),
-      phone: const _OtherSignInOptionWidgetPhone(),
+      phone: _OtherSignInOptionWidgetWeb(
+        icon: icon,
+        withShadow: withShadow,
+      ),
     );
   }
 }

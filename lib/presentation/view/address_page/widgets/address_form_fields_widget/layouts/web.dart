@@ -194,13 +194,14 @@ class _AddressFormFieldsWidgetWeb extends StatelessWidget {
         const SizedBox(
           height: 25,
         ),
-        PurchaseActionButtons(
-          backButtonText: context.locale.returnToCart,
-          continueButtonText: context.locale.proceedToDelivery,
-          onTapContinue: () {
-            context.push(DeliveryPage.path);
-          },
-        ),
+        if (!context.isPhone)
+          PurchaseActionButtons(
+            backButtonText: context.locale.returnToCart,
+            continueButtonText: context.locale.proceedToDelivery,
+            onTapContinue: () {
+              context.push(DeliveryPage.path);
+            },
+          ),
       ],
     );
   }

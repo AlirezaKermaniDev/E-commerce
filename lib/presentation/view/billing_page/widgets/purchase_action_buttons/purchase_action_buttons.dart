@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/core/size_config.dart';
 import 'package:ecommerce_app/injection/injection.dart';
 import 'package:ecommerce_app/presentation/view/home_page/widgets/arrow_title_button_widget/arrow_title_button_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/animator_widget.dart';
@@ -33,7 +34,11 @@ class PurchaseActionButtons extends StatelessWidget {
         backButtonText: backButtonText,
         onTapContinue: onTapContinue,
       ),
-      phone: const _PurchaseActionButtonsPhone(),
+      phone: _PurchaseActionButtonsPhone(
+        continueButtonText: continueButtonText,
+        backButtonText: backButtonText,
+        onTapContinue: onTapContinue,
+      ),
     );
   }
 }

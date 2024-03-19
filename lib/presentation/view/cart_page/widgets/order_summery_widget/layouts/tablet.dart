@@ -2,8 +2,8 @@ part of '../order_summery_widget.dart';
 
 class _OrderSummeryWidgetTablet extends StatelessWidget {
   const _OrderSummeryWidgetTablet(
-      {super.key, this.withContinueBttons = true, required this.cartBloc});
-  final bool withContinueBttons;
+      {super.key, this.withContinueButtons = true, required this.cartBloc});
+  final bool withContinueButtons;
   final CartBloc cartBloc;
   @override
   Widget build(BuildContext context) {
@@ -41,46 +41,7 @@ class _OrderSummeryWidgetTablet extends StatelessWidget {
                   const SizedBox(
                     height: 32,
                   ),
-                  Row(
-                    children: [
-                      Expanded(
-                          flex: 2,
-                          child: Container(
-                            height: 56,
-                            decoration: BoxDecoration(
-                                border: Border.all(
-                                    color: colorPalette.gray6, width: 1.5)),
-                            child: Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 16),
-                              child: Row(
-                                children: [
-                                  Text(
-                                    context.locale.promoCode,
-                                    style: typography.bodyText4.copyWith(
-                                        color: colorPalette.gray2,
-                                        fontSize: 15),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          )),
-                      Expanded(
-                          child: Container(
-                        height: 56,
-                        decoration: BoxDecoration(
-                          color: colorPalette.darkPrimary,
-                        ),
-                        child: Center(
-                          child: Text(
-                            context.locale.apply,
-                            style: typography.bodyText2
-                                .copyWith(color: colorPalette.primary),
-                          ),
-                        ),
-                      )),
-                    ],
-                  ),
+                  const PromoCodeWidget(),
                   const SizedBox(
                     height: 50,
                   ),
@@ -113,83 +74,53 @@ class _OrderSummeryWidgetTablet extends StatelessWidget {
                         : "\$${(state.totalProductsPrice ?? 0) + 10}",
                     boldValue: true,
                   ),
-                  if (withContinueBttons)
-                    Column(
-                      children: [
-                        const SizedBox(
-                          height: 60,
-                        ),
-                        InkWell(
-                          onTap: () {
-                            context.push(AddressPage.path);
-                          },
-                          child: Container(
-                            height: 60,
-                            width: double.infinity,
-                            decoration: BoxDecoration(
-                                color: colorPalette.darkPrimary,
-                                borderRadius: BorderRadius.circular(5)),
-                            child: Center(
-                              child: Text(context.locale.proceedToCheckout,
-                                  style: typography.bodyText2
-                                      .copyWith(color: colorPalette.primary)),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 16,
-                        ),
-                        Container(
-                          height: 60,
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                              border:
-                                  Border.all(color: colorPalette.darkPrimary),
-                              borderRadius: BorderRadius.circular(5)),
-                          child: Center(
-                            child: Text(context.locale.memberCheckout,
-                                style: typography.bodyText2),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 50,
-                        ),
-                        Row(
-                          children: [
-                            Text(context.locale.acceptedPaymentMethods,
-                                style: typography.bodyText2),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 16,
-                        ),
-                        Row(
-                          children: [
-                            SvgPicture.asset(
-                              CustomIcons.paypalLogo,
-                            ),
-                            const SizedBox(
-                              width: 16,
-                            ),
-                            SvgPicture.asset(
-                              CustomIcons.visaLogo,
-                            ),
-                            const SizedBox(
-                              width: 16,
-                            ),
-                            SvgPicture.asset(
-                              CustomIcons.klarnaLogo,
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
+                  if (withContinueButtons) continueButtonsWidget(context),
                 ],
               ),
             ),
           );
         },
       ),
+    );
+  }
+
+  Column continueButtonsWidget(BuildContext context) {
+    return Column(
+      children: [
+        const SizedBox(
+          height: 60,
+        ),
+        CartActionButtonWidget(
+          onTap: () {
+            context.push(AddressPage.path);
+          },
+          title: context.locale.proceedToCheckout,
+          backgroundColor: colorPalette.darkPrimary,
+        ),
+        const SizedBox(
+          height: 16,
+        ),
+        CartActionButtonWidget(
+          onTap: () {
+            context.push(AddressPage.path);
+          },
+          title: context.locale.memberCheckout,
+          backgroundColor: colorPalette.primary,
+        ),
+        const SizedBox(
+          height: 50,
+        ),
+        Row(
+          children: [
+            Text(context.locale.acceptedPaymentMethods,
+                style: typography.bodyText2),
+          ],
+        ),
+        const SizedBox(
+          height: 16,
+        ),
+        const AvailablePaymentMethodsWidget(),
+      ],
     );
   }
 }

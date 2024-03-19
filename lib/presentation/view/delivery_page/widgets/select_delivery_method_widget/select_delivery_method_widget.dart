@@ -16,7 +16,7 @@ class SelectDeliveryMethodWidget extends StatelessWidget {
     return const ResponsiveBuilder(
       web: _SelectDeliveryMethodWidgetWeb(),
       tablet: _SelectDeliveryMethodWidgetWeb(),
-      phone: _SelectDeliveryMethodWidgetPhone(),
+      phone: _SelectDeliveryMethodWidgetWeb(),
     );
   }
 }

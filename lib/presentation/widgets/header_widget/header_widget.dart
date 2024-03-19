@@ -38,17 +38,20 @@ class HeaderWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return ResponsiveBuilder(
       web: _HeaderWidgetWeb(
-          selectedIndex: selectedIndex,
-          backgroundColor: backgroundColor,
-          forgroundColor: forgroundColor),
-      phone: _HeaderWidgetTablet(
-          selectedIndex: selectedIndex,
-          backgroundColor: backgroundColor,
-          forgroundColor: forgroundColor),
+        selectedIndex: selectedIndex,
+        backgroundColor: backgroundColor,
+        forgroundColor: forgroundColor,
+      ),
+      phone: _HeaderWidgetPhone(
+        selectedIndex: selectedIndex,
+        backgroundColor: backgroundColor,
+        forgroundColor: forgroundColor,
+      ),
       tablet: _HeaderWidgetTablet(
-          selectedIndex: selectedIndex,
-          backgroundColor: backgroundColor,
-          forgroundColor: forgroundColor),
+        selectedIndex: selectedIndex,
+        backgroundColor: backgroundColor,
+        forgroundColor: forgroundColor,
+      ),
     );
   }
 }

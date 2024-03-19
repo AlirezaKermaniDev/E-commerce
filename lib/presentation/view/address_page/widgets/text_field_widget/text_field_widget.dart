@@ -34,7 +34,12 @@ class TextFieldWidget extends StatelessWidget {
         onTapSuffix: onTapSuffix,
         suffixIcon: suffixIcon,
       ),
-      phone: const _TextFieldWidgetPhone(),
+      phone: _TextFieldWidgetWeb(
+        lable: lable,
+        onChange: onChange,
+        onTapSuffix: onTapSuffix,
+        suffixIcon: suffixIcon,
+      ),
     );
   }
 }

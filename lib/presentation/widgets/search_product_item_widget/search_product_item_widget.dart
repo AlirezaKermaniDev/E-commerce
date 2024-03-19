@@ -20,7 +20,9 @@ class SearchProductItemWidget extends StatelessWidget {
       web: _SearchProductItemWidgetWeb(
         item: item,
       ),
-      phone: const _SearchProductItemWidgetPhone(),
+      phone: _SearchProductItemWidgetTablet(
+        item: item,
+      ),
       tablet: _SearchProductItemWidgetTablet(
         item: item,
       ),

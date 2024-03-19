@@ -15,59 +15,62 @@ class _BreadcrumbWidgetWeb extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 40,
-      child: ListView.builder(
-          itemCount: items.length,
-          scrollDirection: Axis.horizontal,
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          itemBuilder: (context, index) {
-            bool isSelected = items[index] == selectedItem;
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: context.isPhone ? 4 : 60),
+      child: SizedBox(
+        height: 40,
+        child: ListView.builder(
+            itemCount: items.length,
+            scrollDirection: Axis.horizontal,
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemBuilder: (context, index) {
+              bool isSelected = items[index] == selectedItem;
 
-            return AnimatorWidget(
-              withFadeTransition: true,
-              slideTransition:
-                  Tween<Offset>(begin: const Offset(.1, 0), end: Offset.zero),
-              delay: Duration(milliseconds: 200 * index),
-              child: Row(
-                children: [
-                  if (isFirstItem(index))
+              return AnimatorWidget(
+                withFadeTransition: true,
+                slideTransition:
+                    Tween<Offset>(begin: const Offset(.1, 0), end: Offset.zero),
+                delay: Duration(milliseconds: 200 * index),
+                child: Row(
+                  children: [
+                    if (isFirstItem(index))
+                      SizedBox(
+                        width: isBold ? 18 : 12,
+                      ),
+                    Text(
+                      items[index],
+                      style: isBold
+                          ? typography.h5Title.copyWith(
+                              color: _itemColor(isSelected),
+                            )
+                          : typography.bodyText2.copyWith(
+                              color: _itemColor(isSelected),
+                            ),
+                    ),
                     SizedBox(
                       width: isBold ? 18 : 12,
                     ),
-                  Text(
-                    items[index],
-                    style: isBold
-                        ? typography.h5Title.copyWith(
-                            color: _itemColor(isSelected),
-                          )
-                        : typography.bodyText2.copyWith(
-                            color: _itemColor(isSelected),
-                          ),
-                  ),
-                  SizedBox(
-                    width: isBold ? 18 : 12,
-                  ),
-                  if (isLastItem(index))
-                    isBold
-                        ? Icon(
-                            Icons.arrow_forward_ios_rounded,
-                            size: 14,
-                            color: unSelectedColor ?? colorPalette.gray2,
-                          )
-                        : Container(
-                            height: 6,
-                            width: 6,
-                            decoration: BoxDecoration(
+                    if (isLastItem(index))
+                      isBold
+                          ? Icon(
+                              Icons.arrow_forward_ios_rounded,
+                              size: 14,
                               color: unSelectedColor ?? colorPalette.gray2,
-                              shape: BoxShape.circle,
-                            ),
-                          )
-                ],
-              ),
-            );
-          }),
+                            )
+                          : Container(
+                              height: 6,
+                              width: 6,
+                              decoration: BoxDecoration(
+                                color: unSelectedColor ?? colorPalette.gray2,
+                                shape: BoxShape.circle,
+                              ),
+                            )
+                  ],
+                ),
+              );
+            }),
+      ),
     );
   }
 

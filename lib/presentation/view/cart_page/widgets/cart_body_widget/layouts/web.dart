@@ -14,7 +14,7 @@ class _CartBodyWidgetWeb extends StatelessWidget {
   Widget build(BuildContext context) {
     return ConstraintsWidget(
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: getIt<SizeConfig>().padding),
+        padding: EdgeInsets.symmetric(horizontal: getIt<SizeConfig>().padding,vertical: 120),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

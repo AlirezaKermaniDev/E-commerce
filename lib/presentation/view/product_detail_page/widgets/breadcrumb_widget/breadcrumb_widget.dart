@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/core/size_config.dart';
 import 'package:ecommerce_app/injection/injection.dart';
 import 'package:ecommerce_app/presentation/widgets/animator_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/responsive_builder.dart';

@@ -1,10 +1,83 @@
 part of '../header_widget.dart';
 
 class _HeaderWidgetPhone extends StatelessWidget {
-  const _HeaderWidgetPhone({super.key});
+  const _HeaderWidgetPhone({
+    super.key,
+    required this.selectedIndex,
+    required this.backgroundColor,
+    this.forgroundColor,
+  });
+
+  final int selectedIndex;
+  final Color backgroundColor;
+  final Color? forgroundColor;
 
   @override
   Widget build(BuildContext context) {
-    return const SizedBox();
+    return Container(
+      color: backgroundColor,
+      child: Padding(
+        padding: EdgeInsets.only(
+          left: getIt<SizeConfig>().padding,
+          right: getIt<SizeConfig>().padding,
+          bottom: 16,
+          top: 50,
+        ),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            InkWell(
+              onTap: () {
+                Scaffold.of(context).openDrawer();
+              },
+              child: SizedBox(
+                height: 35,
+                width: 35,
+                child: Stack(
+                  children: [
+                    Center(
+                      child: SizedBox(
+                          height: 30,
+                          width: 30,
+                          child: SvgPicture.asset(
+                            CustomIcons.menu,
+                            color: forgroundColor ?? colorPalette.darkPrimary,
+                          )),
+                    ),
+                    BlocBuilder<HeaderBloc, HeaderState>(
+                      builder: (context, state) {
+                        if (state.addedToCartProductsCount == 0) {
+                          return const SizedBox();
+                        }
+                        return Positioned(
+                          left: 0,
+                          bottom: 8,
+                          child: WidgetAnimator(
+                            incomingEffect:
+                                WidgetTransitionEffects.incomingScaleUp(),
+                            atRestEffect:
+                                WidgetRestingEffects.wave(effectStrength: .2),
+                            child: Container(
+                              height: 10,
+                              width: 10,
+                              decoration: BoxDecoration(
+                                  color: colorPalette.accent4,
+                                  shape: BoxShape.circle),
+                            ),
+                          ),
+                        );
+                      },
+                    )
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(
+                height: 45, width: 45, child: Image.asset(AssetHandler.logo)),
+          ],
+        ),
+      ),
+    );
   }
-}	  
+}

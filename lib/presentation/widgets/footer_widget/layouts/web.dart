@@ -7,7 +7,7 @@ class _FooterWidgetWeb extends StatelessWidget {
   Widget build(BuildContext context) {
     return ConstraintsWidget(
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: getIt<SizeConfig>().padding,vertical: 120),
+        padding: EdgeInsets.symmetric(horizontal: getIt<SizeConfig>().padding,vertical: 90),
         child: Column(
           children: [
             Row(

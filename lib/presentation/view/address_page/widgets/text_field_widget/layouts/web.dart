@@ -29,6 +29,9 @@ class _TextFieldWidgetWeb extends StatelessWidget {
         label: Text(
           lable,
           style: typography.bodyText2.copyWith(color: colorPalette.gray3),
+          maxLines: 1,
+          softWrap: true,
+          overflow: TextOverflow.ellipsis,
         ),
         suffixIcon: onTapSuffix != null
             ? Padding(

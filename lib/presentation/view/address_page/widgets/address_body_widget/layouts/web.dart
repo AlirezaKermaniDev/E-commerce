@@ -22,7 +22,7 @@ class _AddressBodyWidgetWeb extends StatelessWidget {
             slideTransition:
                 Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
             child: OrderSummeryWidget(
-              withContinueBttons: false,
+              withContinueButtons: false,
               cartBloc: getIt<CartBloc>()..add(const CartEvent.getProducts()),
             ),
           )

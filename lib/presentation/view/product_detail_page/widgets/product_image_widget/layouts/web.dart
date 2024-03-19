@@ -18,7 +18,9 @@ class _ProductImageWidgetWeb extends StatelessWidget {
               delay: const Duration(milliseconds: 200),
               slideTransition:
                   Tween<Offset>(begin: const Offset(0, .05), end: Offset.zero),
-              child: Image.network(item.imageUrl ?? "")),
+              child: ProductImageViewerWidget(
+                imageUrl: item.imageUrl ?? "",
+              )),
           GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
@@ -36,9 +38,9 @@ class _ProductImageWidgetWeb extends StatelessWidget {
                   delay: Duration(milliseconds: 1200 + (index * 300)),
                   slideTransition: Tween<Offset>(
                       begin: const Offset(0, .05), end: Offset.zero),
-                  child: Image.network(
-                    item.imageUrl ?? "",
-                    fit: BoxFit.cover,
+                  child: ProductImageViewerWidget(
+                    imageUrl: item.imageUrl ?? "",
+                    boxFit: BoxFit.cover,
                   ),
                 );
               })

@@ -12,6 +12,9 @@ class _AlternativeProductsWidgetWeb extends StatelessWidget {
     return ConstraintsWidget(
       child: Column(
         children: [
+          const SizedBox(
+            height: 100,
+          ),
           Padding(
             padding:
                 EdgeInsets.symmetric(horizontal: getIt<SizeConfig>().padding),
@@ -55,7 +58,10 @@ class _AlternativeProductsWidgetWeb extends StatelessWidget {
                     );
                   }),
             ),
-          )
+          ),
+          const SizedBox(
+            height: 50,
+          ),
         ],
       ),
     );

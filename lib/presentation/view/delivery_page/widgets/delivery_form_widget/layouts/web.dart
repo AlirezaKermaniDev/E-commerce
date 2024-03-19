@@ -69,13 +69,14 @@ class _DeliveryFormWidgetWeb extends StatelessWidget {
         const SizedBox(
           height: 35,
         ),
-        PurchaseActionButtons(
-          backButtonText: context.locale.returnToAddress,
-          continueButtonText: context.locale.proceedToBilling,
-          onTapContinue: () {
-            context.push(BillingPage.path);
-          },
-        ),
+        if (!context.isPhone)
+          PurchaseActionButtons(
+            backButtonText: context.locale.returnToAddress,
+            continueButtonText: context.locale.proceedToBilling,
+            onTapContinue: () {
+              context.push(BillingPage.path);
+            },
+          ),
       ],
     );
   }

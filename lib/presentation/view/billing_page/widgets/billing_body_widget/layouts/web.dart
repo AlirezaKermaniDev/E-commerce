@@ -23,14 +23,15 @@ class _BillingBodyWidgetWeb extends StatelessWidget {
           height: 25,
         ),
         const CreditCardFormWidget(),
-        const SizedBox(
-          height: 55,
+        SizedBox(
+          height: context.isPhone ? 16 : 55,
         ),
-        PurchaseActionButtons(
-          backButtonText: context.locale.returnToDelivery,
-          continueButtonText: context.locale.paySafely,
-          onTapContinue: () {},
-        ),
+        if (!context.isPhone)
+          PurchaseActionButtons(
+            backButtonText: context.locale.returnToDelivery,
+            continueButtonText: context.locale.paySafely,
+            onTapContinue: () {},
+          ),
       ],
     );
   }

@@ -24,14 +24,9 @@ class _CartBodyWidgetPhone extends StatelessWidget {
             const SizedBox(
               width: 32,
             ),
-            AnimatorWidget(
-                withFadeTransition: true,
-                delay: const Duration(milliseconds: 200),
-                slideTransition:
-                    Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
-                child: OrderSummeryWidget(
-                  cartBloc: context.read<CartBloc>(),
-                ))
+            OrderSummeryWidget(
+              cartBloc: context.read<CartBloc>(),
+            )
           ],
         ),
       ),
