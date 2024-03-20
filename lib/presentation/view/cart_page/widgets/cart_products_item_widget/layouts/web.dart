@@ -15,21 +15,21 @@ class _CartProductsItemWidgetWeb extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 45),
       child: Ink(
-        height: 300,
+        height: 250,
         child: Row(
           children: [
             Expanded(
-              flex: 2,
+                flex: 1,
                 child: SizedBox(
-              height: double.infinity,
-              child: AnimatorWidget(
-                  withFadeTransition: true,
-                  delay: Duration(milliseconds: 300 + (index * 200)),
-                  slideTransition: Tween<Offset>(
-                      begin: const Offset(0, .1), end: Offset.zero),
-                  child: ProductImageViewerWidget(
-                      imageUrl: item.product?.imageUrl ?? "")),
-            )),
+                  height: double.infinity,
+                  child: AnimatorWidget(
+                      withFadeTransition: true,
+                      delay: Duration(milliseconds: 300 + (index * 200)),
+                      slideTransition: Tween<Offset>(
+                          begin: const Offset(0, .1), end: Offset.zero),
+                      child: ProductImageViewerWidget(
+                          imageUrl: item.product?.imageUrl ?? "")),
+                )),
             const SizedBox(
               width: 40,
             ),

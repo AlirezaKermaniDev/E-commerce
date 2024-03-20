@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:widget_visibility_detector/widget_visibility_detector.dart';
 
@@ -32,19 +34,24 @@ class _AnimatorWidgetState extends State<AnimatorWidget>
     vsync: this,
     duration: const Duration(milliseconds: 300),
   );
+  Timer? _time;
 
   @override
   void initState() {
     super.initState();
     if (!widget.withVisibilityDetector) {
-      Future.delayed(widget.delay ?? Duration.zero).then((value) {
-        animationController.forward();
+      _time = Timer(widget.delay ?? Duration.zero, () {
+        if (mounted) {
+          animationController.forward();
+        }
       });
     }
   }
 
   @override
   void dispose() {
+    _time?.cancel();
+    animationController.stop();
     animationController.dispose();
     super.dispose();
   }
@@ -52,14 +59,14 @@ class _AnimatorWidgetState extends State<AnimatorWidget>
   @override
   Widget build(BuildContext context) {
     return WidgetVisibilityDetector(
-      onAppear: () async {
+      onAppear: () {
         if (widget.withVisibilityDetector) {
-          await Future.delayed(widget.delay ?? Duration.zero);
-          animationController.forward();
+          _time = Timer(widget.delay ?? Duration.zero, () {
+            if (mounted) {
+              animationController.forward();
+            }
+          });
         }
-      },
-      onDisappear: () {
-        // animationController.reverse();
       },
       child: FadeTransition(
         opacity: _fadeTransition(),

@@ -47,7 +47,7 @@ class _CartPageState extends State<CartPage> {
     final Offset offset = renderBox.localToGlobal(Offset.zero);
     final double startY = offset.dy;
     final double totalGridViewHeight =
-        _listViewkey.currentContext!.size!.height - 590;
+        _listViewkey.currentContext!.size!.height - 560;
 
     setState(() {
       _isStuckTop = startY <= filtersWidgetPaddingVerticaly;
@@ -115,13 +115,9 @@ class _CartPageState extends State<CartPage> {
               ),
               if (_isStuckTop && !context.isPhone)
                 Positioned(
-                  top: _isStuckBottom
-                      ? filtersWidgetTopOffset
-                      : filtersWidgetPaddingVerticaly,
-                  right:
-                      context.isLtrLocale ? getIt<SizeConfig>().padding : null,
-                  left:
-                      !context.isLtrLocale ? getIt<SizeConfig>().padding : null,
+                  top: _topPosition(),
+                  right: _rightPosition(context),
+                  left: _leftPosition(context),
                   child: BlocBuilder<CartBloc, CartState>(
                     builder: (context, state) {
                       return orderSummeryBuilder(
@@ -134,6 +130,18 @@ class _CartPageState extends State<CartPage> {
         ),
       ),
     );
+  }
+
+  double? _leftPosition(BuildContext context) =>
+      !context.isLtrLocale ? getIt<SizeConfig>().padding : null;
+
+  double? _rightPosition(BuildContext context) =>
+      context.isLtrLocale ? getIt<SizeConfig>().padding : null;
+
+  double _topPosition() {
+    return _isStuckBottom
+        ? filtersWidgetTopOffset
+        : filtersWidgetPaddingVerticaly;
   }
 }
 

@@ -14,7 +14,10 @@ class _CartBodyWidgetWeb extends StatelessWidget {
   Widget build(BuildContext context) {
     return ConstraintsWidget(
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: getIt<SizeConfig>().padding,vertical: 120),
+        padding: EdgeInsets.only(
+            left: getIt<SizeConfig>().padding,
+            right: getIt<SizeConfig>().padding,
+            top: 100),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -31,7 +34,7 @@ class _CartBodyWidgetWeb extends StatelessWidget {
               slideTransition:
                   Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
               child: Visibility(
-                visible:  !isStuckTop,
+                visible: !isStuckTop,
                 maintainSize: true,
                 maintainAnimation: true,
                 maintainState: true,

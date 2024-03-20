@@ -48,7 +48,7 @@ class DeliveryPage extends StatelessWidget {
                           context.locale.delivery,
                           context.locale.billing,
                         ],
-                        selectedItem: context.locale.address,
+                        selectedItem: context.locale.delivery,
                         isBold: true,
                         unSelectedColor: colorPalette.gray4,
                       ),
@@ -64,6 +64,10 @@ class DeliveryPage extends StatelessWidget {
                   ),
                 ),
               const DeliveryBodyWidget(),
+              if (!context.isPhone)
+                const SizedBox(
+                  height: 100,
+                ),
               Padding(
                 padding: EdgeInsets.symmetric(
                     horizontal: getIt<SizeConfig>().padding),

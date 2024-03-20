@@ -19,18 +19,18 @@ class _CartProductsItemWidgetTablet extends StatelessWidget {
         child: Column(
           children: [
             Expanded(
-              flex: 3,
+                flex: 3,
                 child: SizedBox(
-              height: 100,
-              width: double.infinity,
-              child: AnimatorWidget(
-                  withFadeTransition: true,
-                  delay: Duration(milliseconds: 300 + (index * 200)),
-                  slideTransition: Tween<Offset>(
-                      begin: const Offset(0, .1), end: Offset.zero),
-                  child: ProductImageViewerWidget(
-                      imageUrl: item.product?.imageUrl ?? "")),
-            )),
+                  height: 100,
+                  width: double.infinity,
+                  child: AnimatorWidget(
+                      withFadeTransition: true,
+                      delay: Duration(milliseconds: 300 + (index * 200)),
+                      slideTransition: Tween<Offset>(
+                          begin: const Offset(0, .1), end: Offset.zero),
+                      child: ProductImageViewerWidget(
+                          imageUrl: item.product?.imageUrl ?? "")),
+                )),
             const SizedBox(
               height: 16,
             ),
@@ -45,15 +45,22 @@ class _CartProductsItemWidgetTablet extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          AnimatorWidget(
-                              withFadeTransition: true,
-                              delay:
-                                  Duration(milliseconds: 400 + (index * 200)),
-                              slideTransition: Tween<Offset>(
-                                  begin: const Offset(.05, 0),
-                                  end: Offset.zero),
-                              child: Text(item.product?.title ?? "",
-                                  style: typography.bodyText5)),
+                          Expanded(
+                            child: AnimatorWidget(
+                                withFadeTransition: true,
+                                delay:
+                                    Duration(milliseconds: 400 + (index * 200)),
+                                slideTransition: Tween<Offset>(
+                                    begin: const Offset(.05, 0),
+                                    end: Offset.zero),
+                                child: Text(
+                                  item.product?.title ?? "",
+                                  style: typography.bodyText5,
+                                  maxLines: 1,
+                                  softWrap: true,
+                                  overflow: TextOverflow.ellipsis,
+                                )),
+                          ),
                           AnimatorWidget(
                               withFadeTransition: true,
                               delay:

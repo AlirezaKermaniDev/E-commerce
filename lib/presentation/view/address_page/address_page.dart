@@ -64,6 +64,10 @@ class AddressPage extends StatelessWidget {
                   ),
                 ),
               const AddressBodyWidget(),
+              if (!context.isPhone)
+                const SizedBox(
+                  height: 100,
+                ),
               Padding(
                 padding: EdgeInsets.symmetric(
                     horizontal: getIt<SizeConfig>().padding),

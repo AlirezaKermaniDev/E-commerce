@@ -1,5 +1,4 @@
 import 'package:ecommerce_app/injection/injection.dart';
-import 'package:ecommerce_app/presentation/view/cart_page/cart_page.dart';
 import 'package:ecommerce_app/presentation/view/home_page/widgets/accesories_widget/accesories_widget.dart';
 import 'package:ecommerce_app/presentation/view/home_page/widgets/best_seller_widget/best_seller_widget.dart';
 import 'package:ecommerce_app/presentation/view/home_page/widgets/choose_categories_widget/choose_categories_widget.dart';
@@ -13,25 +12,11 @@ import 'package:ecommerce_app/presentation/widgets/drawer_widget/drawer_widget.d
 import 'package:ecommerce_app/presentation/widgets/footer_widget/footer_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/header_widget/header_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   static const String path = "/";
   const HomePage({super.key});
 
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  @override
-  void initState() {
-    Future.delayed(const Duration(milliseconds: 200)).then((value) {
-      context.go(CartPage.path);
-    });
-
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {

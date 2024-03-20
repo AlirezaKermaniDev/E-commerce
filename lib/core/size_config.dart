@@ -11,7 +11,7 @@ class SizeConfig {
 
   setSizeConfigs(BuildContext context) {
     maxWidth = 2000;
-    tabletTriggerSize = 800;
+    tabletTriggerSize = 830;
     webTriggerSize = 1500;
     final double width = MediaQuery.sizeOf(context).width;
     if (width >= webTriggerSize) {

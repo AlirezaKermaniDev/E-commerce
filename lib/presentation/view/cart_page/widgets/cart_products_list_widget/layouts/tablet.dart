@@ -55,17 +55,12 @@ class _CartProductsListWidgetTablet extends StatelessWidget {
                   ],
                 ),
               ),
-            LayoutBuilder(builder: (context, c) {
+            LayoutBuilder(builder: (context, constraints) {
               return GridView.builder(
                   gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                    maxCrossAxisExtent: 670,
-                    childAspectRatio: c.maxWidth <= 435
-                        ? .7
-                        : c.maxWidth <= 535
-                            ? .9
-                            : c.maxWidth <= 695
-                                ? 1.1
-                                : .7,
+                    maxCrossAxisExtent: 680,
+                    childAspectRatio:
+                        _maxWidthToAspectRatio(constraints.maxWidth),
                     crossAxisSpacing: 25,
                   ),
                   key: listViewKey,
@@ -84,5 +79,20 @@ class _CartProductsListWidgetTablet extends StatelessWidget {
         );
       },
     );
+  }
+
+  double _maxWidthToAspectRatio(double maxWidth) {
+    switch (maxWidth) {
+      case <= 388:
+        return .55;
+      case <= 435:
+        return .7;
+      case <= 535:
+        return .9;
+      case <= 695:
+        return 1.1;
+      default:
+        return .7;
+    }
   }
 }
