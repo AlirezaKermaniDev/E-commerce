@@ -32,7 +32,7 @@ class SizesItemWidget extends StatelessWidget {
         isActive: isActive,
         isAvailable: isAvailable,
       ),
-      tablet: _SizesItemWidgetWeb(
+      tablet: _SizesItemWidgetTablet(
         value: value,
         index: index,
         isActive: isActive,

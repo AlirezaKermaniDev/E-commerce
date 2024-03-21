@@ -10,15 +10,18 @@ class _ProductImageWidgetPhone extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        AnimatorWidget(
-            withFadeTransition: true,
-            delay: const Duration(milliseconds: 200),
-            slideTransition:
-                Tween<Offset>(begin: const Offset(0, .05), end: Offset.zero),
-            child: Image.network(item.imageUrl ?? "")),
-      ],
-    );
+    return AnimatorWidget(
+        withFadeTransition: true,
+        delay: const Duration(milliseconds: 200),
+        slideTransition:
+            Tween<Offset>(begin: const Offset(0, .05), end: Offset.zero),
+        child: SizedBox(
+          height: 500,
+          width: 1.w(context),
+          child: Image.network(
+            item.imageUrl ?? "",
+            fit: BoxFit.cover,
+          ),
+        ));
   }
 }

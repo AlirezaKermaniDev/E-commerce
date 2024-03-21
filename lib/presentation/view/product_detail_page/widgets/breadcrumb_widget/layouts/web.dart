@@ -16,7 +16,7 @@ class _BreadcrumbWidgetWeb extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: context.isPhone ? 4 : 60),
+      padding: EdgeInsets.symmetric(vertical: _verticalPadding(context)),
       child: SizedBox(
         height: 40,
         child: ListView.builder(
@@ -73,6 +73,12 @@ class _BreadcrumbWidgetWeb extends StatelessWidget {
       ),
     );
   }
+
+  double _verticalPadding(BuildContext context) => context.isPhone
+      ? 4
+      : context.isTablet
+          ? 45
+          : 60;
 
   Color? _itemColor(bool isSelected) {
     return isSelected ? null : unSelectedColor ?? colorPalette.gray2;

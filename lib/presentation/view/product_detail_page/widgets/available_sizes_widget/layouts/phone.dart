@@ -17,7 +17,7 @@ class _AvailableSizesWidgetPhone extends StatelessWidget {
             crossAxisCount: 4,
             mainAxisSpacing: 8,
             crossAxisSpacing: 8,
-            childAspectRatio: 1.3,
+            childAspectRatio: 2,
           ),
           shrinkWrap: true,
           padding: const EdgeInsets.only(top: 16),

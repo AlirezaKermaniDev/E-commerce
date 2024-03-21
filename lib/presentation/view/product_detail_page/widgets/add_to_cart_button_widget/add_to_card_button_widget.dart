@@ -37,21 +37,32 @@ class _AddToCartButtonWidgetState extends State<AddToCartButtonWidget> {
         splashColor: Colors.transparent,
         child: Center(
           child: Container(
-            height: context.isPhone ? 50 : 70,
+            height: _buttonHeight(context),
             width: double.infinity,
             decoration: BoxDecoration(color: colorPalette.darkPrimary),
             child: Center(
               child: Text(
                 context.locale.addToCart,
-                style: context.isPhone
-                    ? typography.bodyText2.copyWith(color: colorPalette.primary)
-                    : typography.bodyText3
-                        .copyWith(color: colorPalette.primary),
+                style: _buttonTextStyle(context),
               ),
             ),
           ),
         ),
       ),
     );
+  }
+
+  TextStyle _buttonTextStyle(BuildContext context) {
+    return context.isPhone || context.isTablet
+        ? typography.bodyText2.copyWith(color: colorPalette.primary)
+        : typography.bodyText3.copyWith(color: colorPalette.primary);
+  }
+
+  double _buttonHeight(BuildContext context) {
+    if (context.isPhone) {
+      return 50;
+    } else {
+      return context.isTablet ? 60 : 70;
+    }
   }
 }

@@ -21,7 +21,7 @@ class AddToCartButtonsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return ResponsiveBuilder(
       web: _AddToCartButtonsWidgetWeb(item: item),
-      tablet: _AddToCartButtonsWidgetWeb(item: item),
+      tablet: _AddToCartButtonsWidgetTablet(item: item),
       phone: _AddToCartButtonsWidgetPhone(item: item),
     );
   }

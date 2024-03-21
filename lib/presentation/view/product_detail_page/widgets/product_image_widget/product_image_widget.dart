@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/core/size_config.dart';
 import 'package:ecommerce_app/domain/entities/product_entity/product_entity.dart';
 import 'package:ecommerce_app/presentation/view/products_page/widgets/product_image_viewer_widget/product_image_viewer_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/animator_widget.dart';

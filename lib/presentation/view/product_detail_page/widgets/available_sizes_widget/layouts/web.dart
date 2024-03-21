@@ -17,7 +17,7 @@ class _AvailableSizesWidgetWeb extends StatelessWidget {
             crossAxisCount: 4,
             mainAxisSpacing: 16,
             crossAxisSpacing: 16,
-            childAspectRatio: 1.7,
+            childAspectRatio: 2,
           ),
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),

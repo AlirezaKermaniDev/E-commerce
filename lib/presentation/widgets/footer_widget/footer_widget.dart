@@ -18,10 +18,10 @@ class FooterWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const ResponsiveBuilder(
-      web: _FooterWidgetWeb(),
-      phone: _FooterWidgetPhone(),
-      tablet: _FooterWidgetWeb(),
+    return ResponsiveBuilder(
+      web: const _FooterWidgetWeb(),
+      phone: const _FooterWidgetPhone(),
+      tablet: _FooterWidgetTablet(),
     );
   }
 }
