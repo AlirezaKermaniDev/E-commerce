@@ -13,6 +13,7 @@ import 'package:flutter/material.dart';
 part "./layouts/phone.dart";
 part "./layouts/tablet.dart";
 part "./layouts/web.dart";
+part "utils.dart";
 
 class AlternativeProductsWidget extends StatelessWidget {
   const AlternativeProductsWidget({super.key, required this.item});

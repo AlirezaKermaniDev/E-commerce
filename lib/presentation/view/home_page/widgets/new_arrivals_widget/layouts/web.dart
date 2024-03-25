@@ -34,10 +34,8 @@ class _NewArrivalsWidgetWeb extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          AnimatorWidget(
-                            withFadeTransition: true,
-                            slideTransition: Tween<Offset>(
-                                begin: const Offset(-.1, 0), end: Offset.zero),
+                          _animatorWidgetBuilder(
+                            slideOffsetDx: -.1,
                             child: Text(
                               context.locale.newArrivals,
                               style: typography.h2Title
@@ -47,10 +45,7 @@ class _NewArrivalsWidgetWeb extends StatelessWidget {
                           const SizedBox(
                             height: 8,
                           ),
-                          AnimatorWidget(
-                            withFadeTransition: true,
-                            slideTransition: Tween<Offset>(
-                                begin: const Offset(-.1, 0), end: Offset.zero),
+                          _animatorWidgetBuilder(
                             child: Text(
                               context.locale.enjoyTheNewProductsFromOurStore,
                               style: typography.bodyText2
@@ -97,14 +92,9 @@ class _NewArrivalsWidgetWeb extends StatelessWidget {
                           bottom: 20),
                       itemBuilder: (context, index) {
                         final item = featuredProductsEntities[index];
-                        List<LinearGradient> gradients = [
-                          colorPalette.gradient4,
-                          colorPalette.gradient3,
-                          colorPalette.gradient1,
-                          colorPalette.gradient2,
-                        ];
+
                         return NewArrialsItemWidget(
-                          gradients: gradients,
+                          gradients: _gradients,
                           item: item,
                           index: index,
                         );
@@ -118,3 +108,4 @@ class _NewArrivalsWidgetWeb extends StatelessWidget {
     );
   }
 }
+

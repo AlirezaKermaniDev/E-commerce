@@ -20,17 +20,29 @@ class _AvailableColorsWidgetWeb extends StatelessWidget {
           width: 8,
         ),
         ...colors
-            .map((e) => Padding(
-                  padding: const EdgeInsets.only(left: 6),
-                  child: Container(
-                    height: 21,
-                    width: 21,
-                    decoration:
-                        BoxDecoration(shape: BoxShape.circle, color: Color(e)),
-                  ),
-                ))
+            .map((color) => AvailableColorItemWidget(color: color))
             .toList()
       ],
+    );
+  }
+}
+
+class AvailableColorItemWidget extends StatelessWidget {
+  const AvailableColorItemWidget({
+    super.key,
+    required this.color,
+  });
+  final int color;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 6),
+      child: Container(
+        height: 21,
+        width: 21,
+        decoration: BoxDecoration(shape: BoxShape.circle, color: Color(color)),
+      ),
     );
   }
 }

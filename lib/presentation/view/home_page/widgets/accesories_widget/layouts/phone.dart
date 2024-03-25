@@ -32,22 +32,4 @@ class _AccesoriesWidgetPhone extends StatelessWidget {
       ),
     );
   }
-
-  SizedBox backgroundColorWidget() {
-    return SizedBox(
-      width: double.infinity,
-      child: Row(
-        children: [
-          Expanded(
-              child: Container(
-            color: colorPalette.accent2,
-          )),
-          Expanded(
-              child: Container(
-            color: colorPalette.darkPrimary,
-          )),
-        ],
-      ),
-    );
-  }
 }

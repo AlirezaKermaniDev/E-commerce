@@ -22,32 +22,25 @@ class _CategoryItemWidgetTablet extends StatefulWidget {
 }
 
 class _CategoryItemWidgetTabletState extends State<_CategoryItemWidgetTablet> {
+  EdgeInsets padding = const EdgeInsets.only(left: 25, right: 25, top: 25);
   bool _isHover = false;
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {},
-      hoverColor: Colors.transparent,
-      onHover: (value) {
-        setState(() {
-          _isHover = value;
-        });
-      },
+      hoverColor: _inkWellHoverColor,
+      onHover: _onHover,
       child: SizedBox(
         height: 400,
         child: Stack(
           children: [
-            AnimatorWidget(
-              slideTransition:
-                  Tween<Offset>(begin: const Offset(0, .2), end: Offset.zero),
-              withFadeTransition: true,
+            _animatorWidgetBuilder(
               child: Container(
                 height: 450,
-                decoration: BoxDecoration(
-                    color: colorPalette.gray6,
-                    borderRadius: BorderRadius.circular(20)),
+                decoration: _backgroundDecoration,
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 25, right: 25, top: 25),
+                  padding: padding,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -55,10 +48,7 @@ class _CategoryItemWidgetTabletState extends State<_CategoryItemWidgetTablet> {
                         children: [
                           Expanded(
                             flex: 11,
-                            child: AnimatorWidget(
-                              slideTransition: Tween<Offset>(
-                                  begin: const Offset(0, .2), end: Offset.zero),
-                              withFadeTransition: true,
+                            child: _animatorWidgetBuilder(
                               child: FittedBox(
                                 child: Text(
                                   widget.title.replaceAll(" ", "\n"),
@@ -70,29 +60,20 @@ class _CategoryItemWidgetTabletState extends State<_CategoryItemWidgetTablet> {
                               ),
                             ),
                           ),
-                           SizedBox(
+                          SizedBox(
                             width: .03.w(context),
                           ),
                           Expanded(
                             flex: 5,
-                            child: AnimatorWidget(
-                                slideTransition: Tween<Offset>(
-                                    begin: const Offset(.2, 0),
-                                    end: Offset.zero),
-                                delay: const Duration(milliseconds: 50),
-                                withFadeTransition: true,
+                            child: _animatorWidgetBuilder(
+                                millisecondsDelay: 50,
                                 child: SvgPicture.asset(widget.shapePath)),
                           )
                         ],
                       ),
-                      const SizedBox(
-                        height: 16,
-                      ),
-                      AnimatorWidget(
-                        slideTransition: Tween<Offset>(
-                            begin: const Offset(0, .2), end: Offset.zero),
-                        delay: const Duration(milliseconds: 100),
-                        withFadeTransition: true,
+                      _spacer(),
+                      _animatorWidgetBuilder(
+                        millisecondsDelay: 100,
                         child: Text(
                           "${widget.productsCount} ${context.locale.products}",
                           style: typography.bodyText1.copyWith(
@@ -100,14 +81,9 @@ class _CategoryItemWidgetTabletState extends State<_CategoryItemWidgetTablet> {
                           ),
                         ),
                       ),
-                      const SizedBox(
-                        height: 16,
-                      ),
-                      AnimatorWidget(
-                        slideTransition: Tween<Offset>(
-                            begin: const Offset(0, .2), end: Offset.zero),
-                        delay: const Duration(milliseconds: 200),
-                        withFadeTransition: true,
+                      _spacer(),
+                      _animatorWidgetBuilder(
+                        millisecondsDelay: 200,
                         child: Text(
                           context.locale.seeCollection,
                           style: typography.bodyText1.copyWith(
@@ -121,12 +97,9 @@ class _CategoryItemWidgetTabletState extends State<_CategoryItemWidgetTablet> {
                 ),
               ),
             ),
-            AnimatorWidget(
-              slideTransition:
-                  Tween<Offset>(begin: const Offset(0, .2), end: Offset.zero),
-              scaleTransition: Tween<double>(begin: .9, end: 1),
-              delay: const Duration(milliseconds: 700),
-              withFadeTransition: true,
+            _animatorWidgetBuilder(
+              millisecondsDelay: 700,
+              withScaleTransition: true,
               child: AnimatedScale(
                 duration: const Duration(milliseconds: 200),
                 scale: _isHover ? 1.1 : 1,
@@ -140,5 +113,11 @@ class _CategoryItemWidgetTabletState extends State<_CategoryItemWidgetTablet> {
         ),
       ),
     );
+  }
+
+  void _onHover(value) {
+    setState(() {
+      _isHover = value;
+    });
   }
 }

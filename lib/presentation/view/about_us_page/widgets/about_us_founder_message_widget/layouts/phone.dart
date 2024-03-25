@@ -3,6 +3,8 @@ part of '../about_us_founder_message_widget.dart';
 class _AboutUsFounderMessageWidgetPhone extends StatelessWidget {
   const _AboutUsFounderMessageWidgetPhone({super.key});
 
+  static const double _spacerValue = 32;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,10 +21,7 @@ class _AboutUsFounderMessageWidgetPhone extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                AnimatorWidget(
-                  withFadeTransition: true,
-                  slideTransition: Tween<Offset>(
-                      begin: const Offset(0, .2), end: Offset.zero),
+                _animatorWidgetBuilder(
                   child: Text(
                     context.locale.founderMessage.toUpperCase(),
                     style: typography.bodyText2.copyWith(
@@ -31,13 +30,10 @@ class _AboutUsFounderMessageWidgetPhone extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(
-                  height: 32,
+                  height: _spacerValue,
                 ),
-                AnimatorWidget(
-                  withFadeTransition: true,
-                  slideTransition: Tween<Offset>(
-                      begin: const Offset(0, .2), end: Offset.zero),
-                  delay: const Duration(milliseconds: 100),
+                _animatorWidgetBuilder(
+                  millisecondsDelay: 100,
                   child: Text(
                     context.locale
                         .iStronglyBelieveThatThisUiKitWillHelpMyBusinessGrow,
@@ -46,13 +42,10 @@ class _AboutUsFounderMessageWidgetPhone extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(
-                  height: 32,
+                  height: _spacerValue,
                 ),
-                AnimatorWidget(
-                  withFadeTransition: true,
-                  slideTransition: Tween<Offset>(
-                      begin: const Offset(0, .2), end: Offset.zero),
-                  delay: const Duration(milliseconds: 200),
+                _animatorWidgetBuilder(
+                  millisecondsDelay: 200,
                   child: Text(
                     context.locale
                         .forAthletesHighAltitudeProducesTwoContradictoryEffectsOnPerformance,
@@ -62,13 +55,10 @@ class _AboutUsFounderMessageWidgetPhone extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(
-                  height: 32,
+                  height: _spacerValue,
                 ),
-                AnimatorWidget(
-                  withFadeTransition: true,
-                  slideTransition: Tween<Offset>(
-                      begin: const Offset(0, .5), end: Offset.zero),
-                  delay: const Duration(milliseconds: 300),
+                _animatorWidgetBuilder(
+                  millisecondsDelay: 300,
                   child: Text(
                     context.locale.forExplosiveEventsSprintsUTo400Metres,
                     style: typography.bodyText1
@@ -77,13 +67,10 @@ class _AboutUsFounderMessageWidgetPhone extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(
-                  height: 32,
+                  height: _spacerValue,
                 ),
-                AnimatorWidget(
-                  withFadeTransition: true,
-                  slideTransition: Tween<Offset>(
-                      begin: const Offset(0, .2), end: Offset.zero),
-                  delay: const Duration(milliseconds: 400),
+                _animatorWidgetBuilder(
+                  millisecondsDelay: 400,
                   child: Text(
                     context.locale
                         .forAthletesHighAltitudeProducesTwoContradictoryEffectsOnPerformance,
@@ -97,13 +84,8 @@ class _AboutUsFounderMessageWidgetPhone extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 30),
-                  child: AnimatorWidget(
-                    withFadeTransition: true,
-                    delay: const Duration(milliseconds: 500),
-                    slideTransition: Tween<Offset>(
-                      begin: const Offset(0, .2),
-                      end: Offset.zero,
-                    ),
+                  child: _animatorWidgetBuilder(
+                    millisecondsDelay: 500,
                     child: Image.asset(
                       AssetHandler.signature,
                       height: 100,
@@ -112,13 +94,9 @@ class _AboutUsFounderMessageWidgetPhone extends StatelessWidget {
                 ),
               ],
             ),
-            AnimatorWidget(
-              withFadeTransition: true,
-              delay: const Duration(milliseconds: 600),
-              slideTransition: Tween<Offset>(
-                begin: const Offset(0, .1),
-                end: Offset.zero,
-              ),
+            _animatorWidgetBuilder(
+              millisecondsDelay: 600,
+              slideOffsetDy: .1,
               child: Align(
                 alignment: Alignment.topCenter,
                 child: Padding(

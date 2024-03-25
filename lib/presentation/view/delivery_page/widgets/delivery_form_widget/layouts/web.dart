@@ -10,10 +10,7 @@ class _DeliveryFormWidgetWeb extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        AnimatorWidget(
-          withFadeTransition: true,
-          slideTransition:
-              Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
+        _animatorWidgetBuilder(
           child: Divider(
             color: colorPalette.gray5,
             thickness: 1.6,
@@ -23,21 +20,15 @@ class _DeliveryFormWidgetWeb extends StatelessWidget {
         const SizedBox(
           height: 25,
         ),
-        AnimatorWidget(
-          withFadeTransition: true,
-          delay: const Duration(milliseconds: 100),
-          slideTransition:
-              Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
+        _animatorWidgetBuilder(
+          millisecondsDelay: 100,
           child: const DeliveryUserDetailWidget(),
         ),
         const SizedBox(
           height: 16,
         ),
-        AnimatorWidget(
-          withFadeTransition: true,
-          delay: const Duration(milliseconds: 700),
-          slideTransition:
-              Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
+        _animatorWidgetBuilder(
+          millisecondsDelay: 700,
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

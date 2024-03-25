@@ -13,10 +13,7 @@ class _AboutUsFeaturesWidgetPhone extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            AnimatorWidget(
-              withFadeTransition: true,
-              slideTransition:
-                  Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
+            _animatorWidgetBuilder(
               child: Text(
                 context.locale.makingHighQualityProducts,
                 style: typography.h5Title,
@@ -26,11 +23,8 @@ class _AboutUsFeaturesWidgetPhone extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            AnimatorWidget(
-              withFadeTransition: true,
-              slideTransition:
-                  Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
-              delay: const Duration(milliseconds: 250),
+            _animatorWidgetBuilder(
+              millisecondsDelay: 250,
               child: SizedBox(
                 width: .9.w(context),
                 child: Text(

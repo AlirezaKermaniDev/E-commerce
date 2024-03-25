@@ -9,10 +9,7 @@ class _AddressFormFieldsWidgetWeb extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        AnimatorWidget(
-          withFadeTransition: true,
-          slideTransition:
-              Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
+        _animatorWidgetBuilder(
           child: Divider(
             color: colorPalette.gray5,
             thickness: 1.6,
@@ -22,11 +19,8 @@ class _AddressFormFieldsWidgetWeb extends StatelessWidget {
         const SizedBox(
           height: 25,
         ),
-        AnimatorWidget(
-          withFadeTransition: true,
-          delay: const Duration(milliseconds: 100),
-          slideTransition:
-              Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
+        _animatorWidgetBuilder(
+          millisecondsDelay: 100,
           child: TextFieldWidget(
             lable: context.locale.email,
             onChange: (value) {},
@@ -38,11 +32,8 @@ class _AddressFormFieldsWidgetWeb extends StatelessWidget {
         Row(
           children: [
             Expanded(
-              child: AnimatorWidget(
-                withFadeTransition: true,
-                delay: const Duration(milliseconds: 200),
-                slideTransition:
-                    Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
+              child: _animatorWidgetBuilder(
+                millisecondsDelay: 200,
                 child: TextFieldWidget(
                   lable: context.locale.name,
                   onChange: (value) {},
@@ -53,11 +44,8 @@ class _AddressFormFieldsWidgetWeb extends StatelessWidget {
               width: 16,
             ),
             Expanded(
-              child: AnimatorWidget(
-                withFadeTransition: true,
-                delay: const Duration(milliseconds: 300),
-                slideTransition:
-                    Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
+              child: _animatorWidgetBuilder(
+                millisecondsDelay: 300,
                 child: TextFieldWidget(
                   lable: context.locale.lastName,
                   onChange: (value) {},
@@ -73,11 +61,8 @@ class _AddressFormFieldsWidgetWeb extends StatelessWidget {
           children: [
             Expanded(
               flex: 2,
-              child: AnimatorWidget(
-                withFadeTransition: true,
-                delay: const Duration(milliseconds: 300),
-                slideTransition:
-                    Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
+              child: _animatorWidgetBuilder(
+                millisecondsDelay: 300,
                 child: TextFieldWidget(
                   lable: context.locale.address,
                   onChange: (value) {},
@@ -88,11 +73,8 @@ class _AddressFormFieldsWidgetWeb extends StatelessWidget {
               width: 16,
             ),
             Expanded(
-              child: AnimatorWidget(
-                withFadeTransition: true,
-                delay: const Duration(milliseconds: 400),
-                slideTransition:
-                    Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
+              child: _animatorWidgetBuilder(
+                millisecondsDelay: 400,
                 child: TextFieldWidget(
                   lable: context.locale.aptUnitEtc,
                   onChange: (value) {},
@@ -104,11 +86,8 @@ class _AddressFormFieldsWidgetWeb extends StatelessWidget {
         const SizedBox(
           height: 25,
         ),
-        AnimatorWidget(
-          withFadeTransition: true,
-          delay: const Duration(milliseconds: 500),
-          slideTransition:
-              Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
+        _animatorWidgetBuilder(
+          millisecondsDelay: 500,
           child: TextFieldWidget(
             lable: "${context.locale.town}/${context.locale.city}",
             onChange: (value) {},
@@ -120,11 +99,8 @@ class _AddressFormFieldsWidgetWeb extends StatelessWidget {
         Row(
           children: [
             Expanded(
-              child: AnimatorWidget(
-                withFadeTransition: true,
-                delay: const Duration(milliseconds: 600),
-                slideTransition:
-                    Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
+              child: _animatorWidgetBuilder(
+                millisecondsDelay: 600,
                 child: TextFieldWidget(
                   lable: context.locale.country,
                   onChange: (value) {},
@@ -135,11 +111,8 @@ class _AddressFormFieldsWidgetWeb extends StatelessWidget {
               width: 16,
             ),
             Expanded(
-              child: AnimatorWidget(
-                withFadeTransition: true,
-                delay: const Duration(milliseconds: 700),
-                slideTransition:
-                    Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
+              child: _animatorWidgetBuilder(
+                millisecondsDelay: 700,
                 child: TextFieldWidget(
                   lable: context.locale.zip,
                   onChange: (value) {},
@@ -150,11 +123,8 @@ class _AddressFormFieldsWidgetWeb extends StatelessWidget {
               width: 16,
             ),
             Expanded(
-              child: AnimatorWidget(
-                withFadeTransition: true,
-                delay: const Duration(milliseconds: 800),
-                slideTransition:
-                    Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
+              child: _animatorWidgetBuilder(
+                millisecondsDelay: 800,
                 child: TextFieldWidget(
                   lable: context.locale.state,
                   onChange: (value) {},
@@ -166,11 +136,8 @@ class _AddressFormFieldsWidgetWeb extends StatelessWidget {
         const SizedBox(
           height: 20,
         ),
-        AnimatorWidget(
-          withFadeTransition: true,
-          delay: const Duration(milliseconds: 900),
-          slideTransition:
-              Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
+        _animatorWidgetBuilder(
+          millisecondsDelay: 900,
           child: Row(
             children: [
               SizedBox(
@@ -194,14 +161,13 @@ class _AddressFormFieldsWidgetWeb extends StatelessWidget {
         const SizedBox(
           height: 25,
         ),
-        if (!context.isPhone)
-          PurchaseActionButtons(
-            backButtonText: context.locale.returnToCart,
-            continueButtonText: context.locale.proceedToDelivery,
-            onTapContinue: () {
-              context.push(DeliveryPage.path);
-            },
-          ),
+        PurchaseActionButtons(
+          backButtonText: context.locale.returnToCart,
+          continueButtonText: context.locale.proceedToDelivery,
+          onTapContinue: () {
+            context.push(DeliveryPage.path);
+          },
+        ),
       ],
     );
   }

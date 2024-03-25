@@ -13,13 +13,8 @@ class _AboutUsOurProductsItemWidgetTablet extends StatelessWidget {
   final String imagePath;
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-      AnimatorWidget(
-        withFadeTransition: true,
-        slideTransition:
-            Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
+    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      _animatorWidgetBuilder(
         child: Stack(
           alignment: Alignment.center,
           children: [
@@ -29,13 +24,12 @@ class _AboutUsOurProductsItemWidgetTablet extends StatelessWidget {
               decoration: BoxDecoration(
                   gradient: shapeGradient, shape: BoxShape.circle),
             ),
-            AnimatorWidget(
-                rotateTrasition: Tween<double>(begin: 0, end: -.1),
+            _animatorWidgetBuilder(
+                rotateTrasition: true,
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Transform.scale(
-                    scale: 1.2,
-                    child: Image.asset(imagePath)),
+                      scale: 1.2, child: Image.asset(imagePath)),
                 )),
           ],
         ),
@@ -43,12 +37,8 @@ class _AboutUsOurProductsItemWidgetTablet extends StatelessWidget {
       const SizedBox(
         height: 60,
       ),
-      AnimatorWidget(
-        withFadeTransition: true,
-        slideTransition:
-            Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
-        delay: const Duration(milliseconds: 250),
-        
+      _animatorWidgetBuilder(
+        millisecondsDelay: 250,
         child: FittedBox(
           child: Text(
             title,
@@ -59,11 +49,8 @@ class _AboutUsOurProductsItemWidgetTablet extends StatelessWidget {
       const SizedBox(
         height: 25,
       ),
-      AnimatorWidget(
-        withFadeTransition: true,
-        slideTransition:
-            Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
-        delay: const Duration(milliseconds: 500),
+      _animatorWidgetBuilder(
+        millisecondsDelay: 500,
         child: Text(
           description,
           style: typography.bodyText2.copyWith(color: colorPalette.gray2),
@@ -73,11 +60,8 @@ class _AboutUsOurProductsItemWidgetTablet extends StatelessWidget {
       const SizedBox(
         height: 25,
       ),
-      AnimatorWidget(
-        withFadeTransition: true,
-        slideTransition:
-            Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
-        delay: const Duration(milliseconds: 750),
+      _animatorWidgetBuilder(
+        millisecondsDelay: 750,
         child: ArrowTitleButtonWidget(
           title: context.locale.seeCollection,
           onTap: () {},

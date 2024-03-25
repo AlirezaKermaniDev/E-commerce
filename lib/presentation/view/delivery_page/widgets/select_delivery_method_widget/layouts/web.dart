@@ -10,11 +10,8 @@ class _SelectDeliveryMethodWidgetWeb extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        AnimatorWidget(
-          withFadeTransition: true,
-          delay: const Duration(milliseconds: 800),
-          slideTransition:
-              Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
+        _animatorWidgetBuilder(
+          millisecondsDelay: 800,
           child: Text(
             context.locale.selectDeliveryMethod,
             style: typography.h5Title,
@@ -23,11 +20,8 @@ class _SelectDeliveryMethodWidgetWeb extends StatelessWidget {
         const SizedBox(
           height: 25,
         ),
-        AnimatorWidget(
-          withFadeTransition: true,
-          delay: const Duration(milliseconds: 900),
-          slideTransition:
-              Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
+        _animatorWidgetBuilder(
+          millisecondsDelay: 900,
           child: Container(
             width: double.infinity,
             decoration: BoxDecoration(

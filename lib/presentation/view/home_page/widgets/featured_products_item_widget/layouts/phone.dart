@@ -24,29 +24,24 @@ class _FeaturedProductsItemWidgetPhoneState
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      hoverColor: Colors.transparent,
+      hoverColor: _inkWellhHoverColor,
       onTap: () {},
-      onHover: (value) {
-        setState(() {
-          _isHover = value;
-        });
-      },
+      onHover: _onHover,
       child: SizedBox(
-        width: 1.w(context) - (getIt<SizeConfig>().padding * 2),
+        width: _itemWidth(context),
         child: Column(
           children: [
             Expanded(
                 child: Stack(
               children: [
                 Center(
-                  child: AnimatorWidget(
-                    withFadeTransition: true,
-                    scaleTransition: Tween<double>(begin: .9, end: 1),
-                    delay: const Duration(milliseconds: 200),
+                  child: _animatorWidgetBuilder(
+                    basemillisecondsDelay: 200,
+                    withScale: true,
                     child: AnimatedContainer(
                       duration: const Duration(milliseconds: 100),
-                      height: _isHover ? 180 : 150,
-                      width: _isHover ? 180 : 150,
+                      height: _containerSize(_isHover, context),
+                      width: _containerSize(_isHover, context),
                       decoration: BoxDecoration(
                         gradient:
                             widget.gradients[widget.item.gradientType! - 1],
@@ -56,18 +51,18 @@ class _FeaturedProductsItemWidgetPhoneState
                   ),
                 ),
                 Center(
-                    child: AnimatorWidget(
-                  withFadeTransition: true,
-                  slideTransition: Tween<Offset>(
-                      begin: const Offset(0, .1), end: Offset.zero),
-                  delay: const Duration(milliseconds: 100),
+                    child: _animatorWidgetBuilder(
                   child: Padding(
                     padding: const EdgeInsets.only(top: 32),
                     child: SizedBox(
-                        height: 240,
-                        child: Transform.scale(
-                            scale: 1.3,
-                            child: Image.asset(widget.item.imageUrl ?? ""))),
+                      height: 240,
+                      child: Transform.scale(
+                        scale: 1.3,
+                        child: Image.asset(
+                          widget.item.imageUrl ?? "",
+                        ),
+                      ),
+                    ),
                   ),
                 ))
               ],
@@ -81,20 +76,13 @@ class _FeaturedProductsItemWidgetPhoneState
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      AnimatorWidget(
-                          withFadeTransition: true,
-                          slideTransition: Tween<Offset>(
-                              begin: const Offset(0, .1), end: Offset.zero),
-                          delay: const Duration(milliseconds: 100),
-                          child: const RatebarWidget()),
+                      _animatorWidgetBuilder(
+                        child: const RatebarWidget(),
+                      ),
                       const SizedBox(
                         height: 20,
                       ),
-                      AnimatorWidget(
-                        withFadeTransition: true,
-                        slideTransition: Tween<Offset>(
-                            begin: const Offset(0, .1), end: Offset.zero),
-                        delay: const Duration(milliseconds: 100),
+                      _animatorWidgetBuilder(
                         child: SizedBox(
                           width: 200,
                           child: Text(
@@ -107,11 +95,7 @@ class _FeaturedProductsItemWidgetPhoneState
                       const SizedBox(
                         height: 8,
                       ),
-                      AnimatorWidget(
-                        withFadeTransition: true,
-                        slideTransition: Tween<Offset>(
-                            begin: const Offset(0, .1), end: Offset.zero),
-                        delay: const Duration(milliseconds: 100),
+                      _animatorWidgetBuilder(
                         child: Text(
                           "\$${widget.item.price}",
                           style: typography.h4Title,
@@ -127,4 +111,13 @@ class _FeaturedProductsItemWidgetPhoneState
       ),
     );
   }
+
+  void _onHover(value) {
+    setState(() {
+      _isHover = value;
+    });
+  }
+
+  double _itemWidth(BuildContext context) =>
+      1.w(context) - (getIt<SizeConfig>().padding * 2);
 }

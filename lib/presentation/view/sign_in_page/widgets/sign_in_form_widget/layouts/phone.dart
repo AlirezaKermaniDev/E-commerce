@@ -27,13 +27,8 @@ class _SignInFormWidgetPhone extends StatelessWidget {
               const SizedBox(
                 height: 8,
               ),
-              AnimatorWidget(
-                withFadeTransition: true,
-                delay: const Duration(milliseconds: 100),
-                slideTransition: Tween<Offset>(
-                  begin: const Offset(0, .1),
-                  end: Offset.zero,
-                ),
+              _animatorWidgetBuilder(
+                millisecondsDelay: 100,
                 child: TextHighlight(
                   text: "${context.locale.notAMember} ${context.locale.joinUs}",
                   textStyle:
@@ -43,9 +38,7 @@ class _SignInFormWidgetPhone extends StatelessWidget {
                       textStyle: typography.bodyText2.copyWith(
                         color: colorPalette.accent1,
                       ),
-                      onTap: () {
-                        context.go(SignUpPage.path);
-                      },
+                      onTap: () => _onTapJoinUs(context),
                       decoration: BoxDecoration(
                         border: Border(
                           bottom:
@@ -59,13 +52,8 @@ class _SignInFormWidgetPhone extends StatelessWidget {
               const SizedBox(
                 height: 25,
               ),
-              AnimatorWidget(
-                withFadeTransition: true,
-                delay: const Duration(milliseconds: 200),
-                slideTransition: Tween<Offset>(
-                  begin: const Offset(0, .1),
-                  end: Offset.zero,
-                ),
+              _animatorWidgetBuilder(
+                millisecondsDelay: 200,
                 child: SizedBox(
                   height: _textFieldHeight,
                   child: TextFieldWidget(
@@ -83,13 +71,8 @@ class _SignInFormWidgetPhone extends StatelessWidget {
               const SizedBox(
                 height: 12,
               ),
-              AnimatorWidget(
-                withFadeTransition: true,
-                delay: const Duration(milliseconds: 300),
-                slideTransition: Tween<Offset>(
-                  begin: const Offset(0, .1),
-                  end: Offset.zero,
-                ),
+              _animatorWidgetBuilder(
+                millisecondsDelay: 300,
                 child: SizedBox(
                   height: _textFieldHeight,
                   child: TextFieldWidget(
@@ -110,13 +93,8 @@ class _SignInFormWidgetPhone extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  AnimatorWidget(
-                    withFadeTransition: true,
-                    delay: const Duration(milliseconds: 400),
-                    slideTransition: Tween<Offset>(
-                      begin: const Offset(0, .1),
-                      end: Offset.zero,
-                    ),
+                  _animatorWidgetBuilder(
+                    millisecondsDelay: 400,
                     child: Text(
                       context.locale.recoveryPassword,
                       style: typography.bodyText4
@@ -128,13 +106,8 @@ class _SignInFormWidgetPhone extends StatelessWidget {
               const SizedBox(
                 height: 25,
               ),
-              AnimatorWidget(
-                withFadeTransition: true,
-                delay: const Duration(milliseconds: 500),
-                slideTransition: Tween<Offset>(
-                  begin: const Offset(0, .1),
-                  end: Offset.zero,
-                ),
+              _animatorWidgetBuilder(
+                millisecondsDelay: 500,
                 child: ButtonWidget(
                   title: context.locale.signIn,
                   color: colorPalette.accent1,
@@ -145,13 +118,8 @@ class _SignInFormWidgetPhone extends StatelessWidget {
               const SizedBox(
                 height: 32,
               ),
-              AnimatorWidget(
-                withFadeTransition: true,
-                delay: const Duration(milliseconds: 600),
-                slideTransition: Tween<Offset>(
-                  begin: const Offset(0, .1),
-                  end: Offset.zero,
-                ),
+              _animatorWidgetBuilder(
+                millisecondsDelay: 600,
                 child: Row(
                   children: [
                     Expanded(
@@ -186,13 +154,8 @@ class _SignInFormWidgetPhone extends StatelessWidget {
               Row(
                 children: [
                   Expanded(
-                    child: AnimatorWidget(
-                      withFadeTransition: true,
-                      delay: const Duration(milliseconds: 700),
-                      slideTransition: Tween<Offset>(
-                        begin: const Offset(0, .1),
-                        end: Offset.zero,
-                      ),
+                    child: _animatorWidgetBuilder(
+                      millisecondsDelay: 700,
                       child: OtherSignInOptionWidget(
                         icon: SvgPicture.asset(
                           CustomIcons.googleLogo,
@@ -206,13 +169,8 @@ class _SignInFormWidgetPhone extends StatelessWidget {
                     width: 50,
                   ),
                   Expanded(
-                    child: AnimatorWidget(
-                      withFadeTransition: true,
-                      delay: const Duration(milliseconds: 800),
-                      slideTransition: Tween<Offset>(
-                        begin: const Offset(0, .1),
-                        end: Offset.zero,
-                      ),
+                    child: _animatorWidgetBuilder(
+                      millisecondsDelay: 800,
                       child: const OtherSignInOptionWidget(
                         withShadow: true,
                         icon: Icon(
@@ -226,13 +184,8 @@ class _SignInFormWidgetPhone extends StatelessWidget {
                     width: 50,
                   ),
                   Expanded(
-                    child: AnimatorWidget(
-                      withFadeTransition: true,
-                      delay: const Duration(milliseconds: 900),
-                      slideTransition: Tween<Offset>(
-                        begin: const Offset(0, .1),
-                        end: Offset.zero,
-                      ),
+                    child: _animatorWidgetBuilder(
+                      millisecondsDelay: 900,
                       child: OtherSignInOptionWidget(
                         icon: Icon(
                           Icons.facebook_rounded,

@@ -13,9 +13,13 @@ class _LandingPageWidgetPhone extends StatelessWidget {
         child: Column(
           children: [
             Padding(
-              padding:
-                  EdgeInsets.symmetric(horizontal: getIt<SizeConfig>().padding),
+              padding: EdgeInsets.symmetric(
+                horizontal: getIt<SizeConfig>().padding,
+              ),
               child: const HomePageTitleWidget(),
+            ),
+                 const SizedBox(
+              height: 32,
             ),
             const HomeBannerWidget(),
             const SizedBox(

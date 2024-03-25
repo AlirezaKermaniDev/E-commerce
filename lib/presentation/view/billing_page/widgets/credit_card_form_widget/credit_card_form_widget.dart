@@ -10,6 +10,7 @@ import 'package:flutter_svg/svg.dart';
 part "./layouts/phone.dart";
 part "./layouts/tablet.dart";
 part "./layouts/web.dart";
+part "utils.dart";
 
 class CreditCardFormWidget extends StatelessWidget {
   const CreditCardFormWidget({super.key});

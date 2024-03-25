@@ -9,10 +9,12 @@ import 'package:ecommerce_app/presentation/widgets/constraints_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/responsive_builder.dart';
 import 'package:ecommerce_app/presentation/widgets/scrollbar_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/src/services/mouse_cursor.dart';
 
 part "./layouts/phone.dart";
 part "./layouts/tablet.dart";
 part "./layouts/web.dart";
+part "utils.dart";
 
 class FeaturedProductsWidget extends StatelessWidget {
   const FeaturedProductsWidget({super.key});

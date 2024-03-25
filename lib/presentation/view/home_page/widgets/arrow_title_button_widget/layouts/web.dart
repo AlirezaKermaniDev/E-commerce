@@ -32,11 +32,7 @@ class _ArrowTitleButtonWidgetWebState
     return InkWell(
       onTap: widget.onTap,
       hoverColor: Colors.transparent,
-      onHover: (value) {
-        setState(() {
-          _isHover = value;
-        });
-      },
+      onHover: _onHover,
       child: Ink(
         height: 45,
         child: Row(
@@ -67,6 +63,12 @@ class _ArrowTitleButtonWidgetWebState
         ),
       ),
     );
+  }
+
+  void _onHover(value) {
+    setState(() {
+      _isHover = value;
+    });
   }
 
   Widget _arrowWidgetBuilder(IconData iconData, double iconSize) {

@@ -9,6 +9,7 @@ import 'package:mouse_parallax/mouse_parallax.dart';
 part "./layouts/phone.dart";
 part "./layouts/tablet.dart";
 part "./layouts/web.dart";
+part "utils.dart";
 
 class AboutUsFeaturesItemWidget extends StatelessWidget {
   const AboutUsFeaturesItemWidget(

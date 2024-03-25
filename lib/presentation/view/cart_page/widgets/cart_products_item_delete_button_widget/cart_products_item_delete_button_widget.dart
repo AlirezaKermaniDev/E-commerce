@@ -24,11 +24,7 @@ class _CartProductsItemDeleteButtonWidgetState
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        context
-            .read<CartBloc>()
-            .add(CartEvent.deleteProduct(productId: widget.productId));
-      },
+      onTap: () => _onTap(context),
       onHover: _onHover,
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
@@ -44,6 +40,12 @@ class _CartProductsItemDeleteButtonWidgetState
         ),
       ),
     );
+  }
+
+  void _onTap(BuildContext context) {
+    context
+        .read<CartBloc>()
+        .add(CartEvent.deleteProduct(productId: widget.productId));
   }
 
   void _onHover(value) {

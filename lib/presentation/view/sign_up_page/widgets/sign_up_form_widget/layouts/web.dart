@@ -30,13 +30,8 @@ class _SignUpFormWidgetWeb extends StatelessWidget {
               const SizedBox(
                 height: 8,
               ),
-              AnimatorWidget(
-                withFadeTransition: true,
-                delay: const Duration(milliseconds: 200),
-                slideTransition: Tween<Offset>(
-                  begin: const Offset(0, .1),
-                  end: Offset.zero,
-                ),
+              _animatorWidgetBuilder(
+                millisecondsDelay: 200,
                 child: TextHighlight(
                   text: context.locale.alreadyHaveAnCccount,
                   textStyle:
@@ -46,9 +41,7 @@ class _SignUpFormWidgetWeb extends StatelessWidget {
                       textStyle: typography.bodyText2.copyWith(
                         color: colorPalette.accent1,
                       ),
-                      onTap: () {
-                        context.go(SignInPage.path);
-                      },
+                      onTap: () => _onTapLogIn(context),
                       decoration: BoxDecoration(
                         border: Border(
                           bottom:
@@ -62,13 +55,8 @@ class _SignUpFormWidgetWeb extends StatelessWidget {
               const SizedBox(
                 height: 48,
               ),
-              AnimatorWidget(
-                withFadeTransition: true,
-                delay: const Duration(milliseconds: 300),
-                slideTransition: Tween<Offset>(
-                  begin: const Offset(0, .1),
-                  end: Offset.zero,
-                ),
+              _animatorWidgetBuilder(
+                millisecondsDelay: 300,
                 child: TextFieldWidget(
                   lable: context.locale.fullName,
                   onChange: (_) {},
@@ -83,13 +71,8 @@ class _SignUpFormWidgetWeb extends StatelessWidget {
               const SizedBox(
                 height: 12,
               ),
-              AnimatorWidget(
-                withFadeTransition: true,
-                delay: const Duration(milliseconds: 400),
-                slideTransition: Tween<Offset>(
-                  begin: const Offset(0, .1),
-                  end: Offset.zero,
-                ),
+              _animatorWidgetBuilder(
+                millisecondsDelay: 400,
                 child: TextFieldWidget(
                   lable: context.locale.email,
                   onChange: (_) {},
@@ -104,13 +87,8 @@ class _SignUpFormWidgetWeb extends StatelessWidget {
               const SizedBox(
                 height: 12,
               ),
-              AnimatorWidget(
-                withFadeTransition: true,
-                delay: const Duration(milliseconds: 500),
-                slideTransition: Tween<Offset>(
-                  begin: const Offset(0, .1),
-                  end: Offset.zero,
-                ),
+              _animatorWidgetBuilder(
+                millisecondsDelay: 500,
                 child: TextFieldWidget(
                   lable: context.locale.password,
                   onChange: (_) {},
@@ -125,13 +103,8 @@ class _SignUpFormWidgetWeb extends StatelessWidget {
               const SizedBox(
                 height: 12,
               ),
-              AnimatorWidget(
-                withFadeTransition: true,
-                delay: const Duration(milliseconds: 600),
-                slideTransition: Tween<Offset>(
-                  begin: const Offset(0, .1),
-                  end: Offset.zero,
-                ),
+              _animatorWidgetBuilder(
+                millisecondsDelay: 600,
                 child: TextFieldWidget(
                   lable: context.locale.dateOfBirth,
                   onChange: (_) {},
@@ -149,13 +122,8 @@ class _SignUpFormWidgetWeb extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  AnimatorWidget(
-                    withFadeTransition: true,
-                    delay: const Duration(milliseconds: 700),
-                    slideTransition: Tween<Offset>(
-                      begin: const Offset(0, .1),
-                      end: Offset.zero,
-                    ),
+                  _animatorWidgetBuilder(
+                    millisecondsDelay: 700,
                     child: Text(
                       context.locale.getYearlyDiscountOnYourBirthday,
                       style: typography.bodyText2
@@ -167,13 +135,8 @@ class _SignUpFormWidgetWeb extends StatelessWidget {
               const SizedBox(
                 height: 24,
               ),
-              AnimatorWidget(
-                withFadeTransition: true,
-                delay: const Duration(milliseconds: 800),
-                slideTransition: Tween<Offset>(
-                  begin: const Offset(0, .1),
-                  end: Offset.zero,
-                ),
+              _animatorWidgetBuilder(
+                millisecondsDelay: 800,
                 child: TextFieldWidget(
                   lable: context.locale.country,
                   onChange: (_) {},
@@ -191,13 +154,8 @@ class _SignUpFormWidgetWeb extends StatelessWidget {
               Row(
                 children: [
                   Expanded(
-                    child: AnimatorWidget(
-                      withFadeTransition: true,
-                      delay: const Duration(milliseconds: 900),
-                      slideTransition: Tween<Offset>(
-                        begin: const Offset(0, .1),
-                        end: Offset.zero,
-                      ),
+                    child: _animatorWidgetBuilder(
+                      millisecondsDelay: 900,
                       child: Container(
                         height: 55,
                         decoration: BoxDecoration(
@@ -218,13 +176,8 @@ class _SignUpFormWidgetWeb extends StatelessWidget {
                     width: 12,
                   ),
                   Expanded(
-                    child: AnimatorWidget(
-                      withFadeTransition: true,
-                      delay: const Duration(milliseconds: 1000),
-                      slideTransition: Tween<Offset>(
-                        begin: const Offset(0, .1),
-                        end: Offset.zero,
-                      ),
+                    child: _animatorWidgetBuilder(
+                      millisecondsDelay: 1000,
                       child: Container(
                         height: 55,
                         decoration: BoxDecoration(
@@ -246,13 +199,8 @@ class _SignUpFormWidgetWeb extends StatelessWidget {
               const SizedBox(
                 height: 24,
               ),
-              AnimatorWidget(
-                withFadeTransition: true,
-                delay: const Duration(milliseconds: 1100),
-                slideTransition: Tween<Offset>(
-                  begin: const Offset(0, .1),
-                  end: Offset.zero,
-                ),
+              _animatorWidgetBuilder(
+                millisecondsDelay: 1100,
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -282,13 +230,8 @@ class _SignUpFormWidgetWeb extends StatelessWidget {
               const SizedBox(
                 height: 40,
               ),
-              AnimatorWidget(
-                withFadeTransition: true,
-                delay: const Duration(milliseconds: 1200),
-                slideTransition: Tween<Offset>(
-                  begin: const Offset(0, .1),
-                  end: Offset.zero,
-                ),
+              _animatorWidgetBuilder(
+                millisecondsDelay: 1200,
                 child: TextHighlight(
                   text: context.locale.dyCreatingAnAccountYouAgree,
                   textStyle:
@@ -325,13 +268,8 @@ class _SignUpFormWidgetWeb extends StatelessWidget {
               const SizedBox(
                 height: 45,
               ),
-              AnimatorWidget(
-                withFadeTransition: true,
-                delay: const Duration(milliseconds: 1300),
-                slideTransition: Tween<Offset>(
-                  begin: const Offset(0, .1),
-                  end: Offset.zero,
-                ),
+              _animatorWidgetBuilder(
+                millisecondsDelay: 1300,
                 child: ButtonWidget(
                   title: context.locale.joinUs,
                   color: colorPalette.accent1,
@@ -343,4 +281,6 @@ class _SignUpFormWidgetWeb extends StatelessWidget {
       ),
     );
   }
+
+
 }

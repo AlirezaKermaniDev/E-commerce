@@ -23,31 +23,24 @@ class AboutUsInfoItemsWidget extends StatelessWidget {
       crossAxisAlignment:
           isPhone ? CrossAxisAlignment.center : CrossAxisAlignment.start,
       children: [
-        AnimatorWidget(
-          withFadeTransition: true,
-          slideTransition:
-              Tween<Offset>(begin: const Offset(0, .8), end: Offset.zero),
-          delay: const Duration(milliseconds: 250),
+        _animatorWidgetBuilder(
+          millisecondsDelay: 250,
           child: SvgPicture.asset(icon),
         ),
         const SizedBox(
           height: 8,
         ),
-        AnimatorWidget(
-          withFadeTransition: true,
-          slideTransition:
-              Tween<Offset>(begin: const Offset(0, .8), end: Offset.zero),
-          delay: const Duration(milliseconds: 500),
+        _animatorWidgetBuilder(
+          millisecondsDelay: 500,
           child: Text(
             value,
-            style: isPhone ? typography.h4Title.copyWith(color: colorPalette.accent2): typography.h2Title.copyWith(color: colorPalette.accent2),
+            style: isPhone
+                ? typography.h4Title.copyWith(color: colorPalette.accent2)
+                : typography.h2Title.copyWith(color: colorPalette.accent2),
           ),
         ),
-        AnimatorWidget(
-          withFadeTransition: true,
-          slideTransition:
-              Tween<Offset>(begin: const Offset(0, .8), end: Offset.zero),
-          delay: const Duration(milliseconds: 750),
+        _animatorWidgetBuilder(
+          millisecondsDelay: 750,
           child: Text(
             lable,
             style: typography.bodyText3.copyWith(color: colorPalette.gray3),
@@ -56,4 +49,17 @@ class AboutUsInfoItemsWidget extends StatelessWidget {
       ],
     );
   }
+}
+
+Widget _animatorWidgetBuilder({
+  required Widget child,
+  required int millisecondsDelay,
+}) {
+  return AnimatorWidget(
+    withFadeTransition: true,
+    slideTransition:
+        Tween<Offset>(begin: const Offset(0, .8), end: Offset.zero),
+    delay: Duration(milliseconds: millisecondsDelay),
+    child: child,
+  );
 }

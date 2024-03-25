@@ -22,13 +22,9 @@ class _NewArrialsItemWidgetWebState extends State<_NewArrialsItemWidgetWeb> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      hoverColor: Colors.transparent,
+      hoverColor: _inkWellHoverColor,
       onTap: () {},
-      onHover: (value) {
-        setState(() {
-          _isHover = value;
-        });
-      },
+      onHover: _onHover,
       child: SizedBox(
         width: 300,
         child: Stack(children: [
@@ -36,13 +32,10 @@ class _NewArrialsItemWidgetWebState extends State<_NewArrialsItemWidgetWeb> {
             alignment: Alignment.topRight,
             child: Column(
               children: [
-                AnimatorWidget(
-                  withFadeTransition: true,
-                  delay: Duration(milliseconds: (widget.index * 100)),
-                  scaleTransition: Tween<double>(
-                    begin: .8,
-                    end: 1,
-                  ),
+                _animatorWidgetBuilder(
+                  millisecondsDelay: 0,
+                  index: widget.index,
+                  scaleTrasition: true,
                   child: Container(
                     height: 360,
                     width: 260,
@@ -98,22 +91,16 @@ class _NewArrialsItemWidgetWebState extends State<_NewArrialsItemWidgetWeb> {
                       const SizedBox(
                         height: 20,
                       ),
-                      AnimatorWidget(
-                          withFadeTransition: true,
-                          delay:
-                              Duration(milliseconds: 50 + (widget.index * 100)),
-                          slideTransition: Tween<Offset>(
-                              begin: const Offset(0, -.1), end: Offset.zero),
+                      _animatorWidgetBuilder(
+                          millisecondsDelay: 50,
+                          index: widget.index,
                           child: const RatebarWidget()),
                       const SizedBox(
                         height: 16,
                       ),
-                      AnimatorWidget(
-                        withFadeTransition: true,
-                        delay:
-                            Duration(milliseconds: 100 + (widget.index * 100)),
-                        slideTransition: Tween<Offset>(
-                            begin: const Offset(0, -.1), end: Offset.zero),
+                      _animatorWidgetBuilder(
+                        millisecondsDelay: 100,
+                        index: widget.index,
                         child: Text(
                           widget.item.title ?? "",
                           style: typography.bodyText1
@@ -123,12 +110,9 @@ class _NewArrialsItemWidgetWebState extends State<_NewArrialsItemWidgetWeb> {
                       const SizedBox(
                         height: 16,
                       ),
-                      AnimatorWidget(
-                        withFadeTransition: true,
-                        delay:
-                            Duration(milliseconds: 150 + (widget.index * 100)),
-                        slideTransition: Tween<Offset>(
-                            begin: const Offset(0, -.1), end: Offset.zero),
+                      _animatorWidgetBuilder(
+                        millisecondsDelay: 150,
+                        index: widget.index,
                         child: Text(
                           "\$${widget.item.price}",
                           style: typography.h4Title
@@ -142,13 +126,13 @@ class _NewArrialsItemWidgetWebState extends State<_NewArrialsItemWidgetWeb> {
             ),
           ),
           AnimatedPadding(
-            duration: const Duration(milliseconds: 100),
+            duration: _animationPaddingDuration,
             padding: EdgeInsets.only(top: _isHover ? 80 : 110, right: 80),
             curve: Curves.easeIn,
-            child: AnimatorWidget(
-              withFadeTransition: true,
-              delay: Duration(milliseconds: (widget.index * 100)),
-              rotateTrasition: Tween<double>(begin: .06, end: 0),
+            child: _animatorWidgetBuilder(
+              millisecondsDelay: 0,
+              index: widget.index,
+              rotateTrasition: true,
               child: Transform.scale(
                 scale: 1.8,
                 child: Transform.rotate(
@@ -159,5 +143,11 @@ class _NewArrialsItemWidgetWebState extends State<_NewArrialsItemWidgetWeb> {
         ]),
       ),
     );
+  }
+
+  void _onHover(value) {
+    setState(() {
+      _isHover = value;
+    });
   }
 }

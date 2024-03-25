@@ -23,14 +23,7 @@ class _FilterItemsButtonWidgetWeb extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        onTap();
-      },
-      onHover: (value) {
-        // setState(() {
-        //   _isHover = value;
-        // });
-      },
+      onTap: onTap,
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 150),
         height: 40,

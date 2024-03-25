@@ -22,40 +22,30 @@ class _CategoryItemWidgetPhone extends StatefulWidget {
 }
 
 class _CategoryItemWidgetPhoneState extends State<_CategoryItemWidgetPhone> {
+  EdgeInsets padding = const EdgeInsets.only(left: 25, right: 25, top: 40);
   bool _isHover = false;
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: 1.w(context),
       child: InkWell(
         onTap: () {},
-        hoverColor: Colors.transparent,
-        onHover: (value) {
-          setState(() {
-            _isHover = value;
-          });
-        },
+        hoverColor: _inkWellHoverColor,
+        onHover: _onHover,
         child: Stack(
           children: [
-            AnimatorWidget(
-              slideTransition:
-                  Tween<Offset>(begin: const Offset(0, .2), end: Offset.zero),
-              withFadeTransition: true,
+            _animatorWidgetBuilder(
               child: Container(
                 height: 400,
                 width: 1.w(context),
-                decoration: BoxDecoration(
-                    color: colorPalette.gray6,
-                    borderRadius: BorderRadius.circular(20)),
+                decoration: _backgroundDecoration,
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 25, right: 25, top: 40),
+                  padding: padding,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      AnimatorWidget(
-                        slideTransition: Tween<Offset>(
-                            begin: const Offset(0, .2), end: Offset.zero),
-                        withFadeTransition: true,
+                      _animatorWidgetBuilder(
                         child: Text(
                           widget.title,
                           maxLines: 2,
@@ -65,14 +55,9 @@ class _CategoryItemWidgetPhoneState extends State<_CategoryItemWidgetPhone> {
                           textAlign: TextAlign.center,
                         ),
                       ),
-                      const SizedBox(
-                        height: 16,
-                      ),
-                      AnimatorWidget(
-                        slideTransition: Tween<Offset>(
-                            begin: const Offset(0, .2), end: Offset.zero),
-                        delay: const Duration(milliseconds: 100),
-                        withFadeTransition: true,
+                      _spacer(),
+                      _animatorWidgetBuilder(
+                        millisecondsDelay: 100,
                         child: Text(
                           "${widget.productsCount} ${context.locale.products}",
                           style: typography.bodyText1.copyWith(
@@ -83,11 +68,8 @@ class _CategoryItemWidgetPhoneState extends State<_CategoryItemWidgetPhone> {
                       const SizedBox(
                         height: 16,
                       ),
-                      AnimatorWidget(
-                        slideTransition: Tween<Offset>(
-                            begin: const Offset(0, .2), end: Offset.zero),
-                        delay: const Duration(milliseconds: 200),
-                        withFadeTransition: true,
+                      _animatorWidgetBuilder(
+                        millisecondsDelay: 200,
                         child: Text(
                           context.locale.seeCollection,
                           style: typography.bodyText1.copyWith(
@@ -104,19 +86,13 @@ class _CategoryItemWidgetPhoneState extends State<_CategoryItemWidgetPhone> {
             Positioned(
               top: 250,
               left: 25,
-              child: AnimatorWidget(
-                  slideTransition: Tween<Offset>(
-                      begin: const Offset(.2, 0), end: Offset.zero),
-                  delay: const Duration(milliseconds: 300),
-                  withFadeTransition: true,
+              child: _animatorWidgetBuilder(
+                  millisecondsDelay: 300,
                   child: SvgPicture.asset(widget.shapePath)),
             ),
-            AnimatorWidget(
-              slideTransition:
-                  Tween<Offset>(begin: const Offset(0, .2), end: Offset.zero),
-              scaleTransition: Tween<double>(begin: .9, end: 1),
-              delay: const Duration(milliseconds: 400),
-              withFadeTransition: true,
+            _animatorWidgetBuilder(
+              millisecondsDelay: 400,
+              withScaleTransition: true,
               child: AnimatedScale(
                 duration: const Duration(milliseconds: 200),
                 scale: _isHover ? 1.1 : 1,
@@ -130,5 +106,11 @@ class _CategoryItemWidgetPhoneState extends State<_CategoryItemWidgetPhone> {
         ),
       ),
     );
+  }
+
+  void _onHover(value) {
+    setState(() {
+      _isHover = value;
+    });
   }
 }

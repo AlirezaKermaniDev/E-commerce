@@ -26,29 +26,25 @@ class _FeaturedProductsItemWidgetWebState
     return Padding(
       padding: const EdgeInsets.only(right: 8),
       child: InkWell(
-        hoverColor: Colors.transparent,
+        hoverColor: _inkWellhHoverColor,
         onTap: () {},
-        onHover: (value) {
-          setState(() {
-            _isHover = value;
-          });
-        },
+        onHover: _onHover,
         child: SizedBox(
-          width: (1.w(context) - (getIt<SizeConfig>().padding * 2) - 32) / 4,
+          width: _itemWidth(context),
           child: Column(
             children: [
               Expanded(
                   child: Stack(
                 children: [
                   Center(
-                    child: AnimatorWidget(
-                      withFadeTransition: true,
-                      scaleTransition: Tween<double>(begin: .9, end: 1),
-                      delay: Duration(milliseconds: ((widget.index % 4) * 200)),
+                    child: _animatorWidgetBuilder(
+                      index: widget.index,
+                      basemillisecondsDelay: 200,
+                      withScale: true,
                       child: AnimatedContainer(
                         duration: const Duration(milliseconds: 100),
-                        height: _isHover ? 150 : 116,
-                        width: _isHover ? 150 : 116,
+                        height: _containerSize(_isHover, context),
+                        width: _containerSize(_isHover, context),
                         decoration: BoxDecoration(
                             gradient:
                                 widget.gradients[widget.item.gradientType! - 1],
@@ -57,11 +53,8 @@ class _FeaturedProductsItemWidgetWebState
                     ),
                   ),
                   Center(
-                      child: AnimatorWidget(
-                    withFadeTransition: true,
-                    slideTransition: Tween<Offset>(
-                        begin: const Offset(0, .1), end: Offset.zero),
-                    delay: Duration(milliseconds: ((widget.index % 4) * 100)),
+                      child: _animatorWidgetBuilder(
+                    index: widget.index,
                     child: Padding(
                       padding: const EdgeInsets.only(top: 32),
                       child: SizedBox(
@@ -77,21 +70,15 @@ class _FeaturedProductsItemWidgetWebState
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    AnimatorWidget(
-                        withFadeTransition: true,
-                        slideTransition: Tween<Offset>(
-                            begin: const Offset(0, .1), end: Offset.zero),
-                        delay:
-                            Duration(milliseconds: ((widget.index % 4) * 100)),
-                        child: const RatebarWidget()),
+                    _animatorWidgetBuilder(
+                      index: widget.index,
+                      child: const RatebarWidget(),
+                    ),
                     const SizedBox(
                       height: 16,
                     ),
-                    AnimatorWidget(
-                      withFadeTransition: true,
-                      slideTransition: Tween<Offset>(
-                          begin: const Offset(0, .1), end: Offset.zero),
-                      delay: Duration(milliseconds: ((widget.index % 4) * 100)),
+                    _animatorWidgetBuilder(
+                      index: widget.index,
                       child: Text(
                         widget.item.title ?? "",
                         style: typography.bodyText2,
@@ -100,11 +87,8 @@ class _FeaturedProductsItemWidgetWebState
                     const SizedBox(
                       height: 4,
                     ),
-                    AnimatorWidget(
-                      withFadeTransition: true,
-                      slideTransition: Tween<Offset>(
-                          begin: const Offset(0, .1), end: Offset.zero),
-                      delay: Duration(milliseconds: ((widget.index % 4) * 100)),
+                    _animatorWidgetBuilder(
+                      index: widget.index,
                       child: Text(
                         "\$${widget.item.price}",
                         style: typography.h4Title,
@@ -119,4 +103,13 @@ class _FeaturedProductsItemWidgetWebState
       ),
     );
   }
+
+  void _onHover(value) {
+    setState(() {
+      _isHover = value;
+    });
+  }
+
+  double _itemWidth(BuildContext context) =>
+      (1.w(context) - (getIt<SizeConfig>().padding * 2) - 32) / 4;
 }

@@ -11,10 +11,7 @@ class _AboutUsFeaturesWidgetWeb extends StatelessWidget {
           const SizedBox(
             height: 120,
           ),
-          AnimatorWidget(
-            withFadeTransition: true,
-            slideTransition:
-                Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
+          _animatorWidgetBuilder(
             child: Text(
               context.locale.makingHighQualityProducts,
               style: typography.h2Title,
@@ -23,11 +20,8 @@ class _AboutUsFeaturesWidgetWeb extends StatelessWidget {
           const SizedBox(
             height: 32,
           ),
-          AnimatorWidget(
-            withFadeTransition: true,
-            slideTransition:
-                Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
-            delay: const Duration(milliseconds: 250),
+          _animatorWidgetBuilder(
+            millisecondsDelay: 250,
             child: SizedBox(
               width: .3.w(context),
               child: Text(
@@ -75,3 +69,4 @@ class _AboutUsFeaturesWidgetWeb extends StatelessWidget {
     );
   }
 }
+

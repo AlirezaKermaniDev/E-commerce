@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 part "./layouts/phone.dart";
 part "./layouts/tablet.dart";
 part "./layouts/web.dart";
+part 'utils.dart';
 
 class LandingPageWidget extends StatelessWidget {
   const LandingPageWidget({super.key});
@@ -18,7 +19,7 @@ class LandingPageWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return const ResponsiveBuilder(
       web: _LandingPageWidgetWeb(),
-      tablet: _LandingPageWidgetTablet(),
+      tablet: _LandingPageWidgetWeb(),
       phone: _LandingPageWidgetPhone(),
     );
   }

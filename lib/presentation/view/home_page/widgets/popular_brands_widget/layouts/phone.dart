@@ -62,21 +62,15 @@ class _PopularBrandsWidgetPhone extends StatelessWidget {
                               const PopularBrandsItemWidget(
                                 iconPath: CustomIcons.nike,
                               ),
-                              const SizedBox(
-                                width: 20,
-                              ),
+                              _widthSpacer,
                               const PopularBrandsItemWidget(
                                 iconPath: CustomIcons.newBalance,
                               ),
-                              const SizedBox(
-                                width: 20,
-                              ),
+                              _widthSpacer,
                               const PopularBrandsItemWidget(
                                 iconPath: CustomIcons.adidas,
                               ),
-                              const SizedBox(
-                                width: 20,
-                              ),
+                              _widthSpacer,
                               const PopularBrandsItemWidget(
                                 iconPath: CustomIcons.puma,
                               ),

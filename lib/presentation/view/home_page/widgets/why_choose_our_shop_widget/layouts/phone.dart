@@ -16,10 +16,8 @@ class _WhyChooseOurShopWidgetPhone extends StatelessWidget {
             const SizedBox(
               height: 80,
             ),
-            AnimatorWidget(
-                slideTransition: Tween<Offset>(
-                    begin: const Offset(-.1, 0), end: Offset.zero),
-                withFadeTransition: true,
+            _animatorWidgetBuilder(
+                slideBeginOffset: const Offset(-.1, 0),
                 child: SizedBox(
                     height: .5.w(context),
                     child: Image.asset(AssetHandler.banner1))),
@@ -29,10 +27,7 @@ class _WhyChooseOurShopWidgetPhone extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                AnimatorWidget(
-                  slideTransition: Tween<Offset>(
-                      begin: const Offset(0, .2), end: Offset.zero),
-                  withFadeTransition: true,
+                _animatorWidgetBuilder(
                   child: Text(
                     context.locale.whyChooseOurShop,
                     style: typography.h4Title.copyWith(
@@ -44,10 +39,7 @@ class _WhyChooseOurShopWidgetPhone extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                AnimatorWidget(
-                  slideTransition: Tween<Offset>(
-                      begin: const Offset(0, .2), end: Offset.zero),
-                  withFadeTransition: true,
+                _animatorWidgetBuilder(
                   child: SizedBox(
                     width: .9.w(context),
                     child: Text(
@@ -63,32 +55,27 @@ class _WhyChooseOurShopWidgetPhone extends StatelessWidget {
                   height: 40,
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        shoupBenefitsItemBuilder(
+                        _shoupBenefitsItemBuilder(
                             FontAwesome.car, context.locale.fastDelivery),
                         const SizedBox(
                           height: 25,
                         ),
-                        shoupBenefitsItemBuilder(FontAwesome.headphones,
-                            context.locale.greatSupport),
-                      ],
-                    ),
-                  const  SizedBox(width: 25,),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        shoupBenefitsItemBuilder(
+                        _shoupBenefitsItemBuilder(
+                            FontAwesome.headphones, context.locale.greatSupport),
+                        const SizedBox(
+                          height: 25,
+                        ),
+                        _shoupBenefitsItemBuilder(
                             FontAwesome.wallet, context.locale.coolPrices),
                         const SizedBox(
                           height: 25,
                         ),
-                        shoupBenefitsItemBuilder(
+                        _shoupBenefitsItemBuilder(
                             FontAwesome.thumbs_up, context.locale.highQuality),
                       ],
                     ),
@@ -101,31 +88,6 @@ class _WhyChooseOurShopWidgetPhone extends StatelessWidget {
             ),
           ],
         ),
-      ),
-    );
-  }
-
-  Widget shoupBenefitsItemBuilder(IconData icon, String title) {
-    return AnimatorWidget(
-      slideTransition:
-          Tween<Offset>(begin: const Offset(0, .2), end: Offset.zero),
-      withFadeTransition: true,
-      child: Row(
-        children: [
-          Icon(
-            icon,
-            color: colorPalette.accent1,
-          ),
-          const SizedBox(
-            width: 24,
-          ),
-          Text(
-            title,
-            style: typography.bodyText2.copyWith(
-              color: colorPalette.darkPrimary,
-            ),
-          ),
-        ],
       ),
     );
   }

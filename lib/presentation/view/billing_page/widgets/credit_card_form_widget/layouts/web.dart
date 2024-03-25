@@ -7,11 +7,8 @@ class _CreditCardFormWidgetWeb extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AnimatorWidget(
-      withFadeTransition: true,
-      delay: const Duration(milliseconds: 100),
-      slideTransition:
-          Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
+    return _animatorWidgetBuilder(
+      millisecondsDelay: 100,
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5),
@@ -24,11 +21,8 @@ class _CreditCardFormWidgetWeb extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 25),
           child: Column(
             children: [
-              AnimatorWidget(
-                withFadeTransition: true,
-                delay: const Duration(milliseconds: 200),
-                slideTransition:
-                    Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
+              _animatorWidgetBuilder(
+                millisecondsDelay: 200,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -59,11 +53,8 @@ class _CreditCardFormWidgetWeb extends StatelessWidget {
               const SizedBox(
                 height: 25,
               ),
-              AnimatorWidget(
-                withFadeTransition: true,
-                delay: const Duration(milliseconds: 300),
-                slideTransition:
-                    Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
+              _animatorWidgetBuilder(
+                millisecondsDelay: 300,
                 child: Divider(
                   color: colorPalette.gray5,
                   thickness: 1.6,
@@ -73,21 +64,15 @@ class _CreditCardFormWidgetWeb extends StatelessWidget {
               const SizedBox(
                 height: 25,
               ),
-              AnimatorWidget(
-                  withFadeTransition: true,
-                  delay: const Duration(milliseconds: 400),
-                  slideTransition: Tween<Offset>(
-                      begin: const Offset(0, .1), end: Offset.zero),
+              _animatorWidgetBuilder(
+                  millisecondsDelay: 400,
                   child: TextFieldWidget(
                       lable: context.locale.cardNumber, onChange: (_) {})),
               const SizedBox(
                 height: 25,
               ),
-              AnimatorWidget(
-                  withFadeTransition: true,
-                  delay: const Duration(milliseconds: 500),
-                  slideTransition: Tween<Offset>(
-                      begin: const Offset(0, .1), end: Offset.zero),
+              _animatorWidgetBuilder(
+                  millisecondsDelay: 500,
                   child: TextFieldWidget(
                       lable: context.locale.cardHolderName, onChange: (_) {})),
               const SizedBox(
@@ -96,11 +81,8 @@ class _CreditCardFormWidgetWeb extends StatelessWidget {
               Row(
                 children: [
                   Expanded(
-                    child: AnimatorWidget(
-                      withFadeTransition: true,
-                      delay: const Duration(milliseconds: 600),
-                      slideTransition: Tween<Offset>(
-                          begin: const Offset(0, .1), end: Offset.zero),
+                    child: _animatorWidgetBuilder(
+                      millisecondsDelay: 600,
                       child: TextFieldWidget(
                           lable: context.locale.expirationDate,
                           onChange: (_) {}),
@@ -110,14 +92,13 @@ class _CreditCardFormWidgetWeb extends StatelessWidget {
                     width: 16,
                   ),
                   Expanded(
-                    child: AnimatorWidget(
-                        withFadeTransition: true,
-                        delay: const Duration(milliseconds: 700),
-                        slideTransition: Tween<Offset>(
-                            begin: const Offset(0, .1), end: Offset.zero),
-                        child: TextFieldWidget(
-                            lable: context.locale.securityCode,
-                            onChange: (_) {})),
+                    child: _animatorWidgetBuilder(
+                      millisecondsDelay: 700,
+                      child: TextFieldWidget(
+                        lable: context.locale.securityCode,
+                        onChange: (_) {},
+                      ),
+                    ),
                   ),
                 ],
               ),

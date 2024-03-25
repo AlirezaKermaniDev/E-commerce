@@ -30,10 +30,8 @@ class _NewArrivalsWidgetPhone extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      AnimatorWidget(
-                        withFadeTransition: true,
-                        slideTransition: Tween<Offset>(
-                            begin: const Offset(-.1, 0), end: Offset.zero),
+                      _animatorWidgetBuilder(
+                        slideOffsetDx: -.1,
                         child: Text(
                           context.locale.newArrivals,
                           style: typography.h4Title
@@ -44,10 +42,8 @@ class _NewArrivalsWidgetPhone extends StatelessWidget {
                       const SizedBox(
                         height: 8,
                       ),
-                      AnimatorWidget(
-                        withFadeTransition: true,
-                        slideTransition: Tween<Offset>(
-                            begin: const Offset(-.1, 0), end: Offset.zero),
+                      _animatorWidgetBuilder(
+                        slideOffsetDx: -.1,
                         child: Text(
                           context.locale.enjoyTheNewProductsFromOurStore,
                           style: typography.bodyText2
@@ -63,7 +59,7 @@ class _NewArrivalsWidgetPhone extends StatelessWidget {
                 height: 35,
               ),
               SizedBox(
-                height: 580,
+                height: 620,
                 width: 1.w(context),
                 child: ScrollbarWidget(
                   scrollController: scrollController,
@@ -77,14 +73,8 @@ class _NewArrivalsWidgetPhone extends StatelessWidget {
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) {
                         final item = featuredProductsEntities[index];
-                        List<LinearGradient> gradients = [
-                          colorPalette.gradient4,
-                          colorPalette.gradient3,
-                          colorPalette.gradient1,
-                          colorPalette.gradient2,
-                        ];
                         return NewArrialsItemWidget(
-                          gradients: gradients,
+                          gradients: _gradients,
                           item: item,
                           index: index,
                         );

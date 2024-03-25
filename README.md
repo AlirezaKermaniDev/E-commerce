@@ -99,7 +99,7 @@ The UI kit project structure follows a clean architecture pattern. Although it c
 
 - #### Widget Structure
 
-  Each widget folder contains a widget file and a layer folder with `phone`, `tablet`, and `web` files, each containing responsive code for the respective device.
+  Each widget folder contains a widget file and a layer folder with `phone`, `tablet`, and `web` files, each containing responsive code for the respective device. And a `utils` file that holds some global variables and functions that in use by layer files.
 
        ├── home_page
        │   ├── widgets
@@ -108,6 +108,7 @@ The UI kit project structure follows a clean architecture pattern. Although it c
        │   │   │   │   ├── phone.dart
        │   │   │   │   ├── tablet.dart
        │   │   │   │   └── web.dart
+       │   │   │   ├── utils.dart
        │   │   │   └── accesories_widget.dart
        │   │   ├── ...
        │   └── home_page.dart

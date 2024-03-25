@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/core/extensions/locale_extensions.dart';
 import 'package:ecommerce_app/injection/injection.dart';
 import 'package:flutter/material.dart';
 import 'package:mouse_parallax/mouse_parallax.dart';
@@ -59,7 +60,7 @@ class DiscountToolTipContentWidget extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              "This week’s discount",
+                              context.locale.thisWeekDiscount,
                               style: typography.bodyText4.copyWith(
                                 color: colorPalette.gray2,
                               ),
@@ -71,7 +72,7 @@ class DiscountToolTipContentWidget extends StatelessWidget {
                     Padding(
                         padding: const EdgeInsets.only(right: 12),
                         child: Text(
-                          "SHARE\nA GIFT",
+                          context.locale.shareGift,
                           style: typography.bodyText2.copyWith(
                             color: colorPalette.accent1,
                             fontSize: 12,

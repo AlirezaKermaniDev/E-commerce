@@ -9,6 +9,7 @@ import 'package:go_router/go_router.dart';
 part "./layouts/phone.dart";
 part "./layouts/tablet.dart";
 part "./layouts/web.dart";
+part "utils.dart";
 
 class ProductItemWidget extends StatelessWidget {
   const ProductItemWidget({

@@ -74,53 +74,13 @@ class _OrderSummeryWidgetTablet extends StatelessWidget {
                         : "\$${(state.totalProductsPrice ?? 0) + 10}",
                     boldValue: true,
                   ),
-                  if (withContinueButtons) continueButtonsWidget(context),
+                  if (withContinueButtons) _continueButtonsWidget(context),
                 ],
               ),
             ),
           );
         },
       ),
-    );
-  }
-
-  Column continueButtonsWidget(BuildContext context) {
-    return Column(
-      children: [
-        const SizedBox(
-          height: 60,
-        ),
-        CartActionButtonWidget(
-          onTap: () {
-            context.push(AddressPage.path);
-          },
-          title: context.locale.proceedToCheckout,
-          backgroundColor: colorPalette.darkPrimary,
-        ),
-        const SizedBox(
-          height: 16,
-        ),
-        CartActionButtonWidget(
-          onTap: () {
-            context.push(AddressPage.path);
-          },
-          title: context.locale.memberCheckout,
-          backgroundColor: colorPalette.primary,
-        ),
-        const SizedBox(
-          height: 50,
-        ),
-        Row(
-          children: [
-            Text(context.locale.acceptedPaymentMethods,
-                style: typography.bodyText2),
-          ],
-        ),
-        const SizedBox(
-          height: 16,
-        ),
-        const AvailablePaymentMethodsWidget(),
-      ],
     );
   }
 }

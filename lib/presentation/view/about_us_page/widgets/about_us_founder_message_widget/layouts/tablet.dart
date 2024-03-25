@@ -10,11 +10,7 @@ class _AboutUsFounderMessageWidgetTablet extends StatelessWidget {
       width: 1.w(context),
       color: colorPalette.gray6,
       child: Padding(
-        padding: EdgeInsets.only(
-            left: context.isLtrLocale ? getIt<SizeConfig>().padding : 0,
-            right: context.isLtrLocale ? 0 : getIt<SizeConfig>().padding,
-            top: 130,
-            bottom: 100),
+        padding: _padding(context),
         child: Row(
           children: [
             Expanded(
@@ -23,10 +19,7 @@ class _AboutUsFounderMessageWidgetTablet extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    AnimatorWidget(
-                      withFadeTransition: true,
-                      slideTransition: Tween<Offset>(
-                          begin: const Offset(0, .2), end: Offset.zero),
+                    _animatorWidgetBuilder(
                       child: Text(
                         context.locale.founderMessage.toUpperCase(),
                         style: typography.bodyText2.copyWith(
@@ -34,22 +27,16 @@ class _AboutUsFounderMessageWidgetTablet extends StatelessWidget {
                             fontWeight: FontWeight.bold),
                       ),
                     ),
-                    AnimatorWidget(
-                      withFadeTransition: true,
-                      slideTransition: Tween<Offset>(
-                          begin: const Offset(0, .2), end: Offset.zero),
-                      delay: const Duration(milliseconds: 250),
+                    _animatorWidgetBuilder(
+                      millisecondsDelay: 250,
                       child: Text(
                         context.locale
                             .iStronglyBelieveThatThisUiKitWillHelpMyBusinessGrow,
                         style: typography.h4Title,
                       ),
                     ),
-                    AnimatorWidget(
-                      withFadeTransition: true,
-                      slideTransition: Tween<Offset>(
-                          begin: const Offset(0, .2), end: Offset.zero),
-                      delay: const Duration(milliseconds: 500),
+                    _animatorWidgetBuilder(
+                      millisecondsDelay: 500,
                       child: Text(
                         context.locale
                             .forAthletesHighAltitudeProducesTwoContradictoryEffectsOnPerformance,
@@ -57,22 +44,17 @@ class _AboutUsFounderMessageWidgetTablet extends StatelessWidget {
                             .copyWith(color: colorPalette.gray2),
                       ),
                     ),
-                    AnimatorWidget(
-                      withFadeTransition: true,
-                      slideTransition: Tween<Offset>(
-                          begin: const Offset(0, .5), end: Offset.zero),
-                      delay: const Duration(milliseconds: 750),
+                    _animatorWidgetBuilder(
+                      millisecondsDelay: 750,
+                      slideOffsetDy: .5,
                       child: Text(
                         context.locale.forExplosiveEventsSprintsUTo400Metres,
                         style: typography.bodyText1
                             .copyWith(color: colorPalette.gray2),
                       ),
                     ),
-                    AnimatorWidget(
-                      withFadeTransition: true,
-                      slideTransition: Tween<Offset>(
-                          begin: const Offset(0, .2), end: Offset.zero),
-                      delay: const Duration(milliseconds: 1000),
+                    _animatorWidgetBuilder(
+                      millisecondsDelay: 1000,
                       child: Text(
                         context.locale
                             .forAthletesHighAltitudeProducesTwoContradictoryEffectsOnPerformance,
@@ -85,13 +67,8 @@ class _AboutUsFounderMessageWidgetTablet extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(bottom: 30),
-                      child: AnimatorWidget(
-                        withFadeTransition: true,
-                        delay: const Duration(milliseconds: 1250),
-                        slideTransition: Tween<Offset>(
-                          begin: const Offset(0, .2),
-                          end: Offset.zero,
-                        ),
+                      child: _animatorWidgetBuilder(
+                        millisecondsDelay: 1250,
                         child: Image.asset(
                           AssetHandler.signature,
                           height: 100,
@@ -102,19 +79,12 @@ class _AboutUsFounderMessageWidgetTablet extends StatelessWidget {
                 )),
             Expanded(
                 flex: 4,
-                child: AnimatorWidget(
-                  withFadeTransition: true,
-                  delay: const Duration(milliseconds: 250),
-                  slideTransition: Tween<Offset>(
-                    begin: const Offset(.2, 0),
-                    end: Offset.zero,
-                  ),
+                child: _animatorWidgetBuilder(
+                  millisecondsDelay: 250,
                   child: Stack(
                     children: [
                       Align(
-                          alignment: context.isLtrLocale
-                              ? Alignment.bottomRight
-                              : Alignment.bottomLeft,
+                          alignment: _shapeAlignment(context),
                           child: Padding(
                             padding: EdgeInsets.symmetric(
                                 horizontal: getIt<SizeConfig>().padding - 50,
@@ -122,15 +92,9 @@ class _AboutUsFounderMessageWidgetTablet extends StatelessWidget {
                             child: SvgPicture.asset(AssetHandler.shape9),
                           )),
                       Align(
-                        alignment: context.isLtrLocale
-                            ? Alignment.centerRight
-                            : Alignment.centerLeft,
+                        alignment: _founderImageAlignment(context),
                         child: Padding(
-                          padding: EdgeInsets.only(
-                            bottom: 100,
-                            left: getIt<SizeConfig>().padding,
-                            right: getIt<SizeConfig>().padding,
-                          ),
+                          padding: _founderImagePadding,
                           child: SizedBox(
                             height: double.infinity,
                             child: ClipRRect(

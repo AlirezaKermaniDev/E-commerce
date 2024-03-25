@@ -11,16 +11,18 @@ class _HomePageTitleWidgetTablet extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          // Space form top
           const SizedBox(
             height: 50,
           ),
+          // Home page landing Big title
           SizedBox(
             width: 0.50.w(context),
             child: AnimatorTextWidget(
               context.locale.getYourAwesomeSneakers,
               style: typography.h1Title,
-              initialDelay: const Duration(milliseconds: 1500),
-              spaceDelay: Duration.zero,
+              initialDelay: _animatorTextInitialDelay,
+              spaceDelay: _animatorTextSpaceDelay,
               incomingEffect: WidgetTransitionEffects.incomingScaleDown(
                   blur: const Offset(0, 20),
                   duration: const Duration(milliseconds: 170)),
@@ -30,13 +32,14 @@ class _HomePageTitleWidgetTablet extends StatelessWidget {
           const SizedBox(
             height: 45,
           ),
+          // Home page landing description
           SizedBox(
             width: 0.4.w(context),
             child: AnimatorTextWidget(
               context.locale.weOfferTheBestDealsInOurShop,
               style: typography.bodyText3.copyWith(color: colorPalette.gray1),
-              spaceDelay: Duration.zero,
-              initialDelay: const Duration(milliseconds: 1500),
+              spaceDelay: _animatorTextSpaceDelay,
+              initialDelay: _animatorTextInitialDelay,
               characterDelay: const Duration(milliseconds: 14),
               incomingEffect:
                   WidgetTransitionEffects.incomingOffsetThenScaleAndStep(
@@ -47,38 +50,12 @@ class _HomePageTitleWidgetTablet extends StatelessWidget {
           const SizedBox(
             height: 50,
           ),
-          Row(
-            children: [
-              WidgetAnimator(
-                incomingEffect:
-                    WidgetTransitionEffects.incomingSlideInFromBottom(
-                  delay: const Duration(milliseconds: 2700),
-                  blur: const Offset(20, 0),
-                ),
-                child: ButtonWidget(
-                  title: context.locale.shopNow,
-                  color: colorPalette.accent4,
-                ),
-              ),
-              const SizedBox(
-                width: 64,
-              ),
-              WidgetAnimator(
-                incomingEffect:
-                    WidgetTransitionEffects.incomingSlideInFromRight(
-                  delay: const Duration(milliseconds: 2900),
-                  blur: const Offset(20, 0),
-                ),
-                child: Icon(
-                  FontAwesome.heart,
-                  color: colorPalette.accent4,
-                ),
-              )
-            ],
-          ),
+          // Home page landing actions
+          const HomeTitleActionsWidget(),
           const SizedBox(
             height: 70,
           ),
+          // Home page landing Offers
           const OffersWidget(),
         ],
       ),

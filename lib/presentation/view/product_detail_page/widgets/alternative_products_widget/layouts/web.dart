@@ -8,7 +8,7 @@ class _AlternativeProductsWidgetWeb extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<ProductEntity> products = _getAlternatives();
+    final List<ProductEntity> products = _getAlternatives(item);
     return ConstraintsWidget(
       child: Column(
         children: [
@@ -44,12 +44,7 @@ class _AlternativeProductsWidgetWeb extends StatelessWidget {
                   itemCount: products.length,
                   controller: scrollController,
                   scrollDirection: Axis.horizontal,
-                  padding: EdgeInsets.only(
-                    left: context.isLtrLocale ? getIt<SizeConfig>().padding : 0,
-                    right:
-                        !context.isLtrLocale ? getIt<SizeConfig>().padding : 0,
-                    bottom: 80,
-                  ),
+                  padding: _listPadding(context),
                   itemBuilder: (context, index) {
                     final item = products[index];
                     return AlternativeProductItemWidget(
@@ -67,10 +62,5 @@ class _AlternativeProductsWidgetWeb extends StatelessWidget {
     );
   }
 
-  List<ProductEntity> _getAlternatives() {
-    return productListData
-        .where((e) =>
-            e.id != item.id && e.categories?.last == item.categories?.last)
-        .toList();
-  }
+
 }

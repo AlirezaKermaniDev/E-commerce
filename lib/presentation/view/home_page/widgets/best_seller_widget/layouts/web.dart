@@ -10,29 +10,21 @@ class _BestSellerWidgetWeb extends StatelessWidget {
     return ConstraintsWidget(
       child: Column(
         children: [
-          const SizedBox(
-            height: 100,
-          ),
+          spacerWidget(false),
           Padding(
             padding:
                 EdgeInsets.symmetric(horizontal: getIt<SizeConfig>().padding),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                AnimatorWidget(
-                  withFadeTransition: true,
-                  slideTransition: Tween<Offset>(
-                      begin: const Offset(-.1, 0), end: Offset.zero),
+                _animatorWidgetBuilder(
                   child: Text(
                     context.locale.bestSellerThisWeek,
                     style: typography.h2Title
                         .copyWith(color: colorPalette.darkPrimary),
                   ),
                 ),
-                AnimatorWidget(
-                  slideTransition: Tween<Offset>(
-                      begin: const Offset(.1, 0), end: Offset.zero),
-                  withFadeTransition: true,
+                _animatorWidgetBuilder(
                   child: ArrowTitleButtonWidget(
                     title: context.locale.viewAll,
                     onTap: () {},
@@ -48,66 +40,45 @@ class _BestSellerWidgetWeb extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  AnimatorWidget(
-                    withFadeTransition: true,
-                    delay: const Duration(milliseconds: 200),
-                    slideTransition: Tween<Offset>(
-                        begin: Offset(context.isLtrLocale ? -.9 : .9, 0),
-                        end: Offset.zero),
+                  _animatorWidgetBuilder(
+                    millisecondDelay: 200,
+                    slideBeginOffset: _sliderBeginOffset(context.isLtrLocale),
                     child: Container(
                       height: 460,
                       width: .3.w(context),
-                      decoration: BoxDecoration(
-                        gradient: colorPalette.gradient4,
-                        borderRadius: 1.w(context) == 2000
-                            ? BorderRadius.circular(30)
-                            : BorderRadius.only(
-                                topRight: context.isLtrLocale
-                                    ? const Radius.circular(30)
-                                    : Radius.zero,
-                                bottomRight: context.isLtrLocale
-                                    ? const Radius.circular(30)
-                                    : Radius.zero,
-                                topLeft: context.isLtrLocale
-                                    ? Radius.zero
-                                    : const Radius.circular(30),
-                                bottomLeft: context.isLtrLocale
-                                    ? Radius.zero
-                                    : const Radius.circular(30),
-                              ),
-                      ),
+                      decoration: _backgroundShapeBoxDecoration(context),
                     ),
                   ),
                 ],
               ),
               Padding(
                 padding: EdgeInsets.symmetric(
-                    horizontal: getIt<SizeConfig>().padding, vertical: 20),
+                  horizontal: getIt<SizeConfig>().padding,
+                  vertical: 20,
+                ),
                 child: SizedBox(
                   width: 620,
                   child: Transform.scale(
-                      scale: 1.4,
-                      child: Transform(
-                          alignment: Alignment.center,
-                          transform: Matrix4.rotationY(
-                            context.isLtrLocale ? math.pi : 0,
-                          ),
-                          child: AnimatorWidget(
-                              withFadeTransition: true,
-                              slideTransition: Tween<Offset>(
-                                begin:
-                                    Offset(context.isLtrLocale ? -.9 : .9, 0),
-                                end: Offset.zero,
-                              ),
-                              child: WidgetAnimator(
-                                  atRestEffect: WidgetRestingEffects.wave(),
-                                  child: Image.asset(AssetHandler.shoe1))))),
+                    scale: 1.4,
+                    child: Transform(
+                      alignment: Alignment.center,
+                      transform: Matrix4.rotationY(
+                        _rotationRadius(context.isLtrLocale),
+                      ),
+                      child: _animatorWidgetBuilder(
+                        slideBeginOffset:
+                            _sliderBeginOffset(context.isLtrLocale),
+                        child: WidgetAnimator(
+                          atRestEffect: WidgetRestingEffects.wave(),
+                          child: Image.asset(AssetHandler.shoe1),
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
               ),
               Align(
-                alignment: context.isLtrLocale
-                    ? Alignment.centerLeft
-                    : Alignment.centerRight,
+                alignment: _bestSellerDetailAlignment(context.isLtrLocale),
                 child: Padding(
                   padding: EdgeInsets.only(
                     right: context.isLtrLocale ? 0 : .65.w(context),
@@ -120,13 +91,10 @@ class _BestSellerWidgetWeb extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        AnimatorWidget(
-                          withFadeTransition: true,
-                          delay: const Duration(milliseconds: 300),
-                          slideTransition: Tween<Offset>(
-                              begin: const Offset(0, .1), end: Offset.zero),
+                        _animatorWidgetBuilder(
+                          millisecondDelay: 250,
                           child: Text(
-                            "Adidas Falcon Shoes for women - 2021 Edition",
+                            _title,
                             style: typography.h5Title
                                 .copyWith(color: colorPalette.darkPrimary),
                           ),
@@ -134,22 +102,16 @@ class _BestSellerWidgetWeb extends StatelessWidget {
                         const SizedBox(
                           height: 16,
                         ),
-                        AnimatorWidget(
-                            withFadeTransition: true,
-                            delay: const Duration(milliseconds: 350),
-                            slideTransition: Tween<Offset>(
-                                begin: const Offset(0, .1), end: Offset.zero),
+                        _animatorWidgetBuilder(
+                            millisecondDelay: 300,
                             child: const RatebarWidget()),
                         const SizedBox(
                           height: 16,
                         ),
-                        AnimatorWidget(
-                          withFadeTransition: true,
-                          delay: const Duration(milliseconds: 400),
-                          slideTransition: Tween<Offset>(
-                              begin: const Offset(0, .1), end: Offset.zero),
+                        _animatorWidgetBuilder(
+                          millisecondDelay: 350,
                           child: Text(
-                            "\$120.50",
+                            _price,
                             style: typography.h5Title
                                 .copyWith(color: colorPalette.darkPrimary),
                           ),
@@ -157,11 +119,8 @@ class _BestSellerWidgetWeb extends StatelessWidget {
                         const SizedBox(
                           height: 30,
                         ),
-                        AnimatorWidget(
-                          withFadeTransition: true,
-                          delay: const Duration(milliseconds: 350),
-                          slideTransition: Tween<Offset>(
-                              begin: const Offset(0, .1), end: Offset.zero),
+                        _animatorWidgetBuilder(
+                          millisecondDelay: 400,
                           child: ButtonWidget(
                             title: context.locale.shopNow,
                             color: colorPalette.accent1,
@@ -174,9 +133,7 @@ class _BestSellerWidgetWeb extends StatelessWidget {
               )
             ],
           ),
-          const SizedBox(
-            height: 100,
-          ),
+          spacerWidget(false),
         ],
       ),
     );

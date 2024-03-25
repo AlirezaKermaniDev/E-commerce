@@ -28,11 +28,7 @@ class _AddToCartButtonWidgetState extends State<AddToCartButtonWidget> {
       slideTransition:
           Tween<Offset>(begin: const Offset(0, .3), end: Offset.zero),
       child: InkWell(
-        onTap: () {
-          context
-              .read<ProductDetailBloc>()
-              .add(ProductDetailEvent.addToCart(product: widget.item));
-        },
+        onTap: () => _onTap(context),
         hoverColor: Colors.transparent,
         splashColor: Colors.transparent,
         child: Center(
@@ -50,6 +46,12 @@ class _AddToCartButtonWidgetState extends State<AddToCartButtonWidget> {
         ),
       ),
     );
+  }
+
+  void _onTap(BuildContext context) {
+    context
+        .read<ProductDetailBloc>()
+        .add(ProductDetailEvent.addToCart(product: widget.item));
   }
 
   TextStyle _buttonTextStyle(BuildContext context) {

@@ -70,7 +70,8 @@ class _ChooseCategoriesWidgetPhone extends StatelessWidget {
                         productsCount: 120,
                         shapePath: AssetHandler.shape6,
                         imageWidget: Padding(
-                          padding: const EdgeInsets.only(left: 30,bottom: 30),
+                          padding: EdgeInsets.only(
+                              left: 30, bottom: 30, top: .3.w(context)),
                           child: Transform.rotate(
                               angle: -.5,
                               child: Transform.scale(
@@ -104,7 +105,7 @@ class _ChooseCategoriesWidgetPhone extends StatelessWidget {
                         productsCount: 68,
                         shapePath: AssetHandler.shape7,
                         imageWidget: Padding(
-                          padding: const EdgeInsets.only(top: 100, left: 100),
+                          padding:  EdgeInsets.only(top: .3.w(context), left: 100, ),
                           child: Transform.scale(
                               scale: 1.2,
                               child: Image.asset(AssetHandler.volley)),

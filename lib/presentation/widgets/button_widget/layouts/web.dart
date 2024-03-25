@@ -47,21 +47,23 @@ class _ButtonWidgetWebState extends State<_ButtonWidgetWeb> {
   }
 
   List<BoxShadow> _boxShadow() {
-    return _isHover
-        ? [
-            BoxShadow(
-                color: widget.shadowColor ?? widget.color,
-                blurRadius: 8,
-                spreadRadius: -8,
-                offset: const Offset(0, 8))
-          ]
-        : [
-            BoxShadow(
-                color: widget.shadowColor ?? widget.color,
-                blurRadius: 19,
-                spreadRadius: -20,
-                offset: const Offset(0, 22))
-          ];
+    if (_isHover) {
+      return [
+        BoxShadow(
+            color: widget.shadowColor ?? widget.color,
+            blurRadius: 8,
+            spreadRadius: -8,
+            offset: const Offset(0, 8))
+      ];
+    } else {
+      return [
+        BoxShadow(
+            color: widget.shadowColor ?? widget.color,
+            blurRadius: 19,
+            spreadRadius: -20,
+            offset: const Offset(0, 22))
+      ];
+    }
   }
 
   void _onHover(value) {

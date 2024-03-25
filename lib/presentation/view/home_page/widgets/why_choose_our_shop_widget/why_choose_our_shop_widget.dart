@@ -11,17 +11,17 @@ import 'package:icons_plus/icons_plus.dart';
 part "./layouts/phone.dart";
 part "./layouts/tablet.dart";
 part "./layouts/web.dart";
-  
-  class WhyChooseOurShopWidget extends StatelessWidget {
-    const WhyChooseOurShopWidget({super.key});
-  
-    @override
-    Widget build(BuildContext context) {
-      return const ResponsiveBuilder(
-        web: _WhyChooseOurShopWidgetWeb(),
-        tablet: _WhyChooseOurShopWidgetWeb(),
-        phone: _WhyChooseOurShopWidgetPhone(),
-      );
-    }
+part "utils.dart";
+
+class WhyChooseOurShopWidget extends StatelessWidget {
+  const WhyChooseOurShopWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const ResponsiveBuilder(
+      web: _WhyChooseOurShopWidgetWeb(),
+      tablet: _WhyChooseOurShopWidgetWeb(),
+      phone: _WhyChooseOurShopWidgetPhone(),
+    );
   }
-  
+}

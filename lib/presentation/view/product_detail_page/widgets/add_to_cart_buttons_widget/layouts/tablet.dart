@@ -12,11 +12,7 @@ class _AddToCartButtonsWidgetTablet extends StatelessWidget {
         return Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            AnimatorWidget(
-              withFadeTransition: true,
-              delay: const Duration(milliseconds: 2100),
-              slideTransition:
-                  Tween<Offset>(begin: const Offset(0, .3), end: Offset.zero),
+            _animatorWidgetBuilder(
               child: Row(
                 children: [
                   ProductCountButtonWidget(
@@ -24,11 +20,7 @@ class _AddToCartButtonsWidgetTablet extends StatelessWidget {
                     isDeactive: state.addCount <= 1,
                     height: 60,
                     width: 50,
-                    onTap: () {
-                      context
-                          .read<ProductDetailBloc>()
-                          .add(const ProductDetailEvent.decreaseCount());
-                    },
+                    onTap: () => onRemoveCountTap(context),
                   ),
                   Container(
                     height: 60,
@@ -47,11 +39,7 @@ class _AddToCartButtonsWidgetTablet extends StatelessWidget {
                     icon: Icons.add_rounded,
                     height: 60,
                     width: 50,
-                    onTap: () {
-                      context
-                          .read<ProductDetailBloc>()
-                          .add(const ProductDetailEvent.increaseCount());
-                    },
+                    onTap: () => onAddCountTap(context),
                   ),
                 ],
               ),

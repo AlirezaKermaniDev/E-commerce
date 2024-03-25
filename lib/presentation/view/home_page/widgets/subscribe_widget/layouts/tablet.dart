@@ -19,11 +19,8 @@ class _SubscribeWidgetTablet extends StatelessWidget {
           alignment: Alignment.centerLeft,
           child: Padding(
             padding: const EdgeInsets.only(top: 40),
-            child: AnimatorWidget(
-              withFadeTransition: true,
-              slideTransition: Tween<Offset>(
-                  begin: Offset(fullWidth == true ? -0.1 : -1, 0),
-                  end: Offset.zero),
+            child: _animatorWidgetBuilder(
+              slideBeginOffset: Offset(fullWidth == true ? -0.1 : -1, 0),
               child: Container(
                 height: 580,
                 width: fullWidth == true ? 1.w(context) : .9.w(context),
@@ -49,10 +46,7 @@ class _SubscribeWidgetTablet extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            AnimatorWidget(
-                              withFadeTransition: true,
-                              slideTransition: Tween<Offset>(
-                                  begin: const Offset(0, .1), end: Offset.zero),
+                            _animatorWidgetBuilder(
                               child: Text(
                                 context
                                     .locale.subscribeNowToGetTheLatestUpdates,
@@ -64,10 +58,7 @@ class _SubscribeWidgetTablet extends StatelessWidget {
                             const SizedBox(
                               height: 50,
                             ),
-                            AnimatorWidget(
-                              withFadeTransition: true,
-                              slideTransition: Tween<Offset>(
-                                  begin: const Offset(0, .1), end: Offset.zero),
+                            _animatorWidgetBuilder(
                               child: Container(
                                 height: 65,
                                 width: 550,
@@ -85,10 +76,7 @@ class _SubscribeWidgetTablet extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            AnimatorWidget(
-                              withFadeTransition: true,
-                              slideTransition: Tween<Offset>(
-                                  begin: const Offset(0, .1), end: Offset.zero),
+                            _animatorWidgetBuilder(
                               child: Container(
                                 height: 65,
                                 width: 550,
@@ -111,15 +99,12 @@ class _SubscribeWidgetTablet extends StatelessWidget {
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
-                                  socialMediaIconBuilder(CustomIcons.twiter),
-                                  const SizedBox(
-                                    width: 10,
-                                  ),
-                                  socialMediaIconBuilder(CustomIcons.facebook),
-                                  const SizedBox(
-                                    width: 10,
-                                  ),
-                                  socialMediaIconBuilder(CustomIcons.instagram),
+                                  _socialMediaIconBuilder(CustomIcons.twiter),
+                                  _socialMediaSpacer,
+                                  _socialMediaIconBuilder(CustomIcons.facebook),
+                                  _socialMediaSpacer,
+                                  _socialMediaIconBuilder(
+                                      CustomIcons.instagram),
                                 ],
                               ),
                             )
@@ -133,9 +118,10 @@ class _SubscribeWidgetTablet extends StatelessWidget {
                             alignment: Alignment.bottomRight,
                             child: Padding(
                               padding: EdgeInsets.only(
-                                  right: fullWidth == true ? 80 : 40,bottom:  fullWidth == true ? 0 : 20),
-                              child: AnimatorWidget(
-                                withFadeTransition: true,
+                                  right: fullWidth == true ? 80 : 40,
+                                  bottom: fullWidth == true ? 0 : 20),
+                              child: _animatorWidgetBuilder(
+                                slideTransition: false,
                                 child: Container(
                                   height: 250,
                                   width: 250,
@@ -148,16 +134,13 @@ class _SubscribeWidgetTablet extends StatelessWidget {
                           ),
                           Center(
                             child: Padding(
-                              padding:
-                                  const EdgeInsets.only(top: 0, left: 100),
+                              padding: const EdgeInsets.only(top: 0, left: 100),
                               child: Transform.scale(
                                 scale: fullWidth == true ? .9 : 1.5,
                                 child: Transform.rotate(
                                     angle: 1,
-                                    child: AnimatorWidget(
-                                        withFadeTransition: true,
-                                        rotateTrasition:
-                                            Tween<double>(begin: -.08, end: 0),
+                                    child: _animatorWidgetBuilder(
+                                        rotateTransition: true,
                                         child:
                                             Image.asset(AssetHandler.shoe6))),
                               ),
@@ -173,28 +156,6 @@ class _SubscribeWidgetTablet extends StatelessWidget {
           ),
         )
       ],
-    );
-  }
-
-  Widget socialMediaIconBuilder(String iconPath) {
-    return AnimatorWidget(
-      withFadeTransition: true,
-      slideTransition:
-          Tween<Offset>(begin: const Offset(.3, 0), end: Offset.zero),
-      child: Container(
-          height: 40,
-          width: 40,
-          decoration: BoxDecoration(
-              shape: BoxShape.circle, color: colorPalette.primary),
-          child: Center(
-              child: SizedBox(
-            height: 20,
-            width: 20,
-            child: SvgPicture.asset(
-              iconPath,
-              color: colorPalette.accent1,
-            ),
-          ))),
     );
   }
 }

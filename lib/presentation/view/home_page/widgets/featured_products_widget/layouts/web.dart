@@ -13,7 +13,6 @@ class _FeaturedProductsWidgetWeb extends StatefulWidget {
 class _FeaturedProductsWidgetWebState
     extends State<_FeaturedProductsWidgetWeb> {
   final ScrollController scrollController = ScrollController();
-  bool _isGrabingMouse = false;
 
   @override
   Widget build(BuildContext context) {
@@ -25,23 +24,21 @@ class _FeaturedProductsWidgetWebState
         ),
         child: Column(
           children: [
+            
+            // Lable of 'FeaturedProducts'
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                AnimatorWidget(
-                  slideTransition: Tween<Offset>(
-                      begin: const Offset(-.1, 0), end: Offset.zero),
-                  withFadeTransition: true,
+                _animatorWidgetBuilder(
+                  offsetDx: -.1,
                   child: Text(
                     context.locale.featuredProducts,
                     style: typography.h2Title
                         .copyWith(color: colorPalette.darkPrimary),
                   ),
                 ),
-                AnimatorWidget(
-                  slideTransition: Tween<Offset>(
-                      begin: const Offset(.1, 0), end: Offset.zero),
-                  withFadeTransition: true,
+                _animatorWidgetBuilder(
+                  offsetDx: .1,
                   child: ArrowTitleButtonWidget(
                     title: context.locale.viewAll,
                     onTap: () {},
@@ -52,29 +49,17 @@ class _FeaturedProductsWidgetWebState
             const SizedBox(
               height: 40,
             ),
+
+            // Here we change mouse cursor when pointer hover the items
             MouseRegion(
-              cursor: _isGrabingMouse
-                  ? SystemMouseCursors.grabbing
-                  : SystemMouseCursors.grab,
+              cursor: _mouseCursor(_isGrabingMouse),
               child: GestureDetector(
-                onTapDown: (_) {
-                  setState(() {
-                    _isGrabingMouse = true;
-                  });
-                },
-                onTapUp: (_) {
-                  setState(() {
-                    _isGrabingMouse = false;
-                  });
-                },
-                onTapCancel: () {
-                  setState(() {
-                    _isGrabingMouse = false;
-                  });
-                },
+                onTapDown: (_) => _onTapDown(setState),
+                onTapUp: (_) => _onTapUp(setState),
+                onTapCancel: () => _onTapCancel(setState),
                 child: SizedBox(
                   width: 1.w(context),
-                  height: 450,
+                  height: _pageViewHeight,
                   child: ScrollbarWidget(
                     scrollController: scrollController,
                     child: ListView.builder(
@@ -83,14 +68,11 @@ class _FeaturedProductsWidgetWebState
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context, index) {
                           final item = featuredProductsEntities[index];
-                          List<LinearGradient> gradients = [
-                            colorPalette.gradient4,
-                            colorPalette.gradient2,
-                            colorPalette.gradient3,
-                            colorPalette.gradient1,
-                          ];
                           return FeaturedProductsItemWidget(
-                              gradients: gradients, item: item, index: index);
+                            gradients: _gradients,
+                            item: item,
+                            index: index,
+                          );
                         }),
                   ),
                 ),

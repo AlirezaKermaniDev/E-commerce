@@ -23,11 +23,9 @@ class _AboutUsFeaturesItemWidgetWeb extends StatelessWidget {
       child: Row(
         children: [
           Expanded(
-            child: AnimatorWidget(
-              withFadeTransition: true,
-              slideTransition:
-                  Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
-              delay: Duration(milliseconds: isLtR ? 250 : 500),
+            child: _animatorWidgetBuilder(
+              isLtR: isLtR,
+              reverseDelayDuration: true,
               child: Stack(
                 alignment: isLtR ? Alignment.bottomLeft : Alignment.bottomRight,
                 children: [
@@ -38,11 +36,7 @@ class _AboutUsFeaturesItemWidgetWeb extends StatelessWidget {
                     child: SvgPicture.asset(shapePath),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(
-                      left: isLtR ? getIt<SizeConfig>().padding : 32.0,
-                      right: !isLtR ? getIt<SizeConfig>().padding : 32.0,
-                      bottom: 75,
-                    ),
+                    padding: _imagePadding(isLtR),
                     child: SizedBox(
                       height: .28.w(context),
                       width: double.infinity,
@@ -69,16 +63,10 @@ class _AboutUsFeaturesItemWidgetWeb extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: AnimatorWidget(
-              withFadeTransition: true,
-              slideTransition:
-                  Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
-              delay: Duration(milliseconds: isLtR ? 500 : 250),
+            child: _animatorWidgetBuilder(
+              isLtR: isLtR,
               child: Padding(
-                padding: EdgeInsets.only(
-                    right: getIt<SizeConfig>().padding + (isLtR ? 80 : 0),
-                    left: getIt<SizeConfig>().padding + (!isLtR ? 80 : 0),
-                    bottom: 75),
+                padding: _detailPadding(isLtR),
                 child: Column(
                   children: [
                     Text(

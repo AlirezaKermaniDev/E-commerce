@@ -23,11 +23,10 @@ class _CartProductsItemWidgetTablet extends StatelessWidget {
                 child: SizedBox(
                   height: 100,
                   width: double.infinity,
-                  child: AnimatorWidget(
-                      withFadeTransition: true,
-                      delay: Duration(milliseconds: 300 + (index * 200)),
-                      slideTransition: Tween<Offset>(
-                          begin: const Offset(0, .1), end: Offset.zero),
+                  child: _animatorWidgetBuilder(
+                      index: index,
+                      millisecondsDelay: 300,
+                      slideBeginOffset: const Offset(0, .1),
                       child: ProductImageViewerWidget(
                           imageUrl: item.product?.imageUrl ?? "")),
                 )),
@@ -46,13 +45,9 @@ class _CartProductsItemWidgetTablet extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Expanded(
-                            child: AnimatorWidget(
-                                withFadeTransition: true,
-                                delay:
-                                    Duration(milliseconds: 400 + (index * 200)),
-                                slideTransition: Tween<Offset>(
-                                    begin: const Offset(.05, 0),
-                                    end: Offset.zero),
+                            child: _animatorWidgetBuilder(
+                                index: index,
+                                millisecondsDelay: 400,
                                 child: Text(
                                   item.product?.title ?? "",
                                   style: typography.bodyText5,
@@ -61,13 +56,9 @@ class _CartProductsItemWidgetTablet extends StatelessWidget {
                                   overflow: TextOverflow.ellipsis,
                                 )),
                           ),
-                          AnimatorWidget(
-                              withFadeTransition: true,
-                              delay:
-                                  Duration(milliseconds: 500 + (index * 200)),
-                              slideTransition: Tween<Offset>(
-                                  begin: const Offset(.05, 0),
-                                  end: Offset.zero),
+                          _animatorWidgetBuilder(
+                              index: index,
+                              millisecondsDelay: 500,
                               child: Text("\$${item.product?.price}",
                                   style: typography.bodyText5)),
                         ],
@@ -75,11 +66,9 @@ class _CartProductsItemWidgetTablet extends StatelessWidget {
                       const SizedBox(
                         height: 12,
                       ),
-                      AnimatorWidget(
-                        withFadeTransition: true,
-                        delay: Duration(milliseconds: 600 + (index * 200)),
-                        slideTransition: Tween<Offset>(
-                            begin: const Offset(.05, 0), end: Offset.zero),
+                      _animatorWidgetBuilder(
+                        index: index,
+                        millisecondsDelay: 600,
                         child: Text(item.product?.categories?.last ?? "",
                             style: typography.bodyText2
                                 .copyWith(color: colorPalette.gray2)),
@@ -87,11 +76,9 @@ class _CartProductsItemWidgetTablet extends StatelessWidget {
                       const SizedBox(
                         height: 12,
                       ),
-                      AnimatorWidget(
-                        withFadeTransition: true,
-                        delay: Duration(milliseconds: 700 + (index * 200)),
-                        slideTransition: Tween<Offset>(
-                            begin: const Offset(.05, 0), end: Offset.zero),
+                      _animatorWidgetBuilder(
+                        index: index,
+                        millisecondsDelay: 700,
                         child: Row(
                           children: [
                             Text("${context.locale.size}:",
@@ -125,11 +112,9 @@ class _CartProductsItemWidgetTablet extends StatelessWidget {
                       const SizedBox(
                         height: 12,
                       ),
-                      AnimatorWidget(
-                        withFadeTransition: true,
-                        delay: Duration(milliseconds: 800 + (index * 200)),
-                        slideTransition: Tween<Offset>(
-                            begin: const Offset(.05, 0), end: Offset.zero),
+                      _animatorWidgetBuilder(
+                        index: index,
+                        millisecondsDelay: 800,
                         child: Row(
                           children: [
                             Text(context.locale.estimatedDeliveryDate,
@@ -138,7 +123,7 @@ class _CartProductsItemWidgetTablet extends StatelessWidget {
                             const SizedBox(
                               width: 6,
                             ),
-                            Text("12-16 April", style: typography.bodyText2),
+                            Text(_deliveryTime, style: typography.bodyText2),
                           ],
                         ),
                       ),
@@ -147,25 +132,16 @@ class _CartProductsItemWidgetTablet extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      AnimatorWidget(
-                        withFadeTransition: true,
-                        delay: Duration(milliseconds: 900 + (index * 200)),
-                        slideTransition: Tween<Offset>(
-                            begin: const Offset(.05, 0), end: Offset.zero),
+                      _animatorWidgetBuilder(
+                        index: index,
+                        millisecondsDelay: 900,
                         child: Row(
                           children: [
                             ProductCountButtonWidget(
-                              icon: Icons.remove_rounded,
-                              isDeactive: false,
-                              onTap: () {
-                                context.read<CartBloc>().add(
-                                      CartEvent.changeProductCount(
-                                        productId: item.product!.id!,
-                                        count: item.count! - 1,
-                                      ),
-                                    );
-                              },
-                            ),
+                                icon: Icons.remove_rounded,
+                                isDeactive: false,
+                                onTap: () =>
+                                    onRemoveProductCountTap(context, item)),
                             Container(
                               height: 70,
                               width: 70,
@@ -180,24 +156,15 @@ class _CartProductsItemWidgetTablet extends StatelessWidget {
                               ),
                             ),
                             ProductCountButtonWidget(
-                              icon: Icons.add_rounded,
-                              onTap: () {
-                                context.read<CartBloc>().add(
-                                      CartEvent.changeProductCount(
-                                        productId: item.product!.id!,
-                                        count: item.count! + 1,
-                                      ),
-                                    );
-                              },
-                            ),
+                                icon: Icons.add_rounded,
+                                onTap: () =>
+                                    _onAddProductCountTap(context, item)),
                           ],
                         ),
                       ),
-                      AnimatorWidget(
-                        withFadeTransition: true,
-                        delay: Duration(milliseconds: 1000 + (index * 200)),
-                        slideTransition: Tween<Offset>(
-                            begin: const Offset(.05, 0), end: Offset.zero),
+                      _animatorWidgetBuilder(
+                        index: index,
+                        millisecondsDelay: 1000,
                         child: CartProductsItemDeleteButtonWidget(
                           productId: item.product!.id!,
                         ),

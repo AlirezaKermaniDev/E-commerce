@@ -12,11 +12,7 @@ class _AddToCartButtonsWidgetPhone extends StatelessWidget {
         return Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            AnimatorWidget(
-              withFadeTransition: true,
-              delay: const Duration(milliseconds: 2100),
-              slideTransition:
-                  Tween<Offset>(begin: const Offset(0, .3), end: Offset.zero),
+            _animatorWidgetBuilder(
               child: Row(
                 children: [
                   ProductCountButtonWidget(
@@ -24,11 +20,7 @@ class _AddToCartButtonsWidgetPhone extends StatelessWidget {
                     height: 50,
                     width: 50,
                     isDeactive: state.addCount <= 1,
-                    onTap: () {
-                      context
-                          .read<ProductDetailBloc>()
-                          .add(const ProductDetailEvent.decreaseCount());
-                    },
+                    onTap: () => onRemoveCountTap(context),
                   ),
                   Container(
                     height: 50,
@@ -47,11 +39,7 @@ class _AddToCartButtonsWidgetPhone extends StatelessWidget {
                     icon: Icons.add_rounded,
                     height: 50,
                     width: 50,
-                    onTap: () {
-                      context
-                          .read<ProductDetailBloc>()
-                          .add(const ProductDetailEvent.increaseCount());
-                    },
+                    onTap: () => onAddCountTap(context),
                   ),
                 ],
               ),

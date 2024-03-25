@@ -20,25 +20,15 @@ dependencies:
   bloc: ^8.0.3
   bloc_concurrency: ^0.2.2
 
-  # For api calls
-  dio: ^5.3.3
-
   # Freezed for creating unioin entities
   freezed_annotation: ^2.2.0
 
   # Json annotation for combine json methods to our models
   json_annotation: ^4.8.1
 
-  # Path provider for OS-specific directory path
-  path_provider: ^2.0.9
-
   # Service locators
   get_it: ^7.2.0
   injectable: ^2.3.0
-
-  # For format our values
-  mask_text_input_formatter: ^2.1.0
-  intl: ^0.18.1
 
   # For showing SVG files
   flutter_svg: ^2.0.7
@@ -46,17 +36,9 @@ dependencies:
   # For saving date into user local storage
   shared_preferences: ^2.2.1
 
-  # For access to user device info like device identifier
-  device_info_plus: ^9.0.3
 
   # For Highlighting texts
   highlight_text: ^1.7.0
-
-  # For handle intents
-  url_launcher: ^6.1.14
-
-  # Validators
-  email_validator: ^2.1.16
 
   # For handling app typography styles
   google_fonts: ^6.1.0
@@ -99,12 +81,6 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^2.0.0
 
-  # Mockito for creating mock data
-  mockito: ^5.4.0
-
-  # Hive Generator is an extention for `Hive` to generate data
-  hive_generator: ^2.0.0
-
   # Freezed for creating unioin entities
   freezed: ^2.3.4
 
@@ -117,8 +93,6 @@ dev_dependencies:
   # Build runner to let other packages like `Hive` or `Freezed` or `injectable_generator` generate theire data
   build_runner: ^2.1.7
 
-  # For creating app icons
-  flutter_launcher_icons: ^0.13.1
 
 flutter:
   uses-material-design: true

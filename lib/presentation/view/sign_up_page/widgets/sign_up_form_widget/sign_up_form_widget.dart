@@ -15,6 +15,7 @@ import 'package:widget_and_text_animator/widget_and_text_animator.dart';
 part "./layouts/phone.dart";
 part "./layouts/tablet.dart";
 part "./layouts/web.dart";
+part "utils.dart";
 
 class SignUpFormWidget extends StatelessWidget {
   const SignUpFormWidget({super.key});

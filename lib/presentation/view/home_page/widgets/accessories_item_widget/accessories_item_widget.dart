@@ -11,6 +11,8 @@ import 'package:flutter_svg/svg.dart';
 part "./layouts/phone.dart";
 part "./layouts/tablet.dart";
 part "./layouts/web.dart";
+part "./widgets/accessories_detail_widget.dart";
+part "utils.dart";
 
 class AccessoriesItemWidget extends StatelessWidget {
   const AccessoriesItemWidget(
@@ -20,11 +22,13 @@ class AccessoriesItemWidget extends StatelessWidget {
       required this.imagePath,
       required this.color,
       this.backgroundColor});
+
   final String title;
   final String description;
   final String imagePath;
   final Color color;
   final Color? backgroundColor;
+
   @override
   Widget build(BuildContext context) {
     return ResponsiveBuilder(

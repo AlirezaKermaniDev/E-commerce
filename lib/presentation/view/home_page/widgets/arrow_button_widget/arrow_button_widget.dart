@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/injection/injection.dart';
+import 'package:ecommerce_app/presentation/view/home_page/widgets/change_banner_image_arrow_widget/change_banner_image_arrow_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:widget_and_text_animator/widget_and_text_animator.dart';
 
@@ -35,9 +35,10 @@ class _ArrowButtonWidgetState extends State<ArrowButtonWidget> {
           duration: const Duration(milliseconds: 50),
           scale: scaleValue(),
           child: WidgetAnimator(
-              incomingEffect: WidgetTransitionEffects.incomingScaleUp(
-                  delay: const Duration(milliseconds: 1000)),
-              child: _ChangeBannerImageArrowWidget(icon: widget.iconData)),
+            incomingEffect: WidgetTransitionEffects.incomingScaleUp(
+                delay: const Duration(milliseconds: 1000)),
+            child: ChangeBannerImageArrowWidget(icon: widget.iconData),
+          ),
         ),
       ),
     );
@@ -68,32 +69,5 @@ class _ArrowButtonWidgetState extends State<ArrowButtonWidget> {
     } else {
       return 1;
     }
-  }
-}
-
-class _ChangeBannerImageArrowWidget extends StatelessWidget {
-  const _ChangeBannerImageArrowWidget({
-    super.key,
-    required this.icon,
-  });
-
-  final IconData icon;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 32,
-      width: 32,
-      decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          border: Border.all(color: colorPalette.accent1, width: 1.5)),
-      child: Center(
-        child: Icon(
-          icon,
-          size: 21,
-          color: colorPalette.accent1,
-        ),
-      ),
-    );
   }
 }

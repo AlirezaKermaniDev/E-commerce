@@ -23,13 +23,9 @@ class _NewArrialsItemWidgetPhoneState
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      hoverColor: Colors.transparent,
+      hoverColor: _inkWellHoverColor,
       onTap: () {},
-      onHover: (value) {
-        setState(() {
-          _isHover = value;
-        });
-      },
+      onHover: _onHover,
       child: SizedBox(
         width: 1.w(context),
         child: Stack(children: [
@@ -37,16 +33,12 @@ class _NewArrialsItemWidgetPhoneState
             alignment: Alignment.topRight,
             child: Column(
               children: [
-                AnimatorWidget(
-                  withFadeTransition: true,
-                  delay: const Duration(milliseconds: 0),
-                  scaleTransition: Tween<double>(
-                    begin: .8,
-                    end: 1,
-                  ),
+                _animatorWidgetBuilder(
+                  millisecondsDelay: 0,
+                  scaleTrasition: true,
                   child: Container(
-                    height: .8.w(context),
-                    width: .6.w(context),
+                    height: _boxHeight(context),
+                    width: _boxWidth(context),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(24),
                         gradient: widget
@@ -99,11 +91,8 @@ class _NewArrialsItemWidgetPhoneState
                       const SizedBox(
                         height: 32,
                       ),
-                      AnimatorWidget(
-                          withFadeTransition: true,
-                          delay: const Duration(milliseconds: 100),
-                          slideTransition: Tween<Offset>(
-                              begin: const Offset(0, -.1), end: Offset.zero),
+                      _animatorWidgetBuilder(
+                          millisecondsDelay: 100,
                           child: const Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -115,11 +104,8 @@ class _NewArrialsItemWidgetPhoneState
                       ),
                       SizedBox(
                         width: .7.w(context),
-                        child: AnimatorWidget(
-                          withFadeTransition: true,
-                          delay: const Duration(milliseconds: 200),
-                          slideTransition: Tween<Offset>(
-                              begin: const Offset(0, -.1), end: Offset.zero),
+                        child: _animatorWidgetBuilder(
+                          millisecondsDelay: 200,
                           child: Text(
                             widget.item.title ?? "",
                             style: typography.bodyText1
@@ -131,11 +117,8 @@ class _NewArrialsItemWidgetPhoneState
                       const SizedBox(
                         height: 20,
                       ),
-                      AnimatorWidget(
-                        withFadeTransition: true,
-                        delay: const Duration(milliseconds: 300),
-                        slideTransition: Tween<Offset>(
-                            begin: const Offset(0, -.1), end: Offset.zero),
+                      _animatorWidgetBuilder(
+                        millisecondsDelay: 300,
                         child: Text(
                           "\$${widget.item.price}",
                           style: typography.h4Title
@@ -149,22 +132,37 @@ class _NewArrialsItemWidgetPhoneState
             ),
           ),
           AnimatedPadding(
-            duration: const Duration(milliseconds: 100),
-            padding: EdgeInsets.only(right: 40, top: _isHover ? 20 : 50),
+            duration: _animationPaddingDuration,
+            padding: EdgeInsets.only(
+              top: _isHover ? 20 : 50,
+            ),
             curve: Curves.easeIn,
-            child: AnimatorWidget(
-              withFadeTransition: true,
-              delay: const Duration(milliseconds: 400),
-              rotateTrasition: Tween<double>(begin: .06, end: 0),
-              child: Transform.scale(
-                scale: 1.2,
-                child: Transform.rotate(
-                    angle: -.5, child: Image.asset(widget.item.imageUrl ?? "")),
+            child: _animatorWidgetBuilder(
+              millisecondsDelay: 400,
+              rotateTrasition: true,
+              child: Padding(
+                padding: EdgeInsets.only(
+                  right: _imageHorizontalPadding(context) + 40,
+                  left: _imageHorizontalPadding(context),
+                ),
+                child: Transform.scale(
+                  scale: 1.2,
+                  child: Transform.rotate(
+                      angle: -.5,
+                      child: Image.asset(widget.item.imageUrl ?? "")),
+                ),
               ),
             ),
           )
         ]),
       ),
     );
+  }
+
+
+  void _onHover(value) {
+    setState(() {
+      _isHover = value;
+    });
   }
 }

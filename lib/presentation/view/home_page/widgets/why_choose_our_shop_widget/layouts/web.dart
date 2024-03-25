@@ -15,10 +15,8 @@ class _WhyChooseOurShopWidgetWeb extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Expanded(
-                child: AnimatorWidget(
-                    slideTransition: Tween<Offset>(
-                        begin: const Offset(-.1, 0), end: Offset.zero),
-                    withFadeTransition: true,
+                child: _animatorWidgetBuilder(
+                    slideBeginOffset: const Offset(-.1, 0),
                     child: Image.asset(AssetHandler.banner1))),
             SizedBox(
               width: getIt<SizeConfig>().padding,
@@ -27,10 +25,7 @@ class _WhyChooseOurShopWidgetWeb extends StatelessWidget {
                 child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                AnimatorWidget(
-                  slideTransition: Tween<Offset>(
-                      begin: const Offset(0, .2), end: Offset.zero),
-                  withFadeTransition: true,
+                _animatorWidgetBuilder(
                   child: Text(
                     context.locale.whyChooseOurShop,
                     style: typography.h3Title.copyWith(
@@ -41,10 +36,7 @@ class _WhyChooseOurShopWidgetWeb extends StatelessWidget {
                 const SizedBox(
                   height: 50,
                 ),
-                AnimatorWidget(
-                  slideTransition: Tween<Offset>(
-                      begin: const Offset(0, .2), end: Offset.zero),
-                  withFadeTransition: true,
+                _animatorWidgetBuilder(
                   child: Text(
                     context.locale.forExplosiveEventsSprintsUTo400Metres,
                     style: typography.bodyText1.copyWith(
@@ -58,10 +50,10 @@ class _WhyChooseOurShopWidgetWeb extends StatelessWidget {
                 Row(
                   children: [
                     Expanded(
-                        child: shoupBenefitsItemBuilder(
+                        child: _shoupBenefitsItemBuilder(
                             FontAwesome.car, context.locale.fastDelivery)),
                     Expanded(
-                      child: shoupBenefitsItemBuilder(
+                      child: _shoupBenefitsItemBuilder(
                           FontAwesome.headphones, context.locale.greatSupport),
                     ),
                   ],
@@ -72,10 +64,10 @@ class _WhyChooseOurShopWidgetWeb extends StatelessWidget {
                 Row(
                   children: [
                     Expanded(
-                        child: shoupBenefitsItemBuilder(
+                        child: _shoupBenefitsItemBuilder(
                             FontAwesome.wallet, context.locale.coolPrices)),
                     Expanded(
-                      child: shoupBenefitsItemBuilder(
+                      child: _shoupBenefitsItemBuilder(
                           FontAwesome.thumbs_up, context.locale.highQuality),
                     ),
                   ],
@@ -84,31 +76,6 @@ class _WhyChooseOurShopWidgetWeb extends StatelessWidget {
             ))
           ],
         ),
-      ),
-    );
-  }
-
-  Widget shoupBenefitsItemBuilder(IconData icon, String title) {
-    return AnimatorWidget(
-      slideTransition:
-          Tween<Offset>(begin: const Offset(0, .2), end: Offset.zero),
-      withFadeTransition: true,
-      child: Row(
-        children: [
-          Icon(
-            icon,
-            color: colorPalette.accent1,
-          ),
-          const SizedBox(
-            width: 24,
-          ),
-          Text(
-            title,
-            style: typography.bodyText1.copyWith(
-              color: colorPalette.darkPrimary,
-            ),
-          ),
-        ],
       ),
     );
   }

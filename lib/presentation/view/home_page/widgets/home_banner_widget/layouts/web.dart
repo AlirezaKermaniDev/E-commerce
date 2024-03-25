@@ -64,10 +64,13 @@ class _HomeBannerWidgetWebState extends State<_HomeBannerWidgetWeb> {
           delay: const Duration(milliseconds: 500), blur: const Offset(20, 20)),
       child: Align(
         alignment: Alignment.center,
-        child: SizedBox(
-            height: 0.32.w(context),
-            width: 0.32.w(context),
-            child: Center(child: SvgPicture.asset(AssetHandler.homeShape))),
+        child: Padding(
+          padding: EdgeInsets.only(right: context.isLtrLocale ? 0 : 130),
+          child: SizedBox(
+              height: 0.32.w(context),
+              width: 0.32.w(context),
+              child: Center(child: SvgPicture.asset(AssetHandler.homeShape))),
+        ),
       ),
     );
   }
@@ -76,8 +79,8 @@ class _HomeBannerWidgetWebState extends State<_HomeBannerWidgetWeb> {
     return Align(
       alignment: Alignment.topRight,
       child: Padding(
-        padding: EdgeInsets.only(
-            right: 0.33.w(context), top: 520 + .1.w(context)),
+        padding:
+            EdgeInsets.only(right: 0.33.w(context), top: 520 + .1.w(context)),
         child: SizedBox(
           height: 40,
           width: 120,
@@ -118,8 +121,12 @@ class _HomeBannerWidgetWebState extends State<_HomeBannerWidgetWeb> {
         child: WidgetAnimator(
       atRestEffect: WidgetRestingEffects.wave(),
       child: Padding(
-        padding:
-            EdgeInsets.only(bottom: index >= 2 ? 0 : 50, left: 30, top: 100),
+        padding: EdgeInsets.only(
+          bottom: index >= 2 ? 0 : 50,
+          left: context.isLtrLocale ? 30 : 0,
+          top: 100,
+          right: context.isLtrLocale ? 0 : 130,
+        ),
         child: Transform.rotate(angle: -.72, child: Image.asset(_shoes[index])),
       ),
     ));

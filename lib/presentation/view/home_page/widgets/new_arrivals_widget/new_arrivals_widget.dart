@@ -13,6 +13,7 @@ import 'package:flutter/material.dart';
 part "./layouts/phone.dart";
 part "./layouts/tablet.dart";
 part "./layouts/web.dart";
+part "utils.dart";
 
 class NewArrivalsWidget extends StatelessWidget {
   const NewArrivalsWidget({super.key});

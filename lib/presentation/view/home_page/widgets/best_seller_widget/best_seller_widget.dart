@@ -15,17 +15,17 @@ import 'dart:math' as math;
 part "./layouts/phone.dart";
 part "./layouts/tablet.dart";
 part "./layouts/web.dart";
-  
-  class BestSellerWidget extends StatelessWidget {
-    const BestSellerWidget({super.key});
-  
-    @override
-    Widget build(BuildContext context) {
-      return const ResponsiveBuilder(
-        web: _BestSellerWidgetWeb(),
-        tablet: _BestSellerWidgetTablet(),
-        phone: _BestSellerWidgetPhone(),
-      );
-    }
+part "./utils.dart";
+
+class BestSellerWidget extends StatelessWidget {
+  const BestSellerWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const ResponsiveBuilder(
+      web: _BestSellerWidgetWeb(),
+      tablet: _BestSellerWidgetTablet(),
+      phone: _BestSellerWidgetPhone(),
+    );
   }
-  
+}

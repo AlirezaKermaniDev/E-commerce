@@ -20,10 +20,8 @@ class _AboutUsLandingWidgetWeb extends StatelessWidget {
                   children: [
                     Expanded(
                         flex: 7,
-                        child: AnimatorWidget(
-                          scaleTransition: Tween<double>(begin: .9, end: 1),
-                          withFadeTransition: true,
-                          delay: const Duration(milliseconds: 700),
+                        child: _animatorWidgetBuilder(
+                          millisecondsDelay: 700,
                           child: Stack(
                             alignment: Alignment.bottomCenter,
                             children: [
@@ -43,15 +41,11 @@ class _AboutUsLandingWidgetWeb extends StatelessWidget {
                             ],
                           ),
                         )),
-                    const SizedBox(
-                      width: 30,
-                    ),
+                    _spacer,
                     Expanded(
                         flex: 5,
-                        child: AnimatorWidget(
-                          scaleTransition: Tween<double>(begin: .9, end: 1),
-                          withFadeTransition: true,
-                          delay: const Duration(milliseconds: 1100),
+                        child: _animatorWidgetBuilder(
+                          millisecondsDelay: 1100,
                           child: Stack(
                             alignment: Alignment.bottomCenter,
                             children: [
@@ -73,35 +67,32 @@ class _AboutUsLandingWidgetWeb extends StatelessWidget {
                             ],
                           ),
                         )),
-                    const SizedBox(
-                      width: 30,
-                    ),
+                    _spacer,
                     Expanded(
-                        flex: 5,
-                        child: AnimatorWidget(
-                          scaleTransition: Tween<double>(begin: .9, end: 1),
-                          withFadeTransition: true,
-                          delay: const Duration(milliseconds: 1500),
-                          child: Stack(
-                            alignment: Alignment.bottomRight,
-                            children: [
-                              Image.asset(
-                                AssetHandler.banner2,
-                                fit: BoxFit.cover,
-                              ),
-                              const Center(
-                                child: Padding(
-                                  padding: EdgeInsets.only(top: 150),
-                                  child: ToolTipWidget(
-                                    preferredDirection: AxisDirection.up,
-                                    padding: EdgeInsets.only(bottom: 16),
-                                    content: DiscountToolTipContentWidget(),
-                                  ),
+                      flex: 5,
+                      child: _animatorWidgetBuilder(
+                        millisecondsDelay: 1500,
+                        child: Stack(
+                          alignment: Alignment.bottomRight,
+                          children: [
+                            Image.asset(
+                              AssetHandler.banner2,
+                              fit: BoxFit.cover,
+                            ),
+                            const Center(
+                              child: Padding(
+                                padding: EdgeInsets.only(top: 150),
+                                child: ToolTipWidget(
+                                  preferredDirection: AxisDirection.up,
+                                  padding: EdgeInsets.only(bottom: 16),
+                                  content: DiscountToolTipContentWidget(),
                                 ),
-                              )
-                            ],
-                          ),
-                        )),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ],

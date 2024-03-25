@@ -29,15 +29,23 @@ class _SizesItemWidgetTabletState extends State<_SizesItemWidgetTablet> {
       slideTransition:
           Tween<Offset>(begin: const Offset(0, .3), end: Offset.zero),
       child: InkWell(
-        onTap: onTap(context),
+        onTap: onTap(
+          context,
+          widget.isAvailable,
+          widget.value,
+        ),
         onHover: _onHover,
         hoverColor: Colors.transparent,
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 200),
           decoration: BoxDecoration(
-            color: _cardColor(),
+            color: _cardColor(widget.isActive),
             border: Border.all(
-              color: _borderColor(),
+              color: _borderColor(
+                widget.isActive,
+                widget.isAvailable,
+                _isHover,
+              ),
               width: 1.5,
             ),
           ),
@@ -45,7 +53,10 @@ class _SizesItemWidgetTabletState extends State<_SizesItemWidgetTablet> {
             child: Text(
               widget.value,
               style: typography.bodyText2.copyWith(
-                color: _textColor(),
+                color: _textColor(
+                  widget.isActive,
+                  widget.isAvailable,
+                ),
               ),
             ),
           ),
@@ -54,39 +65,9 @@ class _SizesItemWidgetTabletState extends State<_SizesItemWidgetTablet> {
     );
   }
 
-  Function()? onTap(BuildContext context) {
-    return widget.isAvailable
-        ? () {
-            context.read<ProductDetailBloc>().add(
-                ProductDetailEvent.changeSelectedSizes(
-                    size: double.parse(widget.value)));
-          }
-        : null;
-  }
-
   void _onHover(value) {
     setState(() {
       _isHover = value;
     });
-  }
-
-  Color _cardColor() {
-    return widget.isActive ? colorPalette.darkPrimary : colorPalette.primary;
-  }
-
-  Color _textColor() {
-    return widget.isAvailable
-        ? widget.isActive
-            ? colorPalette.primary
-            : colorPalette.darkPrimary
-        : colorPalette.gray5;
-  }
-
-  Color _borderColor() {
-    return widget.isActive
-        ? colorPalette.darkPrimary
-        : _isHover && widget.isAvailable
-            ? colorPalette.darkPrimary
-            : colorPalette.gray5;
   }
 }

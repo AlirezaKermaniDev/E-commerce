@@ -12,6 +12,8 @@ import 'package:widget_and_text_animator/widget_and_text_animator.dart';
 part "./layouts/phone.dart";
 part "./layouts/tablet.dart";
 part "./layouts/web.dart";
+part "./widgets/home_title_actions_widget.dart";
+part 'utils.dart';
 
 class HomePageTitleWidget extends StatelessWidget {
   const HomePageTitleWidget({super.key});

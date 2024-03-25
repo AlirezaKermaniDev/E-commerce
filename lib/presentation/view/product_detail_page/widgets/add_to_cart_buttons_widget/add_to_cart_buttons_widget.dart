@@ -11,6 +11,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 part "./layouts/phone.dart";
 part "./layouts/tablet.dart";
 part "./layouts/web.dart";
+part "utils.dart";
 
 class AddToCartButtonsWidget extends StatelessWidget {
   const AddToCartButtonsWidget({super.key, required this.item});

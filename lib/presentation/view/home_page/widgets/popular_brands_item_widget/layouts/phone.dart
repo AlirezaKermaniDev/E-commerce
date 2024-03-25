@@ -14,20 +14,12 @@ class _PopularBrandsItemWidgetPhone extends StatefulWidget {
 
 class _PapularBrandsItemWidgetPhoneState
     extends State<_PopularBrandsItemWidgetPhone> {
-  bool _isHover = false;
-
   @override
   Widget build(BuildContext context) {
-    final double itemWidth = 220;
-
     return InkWell(
-      hoverColor: Colors.transparent,
+      hoverColor: _inkWellHoverColor,
       onTap: () {},
-      onHover: (value) {
-        setState(() {
-          _isHover = value;
-        });
-      },
+      onHover: (value) => _onHover(value, setState),
       child: AnimatorWidget(
         withFadeTransition: true,
         withVisibilityDetector: false,
@@ -37,7 +29,7 @@ class _PapularBrandsItemWidgetPhoneState
           duration: const Duration(milliseconds: 100),
           curve: Curves.ease,
           height: 180,
-          width: (_isHover ? itemWidth + 100 : itemWidth),
+          width: _backgroundWidth(context),
           decoration: BoxDecoration(
             color: colorPalette.primary,
             borderRadius: BorderRadius.circular(10),
@@ -63,11 +55,5 @@ class _PapularBrandsItemWidgetPhoneState
         ),
       ),
     );
-  }
-
-  Color _itemsBackgroundColor() {
-    return getIt<LocalStorage>().getTheme().themeMode == ThemeMode.dark
-        ? colorPalette.darkPrimary
-        : colorPalette.primary;
   }
 }

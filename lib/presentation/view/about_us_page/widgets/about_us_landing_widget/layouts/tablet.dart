@@ -15,10 +15,8 @@ class _AboutUsLandingWidgetTablet extends StatelessWidget {
           children: [
             Expanded(
                 flex: 7,
-                child: AnimatorWidget(
-                  scaleTransition: Tween<double>(begin: .9, end: 1),
-                  withFadeTransition: true,
-                  delay: const Duration(milliseconds: 700),
+                child: _animatorWidgetBuilder(
+                  millisecondsDelay: 700,
                   child: Stack(
                     alignment: Alignment.bottomCenter,
                     children: [
@@ -36,15 +34,11 @@ class _AboutUsLandingWidgetTablet extends StatelessWidget {
                     ],
                   ),
                 )),
-            const SizedBox(
-              width: 30,
-            ),
+            _spacer,
             Expanded(
                 flex: 5,
-                child: AnimatorWidget(
-                  scaleTransition: Tween<double>(begin: .9, end: 1),
-                  withFadeTransition: true,
-                  delay: const Duration(milliseconds: 1100),
+                child: _animatorWidgetBuilder(
+                  millisecondsDelay: 1100,
                   child: Stack(
                     alignment: Alignment.center,
                     children: [
@@ -66,15 +60,11 @@ class _AboutUsLandingWidgetTablet extends StatelessWidget {
                     ],
                   ),
                 )),
-            const SizedBox(
-              width: 30,
-            ),
+            _spacer,
             Expanded(
                 flex: 5,
-                child: AnimatorWidget(
-                  scaleTransition: Tween<double>(begin: .9, end: 1),
-                  withFadeTransition: true,
-                  delay: const Duration(milliseconds: 1500),
+                child: _animatorWidgetBuilder(
+                  millisecondsDelay: 1500,
                   child: Stack(
                     alignment: Alignment.bottomCenter,
                     children: [

@@ -17,11 +17,8 @@ class _PurchaseActionButtonsPhone extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        AnimatorWidget(
-          withFadeTransition: true,
-          delay: const Duration(milliseconds: 1100),
-          slideTransition:
-              Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
+        _animatorWidgetBuilder(
+          millisecondsDelay: 1000,
           child: InkWell(
             onTap: onTapContinue,
             child: Container(
@@ -41,11 +38,8 @@ class _PurchaseActionButtonsPhone extends StatelessWidget {
         const SizedBox(
           height: 16,
         ),
-        AnimatorWidget(
-          withFadeTransition: true,
-          delay: const Duration(milliseconds: 1000),
-          slideTransition:
-              Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
+        _animatorWidgetBuilder(
+          millisecondsDelay: 1100,
           child: ArrowTitleButtonWidget(
             title: backButtonText,
             isForwardArrow: false,

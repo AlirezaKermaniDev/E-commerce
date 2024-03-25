@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/core/asset_handler.dart';
+import 'package:ecommerce_app/core/extensions/locale_extensions.dart';
 import 'package:ecommerce_app/injection/injection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -59,7 +60,7 @@ class ProductDetailTooltipContentWidget extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text("Nike Air Shoes for Men",
+                              Text(context.locale.nikeAirShoesForMen,
                                   style: typography.bodyText2
                                       .copyWith(fontWeight: FontWeight.bold)),
                               Row(
@@ -68,7 +69,7 @@ class ProductDetailTooltipContentWidget extends StatelessWidget {
                                 children: [
                                   Row(
                                     children: [
-                                      Text("Size:",
+                                      Text("${context.locale.size}:",
                                           style: typography.bodyText4.copyWith(
                                               fontWeight: FontWeight.bold)),
                                       const SizedBox(

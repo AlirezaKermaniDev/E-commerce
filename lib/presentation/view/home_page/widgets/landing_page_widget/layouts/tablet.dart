@@ -5,25 +5,6 @@ class _LandingPageWidgetTablet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: colorPalette.gray6,
-      child: Stack(
-        children: [
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Padding(
-              padding:
-                  EdgeInsets.symmetric(horizontal: getIt<SizeConfig>().padding),
-              child: const HomePageTitleWidget(),
-            ),
-          ),
-          Align(
-              alignment: context.isLtrLocale
-                  ? Alignment.centerRight
-                  : Alignment.centerLeft,
-              child: const HomeBannerWidget()),
-        ],
-      ),
-    );
+    return const Placeholder();
   }
 }

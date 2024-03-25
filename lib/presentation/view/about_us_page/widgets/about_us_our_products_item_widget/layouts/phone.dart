@@ -14,10 +14,7 @@ class _AboutUsOurProductsItemWidgetPhone extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
-      AnimatorWidget(
-        withFadeTransition: true,
-        slideTransition:
-            Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
+      _animatorWidgetBuilder(
         child: Stack(
           alignment: Alignment.center,
           children: [
@@ -27,12 +24,12 @@ class _AboutUsOurProductsItemWidgetPhone extends StatelessWidget {
               decoration: BoxDecoration(
                   gradient: shapeGradient, shape: BoxShape.circle),
             ),
-            AnimatorWidget(
-                rotateTrasition: Tween<double>(begin: 0, end: -.1),
+            _animatorWidgetBuilder(
+                rotateTrasition: true,
                 child: Padding(
                   padding: const EdgeInsets.only(bottom: 25),
-                  child: Transform.scale(
-                      scale: 1, child: Image.asset(imagePath)),
+                  child:
+                      Transform.scale(scale: 1, child: Image.asset(imagePath)),
                 )),
           ],
         ),
@@ -40,11 +37,8 @@ class _AboutUsOurProductsItemWidgetPhone extends StatelessWidget {
       const SizedBox(
         height: 20,
       ),
-      AnimatorWidget(
-        withFadeTransition: true,
-        slideTransition:
-            Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
-        delay: const Duration(milliseconds: 250),
+      _animatorWidgetBuilder(
+        millisecondsDelay: 250,
         child: FittedBox(
           child: Text(
             title,
@@ -56,11 +50,8 @@ class _AboutUsOurProductsItemWidgetPhone extends StatelessWidget {
       const SizedBox(
         height: 25,
       ),
-      AnimatorWidget(
-        withFadeTransition: true,
-        slideTransition:
-            Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
-        delay: const Duration(milliseconds: 500),
+      _animatorWidgetBuilder(
+        millisecondsDelay: 500,
         child: Text(
           description,
           style: typography.bodyText2.copyWith(color: colorPalette.gray2),
@@ -70,11 +61,8 @@ class _AboutUsOurProductsItemWidgetPhone extends StatelessWidget {
       const SizedBox(
         height: 25,
       ),
-      AnimatorWidget(
-        withFadeTransition: true,
-        slideTransition:
-            Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
-        delay: const Duration(milliseconds: 750),
+      _animatorWidgetBuilder(
+        millisecondsDelay: 750,
         child: ArrowTitleButtonWidget(
           title: context.locale.seeCollection,
           onTap: () {},

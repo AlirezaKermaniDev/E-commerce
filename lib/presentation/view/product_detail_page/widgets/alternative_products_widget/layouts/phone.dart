@@ -8,7 +8,7 @@ class _AlternativeProductsWidgetPhone extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<ProductEntity> products = _getAlternatives();
+    final List<ProductEntity> products = _getAlternatives(item);
     return ConstraintsWidget(
       child: Column(
         children: [
@@ -53,12 +53,5 @@ class _AlternativeProductsWidgetPhone extends StatelessWidget {
         ],
       ),
     );
-  }
-
-  List<ProductEntity> _getAlternatives() {
-    return productListData
-        .where((e) =>
-            e.id != item.id && e.categories?.last == item.categories?.last)
-        .toList();
   }
 }

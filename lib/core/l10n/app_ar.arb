@@ -170,5 +170,9 @@
   "arabic": "عربی",
   "english": "إنجليزي",
   "farsi": "فارسی",
-  "hindi": "الهندية"
+  "hindi": "الهندية",
+  "hasJustPurchasedTheseSneakersNow": "لقد اشترى للتو\nهذه الأحذية الرياضية الآن.",
+  "nikeAirShoesForMen": "حذاء نايك اير للرجال",
+  "thisWeekDiscount": "خصم هذا الاسبوع",
+  "shareGift": "مشاركة\nهدية"
 }

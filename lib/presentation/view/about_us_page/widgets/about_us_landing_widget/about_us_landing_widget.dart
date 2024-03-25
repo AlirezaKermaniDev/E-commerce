@@ -16,6 +16,7 @@ import 'package:widget_and_text_animator/widget_and_text_animator.dart';
 part "./layouts/phone.dart";
 part "./layouts/tablet.dart";
 part "./layouts/web.dart";
+part "utils.dart";
 
 class AboutUsLandingWidget extends StatelessWidget {
   const AboutUsLandingWidget({

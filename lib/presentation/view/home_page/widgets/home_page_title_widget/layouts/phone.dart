@@ -10,9 +10,7 @@ class _HomePageTitleWidgetPhone extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const SizedBox(
-            height: 0,
-          ),
+          // Home page landing Big title
           SizedBox(
             width: 1.w(context),
             child: AnimatorTextWidget(
@@ -26,9 +24,8 @@ class _HomePageTitleWidgetPhone extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
           ),
-          const SizedBox(
-            height: 25,
-          ),
+          _phonePageSpacer(),
+          // Home page landing description
           SizedBox(
             width: 1.w(context),
             child: AnimatorTextWidget(
@@ -43,42 +40,11 @@ class _HomePageTitleWidgetPhone extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
           ),
-          const SizedBox(
-            height: 30,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              WidgetAnimator(
-                incomingEffect:
-                    WidgetTransitionEffects.incomingSlideInFromBottom(
-                  delay: const Duration(milliseconds: 2700),
-                  blur: const Offset(20, 0),
-                ),
-                child: ButtonWidget(
-                  title: context.locale.shopNow,
-                  color: colorPalette.accent4,
-                ),
-              ),
-              const SizedBox(
-                width: 64,
-              ),
-              WidgetAnimator(
-                incomingEffect:
-                    WidgetTransitionEffects.incomingSlideInFromRight(
-                  delay: const Duration(milliseconds: 2900),
-                  blur: const Offset(20, 0),
-                ),
-                child: Icon(
-                  FontAwesome.heart,
-                  color: colorPalette.accent4,
-                ),
-              )
-            ],
-          ),
-          const SizedBox(
-            height: 32,
-          ),
+          _phonePageSpacer(),
+          // Home page landing actions
+          const HomeTitleActionsWidget(),
+          _phonePageSpacer(),
+          // Home page landing Offers
           const OffersWidget(),
         ],
       ),

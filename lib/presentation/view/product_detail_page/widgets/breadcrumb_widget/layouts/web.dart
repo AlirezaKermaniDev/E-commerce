@@ -40,18 +40,12 @@ class _BreadcrumbWidgetWeb extends StatelessWidget {
                       ),
                     Text(
                       items[index],
-                      style: isBold
-                          ? typography.h5Title.copyWith(
-                              color: _itemColor(isSelected),
-                            )
-                          : typography.bodyText2.copyWith(
-                              color: _itemColor(isSelected),
-                            ),
+                      style: _style(isSelected, isBold, unSelectedColor),
                     ),
                     SizedBox(
                       width: isBold ? 18 : 12,
                     ),
-                    if (isLastItem(index))
+                    if (isLastItem(index, items))
                       isBold
                           ? Icon(
                               Icons.arrow_forward_ios_rounded,
@@ -65,7 +59,7 @@ class _BreadcrumbWidgetWeb extends StatelessWidget {
                                 color: unSelectedColor ?? colorPalette.gray2,
                                 shape: BoxShape.circle,
                               ),
-                            )
+                            ),
                   ],
                 ),
               );
@@ -73,18 +67,4 @@ class _BreadcrumbWidgetWeb extends StatelessWidget {
       ),
     );
   }
-
-  double _verticalPadding(BuildContext context) => context.isPhone
-      ? 4
-      : context.isTablet
-          ? 45
-          : 60;
-
-  Color? _itemColor(bool isSelected) {
-    return isSelected ? null : unSelectedColor ?? colorPalette.gray2;
-  }
-
-  bool isFirstItem(int index) => index != 0;
-
-  bool isLastItem(int index) => index != items.length - 1;
 }

@@ -19,17 +19,14 @@ class _SubscribeWidgetWeb extends StatelessWidget {
           alignment: Alignment.centerLeft,
           child: Padding(
             padding: const EdgeInsets.only(top: 40),
-            child: AnimatorWidget(
-              withFadeTransition: true,
-              slideTransition: Tween<Offset>(
-                  begin: Offset(fullWidth == true ? -0.1 : -1, 0),
-                  end: Offset.zero),
+            child: _animatorWidgetBuilder(
+              slideBeginOffset: Offset(fullWidth == true ? -0.1 : -1, 0),
               child: Container(
                 height: 580,
-                width: _boxWidth(context),
+                width: _boxWidth(context, fullWidth),
                 decoration: BoxDecoration(
                   gradient: colorPalette.gradient1,
-                  borderRadius: _boxBorderRadius(context),
+                  borderRadius: _boxBorderRadius(context, fullWidth),
                 ),
                 child: ConstraintsWidget(
                   child: Padding(
@@ -42,8 +39,8 @@ class _SubscribeWidgetWeb extends StatelessWidget {
                             const SizedBox(
                               height: 20,
                             ),
-                            AnimatorWidget(
-                              withFadeTransition: true,
+                            _animatorWidgetBuilder(
+                              slideTransition: false,
                               child: Container(
                                 height: 100,
                                 width: 100,
@@ -62,11 +59,7 @@ class _SubscribeWidgetWeb extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              AnimatorWidget(
-                                withFadeTransition: true,
-                                slideTransition: Tween<Offset>(
-                                    begin: const Offset(0, .1),
-                                    end: Offset.zero),
+                              _animatorWidgetBuilder(
                                 child: Text(
                                   context
                                       .locale.subscribeNowToGetTheLatestUpdates,
@@ -78,11 +71,7 @@ class _SubscribeWidgetWeb extends StatelessWidget {
                               const SizedBox(
                                 height: 50,
                               ),
-                              AnimatorWidget(
-                                withFadeTransition: true,
-                                slideTransition: Tween<Offset>(
-                                    begin: const Offset(0, .1),
-                                    end: Offset.zero),
+                              _animatorWidgetBuilder(
                                 child: Container(
                                   height: 86,
                                   width: 550,
@@ -100,11 +89,7 @@ class _SubscribeWidgetWeb extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              AnimatorWidget(
-                                withFadeTransition: true,
-                                slideTransition: Tween<Offset>(
-                                    begin: const Offset(0, .1),
-                                    end: Offset.zero),
+                              _animatorWidgetBuilder(
                                 child: Container(
                                   height: 86,
                                   width: 550,
@@ -133,8 +118,8 @@ class _SubscribeWidgetWeb extends StatelessWidget {
                               child: Padding(
                                 padding: EdgeInsets.only(
                                     right: fullWidth == true ? 80 : 0),
-                                child: AnimatorWidget(
-                                  withFadeTransition: true,
+                                child: _animatorWidgetBuilder(
+                                  slideTransition: false,
                                   child: Container(
                                     height: 307,
                                     width: 307,
@@ -150,13 +135,11 @@ class _SubscribeWidgetWeb extends StatelessWidget {
                                 padding:
                                     const EdgeInsets.only(top: 32, left: 100),
                                 child: Transform.scale(
-                                  scale: _imageScale(context),
+                                  scale: _imageScale(context, fullWidth),
                                   child: Transform.rotate(
                                       angle: 1,
-                                      child: AnimatorWidget(
-                                          withFadeTransition: true,
-                                          rotateTrasition: Tween<double>(
-                                              begin: -.08, end: 0),
+                                      child: _animatorWidgetBuilder(
+                                          rotateTransition: true,
                                           child:
                                               Image.asset(AssetHandler.shoe6))),
                                 ),
@@ -168,15 +151,12 @@ class _SubscribeWidgetWeb extends StatelessWidget {
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
-                                  socialMediaIconBuilder(CustomIcons.twiter),
-                                  const SizedBox(
-                                    width: 10,
-                                  ),
-                                  socialMediaIconBuilder(CustomIcons.facebook),
-                                  const SizedBox(
-                                    width: 10,
-                                  ),
-                                  socialMediaIconBuilder(CustomIcons.instagram),
+                                  _socialMediaIconBuilder(CustomIcons.twiter),
+                                  _socialMediaSpacer,
+                                  _socialMediaIconBuilder(CustomIcons.facebook),
+                                  _socialMediaSpacer,
+                                  _socialMediaIconBuilder(
+                                      CustomIcons.instagram),
                                 ],
                               ),
                             )
@@ -191,49 +171,6 @@ class _SubscribeWidgetWeb extends StatelessWidget {
           ),
         )
       ],
-    );
-  }
-
-  double _imageScale(BuildContext context) {
-    return fullWidth == true ? .9 : context.isOnMaxWidth ? 1 : 1.2;
-  }
-
-  BorderRadius _boxBorderRadius(BuildContext context) {
-    return fullWidth == true || context.isOnMaxWidth
-        ? BorderRadius.zero
-        : const BorderRadius.only(
-            topRight: Radius.circular(25),
-            bottomRight: Radius.circular(25),
-          );
-  }
-
-  double _boxWidth(BuildContext context) {
-    return context.isOnMaxWidth
-        ? double.infinity
-        : fullWidth == true
-            ? 1.w(context)
-            : .8.w(context);
-  }
-
-  Widget socialMediaIconBuilder(String iconPath) {
-    return AnimatorWidget(
-      withFadeTransition: true,
-      slideTransition:
-          Tween<Offset>(begin: const Offset(.3, 0), end: Offset.zero),
-      child: Container(
-          height: 40,
-          width: 40,
-          decoration: BoxDecoration(
-              shape: BoxShape.circle, color: colorPalette.primary),
-          child: Center(
-              child: SizedBox(
-            height: 20,
-            width: 20,
-            child: SvgPicture.asset(
-              iconPath,
-              color: colorPalette.accent1,
-            ),
-          ))),
     );
   }
 }

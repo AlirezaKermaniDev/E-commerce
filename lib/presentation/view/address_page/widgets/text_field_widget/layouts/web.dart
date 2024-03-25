@@ -16,11 +16,7 @@ class _TextFieldWidgetWeb extends StatelessWidget {
     return TextField(
       style: typography.bodyText2,
       onChanged: onChange,
-      onSubmitted: onTapSuffix != null
-          ? (_) {
-              onTapSuffix!();
-            }
-          : null,
+      onSubmitted: onTapSuffix != null ? (_) => onTapSuffix!() : null,
       decoration: InputDecoration(
         border: _border(false),
         enabledBorder: _border(false),

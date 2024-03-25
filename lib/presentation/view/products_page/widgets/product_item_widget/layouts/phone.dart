@@ -11,9 +11,7 @@ class _ProductItemWidgetPhone extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        context.go("${ProductDetailPage.path}/${item.id}");
-      },
+      onTap: () => inTapItem(context, item.id ?? ""),
       child: Container(
         decoration: BoxDecoration(
           color: colorPalette.gray6,

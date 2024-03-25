@@ -18,16 +18,13 @@ class _AboutUsFeaturesItemWidgetPhone extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(1.w(context));
     return Directionality(
       textDirection: isLtR ? TextDirection.ltr : TextDirection.rtl,
       child: Column(
         children: [
-          AnimatorWidget(
-            withFadeTransition: true,
-            slideTransition:
-                Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
-            delay: Duration(milliseconds: isLtR ? 250 : 500),
+          _animatorWidgetBuilder(
+            isLtR: isLtR,
+            reverseDelayDuration: true,
             child: SizedBox(
               height: 270,
               width: double.infinity,
@@ -54,11 +51,9 @@ class _AboutUsFeaturesItemWidgetPhone extends StatelessWidget {
               ),
             ),
           ),
-          AnimatorWidget(
-            withFadeTransition: true,
-            slideTransition:
-                Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
-            delay: Duration(milliseconds: isLtR ? 500 : 250),
+          _animatorWidgetBuilder(
+            isLtR: isLtR,
+            reverseDelayDuration: true,
             child: Column(
               crossAxisAlignment:
                   isLtR ? CrossAxisAlignment.start : CrossAxisAlignment.end,

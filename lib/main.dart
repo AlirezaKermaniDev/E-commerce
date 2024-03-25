@@ -15,7 +15,7 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await configureDependencies();
-  //await initialFirebase();
+  await initialDependencies();
   runApp(const App());
 }
 
@@ -24,29 +24,25 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     getIt<SizeConfig>().setSizeConfigs(context);
+
     return BlocProvider(
       create: (_) => getIt<HeaderBloc>(),
-      child: BlocBuilder<HeaderBloc, HeaderState>(
-        builder: (context, state) {
-          colorPalette = getIt<LocalStorage>().getTheme().colorPalette;
-          typography = getIt<LocalStorage>().getTheme().typography;
-          final locale = getIt<LocalStorage>().getLocale();
-          return MaterialApp.router(
-            title: 'E-commerce',
-            routerConfig: routes,
-            scrollBehavior: kIsWeb ? AppScrollBehavior() : null,
-            debugShowCheckedModeBanner: false,
-            locale: locale,
-            localizationsDelegates: AppLocalizations.localizationsDelegates,
-            supportedLocales: AppLocalizations.supportedLocales,
-          );
-        },
+      child: MaterialApp.router(
+        title: 'E-commerce',
+        routerConfig: routes,
+        scrollBehavior: kIsWeb ? AppScrollBehavior() : null,
+        debugShowCheckedModeBanner: false,
+        locale: getIt<LocalStorage>().getLocale(),
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
       ),
     );
   }
 }
 
-Future initialFirebase() async {
+Future initialDependencies() async {
+  colorPalette = getIt<LocalStorage>().getTheme().colorPalette;
+  typography = getIt<LocalStorage>().getTheme().typography;
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );

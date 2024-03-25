@@ -30,10 +30,8 @@ class _AboutUsLandingWidgetPhone extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                AnimatorWidget(
-                  scaleTransition: Tween<double>(begin: .9, end: 1),
-                  withFadeTransition: true,
-                  delay: const Duration(milliseconds: 1500),
+                _animatorWidgetBuilder(
+                  millisecondsDelay: 1500,
                   child: Stack(
                     alignment: Alignment.bottomCenter,
                     children: [
@@ -65,13 +63,9 @@ class _AboutUsLandingWidgetPhone extends StatelessWidget {
                     ],
                   ),
                 ),
-                const SizedBox(
-                  height: 30,
-                ),
-                AnimatorWidget(
-                  scaleTransition: Tween<double>(begin: .9, end: 1),
-                  withFadeTransition: true,
-                  delay: const Duration(milliseconds: 1600),
+                _phoneSpacer,
+                _animatorWidgetBuilder(
+                  millisecondsDelay: 1600,
                   child: Stack(
                     alignment: Alignment.bottomCenter,
                     children: [
@@ -101,13 +95,9 @@ class _AboutUsLandingWidgetPhone extends StatelessWidget {
                     ],
                   ),
                 ),
-                const SizedBox(
-                  height: 30,
-                ),
-                AnimatorWidget(
-                  scaleTransition: Tween<double>(begin: .9, end: 1),
-                  withFadeTransition: true,
-                  delay: const Duration(milliseconds: 100),
+                _phoneSpacer,
+                _animatorWidgetBuilder(
+                  millisecondsDelay: 100,
                   child: Stack(
                     alignment: Alignment.bottomRight,
                     children: [

@@ -10,6 +10,7 @@ import 'package:highlight_text/highlight_text.dart';
 part "./layouts/phone.dart";
 part "./layouts/tablet.dart";
 part "./layouts/web.dart";
+part "utils.dart";
 
 class JoinOurClubBannerWidget extends StatelessWidget {
   const JoinOurClubBannerWidget({super.key});

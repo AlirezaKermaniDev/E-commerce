@@ -23,9 +23,7 @@ class _AlternativeProductItemWidgetWebState
     return Padding(
       padding: const EdgeInsets.only(right: 32),
       child: InkWell(
-        onTap: () {
-          context.go("${ProductDetailPage.path}/${widget.item.id}");
-        },
+        onTap: () => onTap(context, widget.item.id ?? ""),
         onHover: _onHover,
         hoverColor: Colors.transparent,
         child: AnimatedContainer(
@@ -37,11 +35,9 @@ class _AlternativeProductItemWidgetWebState
               Expanded(
                 child: SizedBox(
                   width: double.infinity,
-                  child: AnimatorWidget(
-                    withFadeTransition: true,
-                    delay: Duration(milliseconds: widget.index * 100),
-                    slideTransition: Tween<Offset>(
-                        begin: const Offset(0, .1), end: Offset.zero),
+                  child: _animatorWidgetBuilder(
+                    index: widget.index,
+                    slideOffsetDy: .1,
                     child: ProductImageViewerWidget(
                       imageUrl: widget.item.imageUrl ?? "",
                     ),
@@ -51,11 +47,9 @@ class _AlternativeProductItemWidgetWebState
               const SizedBox(
                 height: 24,
               ),
-              AnimatorWidget(
-                withFadeTransition: true,
-                delay: Duration(milliseconds: 100 + (widget.index * 100)),
-                slideTransition:
-                    Tween<Offset>(begin: const Offset(0, .3), end: Offset.zero),
+              _animatorWidgetBuilder(
+                millisecondsDelay: 100,
+                index: widget.index,
                 child: Text(
                   widget.item.categories?.last ?? "",
                   style:
@@ -65,11 +59,9 @@ class _AlternativeProductItemWidgetWebState
               const SizedBox(
                 height: 8,
               ),
-              AnimatorWidget(
-                withFadeTransition: true,
-                delay: Duration(milliseconds: 200 + (widget.index * 100)),
-                slideTransition:
-                    Tween<Offset>(begin: const Offset(0, .3), end: Offset.zero),
+              _animatorWidgetBuilder(
+                millisecondsDelay: 200,
+                index: widget.index,
                 child: Text(
                   widget.item.title ?? "",
                   style: typography.bodyText3,
@@ -78,11 +70,9 @@ class _AlternativeProductItemWidgetWebState
               const SizedBox(
                 height: 8,
               ),
-              AnimatorWidget(
-                withFadeTransition: true,
-                delay: Duration(milliseconds: 300 + (widget.index * 100)),
-                slideTransition:
-                    Tween<Offset>(begin: const Offset(0, .3), end: Offset.zero),
+              _animatorWidgetBuilder(
+                millisecondsDelay: 300,
+                index: widget.index,
                 child: Text(
                   "\$${widget.item.price}",
                   style: typography.h5Title,

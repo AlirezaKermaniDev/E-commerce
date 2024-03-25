@@ -19,12 +19,9 @@ class _SubscribeWidgetPhone extends StatelessWidget {
           alignment: Alignment.centerLeft,
           child: Padding(
             padding: const EdgeInsets.only(top: 40),
-            child: AnimatorWidget(
-              withFadeTransition: true,
+            child: _animatorWidgetBuilder(
+              slideBeginOffset: Offset(fullWidth == true ? -0.1 : -1, 0),
               withVisibilityDetector: false,
-              slideTransition: Tween<Offset>(
-                  begin: Offset(fullWidth == true ? -0.1 : -1, 0),
-                  end: Offset.zero),
               child: Container(
                 height: 900,
                 width: 1.w(context),
@@ -43,10 +40,7 @@ class _SubscribeWidgetPhone extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            AnimatorWidget(
-                              withFadeTransition: true,
-                              slideTransition: Tween<Offset>(
-                                  begin: const Offset(0, .1), end: Offset.zero),
+                            _animatorWidgetBuilder(
                               child: Text(
                                 context
                                     .locale.subscribeNowToGetTheLatestUpdates,
@@ -59,10 +53,7 @@ class _SubscribeWidgetPhone extends StatelessWidget {
                             const SizedBox(
                               height: 40,
                             ),
-                            AnimatorWidget(
-                              withFadeTransition: true,
-                              slideTransition: Tween<Offset>(
-                                  begin: const Offset(0, .1), end: Offset.zero),
+                            _animatorWidgetBuilder(
                               child: Container(
                                 height: 65,
                                 width: 1.w(context),
@@ -80,10 +71,7 @@ class _SubscribeWidgetPhone extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            AnimatorWidget(
-                              withFadeTransition: true,
-                              slideTransition: Tween<Offset>(
-                                  begin: const Offset(0, .1), end: Offset.zero),
+                            _animatorWidgetBuilder(
                               child: Container(
                                 height: 65,
                                 width: 1.w(context),
@@ -106,15 +94,12 @@ class _SubscribeWidgetPhone extends StatelessWidget {
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  socialMediaIconBuilder(CustomIcons.twiter),
-                                  const SizedBox(
-                                    width: 10,
-                                  ),
-                                  socialMediaIconBuilder(CustomIcons.facebook),
-                                  const SizedBox(
-                                    width: 10,
-                                  ),
-                                  socialMediaIconBuilder(CustomIcons.instagram),
+                                  _socialMediaIconBuilder(CustomIcons.twiter),
+                                  _socialMediaSpacer,
+                                  _socialMediaIconBuilder(CustomIcons.facebook),
+                                  _socialMediaSpacer,
+                                  _socialMediaIconBuilder(
+                                      CustomIcons.instagram),
                                 ],
                               ),
                             )
@@ -129,8 +114,8 @@ class _SubscribeWidgetPhone extends StatelessWidget {
                             child: Padding(
                               padding:
                                   const EdgeInsets.only(left: 50, bottom: 20),
-                              child: AnimatorWidget(
-                                withFadeTransition: true,
+                              child: _animatorWidgetBuilder(
+                                slideTransition: false,
                                 child: Container(
                                   height: 180,
                                   width: 180,
@@ -148,10 +133,8 @@ class _SubscribeWidgetPhone extends StatelessWidget {
                                 scale: 1.3,
                                 child: Transform.rotate(
                                     angle: 1,
-                                    child: AnimatorWidget(
-                                        withFadeTransition: true,
-                                        rotateTrasition:
-                                            Tween<double>(begin: -.08, end: 0),
+                                    child: _animatorWidgetBuilder(
+                                        rotateTransition: true,
                                         child:
                                             Image.asset(AssetHandler.shoe6))),
                               ),
@@ -167,28 +150,6 @@ class _SubscribeWidgetPhone extends StatelessWidget {
           ),
         )
       ],
-    );
-  }
-
-  Widget socialMediaIconBuilder(String iconPath) {
-    return AnimatorWidget(
-      withFadeTransition: true,
-      slideTransition:
-          Tween<Offset>(begin: const Offset(.3, 0), end: Offset.zero),
-      child: Container(
-          height: 40,
-          width: 40,
-          decoration: BoxDecoration(
-              shape: BoxShape.circle, color: colorPalette.primary),
-          child: Center(
-              child: SizedBox(
-            height: 20,
-            width: 20,
-            child: SvgPicture.asset(
-              iconPath,
-              color: colorPalette.accent1,
-            ),
-          ))),
     );
   }
 }

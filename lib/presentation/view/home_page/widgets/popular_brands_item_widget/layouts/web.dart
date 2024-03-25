@@ -14,20 +14,12 @@ class _PopularBrandsItemWidgetWeb extends StatefulWidget {
 
 class _PapularBrandsItemWidgetWebState
     extends State<_PopularBrandsItemWidgetWeb> {
-  bool _isHover = false;
-
   @override
   Widget build(BuildContext context) {
-    final double itemWidth = (.8.w(context) - 60) / 4;
-
     return InkWell(
-      hoverColor: Colors.transparent,
+      hoverColor: _inkWellHoverColor,
       onTap: () {},
-      onHover: (value) {
-        setState(() {
-          _isHover = value;
-        });
-      },
+      onHover: (value) => _onHover(value, setState),
       child: AnimatorWidget(
         withFadeTransition: true,
         slideTransition:
@@ -36,7 +28,7 @@ class _PapularBrandsItemWidgetWebState
           duration: const Duration(milliseconds: 100),
           curve: Curves.ease,
           height: 200,
-          width: (_isHover ? itemWidth + 100 : itemWidth),
+          width: _backgroundWidth(context),
           decoration: BoxDecoration(
             color: colorPalette.primary,
             borderRadius: BorderRadius.circular(10),
@@ -63,10 +55,4 @@ class _PapularBrandsItemWidgetWebState
       ),
     );
   }
-}
-
-Color _itemsBackgroundColor() {
-  return getIt<LocalStorage>().getTheme().themeMode == ThemeMode.dark
-      ? colorPalette.darkPrimary
-      : colorPalette.primary;
 }

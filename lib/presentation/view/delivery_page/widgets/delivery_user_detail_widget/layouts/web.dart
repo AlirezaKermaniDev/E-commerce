@@ -19,11 +19,8 @@ class _DeliveryUserDetailWidgetWeb extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 16),
         child: Column(
           children: [
-            AnimatorWidget(
-              withFadeTransition: true,
-              delay: const Duration(milliseconds: 200),
-              slideTransition:
-                  Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
+            _animatorWidgetBuilder(
+              millisecondsDelay: 200,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -42,11 +39,8 @@ class _DeliveryUserDetailWidgetWeb extends StatelessWidget {
             const SizedBox(
               height: 25,
             ),
-            AnimatorWidget(
-              withFadeTransition: true,
-              delay: const Duration(milliseconds: 300),
-              slideTransition:
-                  Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
+            _animatorWidgetBuilder(
+              millisecondsDelay: 300,
               child: Divider(
                 color: colorPalette.gray5,
                 thickness: 1.6,
@@ -56,11 +50,8 @@ class _DeliveryUserDetailWidgetWeb extends StatelessWidget {
             const SizedBox(
               height: 25,
             ),
-            AnimatorWidget(
-              withFadeTransition: true,
-              delay: const Duration(milliseconds: 400),
-              slideTransition:
-                  Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
+            _animatorWidgetBuilder(
+              millisecondsDelay: 400,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -79,11 +70,8 @@ class _DeliveryUserDetailWidgetWeb extends StatelessWidget {
             const SizedBox(
               height: 25,
             ),
-            AnimatorWidget(
-              withFadeTransition: true,
-              delay: const Duration(milliseconds: 500),
-              slideTransition:
-                  Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
+            _animatorWidgetBuilder(
+              millisecondsDelay: 500,
               child: Divider(
                 color: colorPalette.gray5,
                 thickness: 1.6,
@@ -93,11 +81,8 @@ class _DeliveryUserDetailWidgetWeb extends StatelessWidget {
             const SizedBox(
               height: 25,
             ),
-            AnimatorWidget(
-              withFadeTransition: true,
-              delay: const Duration(milliseconds: 600),
-              slideTransition:
-                  Tween<Offset>(begin: const Offset(0, .1), end: Offset.zero),
+            _animatorWidgetBuilder(
+              millisecondsDelay: 600,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [

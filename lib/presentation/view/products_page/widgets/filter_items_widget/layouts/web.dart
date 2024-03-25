@@ -26,23 +26,18 @@ class _FilterItemsWidgetWeb extends StatefulWidget {
 class _FilterItemsWidgetWebState extends State<_FilterItemsWidgetWeb>
     with SingleTickerProviderStateMixin {
   late AnimationController animationController = AnimationController(
-      vsync: this,
-      duration: const Duration(
-        milliseconds: 300,
-      ),
-      value: widget.initialExpanded ? 1 : 0);
+    vsync: this,
+    duration: const Duration(
+      milliseconds: 300,
+    ),
+    value: widget.initialExpanded ? 1 : 0,
+  );
 
   @override
   Widget build(BuildContext context) {
     return ExpandablePanel(
       controller: ExpandableController(initialExpanded: widget.initialExpanded)
-        ..addListener(() {
-          if (animationController.isCompleted) {
-            animationController.reverse();
-          } else {
-            animationController.forward();
-          }
-        }),
+        ..addListener(_expandableListener),
       theme: const ExpandableThemeData(hasIcon: false),
       header: Ink(
         height: widget.headerHeight,
@@ -71,5 +66,13 @@ class _FilterItemsWidgetWebState extends State<_FilterItemsWidgetWeb>
       collapsed: const SizedBox(),
       expanded: widget.child,
     );
+  }
+
+  void _expandableListener() {
+    if (animationController.isCompleted) {
+      animationController.reverse();
+    } else {
+      animationController.forward();
+    }
   }
 }

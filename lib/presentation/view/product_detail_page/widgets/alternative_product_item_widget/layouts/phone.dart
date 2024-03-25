@@ -23,9 +23,7 @@ class _AlternativeProductItemWidgetPhoneState
     return Padding(
       padding: const EdgeInsets.only(bottom: 32),
       child: InkWell(
-        onTap: () {
-          context.go("${ProductDetailPage.path}/${widget.item.id}");
-        },
+        onTap: () => onTap(context, widget.item.id ?? ""),
         onHover: _onHover,
         hoverColor: Colors.transparent,
         child: AnimatedContainer(
@@ -38,10 +36,7 @@ class _AlternativeProductItemWidgetPhoneState
               Expanded(
                 child: SizedBox(
                   width: double.infinity,
-                  child: AnimatorWidget(
-                    withFadeTransition: true,
-                    slideTransition: Tween<Offset>(
-                        begin: const Offset(0, .06), end: Offset.zero),
+                  child: _animatorWidgetBuilder(
                     child: ProductImageViewerWidget(
                       imageUrl: widget.item.imageUrl ?? "",
                     ),
@@ -60,11 +55,8 @@ class _AlternativeProductItemWidgetPhoneState
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        AnimatorWidget(
-                          withFadeTransition: true,
-                          delay: const Duration(milliseconds: 100),
-                          slideTransition: Tween<Offset>(
-                              begin: const Offset(0, .3), end: Offset.zero),
+                        _animatorWidgetBuilder(
+                          millisecondsDelay: 100,
                           child: Text(
                             widget.item.categories?.last ?? "",
                             style: typography.bodyText2
@@ -74,11 +66,8 @@ class _AlternativeProductItemWidgetPhoneState
                         const SizedBox(
                           height: 8,
                         ),
-                        AnimatorWidget(
-                          withFadeTransition: true,
-                          delay: const Duration(milliseconds: 200),
-                          slideTransition: Tween<Offset>(
-                              begin: const Offset(0, .3), end: Offset.zero),
+                        _animatorWidgetBuilder(
+                          millisecondsDelay: 200,
                           child: Text(
                             widget.item.title ?? "",
                             style: typography.bodyText1,
@@ -89,11 +78,8 @@ class _AlternativeProductItemWidgetPhoneState
                         ),
                       ],
                     ),
-                    AnimatorWidget(
-                      withFadeTransition: true,
-                      delay: const Duration(milliseconds: 300),
-                      slideTransition: Tween<Offset>(
-                          begin: const Offset(0, .3), end: Offset.zero),
+                    _animatorWidgetBuilder(
+                      millisecondsDelay: 300,
                       child: Text(
                         "\$${widget.item.price}",
                         style: typography.bodyText5,

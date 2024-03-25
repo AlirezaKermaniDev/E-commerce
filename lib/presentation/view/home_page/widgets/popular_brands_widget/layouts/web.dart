@@ -62,21 +62,15 @@ class _PopularBrandsWidgetWeb extends StatelessWidget {
                               PopularBrandsItemWidget(
                                 iconPath: CustomIcons.nike,
                               ),
-                              SizedBox(
-                                width: 20,
-                              ),
+                              _widthSpacer,
                               PopularBrandsItemWidget(
                                 iconPath: CustomIcons.newBalance,
                               ),
-                              SizedBox(
-                                width: 20,
-                              ),
+                              _widthSpacer,
                               PopularBrandsItemWidget(
                                 iconPath: CustomIcons.adidas,
                               ),
-                              SizedBox(
-                                width: 20,
-                              ),
+                              _widthSpacer,
                               PopularBrandsItemWidget(
                                 iconPath: CustomIcons.puma,
                               ),

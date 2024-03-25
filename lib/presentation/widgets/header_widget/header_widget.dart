@@ -10,6 +10,7 @@ import 'package:ecommerce_app/presentation/view/cart_page/cart_page.dart';
 import 'package:ecommerce_app/presentation/view/home_page/home_page.dart';
 import 'package:ecommerce_app/presentation/view/products_page/products_page.dart';
 import 'package:ecommerce_app/presentation/view/sign_in_page/sign_in_page.dart';
+import 'package:ecommerce_app/presentation/widgets/header_widget/widgets/header_tab_item_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/responsive_builder.dart';
 import 'package:ecommerce_app/presentation/widgets/search_dialog_widget/search_dialog_widget.dart';
 import 'package:flutter/material.dart';

@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/core/asset_handler.dart';
+import 'package:ecommerce_app/core/extensions/locale_extensions.dart';
 import 'package:ecommerce_app/injection/injection.dart';
 import 'package:flutter/material.dart';
 import 'package:mouse_parallax/mouse_parallax.dart';
@@ -41,7 +42,8 @@ class PurchasedTooltipContentWidget extends StatelessWidget {
                           style: typography.bodyText2
                               .copyWith(fontWeight: FontWeight.bold)),
                       TextSpan(
-                          text: " has just purchased\nthese sneakers now.",
+                          text:
+                              " ${context.locale.hasJustPurchasedTheseSneakersNow}",
                           style: typography.bodyText4
                               .copyWith(color: colorPalette.gray1)),
                     ]))

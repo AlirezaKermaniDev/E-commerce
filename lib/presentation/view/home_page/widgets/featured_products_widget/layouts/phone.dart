@@ -13,23 +13,23 @@ class _FeaturedProductsWidgetPhone extends StatefulWidget {
 class _FeaturedProductsWidgetPhoneState
     extends State<_FeaturedProductsWidgetPhone> {
   final PageController scrollController = PageController();
-  bool _isGrabingMouse = false;
 
   @override
   Widget build(BuildContext context) {
     return ConstraintsWidget(
       child: Padding(
         padding: EdgeInsets.symmetric(
-            horizontal: getIt<SizeConfig>().padding, vertical: 50),
+          horizontal: getIt<SizeConfig>().padding,
+          vertical: 50,
+        ),
         child: Column(
           children: [
+            // Lable of 'FeaturedProducts'
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                AnimatorWidget(
-                  slideTransition: Tween<Offset>(
-                      begin: const Offset(-.1, 0), end: Offset.zero),
-                  withFadeTransition: true,
+                _animatorWidgetBuilder(
+                  offsetDx: -.1,
                   child: Text(
                     context.locale.featuredProducts,
                     style: typography.h4Title
@@ -41,29 +41,17 @@ class _FeaturedProductsWidgetPhoneState
             const SizedBox(
               height: 40,
             ),
+
+            // Here we change mouse cursor when pointer hover the items
             MouseRegion(
-              cursor: _isGrabingMouse
-                  ? SystemMouseCursors.grabbing
-                  : SystemMouseCursors.grab,
+              cursor: _mouseCursor(_isGrabingMouse),
               child: GestureDetector(
-                onTapDown: (_) {
-                  setState(() {
-                    _isGrabingMouse = true;
-                  });
-                },
-                onTapUp: (_) {
-                  setState(() {
-                    _isGrabingMouse = false;
-                  });
-                },
-                onTapCancel: () {
-                  setState(() {
-                    _isGrabingMouse = false;
-                  });
-                },
+                onTapDown: (_) => _onTapDown(setState),
+                onTapUp: (_) => _onTapUp(setState),
+                onTapCancel: () => _onTapCancel(setState),
                 child: SizedBox(
                   width: 1.w(context),
-                  height: 450,
+                  height: _pageViewHeight,
                   child: ScrollbarWidget(
                     scrollController: scrollController,
                     child: PageView.builder(
@@ -72,14 +60,11 @@ class _FeaturedProductsWidgetPhoneState
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context, index) {
                           final item = featuredProductsEntities[index];
-                          List<LinearGradient> gradients = [
-                            colorPalette.gradient4,
-                            colorPalette.gradient2,
-                            colorPalette.gradient3,
-                            colorPalette.gradient1,
-                          ];
                           return FeaturedProductsItemWidget(
-                              gradients: gradients, item: item, index: index);
+                            gradients: _gradients,
+                            item: item,
+                            index: index,
+                          );
                         }),
                   ),
                 ),

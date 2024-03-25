@@ -57,7 +57,7 @@ class _HomeBannerWidgetPhoneState extends State<_HomeBannerWidgetPhone> {
       child: Align(
         alignment: Alignment.center,
         child: Padding(
-          padding: const EdgeInsets.only(right: 50),
+          padding: const EdgeInsets.only(right: 50,bottom: 32),
           child: SizedBox(
               height: 0.8.w(context),
               width: 0.8.w(context),
@@ -110,7 +110,7 @@ class _HomeBannerWidgetPhoneState extends State<_HomeBannerWidgetPhone> {
         child: WidgetAnimator(
       atRestEffect: WidgetRestingEffects.wave(),
       child: Padding(
-        padding: const EdgeInsets.only(right: 30),
+        padding: const EdgeInsets.only(right: 30,bottom: 32),
         child: Transform.rotate(angle: -.72, child: Image.asset(_shoes[index])),
       ),
     ));

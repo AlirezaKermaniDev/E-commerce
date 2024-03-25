@@ -12,22 +12,25 @@ class _LandingPageWidgetWeb extends StatelessWidget {
       child: ConstraintsWidget(
         child: Stack(
           children: [
+            // Home page title
             Align(
               alignment: Alignment.centerLeft,
               child: Padding(
                 padding: EdgeInsets.symmetric(
-                    horizontal: getIt<SizeConfig>().padding),
+                  horizontal: getIt<SizeConfig>().padding,
+                ),
                 child: const HomePageTitleWidget(),
               ),
             ),
+           // Home Banner(List of shoes)
             Align(
-                alignment: context.isLtrLocale
-                    ? Alignment.centerRight
-                    : Alignment.centerLeft,
+                alignment: _bannerAlignment(context),
                 child: const HomeBannerWidget()),
           ],
         ),
       ),
     );
   }
+
+
 }

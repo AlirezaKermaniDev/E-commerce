@@ -10,59 +10,18 @@ import 'package:ecommerce_app/presentation/widgets/constraints_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/drawer_widget/drawer_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/footer_widget/footer_widget.dart';
 import 'package:ecommerce_app/presentation/widgets/header_widget/header_widget.dart';
+import 'package:ecommerce_app/presentation/widgets/widget_stucker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class CartPage extends StatefulWidget {
+part "utils.dart";
+
+class CartPage extends StatelessWidget {
   static const String path = "/cart";
 
-  const CartPage({super.key});
-
-  @override
-  State<CartPage> createState() => _CartPageState();
-}
-
-class _CartPageState extends State<CartPage> {
-  final GlobalKey _orderSummeryKey = GlobalKey();
-  final GlobalKey _listViewkey = GlobalKey();
-  final ScrollController _scrollController = ScrollController();
-  bool _isStuckTop = false;
-  bool _isStuckBottom = false;
-  final double filtersWidgetPaddingVerticaly = 50;
-  double filtersWidgetTopOffset = 0;
-
-  void _afterLayout(_) {
-    if (!context.isPhone) {
-      _scrollController.addListener(
-        () {
-          _calculateFilterWidgetPosition();
-        },
-      );
-    }
-  }
-
-  void _calculateFilterWidgetPosition() {
-    final RenderBox renderBox =
-        _orderSummeryKey.currentContext?.findRenderObject() as RenderBox;
-    final Offset offset = renderBox.localToGlobal(Offset.zero);
-    final double startY = offset.dy;
-    final double totalGridViewHeight =
-        _listViewkey.currentContext!.size!.height - 560;
-
-    setState(() {
-      _isStuckTop = startY <= filtersWidgetPaddingVerticaly;
-      _isStuckBottom = _scrollController.offset >= totalGridViewHeight;
-      filtersWidgetTopOffset =
-          (totalGridViewHeight - _scrollController.offset) + 45;
-    });
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance.addPostFrameCallback(_afterLayout);
-  }
-
+  CartPage({super.key});
+  final WidgetStuckerController _controller =
+      WidgetStuckerController(stickWidgetVerticalyPadding: 50);
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -73,82 +32,67 @@ class _CartPageState extends State<CartPage> {
         drawer: const DrawerWidget(
           selectedIndex: 5,
         ),
-        body: ConstraintsWidget(
-          child: Stack(
-            children: [
-              SingleChildScrollView(
-                controller: _scrollController,
-                child: Column(
+        body: WidgetStucker(
+            controller: _controller,
+            builder: () {
+              return ConstraintsWidget(
+                child: Stack(
                   children: [
-                    HeaderWidget(
-                        selectedIndex: 5,
-                        backgroundColor: colorPalette.primary),
-                    if (!context.isPhone)
-                      Column(
+                    SingleChildScrollView(
+                      controller: _controller.scrollController,
+                      child: Column(
                         children: [
-                          Divider(
-                            color: colorPalette.gray5,
-                            thickness: 1.6,
+                          HeaderWidget(
+                              selectedIndex: 5,
+                              backgroundColor: colorPalette.primary),
+                          if (!context.isPhone)
+                            Column(
+                              children: [
+                                Divider(
+                                  color: colorPalette.gray5,
+                                  thickness: 1.6,
+                                ),
+                              ],
+                            ),
+                          CartBodyWidget(
+                            orderSummeryKey: _controller.stickWidgetKey,
+                            listViewKey: _controller.scrollableWidgetKey,
+                            isStuckTop: _controller.isStuckTop,
                           ),
+                          AlternativeProductsWidget(
+                              item: productListData.first),
+                          if (!context.isPhone)
+                            Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: getIt<SizeConfig>().padding,
+                                  vertical: 70),
+                              child: Divider(
+                                color: colorPalette.gray5,
+                                thickness: 1.6,
+                                height: 1,
+                              ),
+                            ),
+                          const FooterWidget()
                         ],
                       ),
-                    CartBodyWidget(
-                      orderSummeryKey: _orderSummeryKey,
-                      listViewKey: _listViewkey,
-                      isStuckTop: _isStuckTop,
                     ),
-                    AlternativeProductsWidget(item: productListData.first),
-                    if (!context.isPhone)
-                      Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: getIt<SizeConfig>().padding,
-                            vertical: 70),
-                        child: Divider(
-                          color: colorPalette.gray5,
-                          thickness: 1.6,
-                          height: 1,
+                    if (_shouldStuckWidgetTop(context, _controller.isStuckTop))
+                      Positioned(
+                        top: _topPosition(_controller),
+                        right: _rightPosition(context),
+                        left: _leftPosition(context),
+                        child: BlocBuilder<CartBloc, CartState>(
+                          builder: (context, state) {
+                            return orderSummeryBuilder(
+                                cartBloc: context.read<CartBloc>());
+                          },
                         ),
                       ),
-                    const FooterWidget()
                   ],
                 ),
-              ),
-              if (_isStuckTop && !context.isPhone)
-                Positioned(
-                  top: _topPosition(),
-                  right: _rightPosition(context),
-                  left: _leftPosition(context),
-                  child: BlocBuilder<CartBloc, CartState>(
-                    builder: (context, state) {
-                      return orderSummeryBuilder(
-                          cartBloc: context.read<CartBloc>());
-                    },
-                  ),
-                ),
-            ],
-          ),
-        ),
+              );
+            }),
       ),
     );
   }
-
-  double? _leftPosition(BuildContext context) =>
-      !context.isLtrLocale ? getIt<SizeConfig>().padding : null;
-
-  double? _rightPosition(BuildContext context) =>
-      context.isLtrLocale ? getIt<SizeConfig>().padding : null;
-
-  double _topPosition() {
-    return _isStuckBottom
-        ? filtersWidgetTopOffset
-        : filtersWidgetPaddingVerticaly;
-  }
 }
-
-Widget orderSummeryBuilder(
-        {GlobalKey<State<StatefulWidget>>? key, required CartBloc cartBloc}) =>
-    RepaintBoundary(
-        child: OrderSummeryWidget(
-      cartBloc: cartBloc,
-      key: key,
-    ));

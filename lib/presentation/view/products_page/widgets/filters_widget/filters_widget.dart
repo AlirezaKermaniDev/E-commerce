@@ -13,7 +13,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 part "./layouts/phone.dart";
 part "./layouts/tablet.dart";
 part "./layouts/web.dart";
-part "filters_functions.dart";
+part 'utils.dart';
 
 class FiltersWidget extends StatelessWidget {
   const FiltersWidget({
@@ -25,7 +25,7 @@ class FiltersWidget extends StatelessWidget {
     return const ResponsiveBuilder(
       web: _FiltersWidgetWeb(),
       tablet: _FiltersWidgetWeb(),
-      phone: _FiltersWidgetPhone(),
+      phone: _FiltersWidgetWeb(),
     );
   }
 }

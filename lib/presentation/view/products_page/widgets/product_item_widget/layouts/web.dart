@@ -17,14 +17,8 @@ class _ProductItemWidgetWebState extends State<_ProductItemWidgetWeb> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        context.go("${ProductDetailPage.path}/${widget.item.id}");
-      },
-      onHover: (value) {
-        setState(() {
-          _isHover = value;
-        });
-      },
+      onTap: () => inTapItem(context, widget.item.id ?? ""),
+      onHover: _onHover,
       child: Container(
         decoration: BoxDecoration(
           color: colorPalette.gray6,
@@ -95,4 +89,11 @@ class _ProductItemWidgetWebState extends State<_ProductItemWidgetWeb> {
       ),
     );
   }
+
+  void _onHover(value) {
+    setState(() {
+      _isHover = value;
+    });
+  }
 }
+
