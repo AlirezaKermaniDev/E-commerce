@@ -9,7 +9,9 @@
 <h4 align="center">Ultimate Flutter UI Kit for your E-Commerce business.</h4>
 
 <p align="center">
+  <a href="#detail">Detail</a> •
   <a href="#key-features">Key Features</a> •
+  <a href="#samples">Samples</a> •
   <a href="#structure">Structure</a> •
   <a href="#how-to-use">How To Use</a> •
   <a href="#credits">Credits</a> •
@@ -17,11 +19,28 @@
 </p>
 
 <p align="center">
-  <img  src="cover.png" alt="Kicks" width="900">
+  <img  src="https://firebasestorage.googleapis.com/v0/b/ecommerce-4f548.appspot.com/o/Thumbnail.png?alt=media&token=3e13a203-1863-4d9d-8e97-4c6145885d0f" alt="Kicks" width="900">
 </p>
+
+## Detail
+
+Kick is a nicely designed and developed Flutter E-commerce UI Kit.
+
+Developed for web fully responsive but can run and build it on iOS or Android works prity well on those platforms too.
+
+This is just a UI Kit which mean doesn't contains any API call or functionality but good news is that we already working on it and soon we will add back-end functionalities by using firebase and will convert it to Active E-ecommerce platform that user easily publish it by just puload they products on it.
+
+Live preview link hosted by firebase: https://ecommerce-4f548.web.app/
+
+<br>
+<p align="center">
+  <img  src="https://firebasestorage.googleapis.com/v0/b/ecommerce-4f548.appspot.com/o/preview-1.png?alt=media&token=9388c165-fbab-43ea-a4b9-9e232d416167" alt="Kicks" width="900">
+</p>
+<br>
 
 ## Key Features
 
+- Flutter 3.x (Latest)
 - Clean code and well-structured architecture.
 - Fully Responsive (From small phones to Ultra-wide monitors)
 - Amazing Animations
@@ -33,6 +52,46 @@
 - Dependency injection
 - Design patterns
 - Separated widgets and reuseable and readable code
+
+## Samples
+
+<h4 align="center">Fully Responsive (From small phones to Ultra-wide monitors)</h4>
+<br>
+<p align="center">
+  <img  src="https://firebasestorage.googleapis.com/v0/b/ecommerce-4f548.appspot.com/o/ecommerce-responsive.gif?alt=media&token=36b33589-336d-47da-bec7-e69ffef72cae" alt="Kicks" width="900">
+</p>
+<br>
+<h4 align="center">Light + Dark Mode</h4>
+<br>
+<p align="center">
+  <img  src="https://firebasestorage.googleapis.com/v0/b/ecommerce-4f548.appspot.com/o/dark-and-light-mode.gif?alt=media&token=2a760312-ad34-4bb8-9348-417796cda238" alt="Kicks" width="900">
+</p>
+<br>
+<h4 align="center">Multi Language + RTL Supported</h4>
+<br>
+<p align="center">
+  <img  src="https://firebasestorage.googleapis.com/v0/b/ecommerce-4f548.appspot.com/o/multy-language.gif?alt=media&token=1d800b16-c5c7-4816-a7a2-778869b74bde" alt="Kicks" width="900">
+</p>
+<br>
+<h4 align="center">Amazing Animations</h4>
+<br>
+<p align="center">
+  <img  src="https://firebasestorage.googleapis.com/v0/b/ecommerce-4f548.appspot.com/o/animations.gif?alt=media&token=8048ecd9-9139-4a61-ad39-e19e7ee46f64" alt="Kicks" width="900">
+</p>
+<br>
+<br>
+<h4 align="center">User Reactive animation</h4>
+<br>
+<p align="center">
+  <img  src="https://firebasestorage.googleapis.com/v0/b/ecommerce-4f548.appspot.com/o/ecommerce-reactive-animation.gif?alt=media&token=837d18bb-be9b-490e-8f20-b6415c417cca" alt="Kicks" width="900">
+</p>
+<br>
+<h4 align="center">Sticky Filters</h4>
+<br>
+<p align="center">
+  <img  src="https://firebasestorage.googleapis.com/v0/b/ecommerce-4f548.appspot.com/o/sticky-filters.gif?alt=media&token=d1f131f9-4a72-4547-970f-485e742e38c0" alt="Kicks" width="900">
+</p>
+<br>
 
 ## Structure
 
@@ -137,7 +196,6 @@ This software uses the following packages:
 - [Dark](https://dart.dev/)
 - [Figma](https://www.figma.com/)
 - [BLoC State management](https://bloclibrary.dev/)
-
 
 ## License
 
