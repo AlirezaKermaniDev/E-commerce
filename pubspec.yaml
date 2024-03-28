@@ -36,7 +36,6 @@ dependencies:
   # For saving date into user local storage
   shared_preferences: ^2.2.1
 
-
   # For Highlighting texts
   highlight_text: ^1.7.0
 
@@ -57,9 +56,6 @@ dependencies:
 
   # For trigger when web window size changed
   window_manager: ^0.3.8
-
-  # Firebase plugins
-  firebase_core: ^2.25.3
 
   # For create expandable widgets
   expandable: ^5.0.1
