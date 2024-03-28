@@ -21,6 +21,7 @@ class _BestSellerWidgetPhone extends StatelessWidget {
                 context.locale.bestSellerThisWeek,
                 style: typography.h4Title
                     .copyWith(color: colorPalette.darkPrimary),
+                textAlign: TextAlign.center,
               ),
             ),
           ),

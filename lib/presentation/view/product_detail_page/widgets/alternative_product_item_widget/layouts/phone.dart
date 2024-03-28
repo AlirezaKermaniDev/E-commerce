@@ -37,6 +37,7 @@ class _AlternativeProductItemWidgetPhoneState
                 child: SizedBox(
                   width: double.infinity,
                   child: _animatorWidgetBuilder(
+                    slideOffsetDy: .1,
                     child: ProductImageViewerWidget(
                       imageUrl: widget.item.imageUrl ?? "",
                     ),

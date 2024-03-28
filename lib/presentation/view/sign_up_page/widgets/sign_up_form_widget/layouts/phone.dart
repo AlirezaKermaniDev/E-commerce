@@ -131,12 +131,14 @@ class _SignUpFormWidgetPhone extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  _animatorWidgetBuilder(
-                    millisecondsDelay: 700,
-                    child: Text(
-                      context.locale.getYearlyDiscountOnYourBirthday,
-                      style: typography.bodyText2
-                          .copyWith(color: colorPalette.gray3),
+                  Expanded(
+                    child: _animatorWidgetBuilder(
+                      millisecondsDelay: 700,
+                      child: Text(
+                        context.locale.getYearlyDiscountOnYourBirthday,
+                        style: typography.bodyText2
+                            .copyWith(color: colorPalette.gray3),
+                      ),
                     ),
                   ),
                 ],

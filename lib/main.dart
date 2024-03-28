@@ -2,9 +2,7 @@ import 'dart:ui';
 
 import 'package:ecommerce_app/core/local_storage/local_storage.dart';
 import 'package:ecommerce_app/core/size_config.dart';
-import 'package:ecommerce_app/firebase_options.dart';
 import 'package:ecommerce_app/presentation/bloc/header_bloc/header_bloc.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -43,9 +41,6 @@ class App extends StatelessWidget {
 Future initialDependencies() async {
   colorPalette = getIt<LocalStorage>().getTheme().colorPalette;
   typography = getIt<LocalStorage>().getTheme().typography;
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
 }
 
 class AppScrollBehavior extends MaterialScrollBehavior {

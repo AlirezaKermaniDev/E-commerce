@@ -16,7 +16,7 @@ class _ProductImageWidgetPhone extends StatelessWidget {
         slideTransition:
             Tween<Offset>(begin: const Offset(0, .05), end: Offset.zero),
         child: SizedBox(
-          height: 500,
+          height: 400,
           width: 1.w(context),
           child: Image.network(
             item.imageUrl ?? "",

@@ -56,7 +56,6 @@ class _AccessoriesItemWidgetPhone extends StatelessWidget {
           ),
         ),
         _shape1Widget(color),
-        _shape2Widget(color),
       ],
     );
   }

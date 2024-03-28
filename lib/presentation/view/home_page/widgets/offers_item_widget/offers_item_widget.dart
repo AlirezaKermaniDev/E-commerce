@@ -23,12 +23,12 @@ class OfferItemWidget extends StatelessWidget {
             child: Icon(
               Icons.done,
               color: colorPalette.primary,
-              size: context.isPhone ? 16 : 20,
+              size: context.isPhone ? 15 : 20,
             ),
           ),
         ),
-        const SizedBox(
-          width: 16,
+         SizedBox(
+          width: context.isPhone ? 8 : 16,
         ),
         Text(
           title,
@@ -38,5 +38,5 @@ class OfferItemWidget extends StatelessWidget {
     );
   }
 
-  double _checkBoxSize(BuildContext context) => context.isPhone ? 25 : 30;
+  double _checkBoxSize(BuildContext context) => context.isPhone ? 23 : 30;
 }
