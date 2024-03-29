@@ -94,7 +94,7 @@ class _BestSellerWidgetWeb extends StatelessWidget {
                         _animatorWidgetBuilder(
                           millisecondDelay: 250,
                           child: Text(
-                            _title,
+                            _title(),
                             style: typography.h5Title
                                 .copyWith(color: colorPalette.darkPrimary),
                           ),
@@ -111,7 +111,7 @@ class _BestSellerWidgetWeb extends StatelessWidget {
                         _animatorWidgetBuilder(
                           millisecondDelay: 350,
                           child: Text(
-                            _price,
+                            _price(),
                             style: typography.h5Title
                                 .copyWith(color: colorPalette.darkPrimary),
                           ),

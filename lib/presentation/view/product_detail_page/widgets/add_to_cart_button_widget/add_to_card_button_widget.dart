@@ -40,6 +40,7 @@ class _AddToCartButtonWidgetState extends State<AddToCartButtonWidget> {
               child: Text(
                 context.locale.addToCart,
                 style: _buttonTextStyle(context),
+                textAlign: TextAlign.center,
               ),
             ),
           ),

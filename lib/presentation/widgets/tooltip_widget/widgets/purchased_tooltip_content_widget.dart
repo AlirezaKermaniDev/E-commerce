@@ -35,18 +35,20 @@ class PurchasedTooltipContentWidget extends StatelessWidget {
                     const SizedBox(
                       width: 12,
                     ),
-                    RichText(
-                        text: TextSpan(children: [
-                      TextSpan(
-                          text: "Joan",
-                          style: typography.bodyText2
-                              .copyWith(fontWeight: FontWeight.bold)),
-                      TextSpan(
-                          text:
-                              " ${context.locale.hasJustPurchasedTheseSneakersNow}",
-                          style: typography.bodyText4
-                              .copyWith(color: colorPalette.gray1)),
-                    ]))
+                    Expanded(
+                      child: RichText(
+                          text: TextSpan(children: [
+                        TextSpan(
+                            text: "Joan",
+                            style: typography.bodyText2
+                                .copyWith(fontWeight: FontWeight.bold)),
+                        TextSpan(
+                            text:
+                                " ${context.locale.hasJustPurchasedTheseSneakersNow}",
+                            style: typography.bodyText4
+                                .copyWith(color: colorPalette.gray1)),
+                      ])),
+                    )
                   ],
                 ),
               ),

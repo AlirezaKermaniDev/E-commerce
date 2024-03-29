@@ -171,11 +171,13 @@ class _SignInFormWidgetPhone extends StatelessWidget {
                   Expanded(
                     child: _animatorWidgetBuilder(
                       millisecondsDelay: 800,
-                      child: const OtherSignInOptionWidget(
+                      child: OtherSignInOptionWidget(
                         withShadow: true,
                         icon: Icon(
                           Icons.apple_rounded,
                           size: 35,
+                          color:
+                              _isDarkMode() ? colorPalette.darkPrimary : null,
                         ),
                       ),
                     ),

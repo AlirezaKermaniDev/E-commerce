@@ -15,3 +15,7 @@ Widget _animatorWidgetBuilder({required Widget child, int? millisecondsDelay}) {
 void _onTapJoinUs(BuildContext context) {
   context.go(SignUpPage.path);
 }
+
+bool _isDarkMode() {
+  return getIt<LocalStorage>().getTheme().themeMode == ThemeMode.dark;
+}

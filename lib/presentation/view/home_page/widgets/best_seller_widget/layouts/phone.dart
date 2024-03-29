@@ -80,7 +80,7 @@ class _BestSellerWidgetPhone extends StatelessWidget {
                 child: _animatorWidgetBuilder(
                   millisecondDelay: 300,
                   child: Text(
-                    _title,
+                    _title(),
                     style: typography.bodyText3
                         .copyWith(color: colorPalette.darkPrimary),
                     textAlign: TextAlign.center,
@@ -93,7 +93,7 @@ class _BestSellerWidgetPhone extends StatelessWidget {
               _animatorWidgetBuilder(
                 millisecondDelay: 350,
                 child: Text(
-                  _price,
+                  _price(),
                   style: typography.h5Title
                       .copyWith(color: colorPalette.darkPrimary),
                 ),

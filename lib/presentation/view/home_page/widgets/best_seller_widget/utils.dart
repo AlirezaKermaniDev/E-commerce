@@ -1,7 +1,7 @@
 part of 'best_seller_widget.dart';
 
-const String _title = "Adidas Falcon Shoes for women - 2021 Edition";
-const String _price = "\$120.50";
+String _title() => featuredProductsEntities.first.title ?? "";
+String _price() => "\$${featuredProductsEntities.first.price ?? ""}";
 
 double _rotationRadius(bool isLtrLocale) => isLtrLocale ? math.pi : 0;
 

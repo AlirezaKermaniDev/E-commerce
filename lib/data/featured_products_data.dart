@@ -1,5 +1,6 @@
 import 'package:ecommerce_app/core/asset_handler.dart';
-import 'package:ecommerce_app/domain/entities/featured_products_entity/featured_products_entity.dart';
+
+import '../domain/entities/featured_products_entity/featured_products_entity.dart';
 
 const List<FeaturedProductsEntity> featuredProductsEntities = [
   FeaturedProductsEntity(
